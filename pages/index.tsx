@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Poppins } from 'next/font/google'
-import { Box, Text, Center, Progress, Grid, Flex } from '@chakra-ui/react'
+import { Box, Text, Center, Progress, Grid, Flex, Container, Button, Link } from '@chakra-ui/react'
 import Navbar from '@/components/Navbar'
 import { motion, useAnimation } from 'framer-motion'
 const poppins = Poppins({ subsets: ['latin'], weight: "500" })
@@ -17,7 +17,7 @@ export default function Home() {
       <Navbar />
       <Box bg={"#141a20"} color={"white"}>
         <Box>
-          <Box h={"80vh"} display={"flex"} alignItems={"center"} p={4}>
+          <Box h={"100vh"} display={"flex"} alignItems={"center"} p={4}>
             <Box px={10}>
               <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{
                 duration: 0.8,
@@ -31,47 +31,113 @@ export default function Home() {
           </Box>
         </Box>
         <Box p={10}>
-          <Box w={{ base: '100%' }}>
-            <Center pb={10}>
-              <Text fontSize="5xl" fontWeight="black">
-                MY SKILLS
-              </Text>
-            </Center>
-            <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={8}>
-              <Box>
-                <Progress value={98} size="md" colorScheme="orange" w="full" />
-                <Text maxW="150px">HTML 98%</Text>
-              </Box>
-              <Box>
-                <Progress value={90} size="md" colorScheme="blue" />
-                <Text maxW="150px">CSS 90%</Text>
-              </Box>
-              <Box>
-                <Progress value={85} size="md" colorScheme="yellow" />
-                <Text maxW="150px">JAVASCRIPT 85%</Text>
-              </Box>
-              <Box>
-                <Progress value={80} size="md" colorScheme="green" />
-                <Text maxW="150px">PYTHON 80%</Text>
-              </Box>
-              <Box>
-                <Progress value={78} size="md" colorScheme="blue" />
-                <Text maxW="150px">REACT 78%</Text>
-              </Box>
-              <Box>
-                <Progress value={72} size="md" colorScheme="cyan" />
-                <Text maxW="150px">TYPESCRIPT 72%</Text>
-              </Box>
-              <Box>
-                <Progress value={57} size="md" colorScheme="yellow" />
-                <Text maxW="150px">EXPRESS 57%</Text>
-              </Box>
-              <Box>
-                <Progress value={57} size="md" colorScheme="red" />
-                <Text maxW="150px">RUST 40%</Text>
-              </Box>
-            </Grid>
-          </Box>
+          <motion.div initial="hidden" whileInView={"visible"} viewport={{ once: true }} transition={{ duration: 0.4 }} variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 }
+          }}>
+            <Box w={{ base: '100%' }}>
+              <Center pb={10}>
+                <Text fontSize="5xl" fontWeight="black">
+                  MY SKILLS
+                </Text>
+              </Center>
+              <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={8}>
+                <Box>
+                  <Progress value={98} size="md" colorScheme="orange" w="full" />
+                  <Text maxW="150px">HTML 98%</Text>
+                </Box>
+                <Box>
+                  <Progress value={90} size="md" colorScheme="blue" />
+                  <Text maxW="150px">CSS 90%</Text>
+                </Box>
+                <Box>
+                  <Progress value={85} size="md" colorScheme="yellow" />
+                  <Text maxW="150px">JAVASCRIPT 85%</Text>
+                </Box>
+                <Box>
+                  <Progress value={80} size="md" colorScheme="green" />
+                  <Text maxW="150px">PYTHON 80%</Text>
+                </Box>
+                <Box>
+                  <Progress value={78} size="md" colorScheme="blue" />
+                  <Text maxW="150px">REACT 78%</Text>
+                </Box>
+                <Box>
+                  <Progress value={72} size="md" colorScheme="cyan" />
+                  <Text maxW="150px">TYPESCRIPT 72%</Text>
+                </Box>
+                <Box>
+                  <Progress value={57} size="md" colorScheme="yellow" />
+                  <Text maxW="150px">EXPRESS 57%</Text>
+                </Box>
+                <Box>
+                  <Progress value={20} size="md" colorScheme="red" />
+                  <Text maxW="150px">RUST 20%</Text>
+                </Box>
+              </Grid>
+            </Box>
+          </motion.div>
+        </Box>
+        <Box p={10}>
+          <Container>
+            <motion.div initial="hidden" whileInView={"visible"} viewport={{ once: true }} transition={{ duration: 0.4 }} variants={{
+              visible: { opacity: 1, scale: 1 },
+              hidden: { opacity: 0, scale: 0 }
+            }}>
+              <Center fontSize={"5xl"} fontWeight={"black"}>
+                <Text>MY LIFE</Text>
+              </Center>
+            </motion.div>
+            <Box>
+              <motion.div initial="hidden" whileInView={"visible"} viewport={{ once: true }} transition={{ duration: 0.4 }} variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, scale: 0 }
+              }}>
+                <Box py={2}>
+                  <ul>
+                    <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1}>ABOUT ME</Text>
+                  </ul>
+                  <Text py={2}>
+                    Hello I am Happer but my real name is Wint Khant Lin. I was born in Myanmar at 13, August, 2008. I am just a student who is trying become rich by coding
+                  </Text>
+                </Box>
+              </motion.div>
+              <motion.div initial="hidden" whileInView={"visible"} viewport={{ once: true }} transition={{ duration: 0.4 }} variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, scale: 0 }
+              }}>
+
+                <Box py={2}>
+                  <ul>
+                    <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1}>MY EDUCATION JOURNEY</Text>
+                  </ul>
+                  <Box py={2} px={4}>
+                    <ul>
+                      <li>2004 - 2018 (Kaung Su San)</li>
+                      <li>2018 - 2019 (BEHS 1 ShwePyiThar)</li>
+                      <li>2022 - 2023 (BEHS 3 ShwePyiThar)</li>
+                    </ul>
+                  </Box>
+                </Box>
+              </motion.div>
+              <motion.div initial="hidden" whileInView={"visible"} viewport={{ once: true }} transition={{ duration: 0.4 }} variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, scale: 0 }
+              }}>
+
+                <Box py={2}>
+                  <ul>
+                    <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1}>SOCIAL MEDIA</Text>
+                  </ul>
+                  <Box py={2} px={4}>
+                    <Link px={4} href='mailto:happer64bit@gmail.com'>Email</Link>
+                    <Link px={4} href='https://twitter.com/happer64bit'>Twitter</Link>
+                    <Link px={4} href='https://github.com/happer64bit'>Github</Link>
+                  </Box>
+                </Box>
+              </motion.div>
+            </Box>
+          </Container>
         </Box>
       </Box>
     </div >

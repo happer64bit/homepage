@@ -6,10 +6,19 @@ const poppins = Poppins({ subsets: ['latin'], weight: "400"})
 
 const Navbar = () => {
     return (
-        <Box pos={"fixed"} top={0} left={0} w={"100%"} display={"flex"} alignItems={"center"} color={"white"} style={poppins.style} backdropFilter="auto" backdropBlur={"xl"} p={4}>
+        <Box pos={"fixed"} top={0} left={0} w={"100%"} display={"flex"} alignItems={"center"} color={"white"} style={poppins.style} backdropFilter="auto" backdropBlur={"xl"} p={4} justifyContent={"space-between"}>
             <Link href={"/"}>
                 <Text fontWeight={"semibold"} fontSize={"xl"}>Happer64Bit</Text>
             </Link>
+            <Box display={"flex"} alignItems={"center"}>
+                <Link href={"/projects"}>
+                    <Text _hover={{
+                        textDecoration: "underline",
+                    }}>
+                        Projects
+                    </Text>
+                </Link>
+            </Box>
         </Box>
     )
 }

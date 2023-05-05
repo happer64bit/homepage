@@ -43,32 +43,32 @@ export default function Home() {
               </Center>
               <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={8}>
                 <Box>
-                  <Progress value={98} size="md" colorScheme="orange" w="full" />
-                  <Text maxW="150px">HTML 98%</Text>
+                  <Progress value={93} size="md" colorScheme="orange" w="full" />
+                  <Text maxW="150px">HTML 93%</Text>
                 </Box>
                 <Box>
-                  <Progress value={90} size="md" colorScheme="blue" />
-                  <Text maxW="150px">CSS 90%</Text>
+                  <Progress value={86} size="md" colorScheme="blue" />
+                  <Text maxW="150px">CSS 86%</Text>
                 </Box>
                 <Box>
                   <Progress value={85} size="md" colorScheme="yellow" />
                   <Text maxW="150px">JAVASCRIPT 85%</Text>
                 </Box>
                 <Box>
-                  <Progress value={80} size="md" colorScheme="green" />
-                  <Text maxW="150px">PYTHON 80%</Text>
+                  <Progress value={73} size="md" colorScheme="green" />
+                  <Text maxW="150px">PYTHON 73%</Text>
                 </Box>
                 <Box>
-                  <Progress value={78} size="md" colorScheme="blue" />
-                  <Text maxW="150px">REACT 78%</Text>
+                  <Progress value={68} size="md" colorScheme="blue" />
+                  <Text maxW="150px">REACT 68%</Text>
                 </Box>
                 <Box>
-                  <Progress value={72} size="md" colorScheme="cyan" />
-                  <Text maxW="150px">TYPESCRIPT 72%</Text>
+                  <Progress value={52} size="md" colorScheme="cyan" />
+                  <Text maxW="150px">TYPESCRIPT 52%</Text>
                 </Box>
                 <Box>
-                  <Progress value={57} size="md" colorScheme="yellow" />
-                  <Text maxW="150px">EXPRESS 57%</Text>
+                  <Progress value={37} size="md" colorScheme="yellow" />
+                  <Text maxW="150px">EXPRESS 37%</Text>
                 </Box>
                 <Box>
                   <Progress value={20} size="md" colorScheme="red" />

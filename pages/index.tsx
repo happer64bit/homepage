@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { Poppins } from 'next/font/google'
-import { Box, Text, Center, Progress, Grid, Flex, Container, Button, Link } from '@chakra-ui/react'
+import { Box, Text, Center, Progress, Grid, Container, Link } from '@chakra-ui/react'
 import Navbar from '@/components/Navbar'
-import { motion, useAnimation } from 'framer-motion'
+import { motion } from 'framer-motion'
 const poppins = Poppins({ subsets: ['latin'], weight: "500" })
 
 export default function Home() {
@@ -113,9 +113,9 @@ export default function Home() {
                   </ul>
                   <Box py={2} px={4}>
                     <ul>
-                      <li>2004 - 2018 (Kaung Su San)</li>
-                      <li>2018 - 2019 (BEHS 1 ShwePyiThar)</li>
-                      <li>2022 - 2023 (BEHS 3 ShwePyiThar)</li>
+                      {["2004 - 2018 (Kaung Su San)", "2018 - 2019 (BEHS 1 ShwePyiThar)", "2022 - 2023 (BEHS 3 ShwePyiThar)"].map((event, index) => (
+                        <li>{event}</li>
+                      ))}
                     </ul>
                   </Box>
                 </Box>

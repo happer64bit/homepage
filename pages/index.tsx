@@ -113,8 +113,8 @@ export default function Home() {
                   </ul>
                   <Box py={2} px={4}>
                     <ul>
-                      {["Kaung Su San Private School", "BEHS 1 ShwePyiThar", "BEHS 3 ShwePyiThar"].map((event, index) => (
-                        <li>{event}</li>
+                      {["Private School", "BEHS 1 ShwePyiThar", "BEHS 3 ShwePyiThar"].map((event, index) => (
+                        <li key={index}>{event}</li>
                       ))}
                     </ul>
                   </Box>

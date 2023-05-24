@@ -1,8 +1,12 @@
 [
     {
         "name": "CleanTab",
-        "icon": "https://github.com/happer64bit/CleanTab/blob/main/res/icon_128.png?raw=true",
         "link": "https://github.com/happer64bit/CleanTab",
         "description": "Extension for Chromium based browser and that can enchance your default browser tab to better chrome tab"
+    },
+    {
+        "name": "WSpace",
+        "link": "https://github.com/happer64bit/wspace",
+        "description": "Task Management Tools Written In Python for tasking in commandline"
     }
 ]

@@ -63,12 +63,12 @@ export default function Home() {
                   <Text maxW="150px">REACT 68%</Text>
                 </Box>
                 <Box>
-                  <Progress value={52} size="md" colorScheme="cyan" />
-                  <Text maxW="150px">TYPESCRIPT 52%</Text>
+                  <Progress value={37} size="md" colorScheme="yellow" />
+                  <Text maxW="150px">EXPRESS 62%</Text>
                 </Box>
                 <Box>
-                  <Progress value={37} size="md" colorScheme="yellow" />
-                  <Text maxW="150px">EXPRESS 37%</Text>
+                  <Progress value={52} size="md" colorScheme="cyan" />
+                  <Text maxW="150px">TYPESCRIPT 52%</Text>
                 </Box>
                 <Box>
                   <Progress value={20} size="md" colorScheme="red" />
@@ -98,7 +98,7 @@ export default function Home() {
                     <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1}>ABOUT ME</Text>
                   </ul>
                   <Text py={2}>
-                    Hello I am Happer but my real name is Wint Khant Lin. I was born in Myanmar at 13, August, 2008. I am just a student who is trying become rich by coding
+                    Hello I am Happer but my real name is Wint Khant Lin. I was born in Myanmar at 13, August. I am just a student who is trying become rich by coding
                   </Text>
                 </Box>
               </motion.div>
@@ -113,7 +113,7 @@ export default function Home() {
                   </ul>
                   <Box py={2} px={4}>
                     <ul>
-                      {["2004 - 2018 (Kaung Su San)", "2018 - 2019 (BEHS 1 ShwePyiThar)", "2022 - 2023 (BEHS 3 ShwePyiThar)"].map((event, index) => (
+                      {["Kaung Su San Private School", "BEHS 1 ShwePyiThar", "BEHS 3 ShwePyiThar"].map((event, index) => (
                         <li>{event}</li>
                       ))}
                     </ul>

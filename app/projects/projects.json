@@ -1,0 +1,20 @@
+[
+    {
+        "projectName": "WSpace",
+        "description": "WSpace is a command line todo manager designed to streamline your task management workflow. Built with simplicity and speed in mind, WSpace offers a straightforward interface coupled with essential features, making it an excellent choice for users who prefer to work from the command line.",
+        "endLifeSupport": false,
+        "sourceCodeUrl": "https://github.com/happer64bit/wspace",
+        "tag": "Release",
+        "version": "0.1.0",
+        "icon": "/assets/img/wspace.png"
+    },
+    {
+        "projectName": "CleanTab",
+        "description": "Cleantab is a dynamic tab theme designed to enhance your browsing environment and provide a visually pleasing experience. Developed with meticulous attention to detail, this Chrome extension offers a range of customization options that allow you to transform your browser tabs into a seamless blend of style and functionality.",
+        "endLifeSupport": true,
+        "sourceCodeUrl": "https://github.com/happer64bit/cleantab",
+        "tag": "Release",
+        "version": "1.0.8",
+        "icon": "/assets/img/cleantab.png"
+    }
+]

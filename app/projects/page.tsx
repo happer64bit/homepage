@@ -1,7 +1,7 @@
 "use client"
 import Navbar from '@/components/Navbar'
 import ProjectCard from '@/components/ProjectCard'
-import { Box, Text, Container, VStack } from '@chakra-ui/react'
+import { Box, Text, Container } from '@chakra-ui/react'
 import projectsDatas from '@/app/projects/projects.json'
 
 export default function page() {
@@ -9,15 +9,14 @@ export default function page() {
         <Box>
             <Box bg={"#141a20"} color={"white"}>
                 <Box h={"full"}>
-                    <Navbar/>
+                    <Navbar />
                     <Container py={40}>
                         <Box pb={20}>
                             <Text fontSize={"4xl"} fontWeight={"semibold"}>Projects Showcase</Text>
                         </Box>
-                        <VStack spacing={10}>
-                            {projectsDatas.map((event, index) => (
+                        {projectsDatas.map((event, index) => (
+                            <Box py={10} key={index}>
                                 <ProjectCard
-                                    key={index}
                                     projectName={event.projectName}
                                     description={event.description}
                                     endLifeSupport={event.endLifeSupport}
@@ -26,8 +25,8 @@ export default function page() {
                                     tag={event.tag}
                                     verison={event.version}
                                 />
-                            ))}          
-                        </VStack>
+                            </Box>
+                        ))}
                     </Container>
                 </Box>
             </Box>

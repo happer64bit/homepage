@@ -21,7 +21,7 @@ export default function ProjectCard(props: Props) {
             <Box w={"full"} borderRadius={15}>
                 <Image src={props.icon} alt={props.projectName} w="full" h={'18rem'} bgPos={"center"} bgSize={"cover"} borderTopRadius={15}/>
                 <Box p={5}>
-                    <Flex>
+                    <Flex flexWrap={'wrap'} py={2}>
                         <Link href={props.sourceCodeUrl} fontSize={"3xl"} fontWeight={"bold"}>{props.projectName}</Link>
                         <Box px={2}>
                             <Badge variant={'outline'} colorScheme='green'>{props.verison}</Badge>

@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="0hbZKdBjVysNUDD6kor0Hd6lN-aI78I8v5NhYIXa30o" />
+      </head>
       <body className={rubik.className}>
         <Providers>
           {children}

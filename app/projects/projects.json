@@ -6,7 +6,7 @@
         "sourceCodeUrl": "https://github.com/happer64bit/wspace",
         "tag": "Release",
         "version": "0.1.0",
-        "icon": "/assets/img/wspace.png"
+        "icon": "/assets/img/wspace.webp"
     },
     {
         "projectName": "CleanTab",
@@ -15,6 +15,6 @@
         "sourceCodeUrl": "https://github.com/happer64bit/cleantab",
         "tag": "Release",
         "version": "1.0.8",
-        "icon": "/assets/img/cleantab.png"
+        "icon": "/assets/img/cleantab.webp"
     }
 ]

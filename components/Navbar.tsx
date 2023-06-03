@@ -9,11 +9,7 @@ const Navbar = () => {
             </Link>
             <Box display={"flex"} alignItems={"center"}>
                 <Link href={"/projects"}>
-                    <Text _hover={{
-                        textDecoration: "underline",
-                    }}>
-                        Projects
-                    </Text>
+                    Projects
                 </Link>
             </Box>
         </Box>

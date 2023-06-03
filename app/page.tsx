@@ -2,9 +2,9 @@
 import { Box, Text, Center, Progress, Grid, Container, Link } from '@chakra-ui/react'
 import Navbar from '@/components/Navbar'
 import { motion } from 'framer-motion'
+import { skills } from './datas'
 
 export default function Home() {
-
   return (
     <div>
       <Navbar />
@@ -35,38 +35,12 @@ export default function Home() {
                 </Text>
               </Center>
               <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={8}>
-                <Box>
-                  <Progress value={93} size="md" colorScheme="orange" w="full" />
-                  <Text maxW="150px">HTML 93%</Text>
-                </Box>
-                <Box>
-                  <Progress value={86} size="md" colorScheme="blue" />
-                  <Text maxW="150px">CSS 86%</Text>
-                </Box>
-                <Box>
-                  <Progress value={85} size="md" colorScheme="yellow" />
-                  <Text maxW="150px">JAVASCRIPT 85%</Text>
-                </Box>
-                <Box>
-                  <Progress value={73} size="md" colorScheme="green" />
-                  <Text maxW="150px">PYTHON 73%</Text>
-                </Box>
-                <Box>
-                  <Progress value={68} size="md" colorScheme="blue" />
-                  <Text maxW="150px">REACT 68%</Text>
-                </Box>
-                <Box>
-                  <Progress value={37} size="md" colorScheme="yellow" />
-                  <Text maxW="150px">EXPRESS 62%</Text>
-                </Box>
-                <Box>
-                  <Progress value={52} size="md" colorScheme="cyan" />
-                  <Text maxW="150px">TYPESCRIPT 52%</Text>
-                </Box>
-                <Box>
-                  <Progress value={20} size="md" colorScheme="red" />
-                  <Text maxW="150px">RUST 20%</Text>
-                </Box>
+                {skills.map((event, index) => (
+                  <Box key={index}>
+                    <Progress value={event.percent} size="md" colorScheme={event.color} w="full" />
+                    <Text maxW="150px">{event.language} {event.percent}%</Text>
+                  </Box>
+                ))}
               </Grid>
             </Box>
           </motion.div>
@@ -105,11 +79,11 @@ export default function Home() {
                     <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1} fontWeight={"semibold"}>MY EDUCATION JOURNEY</Text>
                   </ul>
                   <Box py={2} px={4}>
-                    <ul>
+                    <div>
                       {["Private School", "BEHS 1 ShwePyiThar", "BEHS 3 ShwePyiThar"].map((event, index) => (
-                        <li key={index}>{event}</li>
+                        <p key={index}>{event}</p>
                       ))}
-                    </ul>
+                    </div>
                   </Box>
                 </Box>
               </motion.div>

@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="0hbZKdBjVysNUDD6kor0Hd6lN-aI78I8v5NhYIXa30o" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={rubik.className}>
         <Analytics />

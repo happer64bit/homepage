@@ -3,10 +3,10 @@
   "short_name": "Happer",
   "theme_color": "#141a20",
   "background_color": "#141a20",
-  "display": "fullscreen",
+  "display": "fullScreen",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/?ref=pwa",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

@@ -3,7 +3,7 @@
   "short_name": "Happer",
   "theme_color": "#141a20",
   "background_color": "#141a20",
-  "display": "browser",
+  "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",

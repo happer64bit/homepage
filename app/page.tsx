@@ -37,7 +37,7 @@ export default function Home() {
               <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={8}>
                 {skills.map((event, index) => (
                   <Box key={index}>
-                    <Progress value={event.percent} size="md" colorScheme={event.color} w="full" />
+                    <Progress value={event.percent} size="md" colorScheme={event.color} w="full" aria-label={event.language}/>
                     <Text maxW="150px">{event.language} {event.percent}%</Text>
                   </Box>
                 ))}
@@ -61,9 +61,9 @@ export default function Home() {
                 hidden: { opacity: 0, scale: 0 }
               }}>
                 <Box py={2}>
-                  <ul>
+                  <Box>
                     <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1} fontWeight={"semibold"}>ABOUT ME</Text>
-                  </ul>
+                  </Box>
                   <Text py={2}>
                     Hello I am Happer but my real name is Wint Khant Lin. I was born in Myanmar at 13, August. I am just a student who is trying become rich by coding
                   </Text>
@@ -75,9 +75,9 @@ export default function Home() {
               }}>
 
                 <Box py={2}>
-                  <ul>
+                  <Box>
                     <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1} fontWeight={"semibold"}>MY EDUCATION JOURNEY</Text>
-                  </ul>
+                  </Box>
                   <Box py={2} px={4}>
                     <div>
                       {["Private School", "BEHS 1 ShwePyiThar", "BEHS 3 ShwePyiThar"].map((event, index) => (
@@ -93,9 +93,9 @@ export default function Home() {
               }}>
 
                 <Box py={2}>
-                  <ul>
+                  <Box>
                     <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1} fontWeight={"semibold"}>SOCIAL MEDIA</Text>
-                  </ul>
+                  </Box>
                   <Box py={2} px={4}>
                     <Link px={4} href='mailto:wintkhantlin@gmail.com'>Email</Link>
                     <Link px={4} href='https://twitter.com/happer64bit'>Twitter</Link>

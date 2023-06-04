@@ -20,6 +20,7 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="0hbZKdBjVysNUDD6kor0Hd6lN-aI78I8v5NhYIXa30o" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico"/>
         <meta name="theme-color" content='#141a20'/>
       </head>
       <body className={rubik.className}>

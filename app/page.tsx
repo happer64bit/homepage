@@ -17,8 +17,8 @@ export default function Home() {
                 delay: 0.5,
                 ease: [0, 0.71, 0.2, 1.01]
               }}>
-                <Text fontWeight={"semibold"} fontSize={"5xl"}>{"Hello There,".toUpperCase()} <br /> I AM HAPPER </Text>
-                <Text color={"pink.400"} fontWeight={"semibold"} fontSize={"5xl"}>(WINT KHANT LIN)</Text>
+                <Text fontWeight={"semibold"} fontSize={{ sm: "4xl", md: "5xl"}}>{"Hello There,".toUpperCase()} <br /> I AM HAPPER </Text>
+                <Text color={"pink.400"} fontWeight={"semibold"} fontSize={{ sm: "4xl", md: "5xl"}}>(WINT KHANT LIN)</Text>
               </motion.div>
             </Box>
           </Box>
@@ -65,7 +65,7 @@ export default function Home() {
                     <Text fontSize={"xl"} borderLeft={"4px"} px={3} py={1} fontWeight={"semibold"}>ABOUT ME</Text>
                   </Box>
                   <Text py={2}>
-                    Hello I am Happer but my real name is Wint Khant Lin. I was born in Myanmar at 13, August. I am just a student who is trying become rich by coding
+                    Hello I am Happer but my real name is Wint Khant Lin. I was born in Myanmar at 13, August, 2008. I am just a student who is trying become rich by coding
                   </Text>
                 </Box>
               </motion.div>

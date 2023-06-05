@@ -2,6 +2,7 @@ import './globals.css'
 import { Rubik } from 'next/font/google'
 import { Providers } from './provider'
 import { Analytics } from '@vercel/analytics/react';
+import { ColorModeScript } from '@chakra-ui/react';
 
 const rubik = Rubik({ subsets: ['latin'] })
 

@@ -1,0 +1,64 @@
+const { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient()
+
+async function main() {
+    const post = await prisma.post.create({
+        data: {
+            title: "PROGRAMMING TOOLS THAT EVERY DEV NEED",
+            contents: `
+            Introduction: Embrace the Power of Programming Tools
+
+            1. Integrated Development Environments (IDEs): A Developer's Best Friend
+               - Exploring popular IDEs: Visual Studio Code, IntelliJ IDEA, and PyCharm
+               - Key features and advantages of using an IDE
+               - Customization options for personalized development experience
+            
+            2. Version Control Systems (VCS): Collaborate and Track Code Changes
+               - Understanding the importance of version control in software development
+               - Git: The de facto VCS choice for developers
+               - Branching, merging, and resolving conflicts with ease
+               - Collaborative workflows using platforms like GitHub and Bitbucket
+            
+            3. Package Managers: Simplify Dependency Management
+               - The role of package managers in managing project dependencies
+               - NPM (Node Package Manager) for JavaScript and Node.js projects
+               - Pip and Conda for Python projects
+               - Centralized repositories and package versioning
+            
+            4. Debuggers: Unravel the Mysteries of Your Code
+               - The significance of debuggers in identifying and fixing software bugs
+               - Debugging techniques and breakpoints
+               - Popular debuggers: Visual Studio Debugger, pdb for Python, and Chrome DevTools
+            
+            5. Code Editors: Lightweight Tools for Quick Edits
+               - Exploring code editors: Sublime Text, Atom, and Notepad++
+               - Features for syntax highlighting, code completion, and customization
+               - Ideal for quick edits, scripting, and lightweight projects
+            
+            6. Documentation Generators: Document Your Code Effortlessly
+               - The importance of clear and comprehensive code documentation
+               - Tools like Javadoc, Sphinx, and Doxygen for generating documentation
+               - Generating API references, code examples, and user guides
+            
+            7. Performance Profilers: Optimize Your Code
+               - Profiling techniques for analyzing code performance and identifying bottlenecks
+               - Profiling tools for different programming languages: cProfile, Xdebug, and Java VisualVM
+               - Optimizing CPU, memory, and I/O usage
+            
+            8. Testing Frameworks: Ensure Code Quality
+               - The significance of testing in software development
+               - Introduction to popular testing frameworks: JUnit, pytest, and Jasmine
+               - Writing unit tests, integration tests, and test automation
+            
+            Conclusion: Arm Yourself with the Right Programming Tools
+            
+            By harnessing the power of these essential programming tools, developers can significantly enhance their productivity, streamline their workflows, and build high-quality software with ease. Embrace these tools and witness the transformation they bring to your coding journey!
+            `,
+            thumbnail: "https://i.pinimg.com/564x/46/b2/b7/46b2b7cc9050f31154cb44d1370e8283.jpg"
+        }
+      }
+   )
+}
+
+main()

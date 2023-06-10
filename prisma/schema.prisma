@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,13 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Posts {
-  id String @id @map("_id") @db.ObjectId @default(uuid())
-
-  thumbnail String @db.String
-  post_id   String @default(cuid())
+model Post {
+  id        String   @id @default(cuid()) @map("_id")
+  thumbnail String?
+  postId    String   @default(cuid())
   title     String
-  contents  String @db.String
-  
+  contents  String?
   createdAt DateTime @default(now())
 }

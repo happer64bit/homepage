@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     
     try {
         // Use prisma.posts to fetch posts based on the limit and page parameters
-        const posts = await prisma.posts.findMany({
+        const posts = await prisma.post.findMany({
             where: {
                 id: postID
             }

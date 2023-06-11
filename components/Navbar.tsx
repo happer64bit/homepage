@@ -20,7 +20,7 @@ const Navbar = () => {
             </Link>
             <Box display={"flex"} alignItems={"center"}>
                 {NavbarItems.map((event, index) => (
-                    <Box px={2} key={index}>
+                    <Box px={4} key={index}>
                         <Link href={event.href}>
                             {event.title}
                         </Link>

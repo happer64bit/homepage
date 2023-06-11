@@ -28,6 +28,8 @@ export async function GET(request: Request) {
             }
         });
 
+        prisma.$disconnect()
+
         // Create a new Response object with the fetched posts as the body
         const response = new Response(JSON.stringify(posts), {
             headers: {

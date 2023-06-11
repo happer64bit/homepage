@@ -7,3 +7,33 @@ html, body {
   margin: 0;
   background-color: #141a20;
 }
+
+.markdown-contents > h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-block: 12px;
+}
+
+.markdown-contents > h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-block: 12px;
+}
+
+.markdown-contents > h3 {
+  font-size: 1.0rem;
+  font-weight: bold;
+  padding-block: 12px;
+}
+
+.markdown-contents > h4 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding-block: 12px;
+}
+
+.markdown-contents > h5 {
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding-block: 12px;
+}

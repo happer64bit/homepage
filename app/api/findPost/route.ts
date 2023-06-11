@@ -20,7 +20,7 @@ export async function GET(request: Request) {
                 id: postID
             }
         });
-
+        prisma.$disconnect()
         // Create a new Response object with the fetched posts as the body
         const response = new Response(JSON.stringify(posts), {
             headers: {

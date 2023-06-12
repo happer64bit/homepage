@@ -17,7 +17,7 @@ export default function Home() {
                 delay: 0.5,
                 ease: [0, 0.71, 0.2, 1.01]
               }}>
-                <Text fontWeight={"semibold"} fontSize={{ sm: "4xl", md: "5xl"}}>{"Hello There,".toUpperCase()} <br /> I AM HAPPER </Text>
+                <Text fontWeight={"semibold"} fontSize={"5xl"}>{"Hello There,".toUpperCase()} <br /> I AM HAPPER </Text>
                 <Text color={"pink.400"} fontWeight={"semibold"} fontSize={"5xl"}>(WINT KHANT LIN)</Text>
               </motion.div>
             </Box>

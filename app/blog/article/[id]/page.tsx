@@ -58,6 +58,9 @@ export default function Page({ params }: { params: { id: string } }) {
                             borderRadius={"xl"}
                             src={contexts.thumbnail ?? ''}
                             alt={contexts.title ?? ''}
+                            bgPos={'center'}
+                            bgRepeat={'no-repeat'}
+                            bgSize={"cover"}
                             w={"100dvw"}
                             h={"23rem"}
                             loading="lazy"

@@ -49,7 +49,7 @@ const Page = () => {
     return (
         <Box>
             <Box bg="#141a20" color="white" h={"full"}>
-                <Box h="full" p={20}>
+                <Box h="full" py={20}>
                     <Navbar />
                     <Container>
                         <Box pb={10}>

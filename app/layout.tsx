@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" theme-data="dark">
       <head>
         <meta name="google-site-verification" content="0hbZKdBjVysNUDD6kor0Hd6lN-aI78I8v5NhYIXa30o" />
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-T4DJK2QJYT"></Script>

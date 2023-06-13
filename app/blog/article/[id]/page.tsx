@@ -49,7 +49,7 @@ export default function Page({ params }: { params: { id: string } }) {
     );
 
     return !isLoading ? (
-        <Box>
+        <Box color={"white"}>
             <Navbar />
             <Container>
                 <Box py={20}>

@@ -62,7 +62,7 @@ export default function Page({ params }: { params: { id: string } }) {
                             bgRepeat={'no-repeat'}
                             bgSize={"cover"}
                             w={"100dvw"}
-                            h={"23rem"}
+                            h={{ base: "16rem", md: "20rem" }}
                             loading="lazy"
                         />
                         <Box py={5}>

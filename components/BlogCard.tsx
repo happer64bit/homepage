@@ -30,12 +30,12 @@ const BlogCard = (props: BlogCardProps) => {
             <Box p={3}>
                 <Image
                     alt={props.title}
-                    src={props.thumbnail} // Specify the type of src prop
+                    src={props.thumbnail}
                     w={"100%"}
-                    h={"18rem"}
+                    h={{ base: "14rem", md: "18rem" }}
                     bgPos={"center"}
                     bgRepeat={"no-repeat"}
-                    bgSize={"cover"}
+                    bgSize={"contain"}
                     borderRadius={12}
                     loading="lazy"
                 />

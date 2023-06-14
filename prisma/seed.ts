@@ -12,9 +12,11 @@ async function main() {
 
     const post = await prisma.post.create({
       data: {
-        title: "Introducing Myself".toUpperCase(),
+        id: "modern-javascript-frameworks-a-comparison-guide-01",
+        postId: "modern-javascript-frameworks-a-comparison-guide-01",
+        title: "Modern JavaScript Frameworks: A Comparison Guide".toUpperCase(),
         contents: contents,
-        thumbnail: "https://github.com/happer64bit/happer64bit/blob/main/blog-assets/images/who-is-wintkhantlin-1.png?raw=true"
+        thumbnail: "https://github.com/happer64bit/happer64bit/blob/main/blog-assets/images/modern-javascript-frameworks-a-comparison-guide.png?raw=true"
       }
     });
 

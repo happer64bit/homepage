@@ -10,7 +10,7 @@ datasource db {
 model Post {
   id        String   @id @default(cuid()) @map("_id")
   thumbnail String?
-  postId    String   @default(cuid())
+  postId    String   @default(uuid())
   title     String
   contents  String?
   createdAt DateTime @default(now())

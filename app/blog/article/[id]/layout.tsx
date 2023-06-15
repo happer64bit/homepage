@@ -1,9 +1,5 @@
 import { Metadata } from "next"
 
-export const metadata: Metadata = {
-    title: "Loading..."
-}
-
 export async function generateMetadata({ params }: { params: { id: string } }) {
     "use server"
     let hostname = "http://happer64bit.vercel.app"

@@ -2,12 +2,11 @@ import './globals.css'
 import { Rubik } from 'next/font/google'
 import { Providers } from './provider'
 import { Analytics } from '@vercel/analytics/react';
-import { ColorModeScript } from '@chakra-ui/react';
 import Script from 'next/script';
 
 const rubik = Rubik({ subsets: ['latin'] })
 
-export const metadata = {
+const metadata = {
   title: 'Happer64Bit',
   description: 'This is a Happer64Bit\'s homepage',
 }

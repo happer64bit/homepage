@@ -1,11 +1,23 @@
 "use client"
 import Navbar from "@/components/Navbar";
 import { Box, Container, Image, Spinner, Text } from "@chakra-ui/react";
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MarkdownPreview from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
 import rehypeGfm from 'remark-gfm' 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+    let hostname = "http://happer64bit.vercel.app"
+
+    if(process.env.NODE_ENV == "development") {
+        hostname = "http://localhost:3000"
+    }
+    return {
+        title: (await fetch(`${hostname}/api/getHead?postID=${params.id}`)).body?.getReader()
+    }
+}
 
 export default function Page({ params }: { params: { id: string } }) {
     const [isLoading, setIsLoading] = useState(true)

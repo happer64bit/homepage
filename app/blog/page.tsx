@@ -5,6 +5,7 @@ import BlogCard from "@/components/BlogCard";
 import Navbar from "@/components/Navbar";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SkeletonBlogCard from "@/components/SkeletonBlogCard";
+import Head from 'next/head'
 
 type Post = {
     id: string;
@@ -13,6 +14,11 @@ type Post = {
     thumbnail: string | null;
     title: string;
 };
+
+export const metadata = {
+    title: 'Blog',
+    description: 'Blog Home',
+}
 
 const Page = () => {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -48,6 +54,9 @@ const Page = () => {
 
     return (
         <Box>
+            <Head>
+                <title>Blog</title>
+            </Head>
             <Box bg="#141a20" color="white" h={"full"}>
                 <Box h="full" py={20}>
                     <Navbar />

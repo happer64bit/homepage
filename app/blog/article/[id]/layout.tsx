@@ -1,17 +1,10 @@
-import { Metadata } from "next"
+import getHead from "@/lib/getHead"
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-    "use server"
-    let hostname = "http://happer64bit.vercel.app"
+    const datas = await getHead(params.id)
 
-    if(process.env.NODE_ENV == "development") {
-        hostname = "http://localhost:3000"
-    }
-    const res = await fetch(`${hostname}/api/getHead?postID=${params.id}`)
-    const datas = await res.json()
-    
     return {
-        title: datas
+        title: datas.head.title
     }
 }
 

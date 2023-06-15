@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-    "use client"
+    "use server"
     let hostname = "http://happer64bit.vercel.app"
 
     if(process.env.NODE_ENV == "development") {

@@ -15,11 +15,6 @@ type Post = {
     title: string;
 };
 
-export const metadata = {
-    title: 'Blog',
-    description: 'Blog Home',
-}
-
 const Page = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [currentPageId, setCurrentPageId] = useState<number | null>(null);

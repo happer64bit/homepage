@@ -41,3 +41,12 @@ html, body {
 .markdown-contents > img {
   padding-block: 1rem;
 }
+
+.markdown-contents > *  {
+  padding-block: 1rem;
+}
+
+.markdown-contents > code {
+  padding: 0;
+  width: 100%;
+}

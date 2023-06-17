@@ -3,7 +3,6 @@ import { Box, Text, Center, Progress, Grid, Container, Link } from '@chakra-ui/r
 import Navbar from '@/components/Navbar'
 import { motion } from 'framer-motion'
 import { skills } from './datas'
-import Head from 'next/head'
 
 export default function Home() {
   return (

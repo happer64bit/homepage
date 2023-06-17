@@ -4,83 +4,95 @@ import { Box, Container, Image, Spinner, Text } from "@chakra-ui/react";
 import { useEffect, useMemo, useState } from "react";
 import MarkdownPreview from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
-import rehypeGfm from 'remark-gfm' 
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeGfm from 'remark-gfm'
+import { getPost } from '@/lib/getPost';
+import "@/lib/one-dark-pro.css"
 
 export default function Page({ params }: { params: { id: string } }) {
-    const [isLoading, setIsLoading] = useState(true)
-    const [contexts, setContexts] = useState<{
-        id: string,
-        title: string,
-        thumbnail: string,
-        contents: string,
-        createdAt: Date | undefined,
-    }>({
-        id: '',
-        title: '',
-        thumbnail: '',
-        contents: '',
-        createdAt: undefined
-    })
+    const { id } = params;
 
-    async function fetchPost(id: string) {
-        const res = await fetch(`/api/findPost?postID=${id}`);
-        const post = await res.json();
-        if (post.length > 0) {
-            setContexts(post[0]);
-        }
-        setIsLoading(false);
-    }
+    const [post, setPost] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [wasPostFound, setWasPostFound] = useState(true);
 
     useEffect(() => {
-        fetchPost(params.id ?? "404");
-        console.log(contexts);
-    }, []);
+        const fetchPost = async () => {
+            try {
+                const postData = await getPost(id);
+                console.log("Post data:", postData);
+                console.log(postData?.wasPostFound);
 
-    const renderedMarkdown = useMemo(
-        () => (
-            <MarkdownPreview rehypePlugins={[rehypeHighlight, rehypeGfm, rehypeAutolinkHeadings]} remarkRehypeOptions={{
-                allowDangerousHtml: true,
-            }}>
-                {contexts.contents}
+                if (postData) {
+                    setPost({ ...postData });
+                    setWasPostFound(true);
+                } else {
+                    setWasPostFound(false);
+                }
+            } catch (error) {
+                console.error("Error fetching post:", error);
+                setWasPostFound(false);
+            }
+
+            setIsLoading(false);
+        };
+
+        fetchPost();
+    }, [id]);
+
+    const renderedMarkdown = useMemo(() => {
+        if (!post) return null;
+        return (
+            <MarkdownPreview
+                rehypePlugins={[rehypeHighlight, rehypeGfm]}
+                remarkRehypeOptions={{ allowDangerousHtml: true }}
+            >
+                {post.contents}
             </MarkdownPreview>
-        ),
-        [contexts.contents]
-    );
+        );
+    }, [post]);
 
-    return !isLoading ? (
-        <Box color={"white"}>
+    useEffect(() => {
+        console.log(post);
+        console.log(isLoading);
+    }, [post, isLoading]);
+
+    return (
+        <Box color="white">
             <Navbar />
-            <Container>
-                <Box py={20}>
-                    <Box>
-                        <Image
-                            borderRadius={"xl"}
-                            src={contexts.thumbnail ?? ''}
-                            alt={contexts.title ?? ''}
-                            bgPos={'center'}
-                            bgRepeat={'no-repeat'}
-                            bgSize={"cover"}
-                            w={"100dvw"}
-                            h={{ base: "16rem", md: "20rem" }}
-                            loading="lazy"
-                        />
-                        <Box py={5}>
-                            <Text fontSize={"3xl"} fontWeight={"bold"}>{contexts.title}</Text>
-                        </Box>
-                        <Box className="markdown-contents">
-                            {renderedMarkdown}
-                        </Box>
-                    </Box>
+            {isLoading ? (
+                <Box h="100vh" display="flex" alignItems="center" justifyContent="center">
+                    <Spinner size="xl" color="white" colorScheme="whiteAlpha" />
                 </Box>
-            </Container>
+            ) : (
+                <Container>
+                    {wasPostFound ? (
+                        <Box py={20}>
+                            <Image
+                                borderRadius="xl"
+                                src={post?.thumbnail ?? "https://i.pinimg.com/564x/b1/4b/92/b14b92a51528a700e47d365a15a68dff.jpg"}
+                                alt={post?.title}
+                                bgPos="center"
+                                bgRepeat="no-repeat"
+                                bgSize="cover"
+                                w="100dvw"
+                                h={{ base: "16rem", md: "20rem" }}
+                                loading="lazy"
+                            />
+                            <Box py={5}>
+                                <Text fontSize="3xl" fontWeight="bold" aria-label="title">
+                                    {post?.title ?? "Error on Displaying"}
+                                </Text>
+                            </Box>
+                            <Box className="markdown-contents">
+                                {renderedMarkdown}
+                                {wasPostFound}
+                            </Box>
+                        </Box>
+                    ) : (
+                        <Box></Box>
+                    )}
+                </Container>
+            )}
         </Box>
-    ) : (
-        <Box>
-            <Navbar />
-            <Box h={"100vh"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
-                <Spinner size={"xl"} color="white" colorScheme="whiteAlpha"/>
-            </Box>
-        </Box>
-    )
+    );
 }

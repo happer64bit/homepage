@@ -12,7 +12,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
 
     const postID = String(searchParams.get("postID"))
-    
+
     try {
         // Use prisma.posts to fetch posts based on the limit and page parameters
         const posts = await prisma.post.findMany({
@@ -22,14 +22,23 @@ export async function GET(request: Request) {
         });
         prisma.$disconnect()
         // Create a new Response object with the fetched posts as the body
-        const response = new Response(JSON.stringify(posts), {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-
-        // Return the response
-        return response;
+        if (posts.length > 0) {
+            const response = new Response(JSON.stringify({ posts, wasPostFound: true }), {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            // Return the response
+            return response;
+        } else {
+            const response = new Response(JSON.stringify({ wasPostFound: false }), {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            // Return the response
+            return response;
+        }
     } catch (error) {
         // Return an error response if there was an error fetching the posts
         return new Response(JSON.stringify({ error: "Internal server error" }), {

@@ -16,9 +16,11 @@ export async function getHead(id: string): Promise<{ head: { title: string } }> 
         // Return the response
         return response;
     } catch (error) {
-        return { head: {
-            title: "Page Not Found"
-        }}
+        return {
+            head: {
+                title: "Page Not Found"
+            }
+        }
     }
 }
 

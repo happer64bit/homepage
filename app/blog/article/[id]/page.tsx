@@ -8,10 +8,19 @@ import rehypeGfm from 'remark-gfm'
 import { getPost } from '@/lib/getPost';
 import "@/lib/one-dark-pro.css"
 
+interface PostType {
+    // Define your post properties here
+    title: string;
+    postId: string;
+    contents: string;
+    thumbnail: string;
+    createdAt: Date;
+}
+
 export default function Page({ params }: { params: { id: string } }) {
     const { id } = params;
 
-    const [post, setPost] = useState(null);
+    const [post, setPost] = useState<PostType | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [wasPostFound, setWasPostFound] = useState(true);
 
@@ -19,11 +28,18 @@ export default function Page({ params }: { params: { id: string } }) {
         const fetchPost = async () => {
             try {
                 const postData = await getPost(id);
+
                 console.log("Post data:", postData);
-                console.log(postData?.wasPostFound);
 
                 if (postData) {
-                    setPost({ ...postData });
+                    const { thumbnail, postId, title, contents, createdAt } = postData;
+                    setPost({
+                        thumbnail: thumbnail ?? '',
+                        postId,
+                        title,
+                        contents: contents ?? '',
+                        createdAt,
+                    });
                     setWasPostFound(true);
                 } else {
                     setWasPostFound(false);
@@ -35,6 +51,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             setIsLoading(false);
         };
+
 
         fetchPost();
     }, [id]);

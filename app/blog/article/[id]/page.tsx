@@ -96,9 +96,12 @@ export default function Page({ params }: { params: { id: string } }) {
                                 loading="lazy"
                             />
                             <Box py={5}>
-                                <Text fontSize="3xl" fontWeight="bold" aria-label="title">
+                                <h1 style={{
+                                    fontWeight: "bold",
+                                    fontSize: "1.875rem"
+                                }}>
                                     {post?.title ?? "Error on Displaying"}
-                                </Text>
+                                </h1>
                             </Box>
                             <Box className="markdown-contents">
                                 {renderedMarkdown}

@@ -1,5 +1,14 @@
 [
     {
+        "projectName": "Ginz",
+        "description": "Ginz is a command-line tool for cloning multiple repositories from GitHub based on a configuration file. It simplifies the process of cloning multiple repositories by allowing you to specify the repositories and their branches in a single configuration file.",
+        "endLifeSupport": false,
+        "sourceCodeUrl": "https://github.com/happer64bit/cleantab",
+        "tag": "Release",
+        "version": "1.1",
+        "icon": "https://raw.githubusercontent.com/happer64bit/happer64bit/main/blog-assets/images/ginz.webp"
+    },
+    {
         "projectName": "WSpace",
         "description": "WSpace is a command line todo manager designed to streamline your task management workflow. Built with simplicity and speed in mind, WSpace offers a straightforward interface coupled with essential features, making it an excellent choice for users who prefer to work from the command line.",
         "endLifeSupport": false,

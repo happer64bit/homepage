@@ -43,10 +43,6 @@ const Page = () => {
         }
     }, [currentPageId]);
 
-    useEffect(() => {
-        fetchMorePosts();
-    }, [fetchMorePosts]);
-
     return (
         <Box>
             <Head>

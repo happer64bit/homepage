@@ -1,7 +1,7 @@
 "use client"
 import Navbar from "@/components/Navbar";
-import { Box, Container, Image, Spinner, Text } from "@chakra-ui/react";
-import { useEffect, useMemo, useState } from "react";
+import { Box, Container, Image, Skeleton, SkeletonText, Spinner, Text } from "@chakra-ui/react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import MarkdownPreview from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
 import rehypeGfm from 'remark-gfm'
@@ -84,17 +84,23 @@ export default function Page({ params }: { params: { id: string } }) {
                 <Container>
                     {wasPostFound ? (
                         <Box py={20}>
-                            <Image
-                                borderRadius="xl"
-                                src={post?.thumbnail ?? "https://i.pinimg.com/564x/b1/4b/92/b14b92a51528a700e47d365a15a68dff.jpg"}
-                                alt={post?.title}
-                                bgPos="center"
-                                bgRepeat="no-repeat"
-                                bgSize="cover"
-                                w="100dvw"
-                                h={{ base: "16rem", md: "20rem" }}
-                                loading="lazy"
-                            />
+                            <Suspense fallback={
+                                <Skeleton>
+                                    <SkeletonText borderRadius={"xl"} w="100dw" h={{ base: "16rem", md: "20rem" }} />
+                                </Skeleton>
+                            }>
+                                <Image
+                                    borderRadius="xl"
+                                    src={post?.thumbnail ?? "https://i.pinimg.com/564x/b1/4b/92/b14b92a51528a700e47d365a15a68dff.jpg"}
+                                    alt={post?.title}
+                                    bgPos="center"
+                                    bgRepeat="no-repeat"
+                                    bgSize="cover"
+                                    w="100dvw"
+                                    h={{ base: "16rem", md: "20rem" }}
+                                    loading="lazy"
+                                />
+                            </Suspense>
                             <Box py={5}>
                                 <h1 style={{
                                     fontWeight: "bold",

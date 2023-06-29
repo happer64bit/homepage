@@ -1,0 +1,11 @@
+html[theme-data="dark"] {
+    color-scheme: dark;
+}
+
+html[theme-data="light"] {
+    color-scheme: light;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

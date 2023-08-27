@@ -5,53 +5,44 @@ import { Suspense, useEffect, useMemo, useState } from "react";
 import MarkdownPreview from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
 import rehypeGfm from 'remark-gfm'
-import { getPost } from '@/lib/getPost';
 import "@/lib/one-dark-pro.css"
-
-interface PostType {
-    // Define your post properties here
-    title: string;
-    postId: string;
-    contents: string;
-    thumbnail: string;
-    createdAt: Date;
-}
+import { notFound } from "next/navigation";
 
 export default function Page({ params }: { params: { id: string } }) {
     const { id } = params;
 
-    const [post, setPost] = useState<PostType | null>(null);
+    const [post, setPost] = useState<any | null>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [wasPostFound, setWasPostFound] = useState(true);
 
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const postData = await getPost(id);
-
-                console.log("Post data:", postData);
-
-                if (postData) {
-                    const { thumbnail, postId, title, contents, createdAt } = postData;
+                const res = await fetch(`/api/findPost?pathname=${params.id}`)
+                const body = await res.json()
+                const postData = body.posts
+                
+                console.log(postData)
+                
+                if (res.ok) {
+                    const { thumbnail, id, title, contents, created_at } = postData[0];
                     setPost({
                         thumbnail: thumbnail ?? '',
-                        postId,
+                        id,
                         title,
                         contents: contents ?? '',
-                        createdAt,
+                        created_at,
                     });
                     setWasPostFound(true);
                 } else {
-                    setWasPostFound(false);
+                    notFound()
                 }
             } catch (error) {
-                console.error("Error fetching post:", error);
-                setWasPostFound(false);
+                notFound()
             }
 
             setIsLoading(false);
         };
-
 
         fetchPost();
     }, [id]);

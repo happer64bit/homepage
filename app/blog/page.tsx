@@ -8,11 +8,14 @@ import SkeletonBlogCard from "@/components/SkeletonBlogCard";
 import Head from 'next/head'
 
 type Post = {
-    id: string;
-    postId: string;
-    createdAt: Date;
-    thumbnail: string | null;
+    id: number;
+    thumbnail: string;
+    category: string;
     title: string;
+    created_at: string;
+    pathname: string;
+    short_content: string;
+    uuid: string;
 };
 
 const Page = () => {
@@ -43,6 +46,8 @@ const Page = () => {
         }
     }, [currentPageId]);
 
+    fetchMorePosts()
+    
     return (
         <Box>
             <Head>
@@ -75,8 +80,8 @@ const Page = () => {
                                     <Box py={4}>
                                         <BlogCard
                                             key={post.id}
-                                            postID={post.id}
-                                            pubishDate={post.createdAt.toString()}
+                                            pathname={post.pathname}
+                                            pubishDate={post.created_at}
                                             thumbnail={post.thumbnail ?? ""}
                                             title={post.title}
                                         />

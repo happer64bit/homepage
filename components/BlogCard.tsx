@@ -1,10 +1,10 @@
-import { Box, Text, Image, Flex } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 import { useRouter } from 'next/navigation';
 
 interface BlogCardProps {
     title: string;
     thumbnail: string;
-    postID: string;
+    pathname: string;
     pubishDate: string
 }
 
@@ -14,7 +14,7 @@ const BlogCard = (props: BlogCardProps) => {
     return (
         <Box
             onClick={() => {
-                router.push(`/blog/article/${props.postID.toString()}`);
+                router.push(`/blog/article/${String(props.pathname)}`);
             }}
             p={2}
             borderWidth="4px"

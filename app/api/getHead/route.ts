@@ -1,17 +1,18 @@
-"use server"
 import { PrismaClient } from "@prisma/client";
+import { NextRequest } from "next/server";
 
 const prisma = new PrismaClient();
 
-export async function getHead(id: string): Promise<{ head: { title: string } }> {
+export async function GET(request: NextRequest) {
+    const pathname = request.nextUrl.searchParams.get("pathname")
     try {
-        const posts = await prisma.post.findMany({
+        const posts = await prisma.contents.findMany({
             where: {
-                id: id
+                pathname: pathname
             }
         });
         prisma.$disconnect();
-        const response = { head: { title: posts[0].title } };
+        const response = new Response(JSON.stringify({ head: { title: posts[0].title } }));
 
         // Return the response
         return response;
@@ -23,5 +24,3 @@ export async function getHead(id: string): Promise<{ head: { title: string } }> 
         }
     }
 }
-
-export default getHead;

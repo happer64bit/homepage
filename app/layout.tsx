@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Header from '@/components/Header'
+import { Analytics } from '@vercel/analytics/react';
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
           <Header />
           {children}
         </ThemeProvider>
+        <Analytics mode='production'/>
       </body>
     </html>
   )

@@ -4,6 +4,9 @@ import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import AnnouncementBar from "@/components/AnnouncementBar"
+import { Textarea } from "@/components/ui/textarea"
+import { createRef } from "react"
+import { toast } from "@/components/ui/use-toast"
 
 const pixelify_sans = Pixelify_Sans({
   weight: ["500"],
@@ -11,6 +14,9 @@ const pixelify_sans = Pixelify_Sans({
 })
 
 export default function Home() {
+  const textareaRef = createRef<HTMLTextAreaElement>();
+  const emailRef = createRef<HTMLInputElement>();
+
   return (
     <main>
       <div className="h-[80vh] flex items-center p-10 animate-fade-up animate-once animate-duration-1000">
@@ -87,10 +93,34 @@ export default function Home() {
           <motion.div className="my-10 px-10">
             <div>
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
-              <p className="mb-2">If you want to contact me you can get a ticket here</p>
-              <form className="flex gap-3">
-                <Input placeholder="john@example.com" type="email" required/>
-                <Button>SUBMIT</Button>
+              <p className="mb-2">If you want to contact me, fill these infomation here</p>
+              <form onClick={async (event) => {
+                event.preventDefault()
+                const req = await fetch("/api/contact", {
+                  method: "POST",
+                  body: JSON.stringify({
+                    message: textareaRef.current?.value,
+                    email: emailRef.current?.value
+                  })
+                })
+
+                if(req.ok) {
+                  toast({
+                    title: "Success"
+                  })
+                } else {
+                  toast({
+                    title: "Error Failed to sent let developer fix it"
+                  })
+                }
+              }}>
+                <div className="mb-2">
+                  <Textarea rows={10} placeholder="Message (max 2000)" className="resize-none" maxLength={2000} ref={textareaRef}/>
+                </div>
+                <div className="flex gap-3">
+                  <Input placeholder="john@example.com" type="email" required ref={emailRef}/>
+                  <Button>SUBMIT</Button>
+                </div>
               </form>
             </div>
           </motion.div>

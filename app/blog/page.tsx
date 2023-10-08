@@ -65,7 +65,7 @@ export default function () {
     return (
         <main>
             <div className="flex justify-center my-10">
-                <div className="w-[80dvh]">
+                <div className="w-[80dvh] px-10">
                     <h1 className="text-2xl font-bold">Blog</h1>
                     <div className="my-3">
                         <div className="min-h-[70vh]">

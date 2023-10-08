@@ -74,7 +74,7 @@ export default function () {
                                     <Link href={"/article/" + event.pathname} className='mb-3'>
                                         <div className="p-4 rounded-md flex gap-2 transform duration-75 hover:bg-accent-foreground/[0.025]">
                                             <div>
-                                                <img src={event.thumbnail} className='w-60 rounded-md'/>
+                                                <img src={event.thumbnail} className='max-w-[15rem] min-w-[15rem] bg-contain bg-no-repeat bg-center h-40 rounded-md'/>
                                             </div>
                                             <div className='flex items-center'>
                                                 <div>

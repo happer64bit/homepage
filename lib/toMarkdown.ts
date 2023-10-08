@@ -7,10 +7,10 @@ import rehypeHightlight from 'rehype-highlight'
 
 export default async function(contents: string): Promise<string> {
     const result = await unified()
-        .use(rehypeStringify)
+        .use(rehypeStringify, { allowDangerousHtml: true })
         .use(remarkGfm)
-        .use(remarkParse)
-        .use(remarkRehype)
+        .use(remarkParse, { allowDangerousHtml: true })
+        .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeHightlight)
         .process(contents)
     return String(result);

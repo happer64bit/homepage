@@ -47,7 +47,7 @@ export default function Article({ params }: any) {
             {!isLoading && article && (
                 <div className="flex justify-center">
                     <motion.div
-                        className='w-[90dvh] px-10'
+                        className='w-[90dvh] px-4'
                         initial={{
                             opacity: 0,
                             marginTop: '20px',

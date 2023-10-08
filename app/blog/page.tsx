@@ -1,7 +1,5 @@
 "use client"
 import Paginate from '@/components/Paginate';
-import { Card, CardHeader } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 

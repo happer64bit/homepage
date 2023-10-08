@@ -65,7 +65,7 @@ export default function () {
     return (
         <main>
             <div className="flex justify-center my-10">
-                <div className="w-[80dvh] px-10">
+                <div className="w-[80dvh] px-5">
                     <h1 className="text-2xl font-bold">Blog</h1>
                     <div className="my-3">
                         <div className="min-h-[70vh]">
@@ -78,7 +78,7 @@ export default function () {
                                             </div>
                                             <div className='flex items-center'>
                                                 <div>
-                                                    <h2 className="text-lg font-bold">{event.title}</h2>
+                                                    <h2 className="text-md lg:text-lg font-bold">{event.title}</h2>
                                                     <p className="text-md">{event.shortContent}</p>
                                                     <div className="text-right">
                                                         <p className="text-sm">{new Date(event.createdAt).toDateString()}</p>

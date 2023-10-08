@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import AnnouncementBar from "@/components/AnnouncementBar"
+import { Textarea } from "@/components/ui/textarea"
 
 const pixelify_sans = Pixelify_Sans({
   weight: ["500"],
@@ -87,10 +88,15 @@ export default function Home() {
           <motion.div className="my-10 px-10">
             <div>
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
-              <p className="mb-2">If you want to contact me you can get a ticket here</p>
-              <form className="flex gap-3">
-                <Input placeholder="john@example.com" type="email" required/>
-                <Button>SUBMIT</Button>
+              <p className="mb-2">If you want to contact me, fill these infomation here</p>
+              <form>
+                <div className="mb-2">
+                  <Textarea rows={10} placeholder="Message" className="resize-none"/>
+                </div>
+                <div className="flex gap-3">
+                  <Input placeholder="john@example.com" type="email" required/>
+                  <Button>SUBMIT</Button>
+                </div>
               </form>
             </div>
           </motion.div>

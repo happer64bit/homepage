@@ -41,7 +41,7 @@ export default function Article({ params }: any) {
         <div>
             {isLoading && (
                 <div className="flex items-center justify-center h-[65vh] w-full">
-                    <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+                    <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
                 </div>
             )}
             {!isLoading && article && (

@@ -14,17 +14,17 @@ export function Sidebar() {
                     </h2>
                     <div className="space-y-1">
                         <Link href={"/admin/dashboard"}>
-                            <Button variant="ghost" className={`w-full justify-start ${pathname=="/admin/dashboard" ? "text-white font-bold" : "text-white/80"}`}>
+                            <Button variant="ghost" className={`w-full justify-start ${pathname=="/admin/dashboard" ? "text-black dark:text-white font-bold" : "text-black/80 dark:text-white/80"}`}>
                                 Blog
                             </Button>
                         </Link>
-                        <Link href={"/admin/dashboard/event"}>
-                            <Button variant="ghost" className={`w-full justify-start ${pathname=="/admin/dashboard/events" ? "text-white font-bold" : "text-white/80"}`}>
+                        <Link href={"/admin/dashboard/events"}>
+                            <Button variant="ghost" className={`w-full justify-start ${pathname=="/admin/dashboard/events" ? "text-black dark:text-white font-bold" : "text-black/80 dark:text-white/80"}`}>
                                 Event
                             </Button>
                         </Link>
                         <Link href={"/admin/dashboard/contacts"}>
-                            <Button variant="ghost" className={`w-full justify-start ${pathname=="/admin/dashboard/contacts" ? "text-white font-bold" : "text-white/80"}`}>
+                            <Button variant="ghost" className={`w-full justify-start ${pathname=="/admin/dashboard/contacts" ? "text-black dark:text-white font-bold" : "text-black/80 dark:text-white/80"}`}>
                                 Contacts
                             </Button>
                         </Link>

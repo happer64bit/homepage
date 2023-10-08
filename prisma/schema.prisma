@@ -18,3 +18,14 @@ model Articles {
   updatedAt     DateTime @updatedAt
   createdAt     DateTime @default(now())
 }
+
+model Events {
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  redirectLink String
+  startedDate  DateTime @default(now())
+  endDate      DateTime
+  enabled      Boolean
+  createdAt    DateTime @default(now())
+}

@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
+
 async function main() {
     const user = await prisma.articles.create({
         data: {
@@ -35,6 +36,16 @@ In a world where technology evolves by the minute, my commitment to continuous l
 Join me as I navigate the ever-changing landscape of coding, turning my dreams into reality. The future holds great promise for a passionate and driven coder like me!
         
 `
+        }
+
+    })
+    const event = await prisma.events.create({
+        data: {
+            title: "Announcement 📢",
+            description: "This is test a announcement",
+            redirectLink: "#",
+            endDate: "2023-10-09T15:22:37.266Z",
+            enabled: true
         }
     })
 }

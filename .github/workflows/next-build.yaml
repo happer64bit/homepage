@@ -1,0 +1,18 @@
+name: "Build Next And Check Size"
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-next-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - run: yarn
+      - run: yarn build
+      - run: du -h .next

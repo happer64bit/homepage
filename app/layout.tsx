@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Header from '@/components/Header'
 import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from '@/components/ui/toaster'
 
 const poppins = Poppins({ 
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Toaster />
         </ThemeProvider>
         <Analytics mode='production'/>
       </body>

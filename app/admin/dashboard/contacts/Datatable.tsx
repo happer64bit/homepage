@@ -43,41 +43,9 @@ import {
 type Contact = {
     id: string,
     email: string,
-    status: "pending" | "requested" | "expired" | "done",
-    ticketID: string,
+    message: string
     createdAt: Date
 }
-
-const data: Contact[] = [
-    {
-        id: "1",
-        email: "john@example.com",
-        status: "pending",
-        ticketID: "1",
-        createdAt: new Date("2023-08-12T17:30:00.000Z")
-    },
-    {
-        id: "2",
-        email: "emma@example.com",
-        status: "done",
-        ticketID: "1",
-        createdAt: new Date("2023-08-12T17:30:00.000Z")
-    },
-    {
-        id: "3",
-        email: "adam@example.com",
-        status: "pending",
-        ticketID: "1",
-        createdAt: new Date("2023-08-12T17:30:00.000Z")
-    },
-    {
-        id: "4",
-        email: "sahra@example.com",
-        status: "pending",
-        ticketID: "1",
-        createdAt: new Date("2023-08-12T17:30:00.000Z")
-    },
-]
 
 export const columns: ColumnDef<Contact>[] = [
     {
@@ -100,10 +68,10 @@ export const columns: ColumnDef<Contact>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "status",
-        header: "Status",
+        accessorKey: "id",
+        header: "ID",
         cell: ({ row }) => (
-            <div className="capitalize">{row.getValue("status")}</div>
+            <div className="capitalize">{row.getValue("id")}</div>
         ),
     },
     {
@@ -120,15 +88,6 @@ export const columns: ColumnDef<Contact>[] = [
             )
         },
         cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-    },
-    {
-        accessorKey: "ticketID",
-        header: () => <div className="text-right">Ticket ID</div>,
-        cell: ({ row }) => {
-            const ticketId = String(row.getValue("ticketID"))
-
-            return <div className="text-right font-medium">{ticketId}</div>
-        },
     },
     {
         accessorKey: "createdAt",
@@ -154,15 +113,22 @@ export const columns: ColumnDef<Contact>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(contactSupportRow.ticketID)}
+                            onClick={() => navigator.clipboard.writeText(contactSupportRow.email)}
                         >
-                            Copy Ticket ID
+                            Copy Email
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>View Contact Message</DropdownMenuItem>
                         <DropdownMenuItem>Mark as Done</DropdownMenuItem>
                         <DropdownMenuItem>Mark as Failed</DropdownMenuItem>
-                        <DropdownMenuItem className="text-red-500">Delete</DropdownMenuItem>
+                        <DropdownMenuItem className="text-red-500" onClick={async () => {
+                            fetch("/api/contact", {
+                                method: "DELETE",
+                                body: JSON.stringify({
+                                    id: contactSupportRow.id
+                                })
+                            })
+                        }}>Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
@@ -171,6 +137,9 @@ export const columns: ColumnDef<Contact>[] = [
 ]
 
 export function DataTable() {
+    const [data, setData] = React.useState<Contact[]>([]);
+    const [loading, setLoading] = React.useState(true);
+
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
@@ -197,6 +166,22 @@ export function DataTable() {
             rowSelection,
         },
     })
+
+    React.useEffect(() => {
+        // Fetch data from the '/api/contract/getAll' endpoint
+        fetch('/api/contact')
+            .then((response) => response.json())
+            .then((responseData) => {
+                // Update the 'data' state with the fetched data
+                setData(responseData);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+                setLoading(false);
+            });
+    }, []);
+
 
     return (
         <div className="w-full">

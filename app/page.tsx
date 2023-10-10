@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import AnnouncementBar from "@/components/AnnouncementBar"
 import { Textarea } from "@/components/ui/textarea"
-import { createRef } from "react"
+import { createRef, useState } from "react"
 import { toast } from "@/components/ui/use-toast"
 
 const pixelify_sans = Pixelify_Sans({
@@ -16,6 +16,8 @@ const pixelify_sans = Pixelify_Sans({
 export default function Home() {
   const textareaRef = createRef<HTMLTextAreaElement>();
   const emailRef = createRef<HTMLInputElement>();
+  const [isContactFormLoading, setIsContactFormLoading] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false); // New state variable
 
   return (
     <main>
@@ -94,32 +96,47 @@ export default function Home() {
             <div>
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
               <p className="mb-2">If you want to contact me, fill these infomation here</p>
-              <form onClick={async (event) => {
-                event.preventDefault()
-                const req = await fetch("/api/contact", {
-                  method: "POST",
-                  body: JSON.stringify({
-                    message: textareaRef.current?.value,
-                    email: emailRef.current?.value
-                  })
-                })
+              <form onSubmit={async (event) => {
+                event.preventDefault();
+                setIsContactFormLoading(true);
 
-                if(req.ok) {
-                  toast({
-                    title: "Success"
-                  })
-                } else {
-                  toast({
-                    title: "Error Failed to sent let developer fix it"
-                  })
+                try {
+                  const req = await fetch("/api/contact", {
+                    method: "POST",
+                    body: JSON.stringify({
+                      message: textareaRef.current?.value,
+                      email: emailRef.current?.value,
+                    }),
+                  });
+
+                  if (req.ok) {
+                    setIsSubmitted(true);
+                    if (textareaRef.current && emailRef.current) {
+                      textareaRef.current.value = "";
+                      emailRef.current.value = "";
+                    }
+                    window.location.reload();
+                  } else {
+                    toast({
+                      title: "Error Failed to send, let developer fix it",
+                      variant: "destructive",
+                    });
+                  }
+                } catch (error) {
+                  console.error("Error submitting form:", error);
                 }
+
+                setIsContactFormLoading(false);
               }}>
                 <div className="mb-2">
-                  <Textarea rows={10} placeholder="Message (max 2000)" className="resize-none" maxLength={2000} ref={textareaRef}/>
+                  <Textarea rows={10} placeholder="Message (max 2000)" className="resize-none" maxLength={2000} ref={textareaRef} />
                 </div>
                 <div className="flex gap-3">
-                  <Input placeholder="john@example.com" type="email" required ref={emailRef}/>
-                  <Button>SUBMIT</Button>
+                  <Input placeholder="john@example.com" type="email" required ref={emailRef} />
+                  <Button>{isContactFormLoading ? <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg> : "SUBMIT"}</Button>
                 </div>
               </form>
             </div>

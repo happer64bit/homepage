@@ -28,7 +28,6 @@ export async function generateMetadata({ params } : any) {
             albums: article?.thumbnail,
             images: article?.thumbnail,
         },
-        "og:image": article?.thumbnail,
     }
 }
 export default function ArticleLayout({ children } : { children: React.ReactNode }) {

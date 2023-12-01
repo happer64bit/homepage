@@ -1,3 +1,10 @@
+---
+title: Who is Wint Khant Lin or Happer64Bit?
+shortContents: Who is Wint Khant Lin or Happer64Bit
+pathname: about-my-self
+thumbnail: https://github.com/happer64bit/happer64bit/blob/main/blog-assets/images/who-is-wintkhantlin-1.png?raw=true
+---
+
 Hey there! I'm Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I'm just a regular student trying to make it big by coding. I've always been fascinated by technology and how coding can shape our lives. I'm constantly learning and improving my skills in different programming languages. But my goal isn't just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It's not going to be easy, but I'm determined to overcome any challenges that come my way. So, let's see where this coding journey takes me!
 
 ---

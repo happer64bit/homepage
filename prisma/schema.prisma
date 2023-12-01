@@ -8,6 +8,11 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+enum Language {
+  English
+  Burmese
+}
+
 model Articles {
   id            Int      @id @default(autoincrement())
   pathname      String   @unique
@@ -17,6 +22,13 @@ model Articles {
   contents      String   @db.Text
   updatedAt     DateTime @updatedAt
   createdAt     DateTime @default(now())
+}
+
+model Contents {
+  language Language
+  contents String @db.Text
+  
+  @@id([language])
 }
 
 model Events {

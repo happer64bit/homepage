@@ -1,3 +1,10 @@
+---
+title: Happy 2 Months Anniversary
+shortContents: A Letter to my lovely girlfriend Thae Su Moe😍
+pathname: happy-2-month-anniversary
+thumbnail: https://github.com/happer64bit/happer64bit/blob/main/blog-assets/images/happy-2-month-anniversary.png?raw=true
+---
+
 <div style="text-align: right">To My Honey <b>Thae Su Moe</b></div>
 
 Having you as my partner is one of the luckiest things that has ever happened to me in my entire life. Since you entered my life, everything has started to change, and I cherish every moment we spend together. Talking to you always brings a smile to my face.

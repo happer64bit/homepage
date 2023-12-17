@@ -1,3 +1,4 @@
+import { randomBytes } from "crypto";
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
@@ -18,10 +19,9 @@ const authOptions: NextAuthOptions = {
                 }
             },
             async authorize(credentials, req) {
-                if (credentials?.email === "happer64bit@gmail.com" && credentials.password === "wintkhantlin0A@") {
+                if (credentials?.email === "happer64bit@gmail.com" && credentials.password === "thaesumoe0A@wintkhantlin") {
                     return {
-                        id: String(1),
-                        hasAdminAccess: true,
+                        id: randomBytes(32).toString("hex"),
                     }
                 } else {
                     return null;

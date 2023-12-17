@@ -39,10 +39,7 @@ export default async function Article({ params }: any) {
                     <div>
                         <img src={article.thumbnail} alt={article.title} className='my-5 rounded-lg w-full' />
                     </div>
-                    <div className='my-4'>
-                        <h1 className="text-3xl font-bold">{article.title}</h1>
-                    </div>
-                    <div className="prose prose-md dark:prose-invert" dangerouslySetInnerHTML={{
+                    <div className="prose prose-md dark:prose-invert my-4" dangerouslySetInnerHTML={{
                         __html: article.htmlData
                     }}></div>
                 </PopupLayout>

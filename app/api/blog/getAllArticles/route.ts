@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
                 pathname: true,
                 id: true,
                 thumbnail: true,
+                shortContents: true,
                 title: true,
             },
             orderBy: {

@@ -1,7 +1,8 @@
 import prisma from "@/lib/prisma";
+import { Metadata } from "next";
 import React from "react";
 
-export async function generateMetadata({ params } : any) {
+export async function generateMetadata({ params } : any): Promise<Metadata> {
     const article = await prisma.articles.findUnique({
         where: {
             pathname: params.slug
@@ -28,6 +29,7 @@ export async function generateMetadata({ params } : any) {
             albums: article?.thumbnail,
             images: article?.thumbnail,
         },
+        metadataBase: new URL(process.env.VERCEL_URL || "http://localhost:3000")
     }
 }
 export default function ArticleLayout({ children } : { children: React.ReactNode }) {

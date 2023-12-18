@@ -5,8 +5,9 @@ import { Poppins } from 'next/font/google'
 import Header from '@/components/Header'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster'
+import Script from 'next/script'
 
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ['latin'],
   weight: ["400", "500", "600", "700", "800", "900"]
 })
@@ -23,6 +24,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-D3NCSR0W54" />
+        <Script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-D3NCSR0W54');`}
+        </Script>
+
+      </head>
       <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
@@ -34,7 +46,7 @@ export default function RootLayout({
           {children}
           <Toaster />
         </ThemeProvider>
-        <Analytics mode='production'/>
+        <Analytics mode='production' />
       </body>
     </html>
   )

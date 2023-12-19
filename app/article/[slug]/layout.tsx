@@ -29,7 +29,7 @@ export async function generateMetadata({ params } : any): Promise<Metadata> {
             albums: article?.thumbnail,
             images: article?.thumbnail,
         },
-        metadataBase: new URL(process.env.VERCEL_URL || "http://localhost:3000")
+        metadataBase: new URL(`https://${process.env.VERCEL_URL}` || "http://localhost:3000")
     }
 }
 export default function ArticleLayout({ children } : { children: React.ReactNode }) {

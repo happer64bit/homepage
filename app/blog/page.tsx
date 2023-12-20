@@ -70,7 +70,7 @@ export default function () {
                     <div className="my-3">
                         <div className="container">
                             {articles.map((event) => (
-                                <React.Fragment key={event}>
+                                <React.Fragment key={event.pathname}>
                                     <Link href={"/article/" + event.pathname}>
                                         <div className="p-4 rounded-md flex gap-6 transform duration-75 hover:bg-accent-foreground/[0.025] my-5">
                                             <div>

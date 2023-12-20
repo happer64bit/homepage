@@ -43,5 +43,7 @@ export async function GET(request: NextRequest) {
             message: "Internal Server Error",
             type: "error"
         }))
+    } finally {
+        await prisma.$disconnect()
     }
 }

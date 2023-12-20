@@ -24,8 +24,6 @@ export async function GET(request: NextRequest) {
             },
         });
 
-        prisma.$disconnect()
-
         const response = new Response(JSON.stringify(posts, (_, value) => {
             return typeof value === "bigint"
                 ? value.toString()
@@ -45,5 +43,7 @@ export async function GET(request: NextRequest) {
                 "Content-Type": "application/json",
             },
         });
+    } finally {
+        await prisma.$disconnect()
     }
 }

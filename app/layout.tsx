@@ -6,6 +6,8 @@ import Header from '@/components/Header'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster'
 import Script from 'next/script'
+import ProgressBar from '@/components/ProgressBar'
+
 
 const poppins = Poppins({
   subsets: ['latin'],

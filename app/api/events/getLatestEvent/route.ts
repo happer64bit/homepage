@@ -10,7 +10,8 @@ export async function GET(request: NextRequest) {
         }
     });
 
-    // Check if currentDate is between the start and end dates of the event
+    await prisma.$disconnect()
+    
     const isEventActive = event && event.startedDate <= currentDate && currentDate <= event.endDate;
 
     const responseObject = {

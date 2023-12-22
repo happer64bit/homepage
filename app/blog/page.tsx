@@ -72,14 +72,14 @@ export default function () {
                             {articles.map((event) => (
                                 <React.Fragment key={event.pathname}>
                                     <Link href={"/article/" + event.pathname} passHref>
-                                        <div className="p-4 rounded-md flex gap-6 transform duration-75 hover:bg-accent-foreground/[0.025] my-5">
+                                        <div className="p-4 rounded-md flex lg:flex-row flex-col gap-6 transform duration-75 hover:bg-accent-foreground/[0.025] my-5">
                                             <div>
-                                                <img src={event.thumbnail} className='min-w-[15rem] bg-contain bg-no-repeat bg-center h-[8.4375rem] rounded-md' />
+                                                <img src={event.thumbnail} className='w-[15rem] bg-contain bg-no-repeat bg-center h-[8.4375rem] rounded-md' />
                                             </div>
                                             <div className='flex items-center'>
                                                 <div>
-                                                    <h2 className="text-md lg:text-lg font-bold">{event.title}</h2>
-                                                    <p className="text-sm">{event.shortContents}</p>
+                                                    <h2 className="lg:text-lg font-bold">{event.title}</h2>
+                                                    <p className="text-sm mt-2 lg:mt-0">{event.shortContents}</p>
                                                     <p className="text-sm">{new Date(event.createdAt).toLocaleDateString()}</p>
                                                 </div>
                                             </div>

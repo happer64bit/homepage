@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+figcaption[data-rehype-pretty-code-title] {
+  @apply px-3 py-2 bg-[#24292e] w-fit mb-1 rounded-md
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

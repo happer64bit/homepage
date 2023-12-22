@@ -3,7 +3,8 @@ import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeHightlight from 'rehype-highlight'
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeCodeTitles from 'rehype-code-titles';
 
 export default async function(contents: string): Promise<string> {
     const result = await unified()
@@ -11,7 +12,7 @@ export default async function(contents: string): Promise<string> {
         .use(remarkGfm)
         .use(remarkParse, { allowDangerousHtml: true })
         .use(remarkRehype, { allowDangerousHtml: true })
-        .use(rehypeHightlight)
+        .use(rehypePrettyCode, { theme: "github-dark" })
         .process(contents)
     return String(result);
 }

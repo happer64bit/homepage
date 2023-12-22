@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function ({ children } : { children: React.ReactNode }) {
     return (
         <motion.div
-            className='w-[90dvh] px-4'
+            className='w-[100dvh] px-4'
             initial={{
                 opacity: 0,
                 marginTop: '20px',

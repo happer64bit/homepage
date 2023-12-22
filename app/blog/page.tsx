@@ -3,16 +3,6 @@ import Paginate from '@/components/Paginate';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-type ArticleType = {
-    pathname: string,
-    id: number,
-    title: string,
-    shortContent: string
-    thumbnail: string,
-    contents: string,
-    createdAt: Date,
-}
-
 export default function () {
     const [articles, setArticles] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);

@@ -34,12 +34,12 @@ export default async function Article({ params }: any) {
 
     return (
         <div>
-            <div className="flex justify-center">
+            <div className="max-w-[100dvh] mx-auto">
                 <PopupLayout>
                     <div>
                         <img src={article.thumbnail} alt={article.title} className='my-5 rounded-lg w-full' />
                     </div>
-                    <div className="prose prose-md dark:prose-invert my-4" dangerouslySetInnerHTML={{
+                    <div className="prose prose-h1:text-2xl dark:prose-invert my-4" dangerouslySetInnerHTML={{
                         __html: article.htmlData
                     }}></div>
                 </PopupLayout>

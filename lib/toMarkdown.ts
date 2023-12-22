@@ -14,5 +14,6 @@ export default async function(contents: string): Promise<string> {
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypePrettyCode, { theme: "github-dark" })
         .process(contents)
+    
     return String(result);
 }

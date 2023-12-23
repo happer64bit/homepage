@@ -90,6 +90,21 @@ export const columns: ColumnDef<Contact>[] = [
         cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
     },
     {
+        accessorKey: "message",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Message
+                    <CaretSortIcon className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        },
+        cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    },
+    {
         accessorKey: "createdAt",
         header: () => <div className="text-right">Date</div>,
         cell: ({ row }) => {

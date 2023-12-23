@@ -21,19 +21,19 @@ export default function Home() {
 
   return (
     <main>
-      <div className="h-[80vh] flex items-center p-10 animate-fade-up animate-once animate-duration-1000">
+      <div className="h-[80vh] flex items-center p-4 lg:p-10 animate-fade-up animate-once animate-duration-1000">
         <motion.div
           initial={{ x: "-50vw" }}
           animate={{ x: 0 }}
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
         >
-          <h2 className="text-5xl font-bold">Hi, my name is <span className={`${pixelify_sans.className} text-emerald-500`}>Wint Khant Lin</span></h2>
-          <h3 className="text-5xl font-bold">I <span className={`${pixelify_sans.className} text-yellow-400`}>develop</span>, I <span style={pixelify_sans.style} className="text-blue-400">create</span>, I <span className={`${pixelify_sans.className} text-purple-400`}>design</span></h3>
+          <h2 className="text-3xl lg:text-5xl font-bold">Hi, my name is <span className={`text-emerald-500`}>Wint Khant Lin</span></h2>
+          <h3 className="text-3xl lg:text-5xl font-bold">I <span className={`text-yellow-400`}>develop</span>, I <span className="text-blue-400">create</span>, I <span className={`text-purple-400`}>design</span></h3>
         </motion.div>
       </div>
       <div className="flex justify-center">
-        <div className="w-[90dvh] mb-10">
-          <div className="flex flex-wrap px-10">
+        <div className="w-[100dvh] mb-10">
+          <div className="flex flex-wrap px-4 lg:px-10">
             <motion.div
               initial={{
                 opacity: 0,
@@ -92,7 +92,7 @@ export default function Home() {
               </ol>
             </motion.div>
           </div>
-          <motion.div className="my-10 px-10">
+          <motion.div className="my-10 px-4 lg:px-10">
             <div>
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
               <p className="mb-2">If you want to contact me, fill these infomation here</p>

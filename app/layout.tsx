@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster'
 import Script from 'next/script'
 
-
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ["400", "500", "600", "700", "800", "900"]
@@ -37,6 +36,7 @@ export default function RootLayout({
 
       </head>
       <body className={poppins.className}>
+        <Analytics mode='production' />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

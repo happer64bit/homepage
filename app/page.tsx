@@ -3,15 +3,9 @@ import { Pixelify_Sans } from "next/font/google"
 import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import AnnouncementBar from "@/components/AnnouncementBar"
 import { Textarea } from "@/components/ui/textarea"
 import { createRef, useState } from "react"
 import { toast } from "@/components/ui/use-toast"
-
-const pixelify_sans = Pixelify_Sans({
-  weight: ["500"],
-  subsets: ["latin"]
-})
 
 export default function Home() {
   const textareaRef = createRef<HTMLTextAreaElement>();
@@ -27,14 +21,15 @@ export default function Home() {
           animate={{ x: 0 }}
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
         >
-          <h2 className="text-3xl lg:text-5xl font-bold">Hi, my name is <span className={`text-emerald-500`}>Wint Khant Lin</span></h2>
-          <h3 className="text-3xl lg:text-5xl font-bold">I <span className={`text-yellow-400`}>develop</span>, I <span className="text-blue-400">create</span>, I <span className={`text-purple-400`}>design</span></h3>
+          <h2 className="text-3xl lg:text-5xl font-bold">Hi, my name is <span className={`text-emerald-600 dark:text-emerald-500`}>Wint Khant Lin</span></h2>
+          <h3 className="text-3xl lg:text-5xl font-bold">I <span className={`text-yellow-600 dark:text-yellow-400`}>develop</span>, I <span className="text-blue-600 dark:text-blue-400">create</span>, I <span className={`text-purple-600 dark:text-purple-400`}>design</span></h3>
         </motion.div>
       </div>
       <div className="flex justify-center">
         <div className="w-[100dvh] mb-10">
           <div className="flex flex-wrap px-4 lg:px-10">
             <motion.div
+              viewport={{ once: true }}
               initial={{
                 opacity: 0,
                 scale: 0
@@ -53,6 +48,7 @@ export default function Home() {
             </motion.div>
             <motion.div
               className="mt-10"
+              viewport={{ once: true }}
               initial={{
                 opacity: 0,
                 scale: 0

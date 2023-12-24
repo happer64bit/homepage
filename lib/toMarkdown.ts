@@ -4,7 +4,6 @@ import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeCodeTitles from 'rehype-code-titles';
 
 export default async function(contents: string): Promise<string> {
     const result = await unified()

@@ -1,9 +1,34 @@
 "use client"
 import Paginate from '@/components/Paginate';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-export default function () {
+function ListItem(event: any) {
+    return (
+        <React.Fragment>
+            <Link href={`/article/${event.pathname}`} passHref>
+                <div className="p-4 rounded-md flex lg:flex-row flex-col gap-6 transform duration-75 hover:bg-accent-foreground/[0.025] my-5">
+                    <div>
+                        <img
+                            src={event.thumbnail}
+                            className="w-full lg:w-[15rem] bg-contain bg-no-repeat bg-center lg:h-[8.4375rem] rounded-md"
+                            alt={event.title}
+                        />
+                    </div>
+                    <div className="flex items-center">
+                        <div>
+                            <h2 className="lg:text-lg font-bold">{event.title}</h2>
+                            <p className="text-sm mt-2 lg:mt-0">{event.shortContents}</p>
+                            <p className="text-sm">{new Date(event.createdAt).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                </div>
+            </Link>
+        </React.Fragment>
+    );
+}
+
+export default function BlogPage() {
     const [articles, setArticles] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -52,6 +77,8 @@ export default function () {
         }
     };
 
+    const ListItemComponent = useMemo(() => ListItem, [])
+
     return (
         <main>
             <div className="flex justify-center my-10">
@@ -60,22 +87,7 @@ export default function () {
                     <div className="my-3">
                         <div className="container">
                             {articles.map((event) => (
-                                <React.Fragment key={event.pathname}>
-                                    <Link href={"/article/" + event.pathname} passHref>
-                                        <div className="p-4 rounded-md flex lg:flex-row flex-col gap-6 transform duration-75 hover:bg-accent-foreground/[0.025] my-5">
-                                            <div>
-                                                <img src={event.thumbnail} className='w-[15rem] bg-contain bg-no-repeat bg-center h-[8.4375rem] rounded-md' />
-                                            </div>
-                                            <div className='flex items-center'>
-                                                <div>
-                                                    <h2 className="lg:text-lg font-bold">{event.title}</h2>
-                                                    <p className="text-sm mt-2 lg:mt-0">{event.shortContents}</p>
-                                                    <p className="text-sm">{new Date(event.createdAt).toLocaleDateString()}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </React.Fragment>
+                                <ListItemComponent key={event.pathname} {...event} />
                             ))}
                         </div>
                         <div className="flex justify-center my-10">

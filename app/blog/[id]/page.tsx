@@ -28,10 +28,10 @@ function ListItem(event: any) {
     );
 }
 
-export default function BlogPage() {
+export default function BlogPage({ params } : { params : { id: number } }) {
     const [articles, setArticles] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [currentPage, setCurrentPage] = useState<number>(params.id);
     const [totalPages, setTotalPages] = useState<number>(1);
 
     const fetchArticles = async (page: number) => {
@@ -44,7 +44,6 @@ export default function BlogPage() {
             setIsLoading(false);
         }
 
-        // Fetch the total number of pages separately
         const ttPagesRes = await fetch(`/api/blog/getArticlesCount`, {
             method: 'GET',
             headers: {

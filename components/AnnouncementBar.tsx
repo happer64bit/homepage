@@ -1,51 +1,31 @@
-"use client"
+import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-interface EventData {
-    isEventActive: boolean;
-    event: {
-        id: number;
-        title: string;
-        description: string;
-        redirectLink: string;
-        startedDate: Date;
-        endDate: Date;
-        enabled: boolean;
-        createdAt: Date;
-    };
-}
+async function getEvent(): Promise<any> {
+    "use server"
+    const currentDate = new Date(); // Current date
 
-export default function EventAnnouncement() {
-    const [event, setEvent] = useState<EventData>({
-        isEventActive: false, // Initialize isEventActive to false
-        event: {
-            id: 0,
-            title: "",
-            description: "",
-            redirectLink: "",
-            startedDate: new Date(),
-            endDate: new Date(),
-            enabled: false,
-            createdAt: new Date(),
-        },
+    const event = await prisma.events.findFirst({
+        orderBy: {
+            createdAt: "desc"
+        }
     });
 
-    useEffect(() => {
-        async function fetchLatest() {
-            try {
-                const res = await fetch("/api/events/getLatestEvent");
-                const data = await res.json();
-                setEvent(data);
-            } catch (error) {
-                console.error("Error fetching event data:", error);
-                setEvent({ ...event, isEventActive: false });
-            }
-        }
-        fetchLatest();
-    }, [event]);
+    await prisma.$disconnect()
+    
+    const isEventActive = event && event.startedDate <= currentDate && currentDate <= event.endDate;
 
-    // Check if event exists before accessing isEventActive
+    const responseObject = {
+        event,
+        isEventActive
+    };
+
+    return responseObject
+}
+
+export default async function EventAnnouncement() {
+    const event: any = getEvent()
+
     return event && event.isEventActive && (
         <Link href={event.event.redirectLink}>
             <div className="relative isolate flex items-center gap-x-6 overflow-hidden dark:text-white dark:bg-transparent px-6 py-2 sm:px-3.5 justify-center hover:underline">

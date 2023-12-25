@@ -1,18 +1,12 @@
-"use client"
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { Button } from "./ui/button";
 import AnnouncementBar from "./AnnouncementBar";
-import { usePathname } from "next/navigation";
 
 export default function Header() {
-    const pathname = usePathname()
-
     return (
         <>
-            {pathname == "/" && (
-                <AnnouncementBar />
-            )}
+            <AnnouncementBar />
             <nav className="supports-backdrop-blur:bg-background/60 top-0 z-50 w-full border-b bg-background/95 backdrop-blur sticky">
                 <div className="container h-12 flex items-center justify-between">
                     <div className="flex items-center">

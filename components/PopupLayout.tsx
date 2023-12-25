@@ -1,10 +1,10 @@
 "use client"
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export default function PopuLayout({ children } : { children: React.ReactNode }) {
     return (
-        <motion.div
+        <m.div
             className='px-4'
             initial={{
                 opacity: 0,
@@ -19,6 +19,6 @@ export default function PopuLayout({ children } : { children: React.ReactNode })
             }}
         >
             {children}
-        </motion.div>
+        </m.div>
     )
 }

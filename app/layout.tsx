@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster'
 import Script from 'next/script'
+import { LazyMotion, domAnimation } from '@/components/motion'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -37,16 +38,18 @@ export default function RootLayout({
       </head>
       <body className={poppins.className}>
         <Analytics mode='production' />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Toaster />
-        </ThemeProvider>
+        <LazyMotion features={domAnimation}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </LazyMotion>
       </body>
     </html>
   )

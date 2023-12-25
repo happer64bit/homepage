@@ -66,7 +66,7 @@ export default function BlogPage() {
     useEffect(() => {
         fetchArticles(currentPage);
         console.log(articles)
-    }, [articles, currentPage]);
+    }, []);
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {

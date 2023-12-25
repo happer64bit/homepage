@@ -1,3 +1,3 @@
 "use client"
 
-export { motion } from 'framer-motion';
+export { motion, LazyMotion, domAnimation } from 'framer-motion';

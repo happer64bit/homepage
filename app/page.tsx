@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -15,19 +15,19 @@ export default function Home() {
   return (
     <main>
       <div className="h-[80vh] flex items-center p-4 lg:p-10 animate-fade-up animate-once animate-duration-1000">
-        <motion.div
+        <m.div
           initial={{ x: "-50vw" }}
           animate={{ x: 0 }}
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
         >
           <h2 className="text-5xl font-bold">Hi, my name is <span className={`text-emerald-600 dark:text-emerald-500`}>Wint Khant Lin</span></h2>
           <h3 className="text-5xl font-bold">I <span className={`text-yellow-600 dark:text-yellow-400`}>develop</span>, I <span className="text-blue-600 dark:text-blue-400">create</span>, I <span className={`text-purple-600 dark:text-purple-400`}>design</span></h3>
-        </motion.div>
+        </m.div>
       </div>
       <div className="flex justify-center">
         <div className="w-[100dvh] mb-10">
           <div className="flex flex-wrap px-4 lg:px-10">
-            <motion.div
+            <m.div
               viewport={{ once: true }}
               initial={{
                 opacity: 0,
@@ -44,8 +44,8 @@ export default function Home() {
                   Hey there! I&apos;m Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I&apos;m just a regular student trying to make it big by coding. I&apos;ve always been fascinated by technology and how coding can shape our lives. I&apos;m constantly learning and improving my skills in different programming languages . But my goal isn&apos;t just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It&apos;s not going to be easy, but I&apos;m determined to overcome any challenges that come my way. So, let&apos;s see where this coding journey takes me!
                 </p>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               className="mt-10"
               viewport={{ once: true }}
               initial={{
@@ -85,9 +85,9 @@ export default function Home() {
                   </li>
                 ))}
               </ol>
-            </motion.div>
+            </m.div>
           </div>
-          <motion.div className="my-10 px-4 lg:px-10">
+          <m.div className="my-10 px-4 lg:px-10">
             <div>
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
               <p className="mb-2">If you want to contact me, fill these infomation here</p>
@@ -138,7 +138,7 @@ export default function Home() {
                 </div>
               </form>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </main>

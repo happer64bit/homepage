@@ -1,17 +1,13 @@
 import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import { motion } from '@/components/motion'
 import PopupLayout from '@/components/PopupLayout';
-import toMarkdown from '@/lib/toMarkdown';
-
-type ArticleT = {
-    id: number;
-    pathname: string;
-    thumbnail: string;
-    title: string;
-    contents: string;
-    updatedAt: string;
-};
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import Image from 'next/image';
+import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypePrettyCode from 'rehype-pretty-code';
 
 async function useArticle(slug: any) {
     try {
@@ -21,7 +17,7 @@ async function useArticle(slug: any) {
             }
         })
 
-        return { ...article, htmlData: await toMarkdown(article.contents) }
+        return article
     } catch {
         notFound()
     } finally {
@@ -39,9 +35,34 @@ export default async function Article({ params }: any) {
                     <div>
                         <img src={article.thumbnail} alt={article.title} className='my-5 rounded-lg w-full' />
                     </div>
-                    <div className="prose prose-h1:text-2xl dark:prose-invert my-4" dangerouslySetInnerHTML={{
-                        __html: article.htmlData
-                    }}></div>
+                    <div className="prose prose-h1:text-2xl dark:prose-invert my-4">
+                        <MDXRemote source={article.contents} components={{
+                            img: (props) => (
+                                <Image
+                                    loading='lazy'
+                                    objectFit='cover'
+                                    height={1000}
+                                    width={1000}
+                                    src={props.src as string}
+                                    alt={props.alt as string}
+                                    className='w-full h-auto'
+                                />
+                            ),
+                            p: (props) => <>{props.children}</>
+                        }} options={{
+                            mdxOptions: {
+                                rehypePlugins: [
+                                    {
+                                        plugins: [rehypeStringify, rehypePrettyCode],
+                                        settings: {
+                                            theme: "github-dark"
+                                        }
+                                    }
+                                ],
+                                format: 'mdx'
+                            }
+                        }} />
+                    </div>
                 </PopupLayout>
             </div>
         </div>

@@ -43,7 +43,7 @@ export default function EventAnnouncement() {
             }
         }
         fetchLatest();
-    }, []); // Add an empty dependency array to run the effect only once
+    }, [event]);
 
     // Check if event exists before accessing isEventActive
     return event && event.isEventActive && (

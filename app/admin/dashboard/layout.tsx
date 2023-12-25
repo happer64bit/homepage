@@ -1,7 +1,7 @@
 import React from "react";
 import { Sidebar } from "./Sidebar";
 
-export default function ({ children } : { children: React.ReactNode }) {
+export default function AdminDashboardLayout({ children } : { children: React.ReactNode }) {
     return (
         <div className="flex">
             <Sidebar />

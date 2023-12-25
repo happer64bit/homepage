@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
-export default function () {
+export default function CreateArticlePage() {
     async function createArticle(form: FormData) {
         'use server'
 

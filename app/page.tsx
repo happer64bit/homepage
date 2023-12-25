@@ -1,5 +1,4 @@
 "use client"
-import { Pixelify_Sans } from "next/font/google"
 import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -42,7 +41,7 @@ export default function Home() {
               <div className="my-2">
                 <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">ABOUT ME</h3>
                 <p className="font-light leading-6">
-                  Hey there! I'm Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I'm just a regular student trying to make it big by coding. I've always been fascinated by technology and how coding can shape our lives. I'm constantly learning and improving my skills in different programming languages . But my goal isn't just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It's not going to be easy, but I'm determined to overcome any challenges that come my way. So, let's see where this coding journey takes me!
+                  Hey there! I&apos;m Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I&apos;m just a regular student trying to make it big by coding. I&apos;ve always been fascinated by technology and how coding can shape our lives. I&apos;m constantly learning and improving my skills in different programming languages . But my goal isn&apos;t just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It&apos;s not going to be easy, but I&apos;m determined to overcome any challenges that come my way. So, let&apos;s see where this coding journey takes me!
                 </p>
               </div>
             </motion.div>

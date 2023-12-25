@@ -16,7 +16,7 @@ const validatePassword = (password: string) => {
     return password.length !== 0; // Minimum password length of 6 characters
 };
 
-export default function () {
+export default function LoginPage() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);

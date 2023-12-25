@@ -33,7 +33,7 @@ export default async function Article({ params }: any) {
             <div className="max-w-[100dvh] mx-auto">
                 <PopupLayout>
                     <div>
-                        <img src={article.thumbnail} alt={article.title} className='my-5 rounded-lg w-full' />
+                        <Image width={1000} height={1000} src={article.thumbnail} alt={article.title} className='my-5 rounded-lg w-full' />
                     </div>
                     <div className="prose prose-h1:text-2xl dark:prose-invert my-4">
                         <MDXRemote source={article.contents} components={{
@@ -53,6 +53,7 @@ export default async function Article({ params }: any) {
                             mdxOptions: {
                                 rehypePlugins: [
                                     {
+                                        // @ts-ignore
                                         plugins: [rehypeStringify, rehypePrettyCode],
                                         settings: {
                                             theme: "github-dark"

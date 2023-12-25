@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function ({ children } : { children: React.ReactNode }) {
+export default function PopuLayout({ children } : { children: React.ReactNode }) {
     return (
         <motion.div
             className='px-4'

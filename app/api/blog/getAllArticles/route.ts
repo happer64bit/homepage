@@ -1,5 +1,4 @@
 import prisma from "@/lib/prisma";
-import toMarkdown from "@/lib/toMarkdown";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {

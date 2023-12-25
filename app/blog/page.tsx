@@ -1,5 +1,6 @@
 "use client"
 import Paginate from '@/components/Paginate';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
@@ -9,8 +10,10 @@ function ListItem(event: any) {
             <Link href={`/article/${event.pathname}`} passHref>
                 <div className="p-4 rounded-md flex lg:flex-row flex-col gap-6 transform duration-75 hover:bg-accent-foreground/[0.025] my-5">
                     <div>
-                        <img
+                        <Image
                             src={event.thumbnail}
+                            width={1000}
+                            height={1000}
                             className="w-full lg:w-[15rem] bg-contain bg-no-repeat bg-center lg:h-[8.4375rem] rounded-md"
                             alt={event.title}
                         />
@@ -63,7 +66,7 @@ export default function BlogPage() {
     useEffect(() => {
         fetchArticles(currentPage);
         console.log(articles)
-    }, [currentPage]);
+    }, [articles, currentPage]);
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {

@@ -14,7 +14,7 @@ const articles = async () => {
     })
 }
 
-export default async function () {
+export default async function DashboardPage() {
     const articlesList = await articles()
 
     return (

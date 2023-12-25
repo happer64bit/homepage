@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import AnnouncementBar from "./AnnouncementBar";
 import { usePathname } from "next/navigation";
 
-export default function () {
+export default function Header() {
     const pathname = usePathname()
 
     return (

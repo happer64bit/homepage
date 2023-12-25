@@ -4,12 +4,13 @@ import { Button } from "../ui/button"
 import { Card, CardDescription, CardFooter, CardHeader } from "../ui/card"
 import Link from "next/link"
 import { toast } from "../ui/use-toast"
+import Image from "next/image"
 
 export default function AdminBlogCard({ event } : any) {
     return (
         <Card className="w-[21rem]">
             <CardHeader>
-                <img src={event.thumbnail} className="w-[20rem] rounded" />
+                <Image width={1000} height={1000}  src={event.thumbnail} className="w-[20rem] rounded" alt={event.title as string} />
             </CardHeader>
             <CardDescription className="px-6 text-lg font-bold">
                 {event.title}

@@ -28,7 +28,7 @@ jobs:
             const fs = require('fs');
             const buildLog = fs.readFileSync('log.txt', 'utf-8');
 
-            github.issues.createComment({
+            github.rest.issues.createComment({
               owner,
               repo,
               issue_number: number,

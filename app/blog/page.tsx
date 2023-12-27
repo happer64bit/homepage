@@ -1,4 +1,5 @@
 "use client"
+import BlogPreviewPostSkeleton from '@/components/BlogPreviewPostSkeleton';
 import Paginate from '@/components/Paginate';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -57,7 +58,7 @@ export default function BlogPage() {
 
         if (ttPagesRes.ok) {
             const ttPagesData = await ttPagesRes.json();
-            const totalPages = ttPagesData.length; // Extract the 'length' property
+            const totalPages = ttPagesData.length;
             setTotalPages(totalPages);
         }
     };
@@ -89,9 +90,10 @@ export default function BlogPage() {
                     <div className="my-3">
                         <div className="container">
                             <h1 className="text-2xl font-bold">Blog</h1>
-                            {articles.map((event) => (
+                            <div className="my-5" />
+                            {!isLoading? articles.map((event) => (
                                 <ListItemComponent key={event.pathname} {...event} />
-                            ))}
+                            )) : <div className='flex items-center justify-center'><span className=" w-12 h-12 inline-block box-border animate-spin rounded-[50%] border-r-[3px] border-r-transparent border-t-[3px] border-t-white border-solid;"></span></div>}
                         </div>
                         <div className="flex justify-center my-10">
                             <Paginate currentPage={1} maxPages={totalPages} handleRoute={(page) => { console.log(page) }} />

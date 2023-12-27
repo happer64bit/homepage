@@ -1,0 +1,54 @@
+yarn run v1.22.19
+$ next build
+   ▲ Next.js 14.0.4
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/19) ...
+
+   Generating static pages (4/19) 
+
+   Generating static pages (9/19) 
+
+   Generating static pages (14/19) 
+
+ ✓ Generating static pages (19/19) 
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    3.46 kB        99.7 kB
+├ ○ /_not-found                          0 B                0 B
+├ λ /admin/api/delete                    0 B                0 B
+├ ○ /admin/dashboard                     2.34 kB         108 kB
+├ ○ /admin/dashboard/contacts            17.9 kB         135 kB
+├ ○ /admin/dashboard/create              145 B          82.1 kB
+├ ○ /admin/login                         3.6 kB          104 kB
+├ λ /api/auth/[...nextauth]              0 B                0 B
+├ λ /api/blog/getAllArticles             0 B                0 B
+├ ○ /api/blog/getArticlesCount           0 B                0 B
+├ λ /api/contact                         0 B                0 B
+├ ○ /api/events/getAllEvents             0 B                0 B
+├ ○ /api/events/getLatestEvent           0 B                0 B
+├ λ /article/[slug]                      813 B          94.3 kB
+├ ○ /blog                                2.2 kB          104 kB
+├ λ /blog/[id]                           2.12 kB         103 kB
+├ ○ /cv                                  144 B          82.1 kB
+├ ○ /rss.xml                             0 B                0 B
+└ ○ /sitemap.xml                         0 B                0 B
++ First Load JS shared by all            81.9 kB
+  ├ chunks/938-fd733620d7f9faf3.js       26.7 kB
+  ├ chunks/fd9d1056-30fa157978a513bd.js  53.3 kB
+  ├ chunks/main-app-c03a73efd7ec2dab.js  220 B
+  └ chunks/webpack-7acd1a7c2d2cdc8f.js   1.74 kB
+
+
+ƒ Middleware                             74.8 kB
+
+○  (Static)   prerendered as static content
+λ  (Dynamic)  server-rendered on demand using Node.js
+
+Done in 76.95s.

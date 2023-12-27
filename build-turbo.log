@@ -1,0 +1,9 @@
+yarn run v1.22.19
+$ next build --experimental-turbo
+   ▲ Next.js 14.0.4 (turbo)
+   - Environments: .env
+
+   Creating an optimized production build ...
+   Linting and checking validity of types ...
+   Collecting page data ...
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

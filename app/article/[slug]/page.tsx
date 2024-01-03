@@ -55,9 +55,6 @@ export default async function Article({ params }: any) {
                                     {
                                         // @ts-ignore
                                         plugins: [rehypeStringify, rehypePrettyCode],
-                                        settings: {
-                                            theme: "github-dark"
-                                        }
                                     }
                                 ],
                                 format: 'mdx'

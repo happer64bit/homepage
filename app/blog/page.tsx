@@ -1,9 +1,9 @@
 "use client"
-import BlogPreviewPostSkeleton from '@/components/BlogPreviewPostSkeleton';
 import Paginate from '@/components/Paginate';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { For } from 'million/react'
 
 function ListItem(event: any) {
     return (
@@ -15,8 +15,9 @@ function ListItem(event: any) {
                             src={event.thumbnail}
                             width={1000}
                             height={1000}
-                            className="w-full lg:w-[15rem] bg-contain bg-no-repeat bg-center lg:h-[8.4375rem] rounded-md"
+                            className="w-full min-w-[15rem] bg-contain bg-no-repeat bg-center lg:h-[8.4375rem] rounded-md"
                             alt={event.title}
+                            priority
                         />
                     </div>
                     <div className="flex items-center">
@@ -48,7 +49,6 @@ export default function BlogPage() {
             setIsLoading(false);
         }
 
-        // Fetch the total number of pages separately
         const ttPagesRes = await fetch(`/api/blog/getArticlesCount`, {
             method: 'GET',
             headers: {
@@ -81,8 +81,6 @@ export default function BlogPage() {
         }
     };
 
-    const ListItemComponent = useMemo(() => ListItem, [])
-
     return (
         <main>
             <div className="flex justify-center my-10">
@@ -91,9 +89,11 @@ export default function BlogPage() {
                         <div className="container">
                             <h1 className="text-2xl font-bold">Blog</h1>
                             <div className="my-5" />
-                            {!isLoading? articles.map((event) => (
-                                <ListItemComponent key={event.pathname} {...event} />
-                            )) : <div className='flex items-center justify-center'><span className=" w-12 h-12 inline-block box-border animate-spin rounded-[50%] border-r-[3px] border-r-transparent border-t-[3px] border-t-white border-solid;"></span></div>}
+                            {!isLoading? (
+                                <For memo each={articles} ssr>
+                                    {(item) => <ListItem {...item} key={item.pathname} />}
+                                </For>
+                            ) : <div className='flex items-center justify-center'><span className=" w-12 h-12 inline-block box-border animate-spin rounded-[50%] border-r-[3px] border-r-transparent border-t-[3px] border-t-white border-solid;"></span></div>}
                         </div>
                         <div className="flex justify-center my-10">
                             <Paginate currentPage={1} maxPages={totalPages} handleRoute={(page) => { console.log(page) }} />

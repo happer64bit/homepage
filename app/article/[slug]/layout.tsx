@@ -32,6 +32,7 @@ export async function generateMetadata({ params } : any): Promise<Metadata> {
         metadataBase: new URL(`https://${process.env.VERCEL_URL}` || "http://localhost:3000")
     }
 }
+
 export default function ArticleLayout({ children } : { children: React.ReactNode }) {
     return (
         <div className="my-20">

@@ -2,11 +2,15 @@ import { ThemeProvider } from '@/components/ThemeProvder'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import Header from '@/components/Header'
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster'
 import Script from 'next/script'
 import { LazyMotion, domAnimation } from '@/components/motion'
+import dynamic from 'next/dynamic';
+
+const Header = dynamic(() => import('@/components/Header'), {
+  ssr: false
+})
 
 const poppins = Poppins({
   subsets: ['latin'],

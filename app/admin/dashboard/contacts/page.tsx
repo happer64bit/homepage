@@ -1,4 +1,7 @@
 "use client"
+
+import dynamic from "next/dynamic"
+
 import { DataTable } from "./Datatable"
 
 export default function ContactPage() {

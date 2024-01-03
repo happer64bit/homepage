@@ -10,7 +10,7 @@ export default function Home() {
   const textareaRef = createRef<HTMLTextAreaElement>();
   const emailRef = createRef<HTMLInputElement>();
   const [isContactFormLoading, setIsContactFormLoading] = useState<boolean>(false);
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false); // New state variable
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   return (
     <main>
@@ -77,8 +77,8 @@ export default function Home() {
                     date: "2023",
                     name: "CS50: Introduction to Computer Science (Online Course)"
                   }
-                ].map((event, index) => (
-                  <li className="ml-4 py-3" key={index}>
+                ].map((event) => (
+                  <li className="ml-4 py-3" key={event.date}>
                     <div className="absolute w-3 h-3 bg-black rounded-full mt-1.5 -left-1.5 border border-white dark:border-white dark:bg-white"></div>
                     <time className="mb-1 text-sm font-normal leading-none">{event.date}</time>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{event.name}</h3>

@@ -1,0 +1,11 @@
+[
+    {
+        "name": "GottaTaste",
+        "version": "1.4",
+        "website": "https://gottataste.vercel.app",
+        "image": "/img/gottataste-app.png",
+        "description": "GottaTaste Your recipe sharing platform",
+        "technology": ["Svelte", "TailwindCss"],
+        "tags": ["website", "socialapp"]
+    }
+]

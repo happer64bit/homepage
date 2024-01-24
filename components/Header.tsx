@@ -15,6 +15,9 @@ export default function Header() {
                         </Link>
                     </div>
                     <div className="flex items-center gap-4">
+                        <Link href="/projects">
+                            <Button variant={"ghost"}>Projects</Button>
+                        </Link>
                         <Link href="/blog">
                             <Button variant={"ghost"}>Blog</Button>
                         </Link>

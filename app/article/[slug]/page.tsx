@@ -4,10 +4,25 @@ import PopupLayout from '@/components/PopupLayout';
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
 import rehypePrettyCode from 'rehype-pretty-code';
+import CopyCode from '@/components/CopyCode';
+import { visit } from 'unist-util-visit'
+import clsx from 'clsx';
+
+export function Pre({
+    children,
+    raw,
+    buttonClasses = 'absolute top-3 right-3 bg-zinc-900',
+    ...props
+  }) {
+    return (
+      <pre {...props} className={clsx('relative', props.className)}>
+        {children}
+        <CopyCode text={raw} className={buttonClasses} />
+      </pre>
+    )
+  }
+
 
 async function useArticle(slug: any) {
     try {
@@ -48,17 +63,35 @@ export default async function Article({ params }: any) {
                                     className='w-full h-auto'
                                 />
                             ),
-                            p: (props) => <>{props.children}</>
+                            p: (props) => <>{props.children}</>,
+                            pre: (props) => <Pre {...props} />,
                         }} options={{
                             mdxOptions: {
                                 rehypePlugins: [
-                                    {
-                                        // @ts-ignore
-                                        plugins: [rehypeStringify, rehypePrettyCode],
-                                    }
+                                    (tree) => {
+                                        visit(tree, (node) => {
+                                            if (node?.type === 'element' && node?.tagName === 'pre') {
+                                                const [codeEl] = node.children
+
+                                                if (codeEl && codeEl.tagName !== 'code') return
+
+                                                node.raw = codeEl.children?.[0].value
+                                            }
+                                        })
+                                    },
+                                    rehypeStringify,
+                                    rehypePrettyCode,
+                                    (tree) => {
+                                        visit(tree, 'element', (node) => {
+                                            if (node?.type === 'element' && node?.tagName === 'pre') {
+                                                node.properties['raw'] = node.raw
+                                            }
+                                        })
+                                    },
                                 ],
                                 format: 'mdx'
-                            }
+                            },
+
                         }} />
                     </div>
                 </PopupLayout>

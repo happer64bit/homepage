@@ -5,24 +5,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import rehypeStringify from 'rehype-stringify'
 import rehypePrettyCode from 'rehype-pretty-code';
-import CopyCode from '@/components/CopyCode';
 import { visit } from 'unist-util-visit'
-import clsx from 'clsx';
-
-export function Pre({
-    children,
-    raw,
-    buttonClasses = 'absolute top-3 right-3 bg-zinc-900',
-    ...props
-  }) {
-    return (
-      <pre {...props} className={clsx('relative', props.className)}>
-        {children}
-        <CopyCode text={raw} className={buttonClasses} />
-      </pre>
-    )
-  }
-
+import React from 'react';
 
 async function useArticle(slug: any) {
     try {
@@ -64,7 +48,6 @@ export default async function Article({ params }: any) {
                                 />
                             ),
                             p: (props) => <>{props.children}</>,
-                            pre: (props) => <Pre {...props} />,
                         }} options={{
                             mdxOptions: {
                                 rehypePlugins: [
@@ -79,7 +62,9 @@ export default async function Article({ params }: any) {
                                             }
                                         })
                                     },
+                                    // @ts-ignore
                                     rehypeStringify,
+                                    // @ts-ignore
                                     rehypePrettyCode,
                                     (tree) => {
                                         visit(tree, 'element', (node) => {

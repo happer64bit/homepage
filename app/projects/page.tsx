@@ -1,8 +1,6 @@
 import ProjectCard from '@/components/ProjectCard'
 import schemas from '@/lib/projects.data.json'
 
-
-
 export default function ProjectsPage() {
     return (
         <div>

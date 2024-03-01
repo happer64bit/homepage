@@ -7,6 +7,8 @@ import { Toaster } from '@/components/ui/toaster'
 import Script from 'next/script'
 import { LazyMotion, domAnimation } from '@/components/motion'
 import dynamic from 'next/dynamic';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Suspense } from 'react';
 
 const Header = dynamic(() => import('@/components/Header'), {
   ssr: false
@@ -49,11 +51,14 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
+            <Suspense>
+              <Header />
+            </Suspense>
             {children}
             <Toaster />
           </ThemeProvider>
         </LazyMotion>
+        <SpeedInsights />
       </body>
     </html>
   )

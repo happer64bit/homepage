@@ -24,13 +24,6 @@ model Articles {
   createdAt     DateTime @default(now())
 }
 
-model Contents {
-  language Language
-  contents String @db.Text
-  
-  @@id([language])
-}
-
 model Events {
   id           Int      @id @default(autoincrement())
   title        String

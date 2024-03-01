@@ -5,7 +5,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image';
 import rehypeStringify from 'rehype-stringify'
 import rehypePrettyCode from 'rehype-pretty-code';
-import { visit } from 'unist-util-visit'
 import React from 'react';
 
 async function useArticle(slug: any) {
@@ -35,7 +34,7 @@ export default async function Article({ params }: any) {
                         <Image width={1000} height={1000} src={article.thumbnail} alt={article.title} className='my-5 rounded-lg w-full' />
                     </div>
                     <div className="prose prose-h1:text-2xl dark:prose-invert my-4">
-                        <MDXRemote source={article.contents} components={{
+                        <MDXRemote source={article.contents ?? "This Article has no contents"} components={{
                             img: (props) => (
                                 <Image
                                     loading='lazy'
@@ -47,36 +46,16 @@ export default async function Article({ params }: any) {
                                     className='w-full h-auto'
                                 />
                             ),
-                            p: (props) => <>{props.children}</>,
                         }} options={{
                             mdxOptions: {
                                 rehypePlugins: [
-                                    (tree) => {
-                                        visit(tree, (node) => {
-                                            if (node?.type === 'element' && node?.tagName === 'pre') {
-                                                const [codeEl] = node.children
-
-                                                if (codeEl && codeEl.tagName !== 'code') return
-
-                                                node.raw = codeEl.children?.[0].value
-                                            }
-                                        })
-                                    },
                                     // @ts-ignore
                                     rehypeStringify,
                                     // @ts-ignore
                                     rehypePrettyCode,
-                                    (tree) => {
-                                        visit(tree, 'element', (node) => {
-                                            if (node?.type === 'element' && node?.tagName === 'pre') {
-                                                node.properties['raw'] = node.raw
-                                            }
-                                        })
-                                    },
                                 ],
                                 format: 'mdx'
                             },
-
                         }} />
                     </div>
                 </PopupLayout>

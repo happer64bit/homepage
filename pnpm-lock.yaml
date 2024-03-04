@@ -6,16 +6,16 @@ settings:
 
 dependencies:
   '@mdx-js/loader':
-    specifier: ^3.0.0
+    specifier: ^3.0.1
     version: 3.0.1(webpack@5.90.3)
   '@mdx-js/react':
-    specifier: ^3.0.0
+    specifier: ^3.0.1
     version: 3.0.1(@types/react@18.2.61)(react@18.2.0)
   '@next/mdx':
-    specifier: ^14.0.4
+    specifier: ^14.1.0
     version: 14.1.0(@mdx-js/loader@3.0.1)(@mdx-js/react@3.0.1)
   '@prisma/client':
-    specifier: ^5.7.1
+    specifier: ^5.10.2
     version: 5.10.2(prisma@5.10.2)
   '@radix-ui/react-alert-dialog':
     specifier: ^1.0.5
@@ -48,16 +48,16 @@ dependencies:
     specifier: ^9.7.3
     version: 9.7.3(react-dom@18.2.0)(react@18.2.0)
   '@tailwindcss/typography':
-    specifier: '*'
+    specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
   '@tanstack/react-table':
-    specifier: ^8.10.3
+    specifier: ^8.13.2
     version: 8.13.2(react-dom@18.2.0)(react@18.2.0)
   '@types/mdx':
-    specifier: ^2.0.10
+    specifier: ^2.0.11
     version: 2.0.11
   '@vercel/analytics':
-    specifier: ^1.1.1
+    specifier: ^1.2.2
     version: 1.2.2(next@14.1.1)(react@18.2.0)
   '@vercel/speed-insights':
     specifier: ^1.0.10
@@ -66,16 +66,16 @@ dependencies:
     specifier: ^0.7.0
     version: 0.7.0
   clsx:
-    specifier: ^2.0.0
+    specifier: ^2.1.0
     version: 2.1.0
   eslint:
-    specifier: ^8.56.0
+    specifier: ^8.57.0
     version: 8.57.0
   eslint-config-next:
     specifier: ^14.1.0
     version: 14.1.0(eslint@8.57.0)(typescript@5.3.3)
   framer-motion:
-    specifier: ^10.16.4
+    specifier: ^10.18.0
     version: 10.18.0(react-dom@18.2.0)(react@18.2.0)
   million:
     specifier: ^3.0.3
@@ -84,16 +84,16 @@ dependencies:
     specifier: ^14.1.1
     version: 14.1.1(@babel/core@7.24.0)(react-dom@18.2.0)(react@18.2.0)
   next-auth:
-    specifier: '*'
+    specifier: ^4.24.6
     version: 4.24.6(next@14.1.1)(react-dom@18.2.0)(react@18.2.0)
   next-mdx-remote:
     specifier: ^4.4.1
     version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
   next-nprogress-bar:
-    specifier: ^2.1.2
+    specifier: ^2.2.0
     version: 2.2.0
   next-themes:
-    specifier: '*'
+    specifier: ^0.2.1
     version: 0.2.1(next@14.1.1)(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
@@ -102,7 +102,7 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-icons:
-    specifier: ^4.11.0
+    specifier: ^4.12.0
     version: 4.12.0(react@18.2.0)
   rehype-code-titles:
     specifier: ^1.2.0
@@ -111,7 +111,7 @@ dependencies:
     specifier: ^7.0.0
     version: 7.0.0
   rehype-pretty-code:
-    specifier: ^0.12.3
+    specifier: ^0.12.6
     version: 0.12.6(shikiji@0.9.19)
   rehype-shiki:
     specifier: ^0.0.9
@@ -126,19 +126,19 @@ dependencies:
     specifier: ^11.0.0
     version: 11.0.0
   remark-rehype:
-    specifier: ^11.0.0
+    specifier: ^11.1.0
     version: 11.1.0
   rss:
     specifier: ^1.2.2
     version: 1.2.2
   sharp:
-    specifier: ^0.33.1
+    specifier: ^0.33.2
     version: 0.33.2
   shiki:
     specifier: ^0.14.7
     version: 0.14.7
   shikiji:
-    specifier: ^0.9.11
+    specifier: ^0.9.19
     version: 0.9.19
   tailwind-merge:
     specifier: ^1.14.0
@@ -147,7 +147,7 @@ dependencies:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.1)
   unified:
-    specifier: ^11.0.3
+    specifier: ^11.0.4
     version: 11.0.4
   unist-util-visit:
     specifier: ^5.0.0
@@ -155,37 +155,37 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^20
+    specifier: ^20.11.24
     version: 20.11.24
   '@types/react':
-    specifier: ^18
+    specifier: ^18.2.61
     version: 18.2.61
   '@types/react-dom':
-    specifier: ^18
+    specifier: ^18.2.19
     version: 18.2.19
   '@types/react-infinite-scroller':
-    specifier: ^1.2.3
+    specifier: ^1.2.5
     version: 1.2.5
   '@types/rss':
     specifier: ^0.0.32
     version: 0.0.32
   autoprefixer:
-    specifier: ^10
+    specifier: ^10.4.17
     version: 10.4.17(postcss@8.4.35)
   postcss:
-    specifier: ^8
+    specifier: ^8.4.35
     version: 8.4.35
   prisma:
-    specifier: ^5.7.1
+    specifier: ^5.10.2
     version: 5.10.2
   shadcn-ui:
-    specifier: '*'
+    specifier: ^0.8.0
     version: 0.8.0(typescript@5.3.3)
   tailwindcss:
-    specifier: ^3
+    specifier: ^3.4.1
     version: 3.4.1
   typescript:
-    specifier: ^5
+    specifier: ^5.3.3
     version: 5.3.3
 
 packages:
@@ -805,7 +805,7 @@ packages:
     resolution: {integrity: sha512-UTYAUj/wviwdsMfzoSJspJxbkH5o1snzwX0//0ENX1u/55kkZZkcTZP6u9bwKGkv+dkk9at4m1Cpt0uY80kcpQ==}
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.24
+      '@jridgewell/trace-mapping': 0.3.25
     dev: false
 
   /@jridgewell/sourcemap-codec@1.4.15:
@@ -816,6 +816,13 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /@jridgewell/trace-mapping@0.3.25:
+    resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+    dependencies:
+      '@jridgewell/resolve-uri': 3.1.2
+      '@jridgewell/sourcemap-codec': 1.4.15
+    dev: false
 
   /@mdx-js/loader@3.0.1(webpack@5.90.3):
     resolution: {integrity: sha512-YbYUt7YyEOdFxhyuCWmLKf5vKhID/hJAojEUnheJk4D8iYVLFQw+BAoBWru/dHGch1omtmZOPstsmKPyBF68Tw==}
@@ -6922,7 +6929,7 @@ packages:
       uglify-js:
         optional: true
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.24
+      '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2

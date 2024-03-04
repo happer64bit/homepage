@@ -10,7 +10,7 @@ export default function Home() {
   const textareaRef = createRef<HTMLTextAreaElement>();
   const emailRef = createRef<HTMLInputElement>();
   const [isContactFormLoading, setIsContactFormLoading] = useState<boolean>(false);
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [_, setIsSubmitted] = useState<boolean>(false);
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
 

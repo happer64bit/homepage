@@ -31,17 +31,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-D3NCSR0W54" />
-        <Script id="gtag-script">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-D3NCSR0W54');`}
-        </Script>
-
-      </head>
       <body className={poppins.className}>
         <Analytics mode='production' />
         <LazyMotion features={domAnimation}>

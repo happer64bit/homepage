@@ -1,0 +1,7 @@
+{
+    "driver": "pg",
+    "out": "./drizzle",
+    "schema": "./drizzle/schema.ts",
+    "verbose": true,
+    "strict": true
+}

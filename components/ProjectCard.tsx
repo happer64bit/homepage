@@ -15,7 +15,7 @@ export default function ProjectCard(props: Props) {
     return (
         <Link href={props.website} className="p-3" passHref>
             <div className="my-2">
-                <Image src={props.image} width={500} height={300} alt={props.name} className="rounded"/>
+                <Image src={props.image} width={500} height={260} alt={props.name} className="rounded"/>
             </div>
             <div className="my-2">
                 <h2 className="text-2xl flex items-center gap-2">{props.name} - <span className="hover:underline text-black/50 dark:text-white/50 text-sm font-mono">{props.website}</span></h2>

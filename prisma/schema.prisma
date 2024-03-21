@@ -41,3 +41,10 @@ model Contacts {
   message   String
   createdAt DateTime @default(now())
 }
+
+model HireMessages {
+  id        String   @id @default(uuid())
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}

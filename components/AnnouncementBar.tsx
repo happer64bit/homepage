@@ -15,16 +15,10 @@ async function getEvent(): Promise<any> {
     
     const isEventActive = event && event.startedDate <= currentDate && currentDate <= event.endDate;
     
-    console.log(isEventActive)
-    
-    const responseObject = {
+    return {
         ...event,
         isEventActive
     };
-    
-    console.log(responseObject)
-    
-    return responseObject
 }
 
 export default async function EventAnnouncement() {

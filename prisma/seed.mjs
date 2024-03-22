@@ -5,11 +5,11 @@ const prisma = new PrismaClient()
 async function main() {
     const post = await prisma.articles.create({
         data: {
-            title: "What is Server-Side Rendering?",
-            pathname: "what-is-server-side-rendering",
-            thumbnail: "https://i.ibb.co/VmY3Q2t/What-is-Server-Side-Rendering.png",
-            shortContents: "What's SSR? It's a web magic where the server does the work, sending complete webpages for a faster, smoother experience.",
-            contents: readFileSync("./contents/what-is-ssr/article.md").toString("utf-8")
+            title: "Ai and Machine Learning Keywords Explained            ",
+            pathname: "ai-and-machine-learning-keywords-explained",
+            thumbnail: "https://imgdb.net/storage/uploads/f6c89b7bed337a3dfe7ad73d59152bfdeb197d24efcc828d9331a53df37af803.png",
+            shortContents: "Basic And Fundamental Ai and Machine Learning Development used Keywords explained",
+            contents: readFileSync("./contents/ai-and-machine-learning-keywords-explained/content.md").toString("utf-8")
         }
     })
 }

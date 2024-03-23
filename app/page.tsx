@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { createRef, useState } from "react"
 import { toast } from "@/components/ui/use-toast"
+import { For } from 'million/react';
 
 export default function Home() {
   const textareaRef = createRef<HTMLTextAreaElement>();
@@ -62,7 +63,7 @@ export default function Home() {
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">EDUCATION</h3>
               <p className="mb-2">Here are my educational journey in my entire life</p>
               <ol className="relative border-l border-black dark:border-white">
-                {[
+                <For each={[
                   {
                     date: "2014-2018",
                     name: "Kaung Su San (Private)"
@@ -83,13 +84,15 @@ export default function Home() {
                     date: "2024-Present",
                     name: "GUSTO University"
                   }
-                ].map((event) => (
-                  <li className="ml-4 py-3" key={event.date}>
-                    <div className="absolute w-3 h-3 bg-black rounded-full mt-1.5 -left-1.5 border border-white dark:border-white dark:bg-white"></div>
-                    <time className="mb-1 text-sm font-normal leading-none">{event.date}</time>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{event.name}</h3>
-                  </li>
-                ))}
+                ]}>
+                  {(event) => (
+                    <li className="ml-4 py-3" key={event.date}>
+                      <div className="absolute w-3 h-3 bg-black rounded-full mt-1.5 -left-1.5 border border-white dark:border-white dark:bg-white"></div>
+                      <time className="mb-1 text-sm font-normal leading-none">{event.date}</time>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{event.name}</h3>
+                    </li>
+                  )}
+                </For>
               </ol>
             </m.div>
           </div>

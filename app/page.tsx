@@ -16,7 +16,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
 
   return (
-    <main>
+    <>
       <div className="h-[80vh] flex items-center p-4 lg:p-10 animate-fade-up animate-once animate-duration-1000">
         <m.div
           initial={{ x: "-50vw" }}
@@ -153,6 +153,6 @@ export default function Home() {
           </m.div>
         </div>
       </div>
-    </main>
+    </>
   )
 }

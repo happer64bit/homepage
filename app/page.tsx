@@ -3,7 +3,7 @@ import { m } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { createRef, useState } from "react"
+import { createRef, Suspense, useState } from "react"
 import { toast } from "@/components/ui/use-toast"
 import { For } from 'million/react';
 
@@ -24,8 +24,8 @@ export default function Home() {
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
         >
           <div className="flex flex-warp text-5xl font-bold">
-            <h2>Hi, my name is</h2>
-            <h2 className={`text-emerald-600 dark:text-emerald-500`}>Wint Khant Lin</h2>
+            <h1 className="inline">Hi, my name is &nbsp;</h1>
+            <h1 className={`text-emerald-600 dark:text-emerald-500 inline`}>Wint Khant Lin</h1>
           </div>
           <div className="flex flex-warp text-5xl font-bold">
             <h3>I&nbsp;</h3>
@@ -53,9 +53,11 @@ export default function Home() {
             >
               <div className="my-2">
                 <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">ABOUT ME</h3>
-                <div className="font-light leading-6 flex-wrap">
-                  Hey there! I&apos;m Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I&apos;m just a regular student trying to make it big by coding. I&apos;ve always been fascinated by technology and how coding can shape our lives. I&apos;m constantly learning and improving my skills in different programming languages . But my goal isn&apos;t just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It&apos;s not going to be easy, but I&apos;m determined to overcome any challenges that come my way. So, let&apos;s see where this coding journey takes me!
-                </div>
+                <article className="font-light leading-6 flex-wrap">
+                  <p>
+                    Hey there! I&apos;m Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I&apos;m just a regular student trying to make it big by coding. I&apos;ve always been fascinated by technology and how coding can shape our lives. I&apos;m constantly learning and improving my skills in different programming languages . But my goal isn&apos;t just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It&apos;s not going to be easy, but I&apos;m determined to overcome any challenges that come my way. So, let&apos;s see where this coding journey takes me!
+                  </p>
+                </article>
               </div>
             </m.div>
             <m.div
@@ -106,7 +108,7 @@ export default function Home() {
               </ol>
             </m.div>
           </div>
-          <m.div className="my-10 px-4 lg:px-10">
+          <m.div className="mt-10 mb-0 px-4 lg:px-10">
             <div>
               <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
               <p className="mb-2">If you want to contact me, fill these infomation here</p>

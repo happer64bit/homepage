@@ -2,11 +2,11 @@ import { ThemeProvider } from '@/components/ThemeProvder'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster'
 import { LazyMotion, domAnimation } from '@/components/motion'
 import dynamic from 'next/dynamic';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Suspense } from 'react';
 
 const Header = dynamic(() => import('@/components/Header'), {
@@ -32,7 +32,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={poppins.className}>
-        <Analytics mode='production' />
         <LazyMotion features={domAnimation}>
           <ThemeProvider
             attribute="class"
@@ -47,6 +46,7 @@ export default function RootLayout({
             <Toaster />
           </ThemeProvider>
         </LazyMotion>
+        <GoogleAnalytics gaId='G-QJ7KVTTN9F'/>
         <SpeedInsights />
       </body>
     </html>

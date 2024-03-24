@@ -23,7 +23,10 @@ export default function Home() {
           animate={{ x: 0 }}
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
         >
-          <h2 className="text-5xl font-bold">Hi, my name is <span className={`text-emerald-600 dark:text-emerald-500`}>Wint Khant Lin</span></h2>
+          <div className="flex flex-warp text-5xl font-bold">
+            <h2>Hi, my name is</h2>
+            <h2 className={`text-emerald-600 dark:text-emerald-500`}>Wint Khant Lin</h2>
+          </div>
           <div className="flex flex-warp text-5xl font-bold">
             <h3>I&nbsp;</h3>
             <span className={`text-orange-600 dark:text-yellow-400`}> develop</span>{" "},
@@ -50,9 +53,9 @@ export default function Home() {
             >
               <div className="my-2">
                 <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">ABOUT ME</h3>
-                <p className="font-light leading-6">
+                <div className="font-light leading-6 flex-wrap">
                   Hey there! I&apos;m Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I&apos;m just a regular student trying to make it big by coding. I&apos;ve always been fascinated by technology and how coding can shape our lives. I&apos;m constantly learning and improving my skills in different programming languages . But my goal isn&apos;t just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It&apos;s not going to be easy, but I&apos;m determined to overcome any challenges that come my way. So, let&apos;s see where this coding journey takes me!
-                </p>
+                </div>
               </div>
             </m.div>
             <m.div

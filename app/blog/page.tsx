@@ -2,10 +2,10 @@
 import Paginate from '@/components/Paginate';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { For } from 'million/react'
 
-function ListItem(event: any) {
+const ListItem =  memo(function ListItem(event: any) {
     return (
         <React.Fragment>
             <Link href={`/article/${event.pathname}`} passHref>
@@ -31,7 +31,7 @@ function ListItem(event: any) {
             </Link>
         </React.Fragment>
     );
-}
+})
 
 export default function BlogPage() {
     const [articles, setArticles] = useState<any[]>([]);

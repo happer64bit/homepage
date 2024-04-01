@@ -3,7 +3,7 @@ import { m } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { createRef, Suspense, useState } from "react"
+import { createRef, useState } from "react"
 import { toast } from "@/components/ui/use-toast"
 import { For } from 'million/react';
 
@@ -17,25 +17,33 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-[80vh] flex items-center p-4 lg:p-10">
+      <div className="h-[80vh] flex items-center container">
         <m.div
           initial={{ x: "-50vw" }}
           animate={{ x: 0 }}
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
+          className="space-y-2"
+          style={{ maxWidth: '100%' }} // Adjust the maximum width for responsiveness
         >
-          <div className="flex flex-warp text-5xl font-bold">
-            <h1 className="inline">Hi, my name is &nbsp;</h1>
-            <h1 className={`text-emerald-600 dark:text-emerald-500 inline`}>Wint Khant Lin</h1>
+          <div className="flex flex-wrap text-[43px] tracking-tight lg:text-5xl font-bold" style={{ lineHeight: '1.2' }}>
+            <h1 className="inline">Hi, my name is <span className={`text-emerald-600 dark:text-emerald-500 inline`}>Wint Khant Lin</span></h1>
           </div>
-          <div className="flex flex-warp text-5xl font-bold">
-            <h3>I&nbsp;</h3>
-            <span className={`text-orange-600 dark:text-yellow-400`}> develop</span>{" "},
-            <span>&nbsp;I&nbsp;</span>
-            <span className="text-blue-600 dark:text-blue-400">create</span>
-            <span>,&nbsp;I&nbsp;</span>
-            <span className={`text-purple-600 dark:text-purple-400`}>design</span>
+          <div className="flex flex-wrap text-[43px] tracking-tight lg:text-5xl font-bold max-w-[100vh] -mt-4" style={{ lineHeight: '1.2' }}>
+            <h3>
+              <span>I&nbsp;</span>
+              <span className={`text-orange-600 dark:text-yellow-400`}> develop</span>,&nbsp;
+            </h3>
+            <h3>
+              <span>I&nbsp;</span>
+              <span className="text-blue-600 dark:text-blue-400">create</span>,&nbsp;
+            </h3>
+            <h3>
+              <span>I&nbsp;</span>
+              <span className={`text-purple-600 dark:text-purple-400`}>design</span>
+            </h3>
           </div>
         </m.div>
+
       </div>
       <div className="flex justify-center">
         <div className="w-[100dvh] mb-10">
@@ -51,8 +59,8 @@ export default function Home() {
                 scale: 1
               }}
             >
-              <div className="my-2">
-                <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">ABOUT ME</h3>
+              <div className="my-4">
+                <h3 className="px-4 py-1 mb-6 border-l-4 text-xl font-bold border-black dark:border-white">ABOUT ME</h3>
                 <article className="font-light leading-6 flex-wrap">
                   <p>
                     Hey there! I&apos;m Happer, but my real name is Wint Khant Lin. I was born on August 13, 2008, in Myanmar. I&apos;m just a regular student trying to make it big by coding. I&apos;ve always been fascinated by technology and how coding can shape our lives. I&apos;m constantly learning and improving my skills in different programming languages . But my goal isn&apos;t just about getting rich; I want to use my coding skills to make a positive impact on the world. I dream of creating applications that can improve healthcare and education for everyone. It&apos;s not going to be easy, but I&apos;m determined to overcome any challenges that come my way. So, let&apos;s see where this coding journey takes me!
@@ -72,8 +80,8 @@ export default function Home() {
                 scale: 1
               }}
             >
-              <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">EDUCATION</h3>
-              <p className="mb-2">Here are my educational journey in my entire life</p>
+              <h3 className="px-4 py-2 mb-6 border-l-4 text-xl font-bold border-black dark:border-white">EDUCATION</h3>
+              <p className="my-2 mb-6">Here are my educational journey in my entire life</p>
               <ol className="relative border-l border-black dark:border-white">
                 <For each={[
                   {
@@ -108,9 +116,9 @@ export default function Home() {
               </ol>
             </m.div>
           </div>
-          <m.div className="mt-10 mb-0 px-4 lg:px-10">
+          <m.div className="mt-14 mb-0 px-4 lg:px-10">
             <div>
-              <h3 className="px-4 py-1 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
+              <h3 className="px-4 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
               <p className="mb-2">If you want to contact me, fill these infomation here</p>
               <form onSubmit={async (event) => {
                 event.preventDefault();

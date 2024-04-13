@@ -3,7 +3,7 @@ import { m } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { createRef, useState } from "react"
+import { createRef, useCallback, useState } from "react"
 import { toast } from "@/components/ui/use-toast"
 import { For } from 'million/react';
 
@@ -15,6 +15,54 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
 
+  const handleSubmit = useCallback(async (event: any) => {
+    event.preventDefault();
+    setIsContactFormLoading(true);
+
+    try {
+      const req = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify({
+          message: textareaRef.current?.value,
+          email: emailRef.current?.value,
+        }),
+      });
+
+      if (req.ok) {
+        setIsSubmitted(true);
+        if (textareaRef.current && emailRef.current) {
+          textareaRef.current.value = "";
+          emailRef.current.value = '';
+        }
+
+        setMessage("");
+        setEmail("");
+
+        toast({
+          title: "Submitted Successfully"
+        });
+      } else {
+        toast({
+          title: "Error Failed to send, let developer fix it",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+
+    setIsContactFormLoading(false);
+  }, [textareaRef, emailRef]);
+
+  const handleTextareaChange = useCallback((e: any) => {
+    setMessage(e.target.value);
+  }, []);
+
+  const handleEmailChange = useCallback((e: any) => {
+    setEmail(e.target.value);
+  }, []);
+
+
   return (
     <>
       <div className="h-[80vh] flex items-center container">
@@ -22,8 +70,8 @@ export default function Home() {
           initial={{ x: "-50vw" }}
           animate={{ x: 0 }}
           transition={{ duration: 0.3, origin: 1, type: "spring", stiffness: 100 }}
-          className="space-y-2"
-          style={{ maxWidth: '100%' }} // Adjust the maximum width for responsiveness
+          className="space-y-2 px-4"
+          style={{ maxWidth: '100%' }}
         >
           <div className="flex flex-wrap text-[43px] tracking-tight lg:text-5xl font-bold" style={{ lineHeight: '1.2' }}>
             <h1 className="inline">Hi, my name is <span className={`text-emerald-600 dark:text-emerald-500 inline`}>Wint Khant Lin</span></h1>
@@ -120,49 +168,12 @@ export default function Home() {
             <div>
               <h3 className="px-4 mb-4 border-l-4 text-xl font-bold border-black dark:border-white">CONTACT</h3>
               <p className="mb-2">If you want to contact me, fill these infomation here</p>
-              <form onSubmit={async (event) => {
-                event.preventDefault();
-                setIsContactFormLoading(true);
-
-                try {
-                  const req = await fetch("/api/contact", {
-                    method: "POST",
-                    body: JSON.stringify({
-                      message: textareaRef.current?.value,
-                      email: emailRef.current?.value,
-                    }),
-                  });
-
-                  if (req.ok) {
-                    setIsSubmitted(true);
-                    if (textareaRef.current && emailRef.current) {
-                      textareaRef.current.value = "";
-                      emailRef.current.value = '';
-                    }
-
-                    setMessage("");
-                    setEmail("");
-
-                    toast({
-                      title: "Submitted Successfully"
-                    })
-                  } else {
-                    toast({
-                      title: "Error Failed to send, let developer fix it",
-                      variant: "destructive",
-                    });
-                  }
-                } catch (error) {
-                  console.error("Error submitting form:", error);
-                }
-
-                setIsContactFormLoading(false);
-              }}>
+              <form onSubmit={handleSubmit}>
                 <div className="mb-2">
-                  <Textarea rows={10} placeholder="Message (max 2000)" className="resize-none" maxLength={2000} onChange={(e) => setMessage(e.target.value)} defaultValue={message} />
+                  <Textarea rows={10} placeholder="Message (max 2000)" className="resize-none" maxLength={2000} onChange={handleTextareaChange} value={message} />
                 </div>
                 <div className="flex gap-3">
-                  <Input placeholder="john@example.com" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Input placeholder="john@example.com" type="email" required value={email} onChange={handleEmailChange} />
                   <Button className="flex items-center justify-center">{isContactFormLoading ? <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white dark:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>

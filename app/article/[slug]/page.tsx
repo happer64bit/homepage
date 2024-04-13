@@ -63,3 +63,7 @@ export default async function Article({ params }: any) {
         </div>
     );
 }
+
+export async function generateStaticParams() {
+    return (await prisma.articles.findMany({})).map((event) => event.pathname)
+}

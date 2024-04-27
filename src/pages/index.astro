@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection("posts"))
+	.sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+	.slice(0, 3);
+
+const projects = (await getCollection("projects"))
+	.sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+	.slice(0, 3);
+---
+
+<Layout title="Wint Khant Lin portfolio">
+	<div class="container my-16 px-4">
+		<div class="lg:grid grid-cols-10 gap-2">
+			<div class="col-span-4 lg:mb-0 mb-16">
+				<div class="lg:sticky top-0 py-4">
+					<div class="flex items-start gap-3 flex-warp mb-4">
+						<div class="flex items-start w-32 h-32">
+							<Image src="https://github.com/happer64bit.png" alt="Profile" class="rounded-full" width={130} height={130} />
+						</div>
+						<div class="space-y-2">
+							<h1 class="text-3xl font-bold">Wint Khant Lin</h1>
+							<div class="flex items-center gap-2">
+								<div class="bg-yellow-600 px-1 rounded text-sm">Full-Stack Developer 🧑‍💻</div>
+								<div class="bg-purple-600 px-1 rounded text-sm">Student 🧑</div>
+								<div class="bg-blue-600 px-1 rounded text-sm">Designer 🎨</div>
+							</div>
+							<p>A Student from Myanmar who do coding and designing by ❤️</p>
+							<div class="flex items-center gap-4 flex-warp">
+								<a class="flex items-center gap-1" href="mailto:wintkhantlin@gmail.com">
+									<Icon name="mdi:email" />
+									<code>Email</code>
+								</a>
+								<a class="flex items-center gap-1" href="https://github.com/happer64bit" target="_blank">
+									<Icon name="mdi:github" />
+									<code>Github</code>
+								</a>
+								<a class="flex items-center gap-1" href="https://www.linkedin.com/in/wint-khant-lin-b3a098279/" target="_blank">
+									<Icon name="mdi:linkedin" />
+									<code>LinkedIn</code>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-span-6 py-4">
+				<div class="mb-6 px-6 flex items-center gap-4 justify-between">
+					<h2 class="text-3xl font-bold">Posts</h2>
+					<a href="/posts" class="group flex items-center gap-1 text-sm hover:underline">See More <Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
+				</div>
+				<div>
+					{posts.map((post) => (
+						<a href={`/posts/${post.slug}`}>
+							<div class="p-6 hover:bg-white/5 rounded-lg mb-3" transition:name={`page-${post.slug}`}>
+								<h3 class="text-2xl font-medium">{post.data.title}</h3>
+								<p class="text-slate-400">{post.data.summery}</p>
+							</div>
+						</a>
+					))}
+				</div>
+				<div class="my-4 border"></div>
+				<div class="col-span-6">
+					<div class="mb-6 px-6 flex items-center gap-4 justify-between">
+						<h2 class="text-3xl font-bold">Projects</h2>
+						<a href="/projects" class="group flex items-center gap-1 text-sm hover:underline">See More <Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
+					</div>
+					<div>
+						{projects.map((project) => (
+							<a href={project.data.source}>
+								<div class="p-6 hover:bg-white/5 rounded-lg mb-3">
+									<h3 class="text-2xl font-medium">{project.data.title}</h3>
+									<p class="text-slate-400">{project.data.summery}</p>
+									<div class="flex flex-warp gap-2 mt-2">
+										{project.data.tags.map((tag: string) => (
+											<div class="px-2 font-mono border rounded text-sm">
+												#{tag}
+											</div>
+										))}
+									</div>
+								</div>
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	entry: CollectionEntry<'posts'>;
+}
+
+export async function getStaticPaths() {
+	const work = await getCollection('posts');
+	return work.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+    <div class="w-full">
+        <div class="container px-6">
+            <div class="py-4">
+                <a href="/">
+                    <Icon name="mdi:arrow-left" class="border-2 p-2 text-5xl rounded-full" />
+                </a>
+            </div>
+            <article class="my-32 prose prose-lg prose-invert container"  transition:animate="slide" transition:name=`page-${entry.slug}`>
+                <Content />
+            </article>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    html, body {
+        overflow-x: hidden;
+    }
+</style>

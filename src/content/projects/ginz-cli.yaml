@@ -1,0 +1,9 @@
+title: "Ginz Cli"
+summery: Ginz is a command-line tool for cloning multiple repositories from GitHub based on a configuration file. It simplifies the process of cloning multiple repositories by allowing you to specify the repositories and their branches in a single configuration file.
+tags:
+  - python
+  - git
+  - cli
+  - command-line-tool
+source: https://github.com/happer64bit/ginz-cli
+publishedDate: 2023-06-16T12:08:57Z

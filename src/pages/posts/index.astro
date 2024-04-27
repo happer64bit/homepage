@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+
+const posts = (await getCollection("posts"))
+	.sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+---
+
+<Layout title="Post Lists">
+	<div class="container my-16 px-4">
+        <button onclick="window.history.back()" class="flex items-center gap-2 text-lg mb-3"><Icon name={"mdi:arrow-left"}/>Back</button>
+		<div class="lg:grid grid-cols-10 gap-2">
+			<div class="col-span-4 lg:mb-0 mb-16">
+				<div class="lg:sticky top-0 py-4">
+					<div class="flex items-start gap-3 flex-warp mb-4">
+						<div class="flex items-start w-32 h-32">
+							<Image src="https://github.com/happer64bit.png" alt="Profile" class="rounded-full" width={130} height={130} />
+						</div>
+						<div class="space-y-2">
+							<h1 class="text-3xl font-bold">Wint Khant Lin</h1>
+							<div class="flex items-center gap-2">
+								<div class="bg-yellow-600 px-1 rounded text-sm">Full-Stack Developer 🧑‍💻</div>
+								<div class="bg-purple-600 px-1 rounded text-sm">Student 🧑</div>
+								<div class="bg-blue-600 px-1 rounded text-sm">Designer 🎨</div>
+							</div>
+							<p>A Student from Myanmar who do coding and designing by ❤️</p>
+							<div class="flex items-center gap-4 flex-warp">
+								<a class="flex items-center gap-1" href="mailto:wintkhantlin@gmail.com">
+									<Icon name="mdi:email" />
+									<code>Email</code>
+								</a>
+								<a class="flex items-center gap-1" href="https://github.com/happer64bit" target="_blank">
+									<Icon name="mdi:github" />
+									<code>Github</code>
+								</a>
+								<a class="flex items-center gap-1" href="https://www.linkedin.com/in/wint-khant-lin-b3a098279/" target="_blank">
+									<Icon name="mdi:linkedin" />
+									<code>LinkedIn</code>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-span-6 py-4">
+				<div class="mb-6 px-6 flex items-center gap-4 justify-between">
+					<h2 class="text-3xl font-bold">Posts</h2>
+				</div>
+				<div>
+					{posts.map((post) => (
+						<a href={`/posts/${post.slug}`} transition:name={`page-${post.slug}`}>
+							<div class="p-6 hover:bg-white/5 rounded-lg mb-3">
+								<h3 class="text-2xl font-medium">{post.data.title}</h3>
+								<p class="text-slate-400">{post.data.summery}</p>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>

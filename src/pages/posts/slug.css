@@ -1,0 +1,8 @@
+div.remark-code-title {
+    width: fit-content;
+    @apply bg-[#0b0e14] -mb-7;
+    padding-inline: 10px;
+    padding-block: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}

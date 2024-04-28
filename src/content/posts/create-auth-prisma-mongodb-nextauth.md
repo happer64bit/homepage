@@ -60,7 +60,7 @@ NEXT_PUBLIC_GOOGLE_CLIENT_SECRET="...."
 
 * Create Model Schema
 
-```prisma title="prisma/schema.prisma"
+```prisma:prisma/schema.prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -125,7 +125,7 @@ yarn prisma db push
 
 * Create `prisma.ts` in `lib` in the root of the project
 
-```ts title="lib/prisma.ts"
+```ts:lib/prisma.ts
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -138,7 +138,7 @@ export default prisma
 
 1. This component utilizes NextAuth's SessionProvider to make the session object accessible throughout your app. Here's an example
 
-```tsx title="components/Providers.tsx"
+```tsx:components/Providers.tsx
 "use client"
 
 import { type Session, SessionProvider } from 'next-auth/react';
@@ -155,7 +155,7 @@ export default function Providers({ children, session } : { children : React.Rea
 
 2. Add Provider to the layout.
 
-```tsx title="app/layout.tsx"
+```tsx:app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -195,7 +195,7 @@ export default async function RootLayout({
 
 This file configures NextAuth. Here's an example
 
-```typescript title="app/api/auth/[...nextauth]/authOptions.ts"
+```typescript:app/api/auth/[...nextauth]/authOptions.ts
 import { type AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from '@auth/prisma-adapter';
@@ -219,7 +219,7 @@ export default authOptions;
 
 This file defines the NextAuth API route handler. Here's an example
 
-```typescript title="app/api/auth/[...nextauth]/route.ts"
+```typescript:app/api/auth/[...nextauth]/route.ts
 import NextAuth from "next-auth/next";
 import authOptions from './authOptions.ts'
 
@@ -232,7 +232,7 @@ export { handler as GET, handler as POST }
 
 * Create ```middleware.ts``` in root of the project (You can use regex)
 
-```ts title="middleware.ts"
+```ts:middleware.ts
 export { default } from "next-auth/middleware"
 
 export const config = { matcher: ["/protected"] }
@@ -244,7 +244,7 @@ Deploying the project need some configuration
 
 * Configure Your `package.json`
 
-```json
+```json:package.json
 {
   ...
   "scripts": {

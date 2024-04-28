@@ -20,26 +20,26 @@ const projects = (await getCollection("projects"))
 				<div class="lg:sticky top-0 py-4">
 					<div class="flex items-start gap-3 flex-warp mb-4">
 						<div class="flex items-start w-32 h-32">
-							<Image src="https://github.com/happer64bit.png" alt="Profile" class="rounded-full" width={130} height={130} />
+							<Image src="https://github.com/happer64bit.png" alt="Profile" class="rounded-full" width={130} height={130} loading={"eager"}/>
 						</div>
 						<div class="space-y-2">
 							<h1 class="text-3xl font-bold">Wint Khant Lin</h1>
-							<div class="flex items-center gap-2">
+							<div class="flex items-center gap-2 whitespace-nowrap">
 								<div class="bg-yellow-600 px-1 rounded text-sm">Full-Stack Developer 🧑‍💻</div>
 								<div class="bg-purple-600 px-1 rounded text-sm">Student 🧑</div>
 								<div class="bg-blue-600 px-1 rounded text-sm">Designer 🎨</div>
 							</div>
 							<p>A Student from Myanmar who do coding and designing by ❤️</p>
 							<div class="flex items-center gap-4 flex-warp">
-								<a class="flex items-center gap-1" href="mailto:wintkhantlin@gmail.com">
+								<a class="inline-flex items-center gap-1" href="mailto:wintkhantlin@gmail.com">
 									<Icon name="mdi:email" />
 									<code>Email</code>
 								</a>
-								<a class="flex items-center gap-1" href="https://github.com/happer64bit" target="_blank">
+								<a class="inline-flex items-center gap-1" href="https://github.com/happer64bit" target="_blank">
 									<Icon name="mdi:github" />
 									<code>Github</code>
 								</a>
-								<a class="flex items-center gap-1" href="https://www.linkedin.com/in/wint-khant-lin-b3a098279/" target="_blank">
+								<a class="inline-flex items-center gap-1" href="https://www.linkedin.com/in/wint-khant-lin-b3a098279/" target="_blank">
 									<Icon name="mdi:linkedin" />
 									<code>LinkedIn</code>
 								</a>

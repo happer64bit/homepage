@@ -9,8 +9,7 @@ const posts = (await getCollection("posts"))
 ---
 
 <Layout title="Post Lists">
-	<div class="container my-16 px-4">
-        <button onclick="window.history.back()" class="flex items-center gap-2 text-lg mb-3"><Icon name={"mdi:arrow-left"}/>Back</button>
+	<div class="container my-16 px-3">
 		<div class="lg:grid grid-cols-10 gap-2">
 			<div class="col-span-4 lg:mb-0 mb-16">
 				<div class="lg:sticky top-0 py-4">
@@ -45,7 +44,8 @@ const posts = (await getCollection("posts"))
 				</div>
 			</div>
 			<div class="col-span-6 py-4">
-				<div class="mb-6 px-6 flex items-center gap-4 justify-between">
+				<div class="mb-6 px-6 flex items-center gap-4 w-fit">
+					<button onclick="window.history.back()" class="flex items-center gap-2 text-lg justify-center"><Icon name={"mdi:arrow-left"}/></button>
 					<h2 class="text-3xl font-bold">Posts</h2>
 				</div>
 				<div>

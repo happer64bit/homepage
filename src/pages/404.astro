@@ -1,0 +1,27 @@
+---
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found!</title>
+</head>
+<body>
+    <div title="Page not found">
+        <div class="h-[90vh] flex items-center justify-center">
+            <div>
+                <div class="w-60 h-60 mx-auto">
+                    <LottieAnimation src="/connection-error.json" />
+                </div>
+                <h1 class="text-4xl font-bold">Ohh, It looks like you got lost!</h1>
+                <div class="text-center">
+                    <a class="underline" href="/">Let Me Take you back to the Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

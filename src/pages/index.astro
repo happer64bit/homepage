@@ -13,7 +13,8 @@ const projects = (await getCollection("projects"))
 	.slice(0, 3);
 ---
 
-<Layout title="Wint Khant Lin portfolio">
+<Layout title="Wint Khant Lin portfolio" description='A Student from Myanmar who do coding and designing by ❤️'>
+	<link slot="meta" rel="canonical" href="https://happer64bit.vercel.app" />
 	<div class="container my-16 px-4">
 		<div class="lg:grid grid-cols-10 gap-2">
 			<div class="col-span-4 lg:mb-0 mb-16">
@@ -25,9 +26,9 @@ const projects = (await getCollection("projects"))
 						<div class="space-y-2">
 							<h1 class="text-3xl font-bold">Wint Khant Lin</h1>
 							<div class="flex items-center gap-2 whitespace-nowrap">
-								<div class="bg-yellow-600 px-1 rounded text-sm">Full-Stack Developer 🧑‍💻</div>
-								<div class="bg-purple-600 px-1 rounded text-sm">Student 🧑</div>
-								<div class="bg-blue-600 px-1 rounded text-sm">Designer 🎨</div>
+								<div class="bg-yellow-900 px-1 rounded text-sm">Full-Stack Developer 🧑‍💻</div>
+								<div class="bg-purple-900 px-1 rounded text-sm">Student 🧑</div>
+								<div class="bg-blue-900 px-1 rounded text-sm">Designer 🎨</div>
 							</div>
 							<p>A Student from Myanmar who do coding and designing by ❤️</p>
 							<div class="flex items-center gap-4 flex-warp">
@@ -51,7 +52,7 @@ const projects = (await getCollection("projects"))
 			<div class="col-span-6 py-4">
 				<div class="mb-6 px-6 flex items-center gap-4 justify-between">
 					<h2 class="text-3xl font-bold">Posts</h2>
-					<a href="/posts" class="group flex items-center gap-1 text-sm hover:underline">See More <Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
+					<a href="/posts" class="group flex items-center gap-1 text-sm hover:underline">View All Posts<Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
 				</div>
 				<div>
 					{posts.map((post) => (
@@ -67,7 +68,7 @@ const projects = (await getCollection("projects"))
 				<div class="col-span-6">
 					<div class="mb-6 px-6 flex items-center gap-4 justify-between">
 						<h2 class="text-3xl font-bold">Projects</h2>
-						<a href="/projects" class="group flex items-center gap-1 text-sm hover:underline">See More <Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
+						<a href="/projects" class="group flex items-center gap-1 text-sm hover:underline">View All Projects <Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
 					</div>
 					<div>
 						{projects.map((project) => (

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content'
+import profileImage from './../images/profile.png';
 
 const posts = (await getCollection("posts"))
 	.sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
@@ -21,7 +22,7 @@ const projects = (await getCollection("projects"))
 				<div class="lg:sticky top-0 py-4">
 					<div class="flex items-start gap-3 flex-warp mb-4">
 						<div class="flex items-start w-32 h-32">
-							<Image src="https://github.com/happer64bit.png" alt="Profile" class="rounded-full" width={130} height={130} loading={"eager"}/>
+							<Image src={profileImage.src} alt="Profile" class="rounded-full" width={130} height={130} />
 						</div>
 						<div class="space-y-2">
 							<h1 class="text-3xl font-bold">Wint Khant Lin</h1>
@@ -51,7 +52,7 @@ const projects = (await getCollection("projects"))
 			</div>
 			<div class="col-span-6 py-4">
 				<div class="mb-6 px-6 flex items-center gap-4 justify-between">
-					<h2 class="text-3xl font-bold">Posts</h2>
+					<h2 class="text-3xl font-bold"><span class="font-mono text-red-600 mr-1">#</span>Posts</h2>
 					<a href="/posts" class="group flex items-center gap-1 text-sm hover:underline">View All Posts<Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
 				</div>
 				<div>
@@ -64,10 +65,10 @@ const projects = (await getCollection("projects"))
 						</a>
 					))}
 				</div>
-				<div class="my-4 border"></div>
+				<div class="my-10 border"></div>
 				<div class="col-span-6">
 					<div class="mb-6 px-6 flex items-center gap-4 justify-between">
-						<h2 class="text-3xl font-bold">Projects</h2>
+						<h2 class="text-3xl font-bold"><span class="font-mono text-purple-600 mr-1">#</span>Projects</h2>
 						<a href="/projects" class="group flex items-center gap-1 text-sm hover:underline">View All Projects <Icon name="mdi:arrow-right" class="group-hover:mr-2 transform duration-100"/></a>
 					</div>
 					<div>
@@ -78,7 +79,7 @@ const projects = (await getCollection("projects"))
 									<p class="text-slate-400">{project.data.summery}</p>
 									<div class="flex flex-warp gap-2 mt-2">
 										{project.data.tags.map((tag: string) => (
-											<div class="px-2 font-mono border rounded text-sm">
+											<div class="px-2 font-mono border rounded text-sm opacity-80">
 												#{tag}
 											</div>
 										))}

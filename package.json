@@ -19,6 +19,7 @@
     "@iconify/json": "^2.2.204",
     "@tailwindcss/typography": "^0.5.13",
     "astro": "^4.7.0",
+    "astro-analytics": "^2.7.0",
     "astro-icon": "^1.1.0",
     "astro-integration-lottie": "^0.2.3",
     "lottie-web": "^5.12.2",

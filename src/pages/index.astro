@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content'
 import profileImage from './../images/profile.png';
+import Image from 'astro/components/Image.astro';
 
 const posts = (await getCollection("posts"))
 	.sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
@@ -22,7 +22,7 @@ const projects = (await getCollection("projects"))
 				<div class="lg:sticky top-0 py-4">
 					<div class="flex items-start gap-3 flex-warp mb-4">
 						<div class="flex items-start w-32 h-32">
-							<Image src={profileImage.src} alt="Profile" class="rounded-full" width={130} height={130} />
+							<Image src={profileImage} alt="Profile" class="rounded-full" width={130} height={130} />
 						</div>
 						<div class="space-y-2">
 							<h1 class="text-3xl font-bold">Wint Khant Lin</h1>
@@ -73,7 +73,7 @@ const projects = (await getCollection("projects"))
 					</div>
 					<div>
 						{projects.map((project) => (
-							<a href={project.data.source}>
+							<a href={`/projects/${project.slug}`} transition:name={`project-${project.slug}`}>
 								<div class="p-6 hover:bg-white/5 rounded-lg mb-3">
 									<h3 class="text-2xl font-medium">{project.data.title}</h3>
 									<p class="text-slate-400">{project.data.summery}</p>

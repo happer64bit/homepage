@@ -11,13 +11,19 @@ export const collections = {
         })
     }),
     projects: defineCollection({
-        type: "data",
+        type: "content",
         schema: z.object({
             title: z.string(),
             summery: z.string(),
             tags: z.array(z.string()),
             source: z.string(),
-            publishedDate: z.coerce.date()
+            publishedDate: z.coerce.date(),
+            android: z.string().optional(),
+            ios: z.string().optional(),
+            website: z.string().optional(),
+            windows: z.string().optional(),
+            macos: z.string().optional(),
+            linux: z.string().optional(),
         })
     })
 }

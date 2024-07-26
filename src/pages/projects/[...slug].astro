@@ -1,0 +1,62 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import { Icon } from 'astro-icon/components';
+import PostComment from '../../components/PostComment.astro';
+import './../posts/slug.css';
+
+interface Props {
+	entry: CollectionEntry<'projects'>;
+}
+
+export async function getStaticPaths() {
+	const project = await getCollection('projects');
+	return project.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title} description={entry.data.summery}>
+    <div class="w-full">
+        <div class="container px-6">
+            <div class="py-4">
+                <a href="/">
+                    <Icon name="mdi:arrow-left" class="border-2 p-2 text-5xl rounded-full" />
+                </a>
+            </div>
+            <article class="my-32 prose prose-lg prose-invert container"  transition:animate="slide" transition:name=`page-${entry.slug}`>
+                <Content />
+                <div class="flex flex-warp gap-2 mt-2">
+                    {entry.data.tags.map((tag: string) => (
+                        <div class="px-2 font-mono border rounded opacity-80">
+                            #{tag}
+                        </div>
+                    ))}
+                </div>
+                <div class="flex flex-warp gap-4 my-10">
+                    <a href={entry.data.source} class="text-lg bg-white text-black no-underline px-10 py-2.5 rounded-full flex items-center gap-2">
+                        <Icon name="mdi:github" font-size={30}/>
+                        Source Code
+                    </a>
+
+                    {entry.data.android && <a href={entry.data.android} class="text-lg bg-transparent text-white border border-white no-underline px-10 py-2.5 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200">
+                        <Icon name="mdi:android" font-size={30}/>
+                        Android
+                    </a>}
+                </div>
+                <PostComment />
+            </article>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    html, body {
+        overflow-x: hidden;
+    }
+</style>

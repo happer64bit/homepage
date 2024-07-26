@@ -39,12 +39,12 @@ const { Content } = await entry.render();
                     ))}
                 </div>
                 <div class="flex flex-warp gap-4 my-10">
-                    <a href={entry.data.source} class="text-lg bg-white text-black no-underline px-10 py-2.5 rounded-full flex items-center gap-2">
+                    <a href={entry.data.source} class="text-lg bg-white text-black no-underline px-10 py-2 rounded-full flex items-center gap-2 w-full 2xl:w-fit justify-center">
                         <Icon name="mdi:github" font-size={30}/>
                         Source Code
                     </a>
 
-                    {entry.data.android && <a href={entry.data.android} class="text-lg bg-transparent text-white border border-white no-underline px-10 py-2.5 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200">
+                    {entry.data.android && <a href={entry.data.android} class="text-lg bg-transparent text-white border border-white no-underline px-10 py-2 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200 w-full 2xl:w-fit justify-center">
                         <Icon name="mdi:android" font-size={30}/>
                         Android
                     </a>}

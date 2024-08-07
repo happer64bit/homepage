@@ -16,3 +16,8 @@ Hyperscript Cli is a Python tool for testing APIs. It uses YAML files to set up 
 
 This tool makes it easy to see if your API is working correctly. It gives clear feedback and handles errors well, helping you spot and fix issues quickly. It’s great for anyone who wants to automate and simplify API testing.
 
+```sh
+pip install hyperscript-cli
+```
+
+Happy Testing! 🤩

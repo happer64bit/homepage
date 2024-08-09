@@ -44,10 +44,16 @@ const { Content } = await entry.render();
                         Source Code
                     </a>}
 
+                    {entry.data.website && <a href={entry.data.website} class="2xl:text-lg bg-transparent text-white border border-white no-underline px-10 py-2 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200 w-full 2xl:w-fit justify-center">
+                        <Icon name="mdi:earth" font-size={30}/>
+                        Website
+                    </a>}
+
                     {entry.data.docs && <a href={entry.data.docs} class="2xl:text-lg bg-transparent text-white border border-white no-underline px-10 py-2 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200 w-full 2xl:w-fit justify-center">
                         <Icon name="mdi:book" font-size={30}/>
                         Documentation
                     </a>}
+                    
                     {entry.data.android && <a href={entry.data.android} class="2xl:text-lg bg-transparent text-white border border-white no-underline px-10 py-2 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200 w-full 2xl:w-fit justify-center">
                         <Icon name="mdi:android" font-size={30}/>
                         Android

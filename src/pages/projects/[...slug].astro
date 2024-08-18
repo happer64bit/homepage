@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from 'astro-icon/components';
 import PostComment from '../../components/PostComment.astro';
 import './../posts/slug.css';
+import BlogLayout from '../../layouts/BlogLayout.astro';
 
 interface Props {
 	entry: CollectionEntry<'projects'>;
@@ -21,13 +22,16 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title} description={entry.data.summery}>
+<BlogLayout title={entry.data.title} description={entry.data.summery}>
     <div class="w-full">
         <div class="container px-6">
             <div class="py-4">
-                <a href="/">
+                <button
+                    onclick="window.history.back()"
+                    class="flex items-center gap-2 text-lg justify-center"
+                >
                     <Icon name="mdi:arrow-left" class="border-2 p-2 text-5xl rounded-full" />
-                </a>
+                </button>
             </div>
             <article class="my-32 prose prose-lg prose-invert container"  transition:animate="slide" transition:name=`page-${entry.slug}`>
                 <Content />
@@ -64,7 +68,7 @@ const { Content } = await entry.render();
             </article>
         </div>
     </div>
-</Layout>
+</BlogLayout>
 
 <style>
     html, body {

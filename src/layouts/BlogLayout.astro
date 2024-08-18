@@ -1,0 +1,43 @@
+---
+import '@fontsource-variable/dm-sans';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+	description?: string
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<slot name="meta" />
+		<meta name="description" content={description}>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F"></script>
+		<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-QJ7KVTTN9F');
+		</script>
+		<ViewTransitions fallback="swap"/>
+	</head>
+	<body class="bg-slate-900 text-slate-200 bg-gradient-to-bl from-[4%] from-blue-950 via-slate-900 to-slate-900 bg-no-repeat antialiased transition" >
+		<slot class="min-w-[100vw]"/>
+	</body>
+</html>
+
+<style is:global>
+	body {
+  		font-family: 'DM Sans Variable', sans-serif;
+	}
+</style>

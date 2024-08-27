@@ -1,0 +1,15 @@
+---
+import Image from "astro/components/Image.astro";
+---
+
+<header class="w-full">
+    <nav class="p-3 container justify-between flex">
+        <a href="/">
+            <Image src="/assets/profile.jpg" alt="Happer64Bit" class="w-16 h-16 rounded-full" width={64} height={64} loading={"eager"}/>
+        </a>
+        <div class="flex items-center gap-10">
+            <a href="/projects" class="hover:underline">Projects</a>
+            <a href="/posts" class="hover:underline">Posts</a>
+        </div>
+    </nav>
+</header>

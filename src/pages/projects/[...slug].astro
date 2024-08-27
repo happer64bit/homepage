@@ -3,7 +3,6 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from 'astro-icon/components';
 import PostComment from '../../components/PostComment.astro';
-import './../posts/slug.css';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 
 interface Props {
@@ -73,5 +72,14 @@ const { Content } = await entry.render();
 <style>
     html, body {
         overflow-x: hidden;
+    }
+
+    div.remark-code-title {
+        width: fit-content;
+        @apply bg-[#0b0e14] -mb-7;
+        padding-inline: 10px;
+        padding-block: 10px;
+        border-radius: 10px;
+        font-size: 14px;
     }
 </style>

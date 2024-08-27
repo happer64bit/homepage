@@ -2,6 +2,7 @@
 title: Why createSignal Is Better Than useState
 summery: createSignal, found in libraries like Solid.js, offers automatic state updates, simplifying React development. Unlike useState, it streamlines data management and enhances app performance.
 tags: ["compare"]
+keywords: ["react", "solidjs", "react vs solidjs", "react vs solid", "performance react solid"]
 publishedDate: 2023-12-1T17:30:00.000Z
 ---
 # Why `createSignal` Is Better Than `useState`

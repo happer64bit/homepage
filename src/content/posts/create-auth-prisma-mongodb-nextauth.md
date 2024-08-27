@@ -2,6 +2,7 @@
 title: Create Your First Authentication System with Prisma, MongoDB, and NextAuth
 summery: Build your first login system with Prisma, MongoDB, and NextAuth. Easy step-by-step guide.	
 tags: ["tutoiral"]
+keywords: ["mongodb nextauth", "nextauth", "auth", "mongodb", "nextjs auth", "nextjs auth mongodb prisma", "prisma mongodb auth"]
 publishedDate: 2024-1-4T17:30:00.000Z
 ---
 

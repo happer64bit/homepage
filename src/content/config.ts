@@ -7,6 +7,7 @@ export const collections = {
             title: z.string(),
             summery: z.string(),
             tags: z.array(z.string()),
+            keywords: z.array(z.string()),
             publishedDate: z.coerce.date()
         })
     }),

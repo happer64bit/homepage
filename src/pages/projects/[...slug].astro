@@ -24,15 +24,7 @@ const { Content } = await entry.render();
 <BlogLayout title={entry.data.title} description={entry.data.summery}>
     <div class="w-full">
         <div class="container px-6">
-            <div class="py-4">
-                <button
-                    onclick="window.history.back()"
-                    class="flex items-center gap-2 text-lg justify-center"
-                >
-                    <Icon name="mdi:arrow-left" class="border-2 p-2 text-5xl rounded-full" />
-                </button>
-            </div>
-            <article class="my-32 prose prose-lg prose-invert container"  transition:animate="slide" transition:name=`page-${entry.slug}`>
+            <article class="my-32 prose prose-lg prose-invert container">
                 <Content />
                 <div class="flex flex-warp gap-2 mt-2">
                     {entry.data.tags.map((tag: string) => (

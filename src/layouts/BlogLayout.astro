@@ -1,13 +1,15 @@
 ---
 import '@fontsource-variable/dm-sans';
 import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header.astro';
 
 interface Props {
 	title: string;
-	description?: string
+	description?: string,
+	keywords?: string[]
 }
 
-const { title, description } = Astro.props;
+const { title, description, keywords } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,6 +24,8 @@ const { title, description } = Astro.props;
 		<slot name="meta" />
 		<meta name="description" content={description}>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F"></script>
+		{keywords && <meta name="keywords" content={keywords.join(",")}>}
+		
 		<script is:inline>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -29,9 +33,9 @@ const { title, description } = Astro.props;
 
 		gtag('config', 'G-QJ7KVTTN9F');
 		</script>
-		<ViewTransitions fallback="swap"/>
 	</head>
 	<body class="bg-slate-900 text-slate-200 bg-gradient-to-bl from-[4%] from-blue-950 via-slate-900 to-slate-900 bg-no-repeat antialiased transition" >
+		<Header />
 		<slot class="min-w-[100vw]"/>
 	</body>
 </html>

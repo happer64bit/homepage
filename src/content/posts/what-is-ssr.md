@@ -2,6 +2,7 @@
 title: What is Server Side Rendering
 summery: Server-Side Rendering (SSR) is a web development technique where web pages are generated on the server side and sent to the client
 tags: ["what-is"]
+keywords: ["ssr", "server side rendering", "web rendering", "rendering"]
 publishedDate: 2023-08-12T17:30:00.000Z
 ---
 

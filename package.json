@@ -22,6 +22,7 @@
     "astro-analytics": "^2.7.0",
     "astro-icon": "^1.1.0",
     "astro-integration-lottie": "^0.2.3",
+    "astro-vtbot": "^1.8.8",
     "lottie-web": "^5.12.2",
     "remark-code-titles": "^0.1.2",
     "sharp": "^0.33.4",

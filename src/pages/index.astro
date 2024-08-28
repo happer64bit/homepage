@@ -1,12 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects")
+const latestPost = (await getCollection("posts")).sort((a: any, b: any) => b.data.publishedDate - a.data.publishedDate).at(0)
+
 ---
 
 <Layout title="Happer64Bit portfolio" description="A Student from Myanmar who do coding and designing by ❤️">
 	<div class="container">
 		<div class="h-[60vh] flex items-center justify-center">
 			<div class="text-center space-y-4">
+				<div class="mx-auto pb-5">
+					<a href={`/posts/${latestPost?.slug}`} class="bg-purple-500/10 px-4 py-1 rounded-full border border-purple-500 flex items-center gap-2 w-fit mx-auto text-sm">
+						{latestPost?.data.title}
+						<Icon name={"mdi:arrow-right"} />
+					</a>
+				</div>
 				<h1 class="text-5xl font-bold">Wint Khant Lin</h1>
 				<h2 class="text-2xl max-w-3xl tracking-wide">Hello, I am a 16 years old college student from Myanmar! I do coding and designing with ❤️</h2>
 				<div class="flex items-center justify-center gap-5 flex-warp">
@@ -58,6 +69,21 @@ import Layout from "../layouts/Layout.astro";
 						<p>I love creating software for Android</p>
 					</div>
 				</div>
+			</div>
+		</section>
+		<section class="py-10">
+			<div class="text-center py-10">
+				<h1 class="text-4xl font-bold">Recent Projects</h1>
+			</div>
+			<div class="grid md:grid-cols-2 gap-5 grid-cols-1">
+				{projects.slice(0, 4).sort((a: any, b: any) => b.data.publishedDate - a.data.publishedDate).map((project) => (
+					<a href={`/projects/${project.slug}`} class="relative">
+						<div class="p-6 rounded-lg bg-slate-800/5 space-y-5 border border-slate-800/50 shadow-sm min-h-40 hover:shadow-lg hover:shadow-blue-900 transform duration-200">
+							<h1 class="text-2xl font-semibold">{project.data.title}</h1>
+							<p>{project.data.summery}</p>
+						</div>
+					</a>
+				))}
 			</div>
 		</section>
 	</div>

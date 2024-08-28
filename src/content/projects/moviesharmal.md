@@ -7,6 +7,8 @@ tags:
   - myanmar
 source: https://github.com/happer64bit/moviesharmal
 publishedDate: 2024-08-28
+android: https://github.com/happer64bit/moviesharmal/releases/latest
+ios: https://github.com/happer64bit/moviesharmal/releases/latest
 ---
 
 # Movie Shar Mal

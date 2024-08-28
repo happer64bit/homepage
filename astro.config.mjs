@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import lottie from "astro-integration-lottie";
 import remarkCodeTitles from "remark-code-titles";
+import vtbot from "astro-vtbot";
 
 import sitemap from "@astrojs/sitemap";
 

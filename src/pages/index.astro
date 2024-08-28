@@ -76,7 +76,7 @@ const latestPost = (await getCollection("posts")).sort((a: any, b: any) => b.dat
 				<h1 class="text-4xl font-bold">Recent Projects</h1>
 			</div>
 			<div class="grid md:grid-cols-2 gap-5 grid-cols-1">
-				{projects.slice(0, 4).sort((a: any, b: any) => b.data.publishedDate - a.data.publishedDate).map((project) => (
+				{projects.slice(0, 4).sort((a: any, b: any) => b.data.publishedDate - a.data.publishedDate).map((project: any) => (
 					<a href={`/projects/${project.slug}`} class="relative">
 						<div class="p-6 rounded-lg bg-slate-800/5 space-y-5 border border-slate-800/50 shadow-sm min-h-40 hover:shadow-lg hover:shadow-blue-900 transform duration-200">
 							<h1 class="text-2xl font-semibold">{project.data.title}</h1>

@@ -47,12 +47,6 @@ importers:
       astro-loading-indicator:
         specifier: ^0.5.0
         version: 0.5.0(astro@4.14.2(@types/node@20.12.7)(rollup@4.16.4)(typescript@5.4.5))
-      astro-vtbot:
-        specifier: ^1.8.8
-        version: 1.8.8
-      inspection-chamber:
-        specifier: link:@vtbag\inspection-chamber
-        version: link:@vtbag/inspection-chamber
       lottie-web:
         specifier: ^5.12.2
         version: 5.12.2
@@ -747,9 +741,6 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  '@vtbag/inspection-chamber@1.0.10':
-    resolution: {integrity: sha512-mDwha6zZzwfPULbQ4NuebnQIbRnqELcfW+dxsjc1K54aDLQjaVKjeQf+q9ZzQ/QNl+hdtufKSnXC/Uo4p/LzhA==}
-
   acorn@8.11.3:
     resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
     engines: {node: '>=0.4.0'}
@@ -820,9 +811,6 @@ packages:
     resolution: {integrity: sha512-NU06AzJEzvlzXLac8ODFgHjzTDyaF/GV+nQQ7Rq21rCeSifhmLQu219lJukIUS0ySs4ySO4PAwcaHGClOSEufA==}
     peerDependencies:
       astro: ^4.0.0
-
-  astro-vtbot@1.8.8:
-    resolution: {integrity: sha512-oa+8CFgxrWz2qW1OhLaHZxe/GMPOrskKv2/wQOtaeYSDvM721wGmqyWlwdUNbya53GC03pfUSJ4Fscu1RFktPg==}
 
   astro@4.14.2:
     resolution: {integrity: sha512-x9VeYx8Ih6kYKBMVwwsfRzsZVq30+SUhiawnYQ6+46qQnEx3zH05KcH24HsJMe6dVpHD8HdH7CWR5C4o7Q/jeg==}
@@ -3212,8 +3200,6 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  '@vtbag/inspection-chamber@1.0.10': {}
-
   acorn@8.11.3: {}
 
   acorn@8.12.1: {}
@@ -3274,10 +3260,6 @@ snapshots:
   astro-loading-indicator@0.5.0(astro@4.14.2(@types/node@20.12.7)(rollup@4.16.4)(typescript@5.4.5)):
     dependencies:
       astro: 4.14.2(@types/node@20.12.7)(rollup@4.16.4)(typescript@5.4.5)
-
-  astro-vtbot@1.8.8:
-    dependencies:
-      '@vtbag/inspection-chamber': 1.0.10
 
   astro@4.14.2(@types/node@20.12.7)(rollup@4.16.4)(typescript@5.4.5):
     dependencies:

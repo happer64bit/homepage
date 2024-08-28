@@ -1,6 +1,6 @@
 ---
 title: The Tech Journey of Myself
-summery: "s"
+summery: The Tech Journey of Me (Wint Khant Lin)
 tags: ["vlog"]
 keywords: ["about wint khant lin", "about happer", "wint khant lin life", "wint khant lin"]
 publishedDate: 2024-08-28T07:06:00.000Z

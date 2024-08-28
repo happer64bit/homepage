@@ -53,6 +53,11 @@ const { Content } = await entry.render();
                         Android
                     </a>}
 
+                    {entry.data.ios && <a href={entry.data.android} class="2xl:text-lg bg-transparent text-white border border-white no-underline px-10 py-2 rounded-full flex items-center gap-2 hover:bg-white hover:text-black transform duration-200 w-full 2xl:w-fit justify-center">
+                        <Icon name="mdi:apple" font-size={30}/>
+                        iOS
+                    </a>}
+
                 </div>
                 <PostComment />
             </article>

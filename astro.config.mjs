@@ -22,7 +22,7 @@ export default defineConfig({
       remarkCodeTitles
     ],
     shikiConfig: {
-      theme: "ayu-dark"
+      theme: "ayu-dark",
     }
   }
 });

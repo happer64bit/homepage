@@ -8,7 +8,7 @@ publishedDate: 2024-09-23
 
 # Froop: The new static files sharing cli
 
-Froop is a project which aim is to share the file steamlessly and securely on the network event it's private or public.
+[Froop](https://github.com/happer64bit/froop) is a project which aim is to share the file steamlessly and securely on the network event it's private or public.
 
 Froop is 54.43x times faster than `python -m http.server`.
 

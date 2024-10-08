@@ -4,9 +4,10 @@ import Icon from './../../../public/assets/outfeed/icon.png';
 import { Image } from 'astro:assets';
 
 const osName = '';
+const keywords = ['OutFeed', 'RSS reader', 'desktop app', 'Windows', 'Linux', 'macOS', 'open source', 'RSS feed', 'feed reader', 'free download'];
 ---
 
-<MainLayout title='Get OutFeed' description="OutFeed is free and available on Windows, Linux and MacOs">
+<MainLayout title='Get OutFeed' description="OutFeed is free and available on Windows, Linux and MacOs" keywords={keywords}>
     <main class="min-h-[62vh]">
         <div class="text-center space-y-4">
             <Image src={Icon} alt="OutFeed Icon" width="200" class="mx-auto" loading="lazy"/>

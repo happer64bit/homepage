@@ -24,7 +24,7 @@ const { title, description, keywords } = Astro.props;
 		<title>{title}</title>
 		<slot name="meta" />
 		<meta name="description" content={description}>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F"></script>
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F"></script>
 		{keywords && <meta name="keywords" content={keywords.join(",")}>}
 		
 		<script is:inline>

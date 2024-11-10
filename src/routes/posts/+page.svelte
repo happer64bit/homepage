@@ -3,11 +3,12 @@
 </script>
 
 <svelte:head>
-	<title>Wint Khant Lin</title>
+	<title>Wint Khant Lin's Posts</title>
+    <meta name="description" content="Wint Khant Lin. Hello! I'm a 16-year-old college student from Myanmar, passionate about coding and designing with ❤️.">
 </svelte:head>
 
 <section>
-	<div class="grid grid-cols-3 container gap-5 my-10">
+	<div class="grid lg:grid-cols-3 container gap-5 my-10">
 		{#each data.posts as post}
             <a href={`/posts/${post.slug}`}>
                 <div class="bg-white/10 p-4 rounded-xl border-4 border-white/5 hover:border-blue-600 hover:scale-105 transform duration-200 h-60 flex justify-between flex-col">

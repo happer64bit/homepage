@@ -3,6 +3,7 @@
 </script>
 
 <section class="container mx-auto px-4 py-8 md:py-12">
+    <h2 class="text-4xl font-bold mb-6">Projects</h2>
     <div class="grid lg:grid-cols-2 gap-2 lg:[&>*:nth-child(4)]:rounded-bl-xl lg:[&>*:nth-child(5)]:rounded-br-xl lg:[&>*:nth-child(5)]:rounded-bl-none  [&>*:nth-child(5)]:rounded-b-xl">
         <div class="lg:col-span-2 bg-zinc-900 p-6 lg:p-8 transition-colors hover:bg-zinc-800 space-y-2 rounded-t-xl">
             <h1 class="text-2xl lg:text-4xl font-bold">{projects[0].name}</h1>

@@ -1,0 +1,6 @@
+{
+  "name": "OutFeed",
+  "description": "Outfeed /ˈaʊt.fiːd/ is a software built on top of Rust (Tauri) and Typescript (React).",
+  "lang": "Rust",
+  "repository": "https://github.com/happer64bit/outfeed"
+}

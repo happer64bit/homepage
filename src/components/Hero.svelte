@@ -13,8 +13,6 @@
 		</div>
 		<h1 class="text-6xl font-bold leading-tight">
 			I am
-		</h1>
-        <h1 class="text-6xl font-bold leading-tight">
             Wint Khant Lin.
         </h1>
 		<div class="flex justify-end">

@@ -1,0 +1,6 @@
+{
+  "name": "HyperScript",
+  "description": "Hyperscript is a tool for testing HTTP requests with flexible configuration and validation.",
+  "lang": "Python",
+  "repository": "https://github.com/happer64bit/hyperscript"
+}

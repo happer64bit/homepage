@@ -7,3 +7,10 @@ export type Post = {
     publishedDate: Date
     published?: boolean | true
 }
+
+export type Project = {
+    slug: string,
+    title: string,
+    description: string
+    lang: string
+}

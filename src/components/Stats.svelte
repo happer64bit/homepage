@@ -18,16 +18,13 @@
     let delayTimeout: ReturnType<typeof setTimeout>;
 
     const updateFramework = () => {
-        // If there's no hovered framework, cycle through
         if (!hoveredFramework) {
-            // Clear any existing timeout
             clearTimeout(delayTimeout);
 
-            // Set a delay for updating the displayFramework
             delayTimeout = setTimeout(() => {
                 currentFramework = (currentFramework + 1) % frameworks.length;
                 displayFramework = frameworks[currentFramework].name;
-            }, 1500); // Adjust the delay duration (e.g., 500ms) as needed
+            }, 1500);
         }
     };
 

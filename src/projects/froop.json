@@ -1,0 +1,6 @@
+{
+  "name": "Froop",
+  "description": "Froop is a project which aim is to share the file seamlessly and securely on the network even if it's private or public. Froop is 54.43x times faster than python -m http.server.",
+  "lang": "Go",
+  "repository": "https://github.com/happer64bit/froop"
+}

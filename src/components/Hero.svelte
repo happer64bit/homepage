@@ -16,12 +16,14 @@
             Wint Khant Lin.
         </h1>
 		<div class="flex justify-end">
-			<button
+			<a
+				href="https://www.facebook.com/profile.php?id=61558294022750"
+				target="_blank"
 				class="group flex items-center gap-2 rounded-full bg-white px-6 py-3 font-medium text-black transition-all hover:bg-opacity-90"
 			>
 				Available for Work
 				<ChevronRight size={16} class="transition-transform group-hover:translate-x-1" />
-			</button>
+			</a>
 		</div>
 	</div>
 </section>

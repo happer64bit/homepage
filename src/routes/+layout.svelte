@@ -5,6 +5,7 @@
 	import Footer from '../components/Footer.svelte';
 
 	import { fly } from 'svelte/transition'
+	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 
 	let { children, data } = $props();
 </script>
@@ -18,3 +19,4 @@
 	</div>
 {/key}
 <Footer />
+<GoogleAnalytics />

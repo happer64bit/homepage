@@ -4,9 +4,17 @@
 	import Header from '../components/Header.svelte';
 	import Footer from '../components/Footer.svelte';
 
-	let { children } = $props();
+	import { fly } from 'svelte/transition'
+
+	let { children, data } = $props();
 </script>
 
 <Header />
-{@render children()}
+{#key data.url}
+	<div
+		in:fly={{ y: 200, duration: 300, delay: 300 }}
+    	out:fly={{ y: 200, duration: 300 }}>
+		{@render children()}
+	</div>
+{/key}
 <Footer />

@@ -19,7 +19,7 @@ async function getProjects() {
         }
     }
 
-    return projects;
+    return projects.slice(0, 5);
 }
 
 export async function GET() {

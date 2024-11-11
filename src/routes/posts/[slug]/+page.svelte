@@ -6,6 +6,7 @@
 	<title>{data.meta.title}</title>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={data.meta.title} />
+	<meta name="keywords" content="{data.meta.keywords}">
 </svelte:head>
 
 <article class="my-10">

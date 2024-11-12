@@ -21,4 +21,3 @@
 {/key}
 <Footer />
 <GoogleAnalytics />
-<Search />

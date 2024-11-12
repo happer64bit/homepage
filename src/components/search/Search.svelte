@@ -6,7 +6,7 @@
 	import SearchWorker from './search-worker?worker';
 
 	const {
-		elements: { trigger, portalled, overlay, content, title, description, close },
+		elements: { trigger, portalled, overlay, content },
 		states: { open }
 	} = createDialog();
 
@@ -37,21 +37,31 @@
 		if (search === 'ready' && searchTerm) {
 			worker.postMessage({ type: 'search', payload: { searchTerm } });
 		}
-	})
-</script>
+	});
 
+	// Exported function to toggle the dialog from parent
+	export function openDialog() {
+		$open = true;
+	}
+</script>
 
 <svelte:window
 	onkeydown={(e) => {
 		if (e.ctrlKey || e.metaKey) {
 			if (e.key === 'k' || e.key === 'K') {
 				e.preventDefault();
-				// if (search === 'idle') initialize()
 				$open = !$open;
 			}
 		}
 	}}
 />
+
+<button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl" use:melt={$trigger}>
+	Search
+	<kbd class="p-1 bg-white/10 rounded ">Ctrl</kbd>
+	<p>+</p>
+	<kbd class="p-1 bg-white/10 rounded ">K</kbd>
+</button>
 
 <div use:melt={$portalled}>
 	{#if $open}
@@ -65,7 +75,7 @@
 			use:melt={$content}
 			in:scale={{ start: 0.9, duration: 200 }}
 			out:scale={{ duration: 100, start: 0.95 }}
-			class="fixed left-1/2 top-[20%] w-[90dvh] -translate-x-1/2 -translate-y-0 transform rounded-2xl border border-[hsl(0,_0%,_20.5%)] bg-[hsl(0,_0%,_11%)] p-2 px-3"
+			class="fixed left-1/2 top-[20%] max-w-[90dvh] w-full -translate-x-1/2 -translate-y-0 transform rounded-2xl border border-[hsl(0,_0%,_20.5%)] bg-[hsl(0,_0%,_11%)] p-2 px-3"
 		>
 			<!-- svelte-ignore a11y_autofocus -->
 			<div class="flex items-center gap-4 border-b border-[hsl(0,_0%,_20.5%)] pb-2">

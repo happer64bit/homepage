@@ -3,6 +3,7 @@ export type Post = {
     title: string
     summery: string
     tags: string[]
+    content?: string
     keywords: string[]
     publishedDate: Date
     published?: boolean | true

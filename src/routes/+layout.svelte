@@ -6,6 +6,7 @@
 
 	import { fly } from 'svelte/transition'
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
+	import Search from '../components/search/Search.svelte';
 
 	let { children, data } = $props();
 </script>
@@ -20,3 +21,4 @@
 {/key}
 <Footer />
 <GoogleAnalytics />
+<Search />

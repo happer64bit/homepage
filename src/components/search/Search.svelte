@@ -57,10 +57,13 @@
 />
 
 <button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl" use:melt={$trigger}>
-	Search
-	<kbd class="p-1 bg-white/10 rounded ">Ctrl</kbd>
-	<p>+</p>
-	<kbd class="p-1 bg-white/10 rounded ">K</kbd>
+	<SearchIcon />
+	<p class="hidden lg:block">
+		Search
+	</p>
+	<kbd class="p-1 bg-white/10 rounded hidden lg:block">Ctrl</kbd>
+	<p class="hidden lg:block">+</p>
+	<kbd class="p-1 bg-white/10 rounded hidden lg:block">K</kbd>
 </button>
 
 <div use:melt={$portalled}>

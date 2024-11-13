@@ -2,25 +2,27 @@ import matter from 'gray-matter'
 import { unified } from 'unified'
 import toMarkdownAST from 'remark-parse'
 import toHtmlAST from 'remark-rehype'
-import toHtmlString from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeShiki from '@shikijs/rehype'
 import { transformerMetaHighlight } from '@shikijs/transformers'
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
 
 // Initialize a markdown processor pipeline
 const markdownProcessor = unified()
 	.use(toMarkdownAST)
 	.use(remarkGfm)
+	.use(toHtmlAST)
 	.use(rehypeSlug)
-	.use(toHtmlAST, { allowDangerousHtml: true })
+	.use(remarkParse)
 	.use(rehypeCodeTitles)
 	.use(rehypeShiki, {
 		theme: 'poimandres',
 		transformers: [transformerMetaHighlight()],
 	})
-	.use(toHtmlString, { allowDangerousHtml: true })
+	.use(rehypeStringify)
 
 /**
  * Searches and replaces custom tags in content.
@@ -98,6 +100,9 @@ function frontmatter(content) {
 function markdown() {
 	return {
 		name: 'markdown',
+		/**
+		 * @param {any} params
+		 */
 		async markup({ content, filename }) {
 			if (filename.endsWith('.md')) {
 				const { markdown, meta } = frontmatter(content)

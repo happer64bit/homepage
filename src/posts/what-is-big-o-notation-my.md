@@ -1,6 +1,6 @@
 ---
 title: Big O Notation ဆိုတာဘာလဲ
-summery: Server-Side Rendering (SSR) is a web development technique where web pages are generated on the server side and sent to the client
+summery: Data Structure နဲ့ Algorithms တွေ့နေကျဖြစ်တဲ့ Big O Notation အကြောင်း
 tags: ["what-is", "algorithms"]
 keywords: ["algorithms", "algorithm", "big-o", "big o notation"]
 publishedDate: 2024-11-13T09:48:49.744Z

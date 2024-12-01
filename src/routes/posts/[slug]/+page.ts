@@ -1,5 +1,8 @@
 import { error } from '@sveltejs/kit'
 
+export const ssr = false;
+export const prerender = true;
+
 export async function load({ params }) {
 	try {
 		const post = await import(`./../../../posts/${params.slug}.md`)

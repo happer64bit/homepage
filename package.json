@@ -39,6 +39,7 @@
 		"@fontsource-variable/instrument-sans": "^5.1.0",
 		"@fontsource-variable/montserrat": "^5.1.0",
 		"@fontsource-variable/raleway": "^5.1.0",
+		"@giscus/svelte": "^3.0.0",
 		"@melt-ui/pp": "^0.3.2",
 		"@shikijs/rehype": "^1.22.2",
 		"@shikijs/transformers": "^1.22.2",

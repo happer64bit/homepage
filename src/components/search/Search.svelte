@@ -56,7 +56,7 @@
 	}}
 />
 
-<button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl" use:melt={$trigger}>
+<button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl bg-[#0b0b0b]" use:melt={$trigger}>
 	<SearchIcon />
 	<p class="hidden lg:block">
 		Search
@@ -78,10 +78,13 @@
 			use:melt={$content}
 			in:scale={{ start: 0.9, duration: 200 }}
 			out:scale={{ duration: 100, start: 0.95 }}
-			class="fixed left-1/2 top-[20%] max-w-[90dvh] w-full -translate-x-1/2 -translate-y-0 transform rounded-2xl border border-[hsl(0,_0%,_20.5%)] bg-[hsl(0,_0%,_11%)] p-2 px-3"
+			class="fixed left-1/2 top-[20%] max-w-[90dvh] w-full -translate-x-1/2 -translate-y-0 transform rounded-2xl border border-[hsl(0,_0%,_20.5%)] bg-[#0c0c0c] p-2 px-3"
 		>
 			<!-- svelte-ignore a11y_autofocus -->
-			<div class="flex items-center gap-4 border-b border-[hsl(0,_0%,_20.5%)] pb-2">
+			<div class={
+				`flex items-center gap-4 border-[hsl(0,_0%,_20.5%)]
+				${(searchTerm) && "border-b  pb-2"}`
+			}>
 				<SearchIcon color="hsl(0, 0%, 50%)" />
 				<input
 					bind:value={searchTerm}
@@ -93,7 +96,9 @@
 					autofocus
 				/>
 			</div>
-			<div class="results mt-3">
+			<div class={
+				"mt-3"
+			}>
 				{#if search === 'load'}
 					<p>Loading...</p>
 				{/if}

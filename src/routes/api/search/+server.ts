@@ -49,7 +49,7 @@ function stripMarkdown(markdown: string) {
 }
 
 export async function GET() {
-	const paths = import.meta.glob('./../../../posts/*.md', { as: 'raw', eager: true })
+	const paths = import.meta.glob('./../../../posts/*.md', { eager: true, query: "?raw", import: "default" })
 	const posts = Object.entries(paths)
 		.map(([key, content]) => {
 			const frontmatter = matter(content)
@@ -60,7 +60,8 @@ export async function GET() {
 
 			return {
 				title: frontmatter.data.title,
-				slug: key.split("/").pop()?.split(".")[0],
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				slug: key.split("/").pop()?.split(".")[0],  // @ts-ignore
 				content: stripMarkdown(content),
 			}
 		})

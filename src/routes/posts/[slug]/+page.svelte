@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Comments from '../../../components/Comments.svelte';
+
 	export let data
 </script>
 
@@ -10,7 +12,12 @@
 </svelte:head>
 
 <article class="my-10">
-	<div class="prose prose-lg prose-invert container max-w-[800px]">
-		<svelte:component this={data.content} />
+	<div class="container max-w-[800px]">
+		<div class="prose prose-lg prose-invert">
+			<svelte:component this={data.content} />
+		</div>
+		<div class="mt-10">
+			<Comments />
+		</div>
 	</div>
 </article>

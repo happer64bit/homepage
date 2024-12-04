@@ -81,10 +81,7 @@
 			class="fixed left-1/2 top-[20%] max-w-[90dvh] w-full -translate-x-1/2 -translate-y-0 transform rounded-2xl border border-[hsl(0,_0%,_20.5%)] bg-[#0c0c0c] p-2 px-3"
 		>
 			<!-- svelte-ignore a11y_autofocus -->
-			<div class={
-				`flex items-center gap-4 border-[hsl(0,_0%,_20.5%)]
-				${(searchTerm) && "border-b  pb-2"}`
-			}>
+			<div class="flex items-center gap-4 border-[hsl(0,_0%,_20.5%)] ${results.length ? "border-b pb-2" : ""}">
 				<SearchIcon color="hsl(0, 0%, 50%)" />
 				<input
 					bind:value={searchTerm}
@@ -96,18 +93,16 @@
 					autofocus
 				/>
 			</div>
-			<div class={
-				"mt-3"
-			}>
+			<div class="mt-3">
 				{#if search === 'load'}
 					<p>Loading...</p>
 				{/if}
 
-				{#if results}
-					<ul>
+				{#if results.length > 0}
+					<ul class="space-y-3">
 						{#each results.slice(0, 4) as result}
 							{#if result.content.length > 0}
-								<li class="mb-2">
+								<li>
 									<a onclick={() => $open = false} class="text-2xl font-bold" href="/posts/{result.slug}">{@html result.title}</a>
 									<ol class="mt-2">
 										{#each result.content as content}
@@ -118,6 +113,10 @@
 							{/if}
 						{/each}
 					</ul>
+				{:else}
+					<div class="text-center my-4">
+						<p>Type <b>Anything</b> to get started.</p>
+					</div>
 				{/if}
 			</div>
 		</div>

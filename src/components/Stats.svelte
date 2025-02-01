@@ -8,7 +8,8 @@
         { name: 'Flutter', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg' },
         { name: 'TypeScript', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg' },
         { name: 'Node.js', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' },
-        { name: 'Nest', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg' }
+        { name: 'Nest', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg' },
+        { name: 'Ruby on Rails', logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-plain.svg' }
     ];
 
     let currentFramework = 0;
@@ -32,7 +33,7 @@
 </script>
 
 <section class="container mx-auto px-4 py-8 md:py-12">
-    <div class="mt-6 grid grid-cols-2 gap-2 md:grid-cols-5 md:gap-[1px] overflow-hidden rounded-lg">
+    <div class="mt-6 grid grid-cols-2 gap-2 md:grid-cols-5 md:gap-[1px] overflow-hidden rounded-lg motion-preset-slide-up-lg motion-preset-fade-lg motion-delay-200">
         <div class="col-span-2 bg-zinc-900 p-6 md:p-8 transition-colors hover:bg-zinc-800">
             <div class="mb-4 md:mb-6 text-2xl md:text-3xl font-bold">
                 I love{' '}

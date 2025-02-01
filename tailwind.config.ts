@@ -1,4 +1,5 @@
 import typography from '@tailwindcss/typography';
+import motion from 'tailwindcss-motion';
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -29,5 +30,5 @@ export default {
 		}
 	},
 
-	plugins: [typography]
+	plugins: [typography, motion]
 } satisfies Config;

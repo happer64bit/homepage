@@ -1,6 +1,0 @@
-{
-  "name": "NoMoreVolumeKeyPain",
-  "description": "No More Volume Key Pain is a simple Windows app that makes adjusting your volume easier. If you’re tired of needing to press the Fn key just to change the volume, this app’s for you! With this little tool, you can use F6 and F7 to adjust volume directly—no Fn key needed.",
-  "lang": "C++",
-  "repository": "https://github.com/happer64bit/NoMoreVolumeKeyPain"
-}

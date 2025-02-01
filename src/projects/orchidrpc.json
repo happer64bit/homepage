@@ -1,0 +1,6 @@
+{
+    "name": "OrchidRPC",
+    "description": "Orchid RPC is a lightweight and flexible HTTP client designed to simplify interactions with APIs.",
+    "lang": "JavaScript/TypeScript",
+    "repository": "https://github.com/happer64bit/orchidrpc"
+  }

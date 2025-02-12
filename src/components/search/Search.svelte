@@ -56,7 +56,7 @@
 	}}
 />
 
-<button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl bg-[#0b0b0b]" use:melt={$trigger}>
+<button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl bg-[#0b0b0b]" use:melt={$trigger} aria-label="Search">
 	<SearchIcon />
 	<p class="hidden lg:block">
 		Search

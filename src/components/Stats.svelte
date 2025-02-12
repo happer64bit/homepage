@@ -1,7 +1,8 @@
 <script lang="ts">
     import { fly } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
-
+    import { Image } from '@unpic/svelte/base';
+    
     const frameworks = [
         { name: 'Next.js', logo: 'https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png' },
         { name: 'Svelte', logo: 'https://raw.githubusercontent.com/sveltejs/svelte/master/sites/svelte.dev/static/svelte-logo.svg' },
@@ -51,15 +52,15 @@
                 </span>
             </div>
             <div class="flex flex-wrap gap-2 md:gap-4">
-                {#each frameworks as framework, i}
+                {#each frameworks as framework}
                     <div
                         role="button"
-                        tabindex="{i}"
+                        tabindex="-1"
                         class="h-8 w-8 md:h-10 md:w-10 transform cursor-pointer rounded-lg bg-zinc-800 p-1 md:p-2 transition-all hover:scale-110 hover:bg-zinc-700"
                         on:mouseenter={() => (hoveredFramework = framework.name)}
                         on:mouseleave={() => (hoveredFramework = null)}
                     >
-                        <img src={framework.logo} alt={framework.name} class="h-full w-full object-contain" />
+                        <Image src={framework.logo} alt={framework.name} class="h-full w-full object-contain" />
                     </div>
                 {/each}
             </div>

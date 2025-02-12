@@ -14,11 +14,7 @@
 <div>
   	<Hero />
 	<Stats />
-	{#await data.projects}
-		<div>
-
-		</div>
-	{:then projects}
-		<ProjectsList projects={data.projects}/>
+	{#await data.projects then projects}
+		<ProjectsList projects={projects}/>
 	{/await}
 </div>

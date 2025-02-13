@@ -4,6 +4,7 @@
 	import SearchIcon from 'lucide-svelte/icons/search';
 	import { onMount } from 'svelte';
 	import SearchWorker from './search-worker?worker';
+	import { CommandIcon } from 'lucide-svelte';
 
 	const {
 		elements: { trigger, portalled, overlay, content },
@@ -56,14 +57,12 @@
 	}}
 />
 
-<button class="px-5 py-1 flex items-center border gap-3 border-white/10 rounded-xl bg-[#0b0b0b]" use:melt={$trigger} aria-label="Search">
+<button class="px-5 py-1 flex items-center border gap-3 border-white/5 hover:bg-white/10 transition-all rounded bg-[#0b0b0b] text-sm outline-none" use:melt={$trigger} aria-label="Search">
 	<SearchIcon />
 	<p class="hidden lg:block">
-		Search
+		Search Blogs
 	</p>
-	<kbd class="p-1 bg-white/10 rounded hidden lg:block">Ctrl</kbd>
-	<p class="hidden lg:block">+</p>
-	<kbd class="p-1 bg-white/10 rounded hidden lg:block">K</kbd>
+	<kbd class="py-0.5 bg-white/10 rounded hidden lg:flex lg:items-center gap-2 px-2 text-white/50"><CommandIcon size={13} />K</kbd>
 </button>
 
 <div use:melt={$portalled}>
@@ -78,7 +77,7 @@
 			use:melt={$content}
 			in:scale={{ start: 0.9, duration: 200 }}
 			out:scale={{ duration: 100, start: 0.95 }}
-			class="fixed left-1/2 top-[20%] max-w-[90dvh] w-full -translate-x-1/2 -translate-y-0 transform rounded-2xl border border-[hsl(0,_0%,_20.5%)] bg-[#0c0c0c] p-2 px-3"
+			class="fixed left-1/2 top-[20%] max-w-[90dvh] w-full -translate-x-1/2 -translate-y-0 transform rounded-lg border border-[hsl(0,_0%,_20.5%)] bg-[#0c0c0c] p-2 px-3"
 		>
 			<!-- svelte-ignore a11y_autofocus -->
 			<div class="flex items-center gap-4 border-[hsl(0,_0%,_20.5%)] ${results.length ? "border-b pb-2" : ""}">
@@ -88,11 +87,12 @@
 					placeholder="Search"
 					autocomplete="off"
 					spellcheck="false"
-					class="bg-transparent py-1.5 outline-none placeholder:text-[hsl(0,0%,62%)] w-full"
+					class="bg-transparent py-1.5 outline-none placeholder:text-[hsl(0,0%,62%)] w-full text-sm font-medium"
 					type="text"
 					autofocus
 				/>
 			</div>
+			<hr class="-mx-2 border-[#2f2f2f] mt-2" />
 			<div class="mt-3">
 				{#if search === 'load'}
 					<p>Loading...</p>

@@ -37,8 +37,6 @@
 		"vite": "^5.4.14"
 	},
 	"dependencies": {
-		"@fontsource-variable/instrument-sans": "^5.1.1",
-		"@fontsource-variable/montserrat": "^5.1.1",
 		"@fontsource-variable/raleway": "^5.1.1",
 		"@giscus/svelte": "^3.1.0",
 		"@melt-ui/pp": "^0.3.2",

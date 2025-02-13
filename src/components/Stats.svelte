@@ -26,7 +26,30 @@
 
 	let delayTimeout: ReturnType<typeof setTimeout>;
 
-	const updateFramework = () => {
+	// Simple throttle function
+	const throttle = (func: Function, wait: number) => {
+		let timeout: ReturnType<typeof setTimeout> | null = null;
+		return function (this: any, ...args: any[]) {
+			if (!timeout) {
+				timeout = setTimeout(() => {
+					func.apply(this, args);
+					timeout = null;
+				}, wait);
+			}
+		};
+	};
+
+	// Throttle the hover interaction
+	const handleMouseEnter = throttle((frameworkName: string) => {
+		hoveredFramework = frameworkName;
+	}, 200); // Throttle to only trigger once every 200ms
+
+	const handleMouseLeave = throttle(() => {
+		hoveredFramework = null;
+	}, 200); // Throttle to only trigger once every 200ms
+
+	// Updated updateFramework with throttle
+	const updateFramework = throttle(() => {
 		if (!hoveredFramework) {
 			clearTimeout(delayTimeout);
 
@@ -35,7 +58,7 @@
 				displayFramework = frameworks[currentFramework].name;
 			}, 1500);
 		}
-	};
+	}, 1000); // Throttle to only trigger once every 1000ms
 
 	setInterval(updateFramework, 2500);
 </script>
@@ -66,12 +89,13 @@
 						role="button"
 						tabindex="-1"
 						class="h-8 w-8 transform cursor-pointer rounded-lg bg-zinc-800 p-1 transition-all hover:scale-110 hover:bg-zinc-700 md:h-10 md:w-10 md:p-2"
-						on:mouseenter={() => (hoveredFramework = framework.name)}
-						on:mouseleave={() => (hoveredFramework = null)}
+						on:mouseenter={() => handleMouseEnter(framework.name)}
+						on:mouseleave={handleMouseLeave}
 					>
 						<img
 							src={framework.logo}
 							alt={framework.name}
+							loading="lazy"
 							class="h-full w-full object-contain"
 						/>
 					</div>

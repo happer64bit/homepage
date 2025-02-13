@@ -11,10 +11,14 @@
 				<img src="/assets/github.svg" alt="GitHub" class="w-[24px] h-[24px]"/>
 			</a>
 		</div>
-		<h1 class="leading-tight motion-preset-slide-up-lg motion-preset-fade-lg" style="font-size: 60px; line-height: 1; font-weight: bold;">
-			I am
-            Wint Khant Lin.
-        </h1>
+		<div class="leading-tight motion-preset-slide-up-lg motion-preset-fade-lg">
+			<h1 style="font-size: 60px; line-height: 1; font-weight: bold;">
+				I am
+			</h1>
+			<h1 style="font-size: 60px; line-height: 1; font-weight: bold;">
+				Wint Khant Lin.
+			</h1>
+		</div>
 		<div class="flex justify-end motion-preset-slide-up-lg motion-preset-fade-lg delay-100">
 			<a
 				href="https://www.facebook.com/profile.php?id=61558294022750"

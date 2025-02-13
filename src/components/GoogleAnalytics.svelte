@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	$: {
 		if (typeof gtag !== 'undefined') {
 			gtag('config', 'G-QJ7KVTTN9F', {
 				page_title: document.title,
-				page_path: $page.url.pathname
+				page_path: page.url.pathname
 			});
 		}
 	}

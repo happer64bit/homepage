@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ChevronRight } from 'lucide-svelte';
+	import GitHubIcon from './../icons/github.svg'
 </script>
 
 <section
@@ -8,7 +9,7 @@
 	<div class="w-full space-y-8">
 		<div class="flex justify-end gap-6 text-gray-400 motion-preset-slide-up-lg motion-preset-fade-lg">
 			<a href="https://github.com/happer64bit" class="transition-colors hover:text-white" target="_blank">
-				<img src="/assets/github.svg" alt="GitHub" class="w-[24px] h-[24px]"/>
+				<img src={GitHubIcon} alt="GitHub" class="w-[24px] h-[24px]"/>
 			</a>
 		</div>
 		<div class="leading-tight motion-preset-slide-up-lg motion-preset-fade-lg">

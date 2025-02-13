@@ -11,7 +11,7 @@
 				<img src="/assets/github.svg" alt="GitHub" class="w-[24px] h-[24px]"/>
 			</a>
 		</div>
-		<h1 class="text-6xl font-bold leading-tight motion-preset-slide-up-lg motion-preset-fade-lg">
+		<h1 class="leading-tight motion-preset-slide-up-lg motion-preset-fade-lg" style="font-size: 60px; line-height: 1; font-weight: bold;">
 			I am
             Wint Khant Lin.
         </h1>

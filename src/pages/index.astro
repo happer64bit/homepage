@@ -1,11 +1,33 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ProfileImage from '../assets/profile.png'
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Wint Khant Lin's Portfolio" description="Wint Khant Lin is College Student based in Myanmar and a hobbyist">
+	<div class="bg-radial-[at_50%_-50%] from-[#ffe208] to-white to-60% h-screen flex items-end justify-center">
+		<div class="max-w-[1300px] w-full p-[1rem] sm:p-[2rem]">
+			<div class="relative border-2 border-blue-400 p-4 w-fit">
+				<div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -top-2 -left-2"></div>
+				<div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -top-2 -right-2"></div>
+				<div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -bottom-2 -left-2"></div>
+				<div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -bottom-2 -right-2"></div>
+				<p class="text-[20px] sm:text-[28px] max-w-[700px] text-[#6a6945] motion-preset-fade-lg">Hello, I am a computer engineering student and working as a content writer at <b>@Code With Happer</b></p>
+			</div>
+			<h1 class="font-bold text-7xl sm:text-8xl lg:text-[140px] mt-4 motion-preset-slide-up">Wint Khant Lin</h1>
+		</div>
+	</div>
+	<div class="h-[70vh] my-10">
+		<div class="max-w-[1300px] p-[2rem] h-full mx-auto grid lg:grid-cols-2">
+			<div class="flex items-center justify-center h-full mb-14 lg:mb-0">
+				<div class="shadow-lg w-fit p-4 border border-black/5 rounded -rotate-[6deg]">
+					<Image src={ProfileImage} alt={"Wint Khant Lin"} width={500} class={"w-[18rem] h-[25rem] object-cover"} loading={"lazy"}/>
+				</div>
+			</div>
+			<div class="text-left lg:text-right my-auto">
+				<p class="text-2xl font-medium leading-relaxed mb-4">I was born on August 13, 2004, in Yangon, Myanmar, and I'm fluent in both English and Burmese. My coding journey began at the age of 8 when I started learning programming. I wrote my first program in VBScript, but soon after, my PC was sold, which put a pause on my coding. I picked it up again at 12.</p>
+			</div>
+		</div>
+	</div>
 </Layout>

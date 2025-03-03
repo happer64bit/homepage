@@ -9,6 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.4.1"
+    "@fontsource-variable/raleway": "^5.2.5",
+    "@swup/astro": "^1.5.0",
+    "@tailwindcss/vite": "^4.0.9",
+    "astro": "^5.4.1",
+    "astro-icon": "^1.1.5",
+    "swup": "^4.8.1",
+    "tailwindcss": "^4.0.9",
+    "tailwindcss-motion": "^1.1.0"
   }
 }

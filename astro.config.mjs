@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import remarkCodeTitles from 'remark-code-titles'
 import icon from "astro-icon";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -17,5 +19,6 @@ export default defineConfig({
       ]
   },
 
-  integrations: [icon()]
+  integrations: [icon(), sitemap()],
+  site: "https://wintkhantlin.vercel.app"
 });

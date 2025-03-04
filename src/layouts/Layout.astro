@@ -3,6 +3,9 @@ import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 import "@fontsource-variable/raleway";
+
+const { title, description, keywords, jsonLD } = Astro.props
+
 ---
 
 <!doctype html>
@@ -12,7 +15,11 @@ import "@fontsource-variable/raleway";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+	<meta name="description" content={description}>
+	{keywords && <meta name="keywords" content={keywords}/>}
+    <title>{title}</title>
+  	<script type="application/ld+json" is:inline set:html={jsonLD}>
+  	</script>
     <ClientRouter />
   </head>
   <body>

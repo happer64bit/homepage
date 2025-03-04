@@ -1,6 +1,6 @@
 ---
 title: Getting Started With Generic Type
-summery: Let's Master Typing in With Generic Type for Type Safe Code
+summary: Let's Master Typing in With Generic Type for Type Safe Code
 tags: ["typescript", "generic-type", "types"]
 keywords: ["typescript", "generic-type", "types"]
 publishedDate: 2025-02-25T07:08:55.133Z

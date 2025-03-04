@@ -1,6 +1,6 @@
 ---
 title: What's new in Tailwind V4 beta.
-summery: Tailwind CSS just drop a messive update
+summary: Tailwind CSS just drop a messive update
 tags: ["tailwindcss", "css", "update"]
 keywords: ["Tailwind CSS", "Tailwind CSS Update", "Tailwind Beta", "Tailwind v4 beta"]
 publishedDate: 2024-11-28T03:21:02.577Z

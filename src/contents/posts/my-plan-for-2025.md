@@ -1,6 +1,6 @@
 ---
 title: My Goals and Plan for 2025
-summery: This article outlines my goals for 2025 and the steps I plan to take to achieve them
+summary: This article outlines my goals for 2025 and the steps I plan to take to achieve them
 tags: ["myself"]
 keywords: ["Winning Life", "Self", "Goal"]
 publishedDate: 2025-01-09

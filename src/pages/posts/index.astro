@@ -6,9 +6,9 @@ const allPosts = await getCollection('posts')
 ---
 
 <Layout title="Posts from Wint Khant Lin" description="Posts about technology and Wint Khant Lin's Life">
-    <div class="max-w-6xl mx-auto mt-32 mb-10">
+    <div class="max-w-6xl mx-auto mt-32 mb-10 p-[2rem]  ">
         <h1 class="text-4xl font-bold">Posts Collection</h1>
-        <div class="grid grid-cols-3 gap-5 mt-5">
+        <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-5">
             {allPosts.map(post => (
                 <a href={"/posts/" + post.id}>
                     <div class="border-2 border-transparent hover:border-blue-600 transition hover:scale-105 p-4 rounded-lg bg-gray-50 min-h-60 flex flex-col justify-between">

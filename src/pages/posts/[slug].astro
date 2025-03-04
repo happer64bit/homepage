@@ -1,0 +1,32 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("posts");
+
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = {
+  entry: CollectionEntry<"posts">;
+};
+
+const { entry } = Astro.props;
+
+const { Content } = await render(entry);
+---
+
+<Layout>
+  <article
+    class="motion-preset-fade max-w-4xl my-20 mt-40 mx-auto w-full prose prose-lg *:my-2 prose-pre:mb-5 prose-headings:mb-5"
+  >
+    <Content />
+  </article>
+</Layout>

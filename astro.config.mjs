@@ -1,22 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
-import swup, { Theme } from '@swup/astro'
-
+import remarkCodeTitles from 'remark-code-titles'
 import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    gfm: true,
+    remarkPlugins: [remarkCodeTitles()]
+
+  },
   vite: {
       plugins: [
-          tailwindcss()
+        tailwindcss()
       ]
   },
 
-  integrations: [icon(), swup({
-    theme: Theme.slide,
-    animationClass: "transition-",
-    cache: true,
-    smoothScrolling: true
-  })]
+  integrations: [icon()]
 });

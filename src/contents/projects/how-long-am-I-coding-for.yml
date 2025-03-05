@@ -1,0 +1,5 @@
+name: How long am I coding for?
+source: https://github.com/happer64bit/how-long-am-i-coding-for
+description: This is a VSCode extension and it tracks and displays the total amount of time you have spent coding in VSCode. The time is shown in the status bar and is persisted across sessions.
+tags: ["vscode", "extension"]
+createdAt: 2024-11-06T03:16:23Z

@@ -1,0 +1,5 @@
+name: OrchidRPC
+source: https://github.com/happer64bit/orchidrpc
+description: Orchid RPC is a lightweight and flexible HTTP client designed to simplify interactions with APIs.
+createdAt: 2025-01-27T15:34:38Z
+tags: ["rpc", "api", "node.js"]

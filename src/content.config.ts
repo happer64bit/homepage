@@ -12,4 +12,15 @@ const posts = defineCollection({
     })
 })
 
-export const collections = { posts }
+const projects = defineCollection({
+    loader: glob({ pattern: "*.yml", base: "src/contents/projects"}),
+    schema: z.object({
+        name: z.string(),
+        source: z.string().url(),
+        tags: z.string().array(),
+        description: z.string(),
+        createdAt: z.date()
+    })
+})
+
+export const collections = { posts, projects }

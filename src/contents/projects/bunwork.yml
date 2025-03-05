@@ -1,0 +1,5 @@
+name: BunWork
+source: https://github.com/happer64bit/Bunwork
+tags: ["bun", "backend", "framework", "javascript"]
+description: A Lightweight Backend Framework For Bun
+createdAt: 2024-11-08T12:00:22Z

@@ -1,0 +1,5 @@
+name: Froop
+source: https://github.com/happer64bit/froop
+tags: ["command-line", "golang", "file-sharing"]
+description: An Faster Alternative to python -m http.server with strong authentication
+createdAt: 2024-09-20T09:24:00Z

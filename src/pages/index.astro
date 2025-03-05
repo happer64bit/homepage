@@ -1,49 +1,136 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import 'aos/dist/aos.css'
+import "aos/dist/aos.css";
 
-import ProfileImage from '../assets/profile.png'
+import ProfileImage from "../assets/profile.png";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
 ---
 
-<Layout title="Wint Khant Lin's Portfolio" description="Wint Khant Lin is a College Student based in Myanmar and a hobbyist">
-  <div class="bg-radial-[at_50%_-50%] from-[#ffe208] to-white to-60% h-screen flex items-end justify-center">
+<Layout
+  title="Wint Khant Lin's Portfolio"
+  description="Wint Khant Lin is a College Student based in Myanmar and a hobbyist"
+>
+  <div
+    class="bg-radial-[at_50%_-50%] from-[#ffe208] to-white to-60% h-screen flex items-end justify-center"
+  >
     <div class="max-w-[1300px] w-full p-[1rem] sm:p-[2rem]">
       <div class="relative border-2 border-blue-400 p-4 w-fit">
-        <div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -top-2 -left-2"></div>
-        <div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -top-2 -right-2"></div>
-        <div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -bottom-2 -left-2"></div>
-        <div class="w-3 h-3 bg-white border-2 border-blue-400 absolute -bottom-2 -right-2"></div>
-        <p class="text-[20px] sm:text-[28px] max-w-[700px] text-[#6a6945] motion-preset-fade-lg">
-          Hello, I am a computer engineering student and working as a content writer at <b>@Code With Happer</b>
+        <div
+          class="w-3 h-3 bg-white border-2 border-blue-400 absolute -top-2 -left-2"
+        >
+        </div>
+        <div
+          class="w-3 h-3 bg-white border-2 border-blue-400 absolute -top-2 -right-2"
+        >
+        </div>
+        <div
+          class="w-3 h-3 bg-white border-2 border-blue-400 absolute -bottom-2 -left-2"
+        >
+        </div>
+        <div
+          class="w-3 h-3 bg-white border-2 border-blue-400 absolute -bottom-2 -right-2"
+        >
+        </div>
+        <p
+          class="text-[20px] sm:text-[28px] max-w-[700px] text-[#6a6945] motion-preset-fade-lg"
+        >
+          Hello, I am a computer engineering student and working as a content
+          writer at <b>@Code With Happer</b>
         </p>
       </div>
-      <h1 class="font-bold text-7xl sm:text-8xl lg:text-[140px] mt-4 motion-preset-slide-up">Wint Khant Lin</h1>
+      <h1
+        class="font-bold text-7xl sm:text-8xl lg:text-[140px] mt-4 motion-preset-slide-up"
+      >
+        Wint Khant Lin
+      </h1>
     </div>
   </div>
 
-  <div class="h-[70vh] my-10">
+  <div class="min-h-[70vh] mt-10 mb-5">
     <div class="max-w-[1300px] p-[2rem] h-full mx-auto grid lg:grid-cols-2">
       <div class="flex items-center justify-center h-full mb-14 lg:mb-0">
-        <div class="shadow-lg w-fit p-4 border border-black/5 rounded -rotate-[6deg]">
-          <Image data-aos="fade-up-right" src={ProfileImage} alt={"Wint Khant Lin"} width={500} class="w-[18rem] h-[25rem] object-cover fade-in" loading={"lazy"}/>
+        <div
+          class="shadow-lg w-fit p-4 border border-black/5 rounded -rotate-[6deg]"
+        >
+          <Image
+            data-aos="fade-up-right"
+            src={ProfileImage}
+            alt={"Wint Khant Lin"}
+            width={500}
+            class="w-[18rem] h-[25rem] object-cover fade-in"
+            loading={"lazy"}
+          />
         </div>
       </div>
-      
+
       <div class="text-left lg:text-right my-auto">
-        <p class="text-2xl font-medium leading-relaxed mb-4" data-aos="fade-up-left">
-          I was born on August 13, 2004, in Yangon, Myanmar, and I'm fluent in both English and Burmese. My coding journey began at the age of 8 when I started learning programming. I wrote my first program in VBScript, but soon after, my PC was sold, which put a pause on my coding. I picked it up again at 12.
+        <p
+          class="text-2xl font-medium leading-relaxed mb-4"
+          data-aos="fade-up-left"
+        >
+          I was born on August 13, 2004, in Yangon, Myanmar, and I'm fluent in
+          both English and Burmese. My coding journey began at the age of 8 when
+          I started learning programming. I wrote my first program in VBScript,
+          but soon after, my PC was sold, which put a pause on my coding. I
+          picked it up again at 12.
         </p>
       </div>
     </div>
   </div>
-  <div>
-	
+  <div class="max-w-[1300px] p-[2rem] mx-auto">
+    <h1 class="text-4xl font-bold mb-6">Project Made by Me</h1>
+
+    <div class="flex items-center gap-5 snap-proximity overflow-y-auto no-scrollbar">
+      {
+        projects
+          .sort(
+            (a, b) => new Date(b.data.createdAt) - new Date(a.data.createdAt)
+          )
+          .slice(0, 5)
+          .map((project) => (
+            <a href={project.data.source} target="_blank">
+              <div class="bg-gray-200 p-[2rem] rounded-2xl min-h-48 min-w-[450px] flex flex-col justify-between transition-all hover:bg-[#dddaf5] active:rounded-[50px]">
+                <div>
+                  <h2 class="text-2xl font-bold mb-2">{project.data.name}</h2>
+                  <p class="line-clamp-2">{project.data.description}</p>
+                </div>
+                <div class="relative inline-flex items-center justify-center w-10 h-10 ml-auto">
+                  <svg
+                    width="40px"
+                    height="40px"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M.887 14.467C-2.845 5.875 5.875-2.845 14.467.887l1.42.617a10.323 10.323 0 0 0 8.225 0l1.42-.617c8.593-3.732 17.313 4.988 13.581 13.58l-.617 1.42a10.323 10.323 0 0 0 0 8.225l.617 1.42c3.732 8.593-4.989 17.313-13.58 13.581l-1.42-.617a10.323 10.323 0 0 0-8.225 0l-1.42.617C5.874 42.845-2.846 34.125.886 25.533l.617-1.42a10.323 10.323 0 0 0 0-8.225l-.617-1.42Z"
+                      fill="black"
+                    />
+                  </svg>
+
+                  <svg
+                    class="w-5 h-5 fill-white absolute"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>GitHub</title>
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))
+      }
+    </div>
   </div>
 </Layout>
 
 <script>
-	import AOS from "aos"
+  import AOS from "aos";
 
-	AOS.init()
+  AOS.init();
 </script>

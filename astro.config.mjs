@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import remarkCodeTitles from 'remark-code-titles'
 import icon from "astro-icon";
-import pagefind from "astro-pagefind";
-import worker from "@astropub/worker"
+import partytown from "@astrojs/partytown";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -21,6 +20,10 @@ export default defineConfig({
       ]
   },
 
-  integrations: [icon(), sitemap(), worker()],
+  integrations: [icon(), sitemap(), partytown({
+    config: {
+      forward: ["dataLayer.push"]
+    }
+  })],
   site: "https://wintkhantlin.vercel.app"
 });

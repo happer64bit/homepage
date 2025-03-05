@@ -87,11 +87,11 @@ const projects = await getCollection("projects");
       {
         projects
           .sort(
-            (a, b) => new Date(b.data.createdAt) - new Date(a.data.createdAt)
+            (a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime()
           )
           .slice(0, 5)
           .map((project) => (
-            <a href={project.data.source} target="_blank" class="group">
+            <a href={project.data.source} target="_blank" class="group rounded-2xl">
               <div class="bg-gray-200 p-[2rem] rounded-2xl min-h-48 min-w-[450px] flex flex-col justify-between transition-all hover:bg-[#dddaf5] active:rounded-[50px]">
                 <div>
                   <h2 class="text-2xl font-bold mb-2">{project.data.name}</h2>

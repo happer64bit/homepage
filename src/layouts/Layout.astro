@@ -15,8 +15,22 @@ const { title, description, keywords, jsonLD } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-	<meta name="description" content={description}>
-	{keywords && <meta name="keywords" content={keywords}/>}
+    <meta name="description" content={description}>
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-VJHX1C00BZ"
+    ></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-VJHX1C00BZ");
+    </script>
+    {keywords && <meta name="keywords" content={keywords}/>}
     <title>{title}</title>
   	<script type="application/ld+json" is:inline set:html={jsonLD}>
   	</script>

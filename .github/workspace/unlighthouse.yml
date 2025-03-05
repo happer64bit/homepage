@@ -1,0 +1,27 @@
+name: Assertions and static report
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        run: npm add @unlighthouse/cli puppeteer
+
+      - name: Unlighthouse assertions and client
+        run: unlighthouse-ci --site https://wintkhantlin.vercel.app --budget 75 --build-static
+
+      - name: Zip Unlighthouse Report
+        run: zip -r unlighthouse-report.zip .lighthouse/client
+
+      - name: Upload Unlighthouse Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: unlighthouse-report
+          path: unlighthouse-report.zip

@@ -40,7 +40,7 @@ Tailwind CSS Team က CSS-based configuration ကို prototyping လုပ်
 
 @import "./fonts" layer(base)
 
-:root {
+@theme {
   --font-family-sans: 'Roboto', 'sans-serif';
   --font-family-monument: 'Monument', 'sans-serif';
 

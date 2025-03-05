@@ -66,10 +66,9 @@ const projects = await getCollection("projects");
         </div>
       </div>
 
-      <div class="text-left lg:text-right my-auto">
+      <div class="text-left lg:text-right my-auto" data-aos="fade-up-left">
         <p
           class="text-2xl font-medium leading-relaxed mb-4"
-          data-aos="fade-up-left"
         >
           I was born on August 13, 2004, in Yangon, Myanmar, and I'm fluent in
           both English and Burmese. My coding journey began at the age of 8 when
@@ -77,21 +76,34 @@ const projects = await getCollection("projects");
           but soon after, my PC was sold, which put a pause on my coding. I
           picked it up again at 12.
         </p>
+        <a
+          href="https://facebook.com/wintkhantlin"
+          target="_blank"
+          class="text-xl bg-black text-white px-6 py-3 rounded-full active:rounded-lg duration-200">Contact Me</a
+        >
       </div>
     </div>
   </div>
   <div class="max-w-[1300px] p-[2rem] mx-auto">
     <h1 class="text-4xl font-bold mb-6">Project Made by Me</h1>
 
-    <div class="flex items-center gap-5 snap-proximity overflow-y-auto no-scrollbar">
+    <div
+      class="flex items-center gap-5 snap-proximity overflow-y-auto no-scrollbar"
+    >
       {
         projects
           .sort(
-            (a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime()
+            (a, b) =>
+              new Date(b.data.createdAt).getTime() -
+              new Date(a.data.createdAt).getTime()
           )
           .slice(0, 5)
           .map((project) => (
-            <a href={project.data.source} target="_blank" class="group rounded-2xl">
+            <a
+              href={project.data.source}
+              target="_blank"
+              class="group rounded-2xl"
+            >
               <div class="bg-gray-200 p-[2rem] rounded-2xl min-h-48 min-w-[450px] flex flex-col justify-between transition-all hover:bg-[#dddaf5] active:rounded-[50px]">
                 <div>
                   <h2 class="text-2xl font-bold mb-2">{project.data.name}</h2>

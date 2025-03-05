@@ -91,7 +91,7 @@ const projects = await getCollection("projects");
           )
           .slice(0, 5)
           .map((project) => (
-            <a href={project.data.source} target="_blank">
+            <a href={project.data.source} target="_blank" class="group">
               <div class="bg-gray-200 p-[2rem] rounded-2xl min-h-48 min-w-[450px] flex flex-col justify-between transition-all hover:bg-[#dddaf5] active:rounded-[50px]">
                 <div>
                   <h2 class="text-2xl font-bold mb-2">{project.data.name}</h2>
@@ -104,6 +104,7 @@ const projects = await getCollection("projects");
                     viewBox="0 0 40 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    class="group-hover:rotate-180 transition-all duration-300"
                   >
                     <path
                       d="M.887 14.467C-2.845 5.875 5.875-2.845 14.467.887l1.42.617a10.323 10.323 0 0 0 8.225 0l1.42-.617c8.593-3.732 17.313 4.988 13.581 13.58l-.617 1.42a10.323 10.323 0 0 0 0 8.225l.617 1.42c3.732 8.593-4.989 17.313-13.58 13.581l-1.42-.617a10.323 10.323 0 0 0-8.225 0l-1.42.617C5.874 42.845-2.846 34.125.886 25.533l.617-1.42a10.323 10.323 0 0 0 0-8.225l-.617-1.42Z"

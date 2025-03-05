@@ -18,7 +18,7 @@ jobs:
         run: unlighthouse-ci --site https://wintkhantlin.vercel.app --budget 75 --build-static
 
       - name: Zip Unlighthouse Report
-        run: zip -r unlighthouse-report.zip .lighthouse
+        run: zip -r unlighthouse-report.zip .unlighthouse
 
       - name: Upload Unlighthouse Report as Artifact
         uses: actions/upload-artifact@v4

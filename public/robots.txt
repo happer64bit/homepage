@@ -1,4 +1,4 @@
 User-Agent: *
 Disallow:
 
-Sitemap: /sitemap-0.xml
+Sitemap: https://wintkhantlin.vercel.app/sitemap-0.xml

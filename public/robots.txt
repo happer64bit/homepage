@@ -1,4 +1,4 @@
-eUser-Agent: *
+User-Agent: *
 Disallow:
 
 Sitemap: /sitemap-0.xml

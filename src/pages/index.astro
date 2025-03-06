@@ -7,6 +7,7 @@ import ProfileImage from "../assets/profile.png";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
+const posts = await getCollection("posts");
 ---
 
 <Layout
@@ -139,6 +140,11 @@ const projects = await getCollection("projects");
           ))
       }
     </div>
+  </div>
+  <div class="max-w-[1300px] mx-auto text-center p-[2rem] my-10">
+    <blockquote class="text-3xl"><q>Opportunities don't happen. You create them</q>
+      <cite>- Chris Grosser</cite>
+    </blockquote>
   </div>
 </Layout>
 

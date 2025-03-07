@@ -7,6 +7,8 @@ import partytown from "@astrojs/partytown";
 
 import sitemap from "@astrojs/sitemap";
 
+import playformInline from "@playform/inline";
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -24,6 +26,6 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  })],
+  }), playformInline()],
   site: "https://wintkhantlin.vercel.app"
 });

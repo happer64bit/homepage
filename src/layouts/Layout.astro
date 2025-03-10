@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 import "@fontsource-variable/raleway";
-
+import ralewayFont from '@fontsource-variable/raleway/files/raleway-latin-wght-normal.woff2?url';
 const { title, description, keywords, jsonLD } = Astro.props
 
 ---
@@ -16,6 +16,7 @@ const { title, description, keywords, jsonLD } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description}>
+    <link rel="preload" as="font" type="font/woff2" href={ralewayFont} crossorigin="anonymous" />
     <script
       is:inline
       type="text/partytown"

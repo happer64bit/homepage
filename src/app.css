@@ -1,2 +1,19 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+:root {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+@theme {
+    --font-sans: "Raleway Variable";
+}
+
+@utility container {
+    margin-inline: auto;
+
+    @variant 2xl {
+        max-width: 850px;
+    }
+}

@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div>
-	<div class="prose prose-lg prose-invert container my-20">
+	<div class="prose prose-lg prose-invert container my-20 px-4">
 		<data.content />
 	</div>
 </div>

@@ -2,7 +2,7 @@
 	import gsap from 'gsap';
 	import projects from '../assets/projects.json';
 	import { onMount } from 'svelte';
-	import profileImage from './../assets/myself.png?enhanced';
+	import profileImage from './../assets/myself.avif?enhanced';
 
 	function formatDate(dateString: string) {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -169,8 +169,7 @@
 			<div class="mt-6 flex flex-wrap items-center gap-2 xl:gap-4">
 				{#each ['💻 Coding', '📖 Learning', '🎮 Gaming', '🌐 Blogging'] as tag}
 					<div class="tag flex rounded-lg bg-white/5 px-4 py-2 hover:bg-white/10">
-						<span class="font-mono font-bold text-teal-500">#</span>
-						{tag}
+						<p>{tag}</p>
 					</div>
 				{/each}
 			</div>

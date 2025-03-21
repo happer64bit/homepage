@@ -4,7 +4,8 @@
 
 	import '../app.css';
 	import Header from "../components/Header.svelte";
-	let { children } = $props();
+	import Transition from "../components/Transition.svelte";
+	let { children, data } = $props();
 </script>
  
 <svelte:head>
@@ -26,4 +27,6 @@
 </svelte:head>
 
 <Header />
-{@render children()}
+<Transition url={data.url}>
+	{@render children()}
+</Transition>

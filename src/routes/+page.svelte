@@ -1,8 +1,8 @@
 <script lang="ts">
 	import gsap from 'gsap';
-	import myselfImage from '../assets/myself.png';
 	import projects from '../assets/projects.json';
 	import { onMount } from 'svelte';
+	import profileImage from './../assets/myself.png?enhanced';
 
 	function formatDate(dateString: string) {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -112,15 +112,29 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Wint Khant Lin | A Developer</title>
+	<meta
+		name="description"
+		content="Wint Khant Lin - A Developer crafting innovative web solutions"
+	/>
+	<meta
+		name="keywords"
+		content="Wint Khant Lin, Developer, Software Engineer, Web Development, Tech Enthusiast, Happer, Happer64Bit"
+	/>
+	<meta name="author" content="Wint Khant Lin" />
+</svelte:head>
+
 <main class="min-h-screen">
 	<section class="hero-section container mx-auto mt-10 px-4">
 		<div class="flex items-center gap-4">
-			<img
+			<enhanced:img
 				id="profileImage"
 				class="h-20 w-20 rounded-full"
-				src={myselfImage}
+				src={profileImage}
 				alt="Wint Khant Lin at Taung Gyi View Point"
 			/>
+
 			<div>
 				<h1 id="name" class="text-xl font-bold">Hey, I am Win Khant Lin</h1>
 				<p id="name">Student, Coder</p>
@@ -148,8 +162,9 @@
 				<a
 					class="relative font-bold text-white after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-blue-400 hover:after:scale-x-100"
 					href="https://www.facebook.com/profile.php?id=61558294022750"
-					target="_blank">Content Writer.
-                </a>
+					target="_blank"
+					>Content Writer.
+				</a>
 			</p>
 			<div class="mt-6 flex flex-wrap items-center gap-2 xl:gap-4">
 				{#each ['💻 Coding', '📖 Learning', '🎮 Gaming', '🌐 Blogging'] as tag}
@@ -167,7 +182,7 @@
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each projects as project}
 				<article
-					class="project-card group lg:min-h-72 rounded-xl bg-white/5 p-6 transition-all hover:bg-white/10"
+					class="project-card group rounded-xl bg-white/5 p-6 transition-all hover:bg-white/10 lg:min-h-72"
 				>
 					<h3 class="text-xl font-semibold text-white">
 						<a href={project.source} target="_blank" class="transition-colors hover:text-teal-400">

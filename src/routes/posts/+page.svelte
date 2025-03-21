@@ -2,6 +2,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Wint Khant Lin | Posts Collection</title>
+</svelte:head>
+
 <div>
 	<div class="max-w-[1200px] mx-auto my-10 grid gap-5 space-y-4 px-6 lg:grid-cols-3">
 		{#each data.posts as post}

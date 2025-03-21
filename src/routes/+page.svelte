@@ -167,7 +167,7 @@
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each projects as project}
 				<article
-					class="project-card group min-h-72 rounded-xl bg-white/5 p-6 transition-all hover:bg-white/10"
+					class="project-card group lg:min-h-72 rounded-xl bg-white/5 p-6 transition-all hover:bg-white/10"
 				>
 					<h3 class="text-xl font-semibold text-white">
 						<a href={project.source} target="_blank" class="transition-colors hover:text-teal-400">

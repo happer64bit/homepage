@@ -2,7 +2,7 @@
 	import gsap from 'gsap';
 	import projects from '../assets/projects.json';
 	import { onMount } from 'svelte';
-	import profileImage from './../assets/myself.avif?enhanced';
+	import profileImage from './../assets/myself.webp?enhanced';
 
 	function formatDate(dateString: string) {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -18,7 +18,6 @@
 			}
 		});
 
-		// Animate profile section
 		tl.fromTo(
 			'#profileImage',
 			{
@@ -58,7 +57,6 @@
 				'-=0.2'
 			);
 
-		// Animate tags
 		gsap.fromTo(
 			'.tag',
 			{
@@ -74,22 +72,6 @@
 			}
 		);
 
-		// Animate navbar
-		gsap.fromTo(
-			'.navbar',
-			{
-				y: -20,
-				opacity: 0
-			},
-			{
-				y: 0,
-				opacity: 1,
-				duration: 0.6,
-				ease: 'power2.out'
-			}
-		);
-
-		// Animate projects
 		gsap.fromTo(
 			'.project-card',
 			{
@@ -130,7 +112,7 @@
 		<div class="flex items-center gap-4">
 			<enhanced:img
 				id="profileImage"
-				class="h-20 w-20 rounded-full"
+				class="min-h-20 min-w-20 max-w-20 max-h-20 rounded-full"
 				src={profileImage}
 				alt="Wint Khant Lin at Taung Gyi View Point"
 			/>

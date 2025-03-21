@@ -9,8 +9,6 @@ publishedDate: 2024-11-28T03:21:02.577Z
 # What's new in Tailwind V4 Beta
 
 Tailwind CSS ရဲ့ v4.0 Beta 1 version ဟာ release လုပ်ခဲ့ပြီဖြစ်ပါတယ်။
-Oxide လို့ခေါ်တဲ့ Tailwind CSS Engine တစ်ခုလုံးကို Rust နဲ့ Rewrite လုပ်ထားပါတယ်။ TailwindCSS ရဲ့ performance က 2x ပိုမြန်လာပါတယ်။
-
 Oxide Engine ဟာဆိုရင် Lightning CSS ကိုသုံးထားတာမလို့ Performance ရော, Build Size ရောပိုကောင်းလာပါတယ်။
 
 ![Lightning CSS Comparison](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Il4X5gZ2aa082CN6Rk8kUQ.png)

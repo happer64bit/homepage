@@ -137,7 +137,7 @@
 
 			<div>
 				<h1 id="name" class="text-xl font-bold">Hey, I am Win Khant Lin</h1>
-				<p id="name">Student, Coder</p>
+				<p id="name">Student, Full Stack Engineer, Content Writer</p>
 			</div>
 		</div>
 		<div>
@@ -178,7 +178,7 @@
 
 	<section class="container mx-auto my-20 mt-24 px-4">
 		<h2 class="mb-8 text-2xl font-bold">Featured Projects</h2>
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<div class="grid gap-6 lg:grid-cols-3">
 			{#each projects as project}
 				<article
 					class="project-card group rounded-xl bg-white/5 p-6 transition-all hover:bg-white/10 lg:min-h-72"

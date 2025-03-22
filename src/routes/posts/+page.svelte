@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Footer from "../../components/Footer.svelte";
+
 	export let data;
 </script>
 

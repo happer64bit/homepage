@@ -3,6 +3,7 @@
 	import projects from '../assets/projects.json';
 	import { onMount } from 'svelte';
 	import profileImage from './../assets/myself.webp?enhanced';
+	import Footer from '../components/Footer.svelte';
 
 	function formatDate(dateString: string) {
 		return new Date(dateString).toLocaleDateString('en-US', {
@@ -184,3 +185,4 @@
 		</div>
 	</section>
 </main>
+<Footer />

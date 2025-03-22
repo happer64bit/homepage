@@ -9,10 +9,9 @@
                 <h2 class="text-3xl font-bold mb-2">Connect</h2>
                 <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://github.com/happer64bit">GitHub</a>
                 <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://facebook.com/wintkhantlin">Facebook</a>
-                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://facebook.com/">Facebook (Work)</a>
+                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://www.facebook.com/profile.php?id=61558294022750">Facebook (Work)</a>
             </div>
         </div>
         <p class="mt-4">©2025 Wint Khant Lin - All rights reserved.</p>
     </div>
-
 </footer>

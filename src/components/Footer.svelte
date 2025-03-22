@@ -7,9 +7,9 @@
         <div class="flex flex-col justify-end items-end">
             <div class="flex flex-col">
                 <h2 class="text-3xl font-bold mb-2">Connect</h2>
-                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://github.com/happer64bit">GitHub</a>
-                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://facebook.com/wintkhantlin">Facebook</a>
-                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://www.facebook.com/profile.php?id=61558294022750">Facebook (Work)</a>
+                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://github.com/happer64bit" target="_blank">GitHub</a>
+                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://facebook.com/wintkhantlin" target="_blank">Facebook</a>
+                <a class="text-xl font-bold transition-all hover:text-[#777]" href="https://www.facebook.com/profile.php?id=61558294022750" target="_blank">Facebook (Work)</a>
             </div>
         </div>
         <p class="mt-4">©2025 Wint Khant Lin - All rights reserved.</p>

@@ -13,9 +13,9 @@ const config = {
 				highlighter: async (code, lang = 'text') => {
 					const highlighter = await createHighlighter({
 						themes: ['poimandres'],
-						langs: ['javascript', 'typescript', 'css', 'html', 'go']
+						langs: ['javascript', 'typescript', 'css', 'html', 'go', "json", 'toml']
 					});
-					await highlighter.loadLanguage('javascript', 'typescript', 'css', 'go', 'html');
+					await highlighter.loadLanguage('javascript', 'typescript', 'css', 'go', 'html', 'json', 'toml');
 					const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'poimandres' }));
 					return `{@html \`${html}\` }`;
 				}

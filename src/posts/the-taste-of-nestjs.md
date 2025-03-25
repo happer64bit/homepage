@@ -3,7 +3,7 @@ title: The Taste of Nest.JS
 summary: This article is about my honest option on Nest.JS
 tag: Web Development
 keywords: ["Nest.JS", "Experience of Nest.JS"]
-publishedDate: 2025-03-22
+publishedDate: 2025-03-25T14:14:11.487Z
 ---
 
 # The Taste of NestJS

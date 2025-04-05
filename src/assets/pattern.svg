@@ -1,0 +1,42 @@
+<svg width="431" height="431" viewBox="0 0 431 431" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g filter="url(#filter0_dddd_1_10)">
+<g clip-path="url(#clip0_1_10)">
+<rect x="23" y="156" width="282" height="282" rx="7" transform="rotate(-30 23 156)" fill="white"/>
+<rect x="39.3923" y="160.392" width="258" height="258" transform="rotate(-30 39.3923 160.392)" fill="url(#pattern0_1_10)"/>
+</g>
+<rect x="25.7321" y="156.732" width="278" height="278" rx="5" transform="rotate(-30 25.7321 156.732)" stroke="#4B3339" stroke-width="4"/>
+</g>
+<defs>
+<filter id="filter0_dddd_1_10" x="-2" y="-2" width="435.219" height="435.219" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="8"/>
+<feGaussianBlur stdDeviation="12.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_10"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="3"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_1_10" result="effect2_dropShadow_1_10"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="effect2_dropShadow_1_10" result="effect3_dropShadow_1_10"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="0.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"/>
+<feBlend mode="normal" in2="effect3_dropShadow_1_10" result="effect4_dropShadow_1_10"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_1_10" result="shape"/>
+</filter>
+<pattern id="pattern0_1_10" patternContentUnits="objectBoundingBox" width="0.139535" height="0.139535">
+<use xlink:href="#image0_1_10" transform="scale(0.00387597)"/>
+</pattern>
+<clipPath id="clip0_1_10">
+<rect x="23" y="156" width="282" height="282" rx="7" transform="rotate(-30 23 156)" fill="white"/>
+</clipPath>
+<image id="image0_1_10" width="36" height="36" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAc1JREFUWAntmLEuBUEUhheVQkGDWiLR629J4QG8gFLFO6jcxkt4AupbU0qERKUjoaTj/65ZuStn1szcndmEe5J/i5kz+/977plzTm5V2Xaq5WN7q5PVI71laL1p3lrU2pbw4NnrYpl3wxFkm/J6FlaCvNOclh0HXK22qF3U77d6dbMJx4cAp2moxeHc3M2zCBcBaESK5LoU+JlKREY0DYMTbjQM5/Qg41E5El6FPoycGggbfZDPOP9WBEjqaYziOZmM9eV4SX3pQupBneO6XghrwruwJOwIJ8KjcCMUMwoaRbRR0Bw7a0SqWIElMhB6S77bQzC+WS24KUoFkYpu0r7xw/dVJPC1cO9zmFjH50rgTLDFCqK03wa//cs3qh3ECorQkuYaK4hkDp70nC9nsln2pE5RzlXmSv927YlM9mtff4A56blNrjuCkwrjNL2Mrz8TKAP1zSO/toVDobggcVY/Jz1+pj4nTzTN7J9HgAGNPxVWhSfhTejDmDx3hT1ax7pwINwJxQqZuGqDE240oOXbik96YqZWUUThNo12gEOJSMFB3WprQdpOnPTGJ8Mf3iZtjR9Jk164lrHnQE9z8rQEcYLeFDXpcSjCvJPnJ4VzUL62svlWAAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

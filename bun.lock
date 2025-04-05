@@ -5,6 +5,7 @@
       "name": "homepage",
       "dependencies": {
         "@fontsource-variable/raleway": "^5.2.5",
+        "@fontsource-variable/work-sans": "^5.2.5",
         "@qwik.dev/partytown": "^0.11.0",
         "@sveltejs/adapter-vercel": "^5.6.3",
         "@sveltejs/enhanced-img": "^0.4.4",
@@ -117,6 +118,8 @@
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.2.7", "", { "dependencies": { "@eslint/core": "^0.12.0", "levn": "^0.4.1" } }, "sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g=="],
 
     "@fontsource-variable/raleway": ["@fontsource-variable/raleway@5.2.5", "", {}, "sha512-+7xYA98t16DzKWvbkPf3lSkieQKaKbZKpZFug4oOHCogIvGQ5qBsyGV/F8JNXzuSfqq9qn0hDx5wsHxUsxFB5w=="],
+
+    "@fontsource-variable/work-sans": ["@fontsource-variable/work-sans@5.2.5", "", {}, "sha512-zvoUtTMsk0c0Iygz8DAWrSdVgQvcIMxRtLS7a1H3tFuUHIOAN0NHRrwONyeebDuzXrgAUmSrDOAxOz5D+pn6nw=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.1", "", {}, "sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA=="],
 

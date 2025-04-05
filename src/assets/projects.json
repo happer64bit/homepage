@@ -4,14 +4,18 @@
     "source": "https://github.com/happer64bit/Bunwork",
     "description": "A fast, lightweight, and efficient backend framework built for Bun, designed to simplify server-side development.",
     "createdAt": "2024-11-08T12:00:22Z",
-    "tags": ["Bun", "API", "Javascript"]
+    "tags": ["Bun", "API", "Javascript"],
+    "language": "TypeScript",
+    "language_color": "#3178c6"
   },
   {
     "name": "Froop",
     "source": "https://github.com/happer64bit/froop",
     "description": "A blazing-fast alternative to python -m http.server with robust authentication for secure file sharing.",
     "createdAt": "2024-09-20T09:24:00Z",
-    "tags": ["Command-Line", "Golang", "File-Sharing"]
+    "tags": ["Command-Line", "Golang", "File-Sharing"],
+    "language": "Golang",
+    "language_color": "#00ADD8"
   },
   {
     "name": "OrchidRPC",

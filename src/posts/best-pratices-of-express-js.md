@@ -3,7 +3,7 @@ title: Best Pratices of Express.JS
 summary: A guide to maintaining clean code and scalable architecture in Express.JS and similar frameworks
 tag: Software Design
 keywords: ["Express.JS", "Express.JS Clean Code"]
-publishedDate: 2025-09-01
+publishedDate: 2025-
 ---
 
 # Best Practices of Maintaining Express.JS or Other Similar Frameworks

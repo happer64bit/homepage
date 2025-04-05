@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "@fontsource-variable/raleway";
+	import '@fontsource-variable/work-sans';
 	import { partytownSnippet } from '@qwik.dev/partytown/integration'
 
 	import '../app.css';
@@ -27,6 +27,7 @@
 </svelte:head>
 
 <Header />
+
 <Transition url={data.url}>
 	{@render children()}
 </Transition>

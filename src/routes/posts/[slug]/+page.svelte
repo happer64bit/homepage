@@ -11,7 +11,7 @@
 </svelte:head>
 
 <div>
-	<div class="prose prose-lg prose-invert container my-20 px-4">
+	<div class="prose prose-lg container my-20 px-4">
 		<data.content />
 	</div>
 </div>

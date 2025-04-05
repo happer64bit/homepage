@@ -12,11 +12,11 @@ const config = {
 			highlight: {
 				highlighter: async (code, lang = 'text') => {
 					const highlighter = await createHighlighter({
-						themes: ['poimandres'],
+						themes: ['github-light'],
 						langs: ['javascript', 'typescript', 'css', 'html', 'go', "json", 'toml']
 					});
 					await highlighter.loadLanguage('javascript', 'typescript', 'css', 'go', 'html', 'json', 'toml');
-					const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'poimandres' }));
+					const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'github-light' }));
 					return `{@html \`${html}\` }`;
 				}
 			},

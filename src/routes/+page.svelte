@@ -124,7 +124,7 @@
 </section>
 
 <section
-	class="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-[#fff] text-[#4B3339]"
+	class="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-[#fff] text-[#4B3339]"
 >
 	<div class="relative text-center">
 		<enhanced:img

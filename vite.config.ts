@@ -5,5 +5,5 @@ import { partytownVite } from "@qwik.dev/partytown/utils";
 import { enhancedImages } from '@sveltejs/enhanced-img';
 
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit(), partytownVite({}), enhancedImages()]
+	plugins: [tailwindcss(), sveltekit(), partytownVite({}), enhancedImages()],
 });

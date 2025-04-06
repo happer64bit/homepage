@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 	import patternicon from './../assets/pattern.png';
 	import { gsap } from 'gsap';
 	import { onMount } from 'svelte';

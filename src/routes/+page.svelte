@@ -16,6 +16,11 @@
 	import SvelteIcon from './../assets/devicons/svelte.svg';
 	import TailwindIcon from './../assets/devicons/tailwindcss.svg';
 	import TSIcon from './../assets/devicons/typescript.svg';
+	import ExpressIcon from './../assets/devicons/express-original.svg';
+	import FastapiIcon from './../assets/devicons/fastapi-original.svg';
+	import FigmaIcon from './../assets/devicons/figma-original.svg';
+	import NestJSIcon from './../assets/devicons/nestjs-original.svg'
+	import PrismaIcon from './../assets/devicons/prisma-original.svg';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +52,12 @@
 		{ label: 'SolidJS', icon: SolidIcon },
 		{ label: 'Svelte', icon: SvelteIcon },
 		{ label: 'Tailwind CSS', icon: TailwindIcon },
-		{ label: 'Git', icon: GitIcon }
+		{ label: 'Git', icon: GitIcon },
+		{ label: 'Express.JS', icon: ExpressIcon },
+		{ label: 'FastAPI', icon: FastapiIcon },
+		{ label: "Figma", icon: FigmaIcon },
+		{ label: "Nest.JS", icon: NestJSIcon },
+		{ label: "Prisma", icon: PrismaIcon }
 	];
 </script>
 
@@ -124,7 +134,7 @@
 </section>
 
 <section
-	class="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-[#fff] text-[#4B3339]"
+	class="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-[#fff] text-[#4B3339]"
 >
 	<div class="relative text-center">
 		<enhanced:img

@@ -38,6 +38,14 @@
 				scrub: true
 			}
 		});
+
+		gsap.to(".box", {
+			y: -50,
+			duration: 1,
+			yoyo: true,
+			repeat: -1,
+			ease: "power1.inOut"
+		})
 	});
 
 	const skills = [
@@ -91,7 +99,7 @@
 				width="260"
 				height="260"
 				alt="Random Pattern"
-				class="w-56 object-contain md:w-64"
+				class="w-56 object-contain md:w-64 box"
 			/>
 		</div>
 	</div>

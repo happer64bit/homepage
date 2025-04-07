@@ -16,7 +16,12 @@ const config = {
 						langs: ['javascript', 'typescript', 'css', 'html', 'go', "json", 'toml']
 					});
 					await highlighter.loadLanguage('javascript', 'typescript', 'css', 'go', 'html', 'json', 'toml');
+
+					
 					const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'github-light' }));
+					
+					highlighter.dispose();
+					
 					return `{@html \`${html}\` }`;
 				}
 			},

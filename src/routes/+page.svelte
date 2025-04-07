@@ -117,7 +117,7 @@
 			{#each data.posts as post, i}
 				<article class="transform transition-transform duration-200 hover:scale-[1.02]">
 					<a href="/posts/{post.slug}" class="block">
-						<div class="w-full rounded-3xl border border-[#4B3339] p-3 sm:rounded-4xl sm:p-4">
+						<div class="w-full rounded-3xl border border-[#4B3339] p-3 sm:rounded-4xl sm:p-4 bg-white">
 							<img
 								src={i === 0
 									? 'https://lh3.googleusercontent.com/c7g7xi3GZwg6WaJAAG6zmGKgE5jH_dW0G_xCbgvKZvVeEc5i_Iv9QySokyDgZDnrvyYODZAj7viABV4JcPHnMON_dP-VrlzgO0sgy651xqG6o2lsTU35=w960'
@@ -142,7 +142,7 @@
 </section>
 
 <section
-	class="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-[#fff] text-[#4B3339]"
+	class="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#fff] text-[#4B3339]"
 >
 	<div class="relative text-center">
 		<enhanced:img

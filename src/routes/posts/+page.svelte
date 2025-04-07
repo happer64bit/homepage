@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div>
-	<div class="max-w-[1200px] mx-auto my-10 grid gap-5 space-y-4 px-6 lg:grid-cols-3">
+	<div class="max-w-[1200px] mx-auto my-10 grid lg:gap-5 space-y-4 px-6 lg:grid-cols-3">
 		{#each data.posts as post}
 			<div class="transition-all hover:scale-105">
 				<a href={`/posts/${post.slug}`}>

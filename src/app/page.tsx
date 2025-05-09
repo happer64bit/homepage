@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/HomeAboutSection";
 import HomeBlogDisplay from '@/components/HomeBlogDisplay';
+import HomeContactMeSection from "@/components/HomeContactMeSection";
 import HomeSkillsShowcase from "@/components/HomeSkillsShowcase";
 import { postsSortedByDate } from "@/lib/posts";
 // import HomeAboutMyRelationship from "@/components/HomeAboutMyRelationship";
@@ -13,6 +14,7 @@ export default function Home() {
       <AboutSection />
       <HomeSkillsShowcase />
       <HomeBlogDisplay posts={postsSortedByDate.slice(0, 3)} />
+      <HomeContactMeSection />
     </main>
   );
 }

@@ -1,5 +1,4 @@
 "use client"
-import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin'
 import Link from 'next/link'
@@ -7,25 +6,19 @@ import Link from 'next/link'
 gsap.registerPlugin(ScrambleTextPlugin)
 
 export default function HomeContactMeSection() {
-    useGSAP(() => {
-        gsap.to("#contact-email", {
-            scrambleText: {
-                text: "wintkhantlin@gmail.com",
-                chars: "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+[]{}|;:',.<>?/~`",
-            },
-            duration: 2,
-            scrollTrigger: {
-                trigger: "#contact-email",
-            }
-        })
-    })
-
     return (
-        <section className='text-center'>
-            <p className='mb-3 text-xl'>Contact Me</p>
-            <div className="w-full px-4 py-3 bg-gray-200 rounded-full">
-                <Link prefetch={false} href={"mailto:wintkhantlin@gmail.com"} id='contact-email' className='text-5xl'></Link>
-            </div>
+        <section className='min-h-[70vh] flex items-center justify-center flex-col gap-10'>
+            <Link href={"mailto:wintkhantlin@gmail.com"}>
+                <div className="w-[450px] h-32 bg-[#2d2d2d] text-white text-4xl font-semibold rounded-full 
+                    shadow-[0_4px_0_#000,0_10px_20px_rgba(0,0,0,0.5)] 
+                    border-[2px] border-[#3a3a3a]
+                    flex justify-center items-center 
+                    transform rotate-[-2deg] 
+                    transition-all duration-200 hover:brightness-110 active:translate-y-1">
+                    Contact Me
+                </div>
+            </Link>
+            <p className='text-gray-700'>Alternatively <Link href={"https://www.facebook.com/wintkhantlin/"} className='underline font-bold' target='_blank'>Facebook</Link>, <Link href={"https://www.facebook.com/profile.php?id=61558294022750"} className='underline font-bold' target='_blank'>Facebook (Work)</Link></p>
         </section>
     )
 }

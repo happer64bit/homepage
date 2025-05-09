@@ -1,6 +1,6 @@
 import { allPosts } from "content-collections";
 
-export const postsSortedByDate = allPosts.toSorted(
+export const postsSortedByDate = allPosts.sort(
   (a, b) => b.publishedDate.getTime() - a.publishedDate.getTime(),
 );
 

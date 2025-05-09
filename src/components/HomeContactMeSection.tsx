@@ -1,9 +1,5 @@
 "use client"
-import { gsap } from 'gsap'
-import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin'
 import Link from 'next/link'
-
-gsap.registerPlugin(ScrambleTextPlugin)
 
 export default function HomeContactMeSection() {
     return (

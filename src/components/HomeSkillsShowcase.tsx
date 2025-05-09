@@ -44,7 +44,7 @@ export default function HomeSkillsShowcase() {
     ]
 
     return (
-        <section ref={containerRef} className="grid lg:grid-cols-2 gap-4 my-10">
+        <section ref={containerRef} className="grid lg:grid-cols-2 gap-4 my-24">
             <div className="space-y-4">
                 <h1 className="text-5xl">My Skills</h1>
                 <p className="text-lg leading-8">I am currently okay with web technologies like HTML, CSS, JavaScript, TypeScript, Node.JS, React, Next.JS, Svelte Kit, Express.JS, GoLang, MongoDB, and PostgreSQL. I am currently focusing on Data Structure and Algorithms, Clean Code and Design Patterns.</p>

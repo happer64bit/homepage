@@ -10,7 +10,7 @@ export default function HomeContactMeSection() {
                     border-[2px] border-[#3a3a3a]
                     flex justify-center items-center 
                     transform rotate-[-2deg] 
-                    transition-all duration-200 hover:brightness-110 active:translate-y-1">
+                    transition-all duration-200 hover:brightness-110 active:translate-y-1 max-w-[90vw]">
                     Contact Me
                 </div>
             </Link>

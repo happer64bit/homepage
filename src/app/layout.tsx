@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inclusive_Sans } from 'next/font/google'
+import { Inclusive_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Script from "next/script";
+import { Partytown } from "@qwik.dev/partytown/react";
 
 const inclusive_sans = Inclusive_Sans({
   weight: ["400"],
-  subsets: ["latin"]
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -21,20 +22,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Partytown debug={true} forward={["dataLayer.push"]} />
+        <Script
+          id="google-analytics"
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              window.gtag = function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-QJ7KVTTN9F');
+            `,
+          }}
+        />
+        <Script
+          id="partytown-config"
+          type="text/partytown"
+          data-partytown-config
+          dangerouslySetInnerHTML={{
+            __html: `
+              partytown = {
+                lib: "/_next/static/~partytown/",
+                forward: ["gtag"]
+              };
+            `,
+          }}
+        />
+      </head>
       <body className={`${inclusive_sans.className} antialiased`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F"
           strategy="worker"
         />
         <Header />
-        <Script id="load-gtag" type={"text/partytown"} dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-QJ7KVTTN9F');
-          `,
-        }} strategy="worker"></Script>
         {children}
       </body>
     </html>

@@ -57,7 +57,7 @@ export default function HomeSkillsShowcase() {
                             ref={(el) => {
                                 if (el) blocksRef.current[index] = el;
                             }}
-                            className={`border-2 p-2 rounded-lg text-white text-3xl ${skill.color}`}
+                            className={`opacity-0 border-2 p-2 rounded-lg text-white text-3xl ${skill.color}`}
                         >
                             {skill.name}
                         </div>

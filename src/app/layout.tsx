@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inclusive_Sans } from 'next/font/google'
 import Header from "@/components/Header";
-import { Partytown } from "@qwik.dev/partytown/react";
-import Head from "next/head";
 import Script from "next/script";
 
 const inclusive_sans = Inclusive_Sans({
@@ -23,23 +21,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <Partytown forward={["dataLayer.push"]} />
-      </Head>
       <body className={`${inclusive_sans.className} antialiased`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F"
           strategy="worker"
         />
         <Header />
-        <script type={"text/partytown"} dangerouslySetInnerHTML={{
+        <Script id="load-gtag" type={"text/partytown"} dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-QJ7KVTTN9F');
           `,
-        }}></script>
+        }} strategy="worker"></Script>
         {children}
       </body>
     </html>

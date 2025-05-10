@@ -13,15 +13,15 @@ async function fetchPost(slug: string): Promise<Post> {
     "use cache"
 
     const post = postsDictionary[slug];
-    
-    if(!post) {
+
+    if (!post) {
         throw notFound();
     }
 
     return post;
 }
 
-export async function generateMetadata({ params } : { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
 
     const post = await fetchPost(slug);
@@ -38,13 +38,15 @@ export async function generateMetadata({ params } : { params: Promise<{ slug: st
 }
 
 
-export default async function ViewPostPage({ params } : { params: Promise<{ slug: string }> }) {
+export default async function ViewPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const post = await fetchPost(slug);
 
     return (
-        <main className="max-w-4xl prose mx-auto my-14 px-4 prose-pre:bg-transparent prose-code:border prose-code:border-gray-200 prose-code:rounded-lg prose-pre:p-0">
-            <article dangerouslySetInnerHTML={{ __html: post.html }}></article>
-        </main>
+        <>
+            <main className="max-w-4xl prose mx-auto my-14 px-4 prose-pre:bg-transparent prose-code:border prose-code:border-gray-200 prose-code:rounded-lg prose-pre:p-0">
+                <article dangerouslySetInnerHTML={{ __html: post.html }}></article>
+            </main>
+        </>
     )
 }

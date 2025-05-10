@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run partytown && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "partytown": "partytown copylib public/~partytown"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@qwik.dev/partytown": "^0.11.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.507.0",
     "next": "15.3.2",

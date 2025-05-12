@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Partytown debug={true} forward={["dataLayer.push"]} />
+        <Partytown lib="/~partytown/" forward={["dataLayer.push"]} />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -31,16 +31,30 @@ export default function RootLayout({
         <Script
           id="google-analytics"
           type="text/partytown"
+          strategy="worker"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               window.gtag = function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-QJ7KVTTN9F');
+              
+              window.gtag('js', new Date());
+
+              window.gtag('config', 'G-QJ7KVTTN9F', {
+                page_path: window.location.pathname,
+                page_title: document.title,
+                page_location: window.location.href,
+                send_page_view: true,
+                anonymize_ip: true
+              });
             `,
           }}
         />
         <Script
+          strategy="worker"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-QJ7KVTTN9F`}
+        />
+        <script
           id="partytown-config"
           type="text/partytown"
           data-partytown-config

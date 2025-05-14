@@ -37,14 +37,15 @@ export default function HeroSection() {
       <div className="mt-10">
         <Link
           href={"/posts"}
-          className="relative overflow-hidden text-lg rounded-full border px-4 py-3.5 flex items-center gap-2 w-fit group"
+          className="relative overflow-hidden text-lg rounded-full border border-black px-4 py-3.5 flex items-center gap-2 w-fit group transition-transform duration-300 hover:scale-105"
         >
-          <span className="absolute inset-0 bg-black opacity-0 scale-0 transition-transform duration-500 group-hover:opacity-100 group-hover:scale-150 rounded-full" />
-          <span className="relative z-10 flex items-center gap-2 transform duration-500 group-hover:invert">
+          <span className="absolute inset-0 bg-black opacity-0 scale-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-125 rounded-full blur-md" />
+          <span className="relative z-10 flex items-center gap-2 transition-all duration-300 group-hover:text-white">
             See All Blogs
-            <ArrowRight />
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </span>
         </Link>
+
       </div>
     </section>
   );

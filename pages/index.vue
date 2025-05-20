@@ -87,6 +87,8 @@
         
         <HomeBlogSection />
 
-        <SectionDivider />
+        <hr class="border-[#ddd]">
+
+        <FooterComponent />
     </main>
 </template>

@@ -1,14 +1,11 @@
 <script setup>
 import 'assets/global.css';
+
 </script>
 
 <template>
   <HeaderComponent />
-  <div class="wrapper">
-    <div class="content">
-      <NuxtPage />
-    </div>
-  </div>
+  <NuxtPage />
 </template>
 
 <style>

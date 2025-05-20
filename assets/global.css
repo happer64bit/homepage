@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('/images/noise.avif');
+}
+
+@utility container {
+    margin-inline: auto;
+    max-width: 1300px;
+    padding-inline: 2rem;
+}

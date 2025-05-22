@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
+	import { fade } from 'svelte/transition';
 	import '../app.css';
 	import '@fontsource-variable/dm-sans';
 	import { partytownSnippet } from '@qwik.dev/partytown/integration';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <svelte:head>
@@ -32,4 +33,8 @@
 </svelte:head>
 
 <Header />
-{@render children()}
+{#key data.pathname}
+	<div in:fade>
+		{@render children()}
+	</div>
+{/key}

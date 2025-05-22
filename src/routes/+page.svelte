@@ -1,63 +1,61 @@
 <script lang="ts">
-    import Icon from "@iconify/svelte";
-	import { onMount } from "svelte";
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    import SplitText from 'gsap/SplitText';
-	import { gsap } from "gsap";
-    import snapHeroImg from '$lib/assets/snap-hero.jpg?enhanced';
-    import SectionDivider from "$lib/components/SectionDivider.svelte";
-	import HomeAboutMeSection from "$lib/components/HomeAboutMeSection.svelte";
-	import HomeBlogSection from "$lib/components/HomeBlogSection.svelte";
-	import Footer from "$lib/components/Footer.svelte";
+	import Icon from '@iconify/svelte';
+	import { onMount } from 'svelte';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import SplitText from 'gsap/SplitText';
+	import { gsap } from 'gsap';
+	import snapHeroImg from '$lib/assets/snap-hero.jpg?enhanced';
+	import SectionDivider from '$lib/components/SectionDivider.svelte';
+	import HomeAboutMeSection from '$lib/components/HomeAboutMeSection.svelte';
+	import HomeBlogSection from '$lib/components/HomeBlogSection.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
-    onMount(() => {
-        gsap.registerPlugin(SplitText, ScrollTrigger);
+	onMount(() => {
+		gsap.registerPlugin(SplitText, ScrollTrigger);
 
-        // ScrollSmoother.create({
-        //     wrapper: ".wrapper",
-        //     content: ".content",
-        //     smooth: 1,
-        //     effects: true,
-        // });
+		const tl = gsap.timeline();
 
-		const tl = gsap.timeline()
-
-		tl.to("#snapHeroImg", {
+		tl.to('#snapHeroImg', {
 			scale: 1,
-			duration: 2,
-			ease: "power4.out",
-		})
+			duration: 1.5,
+			delay: 0.5
+		});
 
-        SplitText.create("#heroHeadingText", {
-            type: "words",
-            autoSplit: true,
-            onSplit(splitText) {
-                gsap.fromTo(
-                    splitText.words,
-                    {
-                        y: "100%",
-                        opacity: 0,
-                    },
-                    {
-                        y: "0%",
-                        opacity: 1,
-                        duration: 1,
-                        ease: "power4.out",
-                        stagger: {
-                            amount: 0.2,
-                        },
-                        delay: 0.2,
-                    }
-                );
-            },
-            
-        });
-    })
+		// Animate all buttons with same class
+		tl.to(
+			'.hero-button-animate',
+			{
+				scale: 1,
+				ease: 'power4.out',
+				stagger: 0.2
+			},
+			'-=1.5'
+		);
+
+		const split = new SplitText('#heroHeadingText', {
+			type: 'words'
+		});
+
+		tl.from(
+			split.words,
+			{
+				y: '100%',
+				opacity: 0,
+				duration: 0.5,
+				ease: 'power4.out',
+				stagger: 0.1
+			},
+			'-=1.2'
+		);
+	});
 </script>
 
 <svelte:head>
 	<title>Wint Khant Lin | Portfolio</title>
-	<meta name="description" content="I am Wint Khant Lin. Hey, I am a Computer Science student based in Myanmar. I am currently a Tech Content Writer and Full Stack Developer" />
+	<meta
+		name="description"
+		content="I am Wint Khant Lin. Hey, I am a Computer Science student based in Myanmar. I am currently a Tech Content Writer and Full Stack Developer"
+	/>
 	<meta name="keywords" content="wint khant, wint khant lin, happer64bit, portfolio" />
 </svelte:head>
 
@@ -67,18 +65,18 @@
 			<enhanced:img
 				id="snapHeroImg"
 				src={snapHeroImg}
-                loading="lazy"
+				loading="lazy"
 				alt="Shoot From Bottom Angle"
 				class="mx-auto rounded-full max-w-[500px] scale-0 mb-4"
 			/>
-			<h1 id="heroHeadingText" class="text-2xl lg:text-4xl mx-auto leading-[1.4] max-w-5xl">
+			<h1 id="heroHeadingText" class="text-3xl lg:text-4xl mx-auto leading-[1.4] max-w-5xl">
 				Hello, I am Wint Khant Lin. I am Computer Science Student, Who love creating and designing
 				things.
 			</h1>
 			<div class="mx-auto flex items-center justify-center gap-4">
 				<a
 					href="mailto:wintkhantlin@gmail.com"
-					class="bg-black text-white px-6 py-2.5 rounded-full flex items-center gap-2 cursor-pointer hover:opacity-80 group"
+					class="hero-button-animate bg-black text-white px-6 py-2.5 rounded-full flex items-center gap-2 cursor-pointer hover:opacity-80 group scale-0"
 					>Connect
 					<Icon
 						icon="solar:arrow-right-up-linear"
@@ -88,7 +86,7 @@
 				<a
 					href="https://facebook.com/wintkhantlin"
 					target="_blank"
-					class="decoration-dotted text-[#252525]"
+					class="hero-button-animate decoration-dotted text-[#252525] scale-0"
 					>FaceBook
 				</a>
 			</div>

@@ -14,11 +14,11 @@
 			<p class="text-[#818181] mb-4">SOCIAL MEDIA</p>
 			<div class="space-y-0.5 flex flex-col items-end gap-1">
 				<a
-					href="https://github.com/wintkhantlin"
+					href="https://github.com/happer64bit"
 					target="_blank"
 					class="text-sm text-gray-500"
 				>
-					github.com/wintkhantlin
+					github.com/happer64bit
 				</a>
 				<a
 					href="https://www.linkedin.com/in/wintkhantlin/"

@@ -39,6 +39,8 @@
   },
   "trustedDependencies": [
     "@tailwindcss/oxide",
+    "esbuild",
+    "sharp",
     "@parcel/watcher",
   ],
   "packages": {

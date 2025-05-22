@@ -1,9 +1,8 @@
 <script lang="ts">
-	import type { Post } from "content-collections";
-
 	import 'highlight.js/styles/github.min.css'
+	import type { PageProps } from "./$types";
 
-	let { data }: { data: { post: Post } } = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <svelte:head>

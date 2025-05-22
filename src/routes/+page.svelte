@@ -8,7 +8,6 @@
     import SectionDivider from "$lib/components/SectionDivider.svelte";
 	import HomeAboutMeSection from "$lib/components/HomeAboutMeSection.svelte";
 	import HomeBlogSection from "$lib/components/HomeBlogSection.svelte";
-	import { ScrollSmoother } from "gsap/ScrollSmoother";
 	import Footer from "$lib/components/Footer.svelte";
 
     onMount(() => {

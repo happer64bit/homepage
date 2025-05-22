@@ -24,7 +24,7 @@
 
 		tl.to("#snapHeroImg", {
 			scale: 1,
-			duration: 1,
+			duration: 2,
 			ease: "power4.out",
 		})
 

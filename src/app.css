@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+body {
+    background-image: url("/images/noise.avif");
+}
+
+@theme {
+    --font-sans: 'DM Sans Variable', sans-serif;
+}
+
+@utility container {
+    margin-inline: auto;
+    max-width: 1300px;
+    padding-inline: 2rem;
+}

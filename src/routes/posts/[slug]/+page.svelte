@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Post } from "content-collections";
-	import type { PageProps } from "../$types";
+
+	import 'highlight.js/styles/github.min.css'
 
 	let { data }: { data: { post: Post } } = $props();
 </script>

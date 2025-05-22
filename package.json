@@ -20,7 +20,6 @@
     "@eslint/compat": "^1.2.5",
     "@eslint/js": "^9.18.0",
     "@iconify/svelte": "^5.0.0",
-    "@sveltejs/adapter-auto": "^6.0.0",
     "@sveltejs/kit": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@tailwindcss/typography": "^0.5.15",
@@ -40,7 +39,9 @@
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.2.5",
+    "@giscus/svelte": "^3.1.0",
     "@qwik.dev/partytown": "^0.11.1",
+    "@sveltejs/adapter-vercel": "^5.7.2",
     "@sveltejs/enhanced-img": "^0.6.0",
     "gsap": "^3.13.0",
     "rehype-highlight": "^7.0.2"

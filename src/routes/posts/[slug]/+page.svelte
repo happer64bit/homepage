@@ -1,6 +1,7 @@
 <script lang="ts">
 	import 'highlight.js/styles/github.min.css'
 	import type { PageProps } from "./$types";
+	import GiscusScript from '$lib/components/GiscusScript.svelte';
 
 	let { data }: PageProps = $props();
 </script>
@@ -14,8 +15,13 @@
 	<meta property="og:description" content={data.post.summary} />
 </svelte:head>
 
-<article
-	class="prose prose-lg prose-pre:bg-[#fff] prose-pre:border mx-auto max-w-[800px] my-20 px-4"
->
-	{@html data.post.html}
-</article>
+<main class="max-w-[800px] mx-auto my-20 px-4">
+	<article
+		class="prose prose-lg prose-pre:bg-[#fff] prose-pre:border mx-auto max-w-[800px]"
+	>
+		{@html data.post.html}
+	</article>
+	<div class="mt-10">
+		<GiscusScript />
+	</div>
+</main>

@@ -4,7 +4,7 @@
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
     import SplitText from 'gsap/SplitText';
 	import { gsap } from "gsap";
-    import snapHeroImg from '$lib/assets/snap-hero.jpg';
+    import snapHeroImg from '$lib/assets/snap-hero.jpg?enhanced';
     import SectionDivider from "$lib/components/SectionDivider.svelte";
 	import HomeAboutMeSection from "$lib/components/HomeAboutMeSection.svelte";
 	import HomeBlogSection from "$lib/components/HomeBlogSection.svelte";
@@ -19,6 +19,14 @@
         //     smooth: 1,
         //     effects: true,
         // });
+
+		const tl = gsap.timeline()
+
+		tl.to("#snapHeroImg", {
+			scale: 1,
+			duration: 1,
+			ease: "power4.out",
+		})
 
         SplitText.create("#heroHeadingText", {
             type: "words",
@@ -53,14 +61,15 @@
 	<meta name="keywords" content="wint khant, wint khant lin, happer64bit, portfolio" />
 </svelte:head>
 
-<main class="container wrapper content">
+<main class="container">
 	<div id="heroSection" class="flex flex-col justify-center min-h-[90vh]">
 		<div class="space-y-4 text-center">
-			<img
+			<enhanced:img
+				id="snapHeroImg"
 				src={snapHeroImg}
                 loading="lazy"
 				alt="Shoot From Bottom Angle"
-				class="mx-auto rounded-full max-w-[500px]"
+				class="mx-auto rounded-full max-w-[500px] scale-0 mb-4"
 			/>
 			<h1 id="heroHeadingText" class="text-2xl lg:text-4xl mx-auto leading-[1.4] max-w-5xl">
 				Hello, I am Wint Khant Lin. I am Computer Science Student, Who love creating and designing

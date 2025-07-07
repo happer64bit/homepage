@@ -10,8 +10,8 @@
 					class="block absolute left-0 -bottom-2 h-[2px] bg-black w-0 group-hover:w-full transition-all duration-300"></span>
 			</a>
 		</div>
-		<div class="flex flex-col items-end">
-			<p class="text-[#818181] mb-4">SOCIAL MEDIA</p>
+		<div class="flex flex-col items-end lg:mt-0 mt-10">
+			<p class="text-[#818181] mb-2">SOCIAL MEDIA</p>
 			<div class="space-y-0.5 flex flex-col items-end gap-1">
 				<a
 					href="https://github.com/happer64bit"

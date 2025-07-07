@@ -11,7 +11,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	onMount(() => {
-		gsap.registerPlugin(SplitText, ScrollTrigger);
+		gsap.registerPlugin(SplitText);
 
 		const tl = gsap.timeline();
 
@@ -67,7 +67,7 @@
 				src={snapHeroImg}
 				loading="lazy"
 				alt="Shoot From Bottom Angle"
-				class="mx-auto rounded-full max-w-[500px] scale-0 mb-4"
+				class="mx-auto rounded-full lg:w-[500px] w-[350px] scale-0 mb-4"
 			/>
 			<h1 id="heroHeadingText" class="text-3xl lg:text-4xl mx-auto leading-[1.4] max-w-5xl">
 				Hello, I am Wint Khant Lin. I am Computer Science Student, Who love creating and designing

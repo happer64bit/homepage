@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+body {
+    background-image: url('/noise.avif');
+}

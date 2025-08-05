@@ -11,6 +11,18 @@ export default defineContentConfig({
         categories: z.array(z.string()),
         publishedDate: z.date()
       }),
+    }),
+    projects: defineCollection({
+      type: 'data',
+      source:  'projects/*.yml',
+      schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        source: z.string(),
+        publishedDate: z.date(),
+        img: z.string(),
+        tags: z.array(z.string())
+      })
     })
   }
 })

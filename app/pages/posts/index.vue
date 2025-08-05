@@ -16,7 +16,7 @@ const allPosts = await queryCollection('posts', {
         :key="post.id"
         class="block py-4 hover:bg-neutral-50 transition"
       >
-        <div class="grid lg:grid-cols-3 gap-6 py-2">
+        <div class="grid lg:grid-cols-3 gap-2 lg:gap-6 py-2">
           <div>
             <h3 class="font-bold">{{ post.title }}</h3>
             <span class="text-sm text-neutral-500">{{ new Date(post.publishedDate).toLocaleDateString().replaceAll("/", "-") }}</span>

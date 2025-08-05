@@ -1,0 +1,5 @@
+name: Froop
+description: Froop is a golang based project that is designed to deliver and share file. It's ment for the replacement of using http.server from python package and give security and efficiency.
+source: https://github.com/happer64bit/github-issue-template-generator
+publishedDate: 2024-9-19
+tags: ["Golang", "File Sharing", "Performance"]

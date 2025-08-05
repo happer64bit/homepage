@@ -12,18 +12,33 @@ export default defineNuxtConfig({
     ]
   },
 
-  modules: [
-    ["@nuxtjs/google-fonts", {
-      families: {
-        "Noto Sans": true
+  modules: [["@nuxtjs/google-fonts", {
+    families: {
+      "Noto Sans": true
+    }
+  }], "@nuxt/icon", "@nuxt/content"],
+
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ["ts", "java", "js", "go", "python", "css"]
+        }
       }
-    }], "@nuxt/icon", ["@nuxt/content", {
-      highlight: {
-        theme: "github-light",
-        langs: ["ts", "java", "js", "json", "css", "html", "python"]
-      }
-    }]
-  ],
+    }
+  },
+
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: '/favicon.ico'
+        }
+      ]
+    }
+  },
 
   icon: {
     mode: 'css',

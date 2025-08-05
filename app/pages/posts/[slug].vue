@@ -29,6 +29,6 @@ useSeoMeta({
                 <p class="mt-2 text-neutral-600">Posted At {{ new Date(post.publishedDate).toLocaleDateString().replaceAll("/", "-") }}</p>
             </div>
         </div>
-        <ContentRenderer :value="post.body" class="prose prose-lg max-w-full prose-pre:bg-transparent prose-code:bg-transparent prose-pre:border prose-pre:shadow-sm" />
+        <ContentRenderer :value="post.body" class="prose prose-lg max-w-full prose-code:bg-transparent prose-pre:border prose-pre:bg-white" />
     </section>
 </template>

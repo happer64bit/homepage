@@ -46,7 +46,7 @@ const { data: projects } = await useAsyncData('projects', () =>
         <section class="py-10 my-10 grid md:grid-cols-2 grid-rows-2">
             <NuxtLink v-for="(project, index) in projects" :key="index" :to="project.source" target="_blank"
                 class="group p-6 space-y-4 hover:bg-neutral-50 transition-all border-neutral-300" :class="[
-                    index === 0 ? 'row-span-2 border-r lg:border-b-0 border-b flex justify-center flex-col' : '',
+                    index === 0 ? 'row-span-2 lg:border-r lg:border-b-0 border-b flex justify-center flex-col' : '',
                     index === 1 ? 'border-b' : '',
                     index === 2 ? '' : '',
                 ]">
@@ -64,7 +64,6 @@ const { data: projects } = await useAsyncData('projects', () =>
                 </div>
             </NuxtLink>
         </section>
-
 
         <FooterBar />
     </main>

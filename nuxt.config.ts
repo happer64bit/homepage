@@ -43,5 +43,11 @@ export default defineNuxtConfig({
   icon: {
     mode: 'css',
     cssLayer: 'base'
+  },
+
+  routeRules: {
+    "*": {
+      prerender: true
+    }
   }
 })

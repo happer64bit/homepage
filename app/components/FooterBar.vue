@@ -1,10 +1,13 @@
 <template>
-    <footer class="border-t border-neutral-200 w-full text-neutral-400 py-4 grid grid-cols-2 lg:grid-cols-3 font-mono gap-10 text-sm">
+    <footer
+        class="border-t border-neutral-200 w-full text-neutral-400 py-4 grid grid-cols-2 lg:grid-cols-3 font-mono gap-10 text-sm">
         <div>
-            <b>Theme Toggle</b>
-            <div class="mt-2">
-                <ThemeToggleButton />
-            </div>
+            <ul class="space-y-1">
+                <li class="flex items-center gap-2 transform duration-300 hover:text-black">
+                    <Icon name="mdi:arrow-top-right" />
+                    <a href="/rss.xml">RSS Feed</a>
+                </li>
+            </ul>
         </div>
         <div class="space-y-4">
             <p>SOCIAL</p>

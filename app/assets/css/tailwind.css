@@ -3,4 +3,5 @@
 
 body {
     background-image: url('/noise.avif');
+    @apply bg-white text-black;
 }

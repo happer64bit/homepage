@@ -38,7 +38,7 @@ const { data: projects } = await useAsyncData('projects', () =>
             </div>
         </section>
 
-        <section class="text-neutral-600 text-5xl leading-relaxed text-justify">
+        <section class="text-neutral-600 text-3xl lg:text-5xl leading-relaxed text-justify">
             I'm Wint Khant Lin, also known as Happer. I'm passionate about coding and system design. Right now, I'm
             focused on writing clean code, sharpening my soft skills, and learning a new language.
         </section>

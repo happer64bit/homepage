@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     families: {
       "Noto Sans": true
     }
-  }], "@nuxt/icon", "@nuxt/content"],
+  }], "@nuxt/content"],
 
   content: {
     build: {
@@ -40,14 +40,9 @@ export default defineNuxtConfig({
     }
   },
 
-  icon: {
-    mode: 'css',
-    cssLayer: 'base'
-  },
-
   routeRules: {
     "*": {
-      prerender: true
+      prerender: true,
     }
-  }
+  },
 })

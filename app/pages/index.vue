@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import { ArrowUpRight } from 'lucide-vue-next';
 
 onMounted(() => {
     gsap.registerPlugin(SplitText);
@@ -54,7 +55,7 @@ const { data: projects } = await useAsyncData('projects', () =>
                 ]">
                 <h2 class="text-2xl font-semibold text-neutral-800">
                     {{ project.title }}
-                    <Icon name="mdi:arrow-top-right"
+                    <ArrowUpRight
                         class="inline-block ml-1 group-hover:text-black text-neutral-400 transform duration-200" />
                 </h2>
                 <p class="text-neutral-600 text-base">{{ project.description }}</p>

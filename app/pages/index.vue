@@ -39,8 +39,10 @@ const { data: projects } = await useAsyncData('projects', () =>
         </section>
 
         <section class="text-neutral-600 text-3xl lg:text-5xl leading-relaxed text-justify">
-            I'm Wint Khant Lin, also known as Happer. I'm passionate about coding and system design. Right now, I'm
-            focused on writing clean code, sharpening my soft skills, and learning a new language.
+            <p>
+                I'm Wint Khant Lin, also known as Happer. I'm passionate about coding and system design. Right now, I'm
+                focused on writing clean code, sharpening my soft skills, and learning a new language.
+            </p>
         </section>
 
         <section class="py-10 my-10 grid md:grid-cols-2 grid-rows-2">

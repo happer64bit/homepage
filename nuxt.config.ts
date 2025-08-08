@@ -30,6 +30,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en"
+      },
       link: [
         {
           rel: "icon",

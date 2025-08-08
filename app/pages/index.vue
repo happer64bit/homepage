@@ -33,13 +33,13 @@ const { data: projects } = await useAsyncData('projects', () =>
                 <p class="text-sm font-medium tracking-widest text-neutral-500">
                     HAPPER is not just a name<br />it's a presence.
                 </p>
-                <h1 class="text-6xl lg:text-[6vw] font-semibold leading-tight text-neutral-800" id="kara-name">
+                <h1 lang="ja" class="text-6xl lg:text-[6vw] font-semibold leading-tight text-neutral-800" id="kara-name">
                     ハッパー
                 </h1>
             </div>
         </section>
 
-        <section class="text-neutral-600 text-3xl lg:text-5xl leading-relaxed text-justify">
+        <section class="text-neutral-600 text-4xl lg:text-5xl leading-relaxed text-justify">
             <p>
                 I'm Wint Khant Lin, also known as Happer. I'm passionate about coding and system design. Right now, I'm
                 focused on writing clean code, sharpening my soft skills, and learning a new language.

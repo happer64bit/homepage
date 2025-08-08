@@ -28,7 +28,6 @@
         </div>
         <div class="col-span-2 lg:col-span-1">
             <p>&copy; 2021 - 2025 Wint Khant Lin - All Rights Reserved</p>
-            <p>Myanmar, Yangon</p>
         </div>
     </footer>
 </template>

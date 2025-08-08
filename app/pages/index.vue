@@ -20,6 +20,7 @@ useSeoMeta({
     title: "Happer - Homepage",
     ogType: "website",
     author: "Wint Khant Lin",
+    description: "Hello, I am Wint Khant Lin, also known as Happer."
 })
 
 const { data: projects } = await useAsyncData('projects', () =>

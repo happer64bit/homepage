@@ -12,10 +12,12 @@
   "dependencies": {
     "@nuxt/content": "^3.6.3",
     "@nuxtjs/google-fonts": "3.2.0",
+    "@nuxtjs/partytown": "^1.6.0",
     "@tailwindcss/vite": "^4.1.11",
     "gsap": "^3.13.0",
     "lucide-vue-next": "^0.536.0",
     "nuxt": "^4.0.1",
+    "nuxt-precompress": "^0.5.9",
     "rss": "^1.2.2",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.18",

@@ -16,7 +16,12 @@ export default defineNuxtConfig({
     families: {
       "Noto Sans": true
     }
-  }], "@nuxt/content"],
+  }], "@nuxt/content", "@nuxtjs/partytown"],
+
+  partytown: {
+    debug: false,
+    forward: ["dataLayer.push", "gtag"],
+  },
 
   content: {
     build: {
@@ -47,5 +52,19 @@ export default defineNuxtConfig({
     "*": {
       prerender: true,
     }
+  },
+
+  nitro: {
+    compressPublicAssets: {
+      brotli: true
+    },
+
+    publicAssets: [
+      {
+        baseURL: "/",
+        dir: "public",
+        maxAge: 60 * 60 * 24 * 30,
+      }
+    ]
   },
 })

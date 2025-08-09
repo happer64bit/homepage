@@ -2,7 +2,7 @@
 title: Getting Started With Generic Type
 summary: Let's Master Typing in With Generic Type for Type Safe Code
 categories: ["typescript", "generic-type", "types"]
-publishedDate: 2025-02-25T07:08:55.133Z
+publishedDate: 2025-08-25T07:08:55.133Z
 ---
 
 Generic Type is a feature in programming that allows you to create classes, functions, and data structures that can operate on any data type without sacrificing type safety.

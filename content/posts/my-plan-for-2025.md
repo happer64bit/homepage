@@ -2,7 +2,7 @@
 title: My Goals and Plan for 2025
 summary: This article outlines my goals for 2025 and the steps I plan to take to achieve them
 categories: ["myself"]
-publishedDate: 2025-01-09
+publishedDate: 2025-01-09T12:00
 ---
 
 I am currently a college student but as an developer and also teen, I find passionate about coding and programming. When it's come to my goal, it have to achieve them.

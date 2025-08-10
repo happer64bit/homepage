@@ -2,6 +2,11 @@
 
 const allPosts = await queryCollection('posts').order("publishedDate", "DESC").all();
 
+useSeoMeta({
+  title: "Posts From Happer",
+  description: "List Of All Posts That Happer Has Posted"
+})
+
 </script>
 
 <template>

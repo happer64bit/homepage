@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     families: {
       "Noto Sans": true
     }
-  }], "@nuxt/content", "@nuxtjs/partytown"],
+  }], "@nuxt/content", "@nuxtjs/partytown", "@nuxt/image"],
 
   partytown: {
     debug: false,

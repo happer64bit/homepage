@@ -34,11 +34,27 @@ const { data: projects } = await useAsyncData('projects', () =>
                 <p class="text-sm font-medium tracking-widest text-neutral-500">
                     HAPPER is not just a name<br />it's a presence.
                 </p>
-                <h1 lang="ja" class="text-6xl lg:text-[6vw] font-semibold leading-tight text-neutral-800" id="kara-name">
+                <h1 lang="ja" class="text-6xl lg:text-[6vw] font-semibold leading-tight text-neutral-800"
+                    id="kara-name">
                     ハッパー
                 </h1>
             </div>
         </section>
+
+        <section class="my-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 overflow-x-auto max-w-screen">
+                <NuxtImg src="/img/img1.jpg" class="w-full max-w-md h-64 md:h-80 object-cover rounded-lg"
+                    alt="Image 1" />
+                <NuxtImg src="/img/img2.jpg" class="w-full max-w-md h-64 md:h-80 object-cover rounded-lg"
+                    alt="Image 2" />
+                <NuxtImg src="/img/img3.jpg" class="w-full max-w-md h-64 md:h-80 object-cover rounded-lg"
+                    alt="Image 3" />
+            </div>
+            <div class="text-center pt-4">
+                <i>Snaps Taken By Me</i>
+            </div>
+        </section>
+
 
         <section class="text-neutral-600 text-4xl lg:text-5xl leading-relaxed text-justify">
             <p>

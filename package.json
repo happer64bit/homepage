@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.6.3",
+    "@nuxt/image": "1.11.0",
     "@nuxtjs/google-fonts": "3.2.0",
     "@nuxtjs/partytown": "^1.6.0",
     "@tailwindcss/vite": "^4.1.11",

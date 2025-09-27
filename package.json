@@ -10,22 +10,26 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/content": "^3.6.3",
+    "@nuxt/content": "^3.7.1",
     "@nuxt/image": "1.11.0",
     "@nuxtjs/google-fonts": "3.2.0",
     "@nuxtjs/partytown": "^1.6.0",
-    "@tailwindcss/vite": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.13",
     "gsap": "^3.13.0",
     "lucide-vue-next": "^0.536.0",
-    "nuxt": "^4.0.1",
+    "nuxt": "^4.1.2",
     "nuxt-precompress": "^0.5.9",
     "rss": "^1.2.2",
-    "tailwindcss": "^4.1.11",
-    "vue": "^3.5.18",
+    "tailwindcss": "^4.1.13",
+    "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/rss": "^0.0.32"
-  }
+  },
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "@tailwindcss/oxide"
+  ]
 }

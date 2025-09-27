@@ -2,17 +2,28 @@
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ArrowUpRight } from 'lucide-vue-next';
+import { onMounted } from 'vue';
 
 onMounted(() => {
     gsap.registerPlugin(SplitText);
+
     const splitText = SplitText.create("#kara-name", { type: "chars" });
     const chars = splitText.chars;
+
     gsap.from(chars, {
         duration: 0.5,
         opacity: 0,
         y: "100%",
         stagger: 0.05,
         ease: "back.out(1.7)",
+    });
+
+    gsap.from("#description", {
+        duration: 1,
+        opacity: 0,
+        y: 30,
+        delay: 0.6,
+        ease: "power3.out"
     });
 });
 
@@ -31,36 +42,15 @@ const { data: projects } = await useAsyncData('projects', () =>
     <main class="px-4">
         <section class="min-h-[70vh] flex items-center justify-center text-center">
             <div class="space-y-4 text-center">
-                <p class="text-sm font-medium tracking-widest text-neutral-500">
-                    HAPPER is not just a name<br />it's a presence.
-                </p>
-                <h1 lang="ja" class="text-6xl lg:text-[6vw] font-semibold leading-tight text-neutral-800"
-                    id="kara-name">
+                <h1 id="kara-name" lang="ja"
+                    class="text-6xl lg:text-[6vw] font-semibold leading-tight text-neutral-800">
                     ハッパー
                 </h1>
+                <p class="text-neutral-600 max-w-2xl" id="description">
+                    Hi, I’m Wint Khant Lin, a passionate college student from Yangon, Myanmar. I love building creative
+                    projects and learning new technologies.
+                </p>
             </div>
-        </section>
-
-        <section class="my-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6 overflow-x-auto max-w-screen">
-                <NuxtImg src="/img/img1.jpg" class="w-full max-w-md h-64 md:h-80 object-cover rounded-lg"
-                    alt="Image 1" />
-                <NuxtImg src="/img/img2.jpg" class="w-full max-w-md h-64 md:h-80 object-cover rounded-lg"
-                    alt="Image 2" />
-                <NuxtImg src="/img/img3.jpg" class="w-full max-w-md h-64 md:h-80 object-cover rounded-lg"
-                    alt="Image 3" />
-            </div>
-            <div class="text-center pt-4">
-                <i>Snaps Taken By Me</i>
-            </div>
-        </section>
-
-
-        <section class="text-neutral-600 text-4xl lg:text-5xl leading-relaxed text-justify">
-            <p>
-                I'm Wint Khant Lin, also known as Happer. I'm passionate about coding and system design. Right now, I'm
-                focused on writing clean code, sharpening my soft skills, and learning a new language.
-            </p>
         </section>
 
         <section class="py-10 my-10 grid md:grid-cols-2 grid-rows-2">

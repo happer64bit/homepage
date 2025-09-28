@@ -35,7 +35,7 @@ useSeoMeta({
 })
 
 const { data: projects } = await useAsyncData('projects', () =>
-    queryCollection('projects').order("publishedDate", "DESC").limit(3).all());
+    queryCollection('projects').order("publishedDate", "DESC").all());
 </script>
 
 <template>
@@ -59,6 +59,7 @@ const { data: projects } = await useAsyncData('projects', () =>
                     index === 0 ? 'row-span-2 lg:border-r lg:border-b-0 border-b flex justify-center flex-col' : '',
                     index === 1 ? 'border-b' : '',
                     index === 2 ? '' : '',
+                    index >= 3 ? 'col-span-2 border-y' : '' ,
                 ]">
                 <h2 class="text-2xl font-semibold text-neutral-800">
                     {{ project.title }}

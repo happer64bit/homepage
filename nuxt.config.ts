@@ -24,9 +24,8 @@ export default defineNuxtConfig({
   },
 
   content: {
-    database: {
-      type: "sqlite",
-      filename: ".data/content/contents.sqlite"
+    experimental: {
+      sqliteConnector: "native"
     },
     build: {
       markdown: {

@@ -47,7 +47,7 @@ const { data: projects } = await useAsyncData('projects', () =>
                     ハッパー
                 </h1>
                 <p class="text-neutral-600 max-w-2xl" id="description">
-                    Hi, I’m Wint Khant Lin, a passionate college student from Yangon, Myanmar. I love building creative
+                    Hi, I’m Wint Khant Lin, a college student from Yangon, Myanmar. I love building creative
                     projects and learning new technologies.
                 </p>
             </div>

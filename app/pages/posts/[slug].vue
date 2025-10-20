@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRoute, useAsyncData, createError, useSeoMeta } from '#imports'
+import { ArrowLeft } from 'lucide-vue-next'
 
 const { params } = useRoute()
 
@@ -36,7 +37,7 @@ onMounted(() => {
   script.setAttribute('data-reactions-enabled', '1')
   script.setAttribute('data-emit-metadata', '0')
   script.setAttribute('data-input-position', 'bottom')
-  script.setAttribute('data-theme', 'light')
+  script.setAttribute('data-theme', 'dark')
   script.setAttribute('data-lang', 'en')
   script.setAttribute('data-loading', 'lazy')
 
@@ -48,6 +49,7 @@ onMounted(() => {
   <main class="px-6 max-w-[800px] mx-auto mb-20">
     <div>
       <div class="mt-10">
+        <NuxtLink href="/" class="px-4 py-1 mb-4 flex items-center gap-2 hover:bg-white/5 w-fit rounded text-sm"><ArrowLeft /> Back To Home</NuxtLink>
         <h1 class="text-4xl mb-2">{{ post.title }}</h1>
         <p class="mb-10 text-neutral-600">
           Posted At
@@ -62,7 +64,7 @@ onMounted(() => {
     <article>
       <ContentRenderer
         :value="post.body"
-        class="prose prose-lg max-w-full prose-code:bg-transparent prose-pre:border prose-pre:bg-white"
+        class="prose prose-lg max-w-full prose-code:bg-transparent prose-pre:border prose-invert prose-pre:border-white/5"
       />
     </article>
 

@@ -14,7 +14,10 @@ export default defineNuxtConfig({
 
   modules: [["@nuxtjs/google-fonts", {
     families: {
-      "Noto Sans": true
+      "Noto Sans": true,
+      "Noto Serif JP": {
+        wght: 700
+      }
     }
   }], "@nuxt/content", "@nuxtjs/partytown", "@nuxt/image"],
 
@@ -30,6 +33,7 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         highlight: {
+          theme: "one-dark-pro",
           langs: ["ts", "java", "js", "go", "python", "css"]
         }
       }

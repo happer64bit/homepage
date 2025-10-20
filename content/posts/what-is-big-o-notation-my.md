@@ -1,6 +1,6 @@
 ---
 title: Big O Notation ဆိုတာဘာလဲ? (Beginner Guide)
-summary: Algorithm ရဲ့ speed နဲ့ memory usage ကိုရှင်းပြတဲ့ Big O Notation ကို အလွယ်တကူနားလည်နိုင်အောင် ရေးသားထားပါတယ်။
+description: Algorithm ရဲ့ speed နဲ့ memory usage ကိုရှင်းပြတဲ့ Big O Notation ကို အလွယ်တကူနားလည်နိုင်အောင် ရေးသားထားပါတယ်။
 categories: ["what-is", "algorithms"]
 publishedDate: 2025-05-09T03:21:22.646Z
 ---

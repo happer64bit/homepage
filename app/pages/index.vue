@@ -3,8 +3,8 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { GitHubIcon } from 'vue3-simple-icons'
 import { AtSignIcon } from 'lucide-vue-next'
 
-const active = ref('Home')
-const buttons = ['Home', 'Works', 'Blogs']
+const active = ref('home')
+const buttons = ['home', 'works', 'blogs']
 
 useSeoMeta({
   title: "Happer - Homepage",
@@ -13,39 +13,32 @@ useSeoMeta({
   description: "Hello, I am Wint Khant Lin, also known as Happer."
 })
 
-const { data } = useAsyncData(async () => await queryCollection("posts").all())
+const { data } = useAsyncData('posts', async () => await queryCollection("posts").all())
+
+let observer: IntersectionObserver | null = null
 
 onMounted(async () => {
   await nextTick()
-  const sections = document.querySelectorAll('main section')
-  const handleScroll = () => {
-    let current = 'Home'
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect()
-      if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
-        current = section.querySelector('h1')?.textContent?.replace('My ', '') || current
+  const sections = document.querySelectorAll('main section[id]')
+  observer = new IntersectionObserver(
+    entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) active.value = entry.target.id
       }
-    })
-    active.value = current
-  }
-  window.addEventListener('scroll', handleScroll)
-  handleScroll()
-  onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+    },
+    { threshold: 0.4 }
+  )
+  sections.forEach(section => observer!.observe(section))
 })
+
+onUnmounted(() => observer?.disconnect())
 
 const scrollToSection = (btn: string) => {
   active.value = btn
-  if (btn === 'Home') window.scrollTo({ top: 0, behavior: 'smooth' })
-  else {
-    const section = [...document.querySelectorAll('main section')].find(s =>
-      s.querySelector('h1')?.textContent?.includes(btn)
-    )
-    section?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  if (btn === 'home') window.scrollTo({ top: 0, behavior: 'smooth' })
+  else document.getElementById(btn)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 </script>
-
-
 
 <template>
   <main class="container mt-20 mb-30">
@@ -66,10 +59,10 @@ const scrollToSection = (btn: string) => {
         <span class="font-mono decoration-dotted underline">happer64bit</span>
       </NuxtLink>
     </div>
-    
+
     <hr class="border-white/5 my-10">
 
-    <section class="my-10">
+    <section id="works" class="my-10">
       <h1 class="font-serif text-subheading mb-4">My Works</h1>
       <NuxtLink to="https://github.com/happer64bit/toolydooly" target="_blank">
         <div class="group relative overflow-hidden rounded-lg">
@@ -84,9 +77,9 @@ const scrollToSection = (btn: string) => {
 
     <hr class="border-white/5 my-10">
 
-    <section>
+    <section id="blogs">
       <h1 class="font-serif text-subheading mb-4">Blogs</h1>
-      <NuxtLink v-for="post in data" :href="post.path" class="block my-2 hover:bg-white/5 p-3 py-4 rounded-lg">
+      <NuxtLink v-for="post in data" :key="post.path" :href="post.path" class="block my-2 hover:bg-white/5 p-3 py-4 rounded-lg">
         <h2 class="text-xl font-semibold mb-2">{{ post.title }}</h2>
         <p class="text-sm line-clamp-2 text-white/80">{{ post.description }}</p>
       </NuxtLink>
@@ -99,12 +92,12 @@ const scrollToSection = (btn: string) => {
       <div
         class="absolute top-1 left-0 h-[calc(100%-0.5rem)] w-1/3 rounded-full bg-white/20 blur-xl transition-all duration-700 ease-[cubic-bezier(0.8,0,0.2,1)]"
         :style="{
-          transform: active === 'Home' ? 'translateX(0%)' : active === 'Works' ? 'translateX(100%)' : 'translateX(200%)',
-          scale: active === 'Home' ? '1.1' : '1'
+          transform: active === 'home' ? 'translateX(0%)' : active === 'works' ? 'translateX(100%)' : 'translateX(200%)',
+          scale: active === 'home' ? '1.1' : '1'
         }"></div>
 
       <button v-for="btn in buttons" :key="btn" @click="scrollToSection(btn)"
-        class="relative z-10 px-5 py-2 text-white font-medium transition-colors duration-300"
+        class="relative z-10 px-5 py-2 text-white font-medium transition-colors duration-300 capitalize"
         :class="active === btn ? 'text-white' : 'text-white/50'">
         {{ btn }}
       </button>

@@ -35,7 +35,7 @@ onMounted(async () => {
         if (entry.isIntersecting) active.value = entry.target.id
       }
     },
-    { threshold: 0.4 }
+    { threshold: 0.3 }
   )
   sections.forEach(section => observer!.observe(section))
 })
@@ -51,23 +51,25 @@ const scrollToSection = (btn: string) => {
 
 <template>
   <main class="container mt-20 mb-30">
-    <h1 lang="jp" class="font-noto-serif-japanese text-heading mb-10">ハッパーと申します。</h1>
-
-    <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew
-      up with the internet, and I enjoy programming and learning new things.</p>
-    <br />
-    <p class="text-body">I’ve been learning how to code since 2021. Currently, I actively study Japanese (日本語) and
-      programming every day. I have worked on a moderate number of side projects for learning.</p>
-    <div class="my-5 flex flex-wrap items-center gap-5">
-      <NuxtLink to="mailto:wintkhantlin@gmail.com" target="_blank" class="flex items-center gap-2">
-        <AtSignIcon class="size-6" />
-        <span class="font-mono decoration-dotted underline">wintkhantlin@gmail.com</span>
-      </NuxtLink>
-      <NuxtLink to="https://github.com/happer64bit" target="_blank" class="flex items-center gap-2">
-        <GitHubIcon class="size-6" />
-        <span class="font-mono decoration-dotted underline">happer64bit</span>
-      </NuxtLink>
-    </div>
+    <section id="home">
+      <h1 lang="jp" class="font-noto-serif-japanese text-heading mb-10">ハッパーと申します。</h1>
+  
+      <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew
+        up with the internet, and I enjoy programming and learning new things.</p>
+      <br />
+      <p class="text-body">I’ve been learning how to code since 2021. Currently, I actively study Japanese (日本語) and
+        programming every day. I have worked on a moderate number of side projects for learning.</p>
+      <div class="my-5 flex flex-wrap items-center gap-5">
+        <NuxtLink to="mailto:wintkhantlin@gmail.com" target="_blank" class="flex items-center gap-2">
+          <AtSignIcon class="size-6" />
+          <span class="font-mono decoration-dotted underline">wintkhantlin@gmail.com</span>
+        </NuxtLink>
+        <NuxtLink to="https://github.com/happer64bit" target="_blank" class="flex items-center gap-2">
+          <GitHubIcon class="size-6" />
+          <span class="font-mono decoration-dotted underline">happer64bit</span>
+        </NuxtLink>
+      </div>
+    </section>
 
     <hr class="border-white/5 my-10">
 

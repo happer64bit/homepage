@@ -1,5 +1,0 @@
-name: HyperScript
-description: HyperScript is a http tester that uses yaml config file and do configured automated testing for HTTP Server. It can run Concurrenly.
-source: https://github.com/happer64bit/hyperscript
-publishedDate: 2024-September-04
-tags: ["Python", "Testing", "HTTP"]

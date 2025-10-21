@@ -1,5 +1,0 @@
-name: GitHub Issue Template Generator
-description: GitHub Issue Template Generator is a handy tool that helps you quickly create customizable GitHub issue templates for your repositories. Built with SOLID.JS and powered by Vite, it offers a fast, lightweight way to generate structured issue templates without manually writing YAML.
-source: https://github.com/happer64bit/github-issue-template-generator
-publishedDate: 2024-9-04
-tags: ["SOLID.JS", "Vite", "Template"]

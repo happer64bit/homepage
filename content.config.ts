@@ -16,12 +16,11 @@ export default defineContentConfig({
       type: 'data',
       source:  'projects/*.yml',
       schema: z.object({
-        title: z.string(),
+        name: z.string(),
         description: z.string(),
         source: z.string(),
         publishedDate: z.date(),
-        img: z.string(),
-        tags: z.array(z.string())
+        img: z.string().optional(),
       })
     })
   }

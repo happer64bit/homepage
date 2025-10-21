@@ -23,6 +23,7 @@ useSeoMeta({
 })
 
 const { data } = useAsyncData('posts', async () => await queryCollection("posts").all())
+const { data: projectData } = useAsyncData('projects', async () => await queryCollection("projects").all())
 
 let observer: IntersectionObserver | null = null
 
@@ -75,14 +76,16 @@ const scrollToSection = (btn: string) => {
 
     <section id="works" class="my-10">
       <h1 class="font-serif text-subheading mb-4">My Works</h1>
-      <NuxtLink to="https://github.com/happer64bit/toolydooly" target="_blank">
+      <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id">
         <div class="group relative overflow-hidden rounded-lg">
-          <NuxtImg src="/img/toolydooly.png" alt="ToolyDooly"
+          <NuxtImg :src="project.img" alt="ToolyDooly"
+            v-if="project.img"
+            format="webp"
+            loading="lazy"
             class="w-full h-auto rounded-lg object-cover transition-transform duration-300 group-hover:scale-110" />
         </div>
-        <h2 class="mt-3 text-2xl mb-2">ToolyDooly</h2>
-        <p class="text-sm text-white/70">A Todo application built with NestJS, Express, Vue, Postgres, and MongoDB,
-          running in a Dockerized microservice architecture.</p>
+        <h2 class="mt-3 text-2xl mb-2">{{ project.name }}</h2>
+        <p class="text-sm text-white/70">{{ project.description }}</p>
       </NuxtLink>
     </section>
 
@@ -111,7 +114,6 @@ const scrollToSection = (btn: string) => {
         class="relative z-10 px-5 py-2 text-white font-medium transition-colors duration-300 capitalize flex items-center gap-1"
         :class="active === btn.id ? 'text-white' : 'text-white/50'">
         <component :is="btn.icon"/>
-        {{ btn.id }}
       </button>
     </div>
   </nav>

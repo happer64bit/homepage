@@ -22,8 +22,8 @@ useSeoMeta({
   description: "Hello, I am Wint Khant Lin, also known as Happer."
 })
 
-const { data } = useAsyncData('posts', async () => await queryCollection("posts").all())
-const { data: projectData } = useAsyncData('projects', async () => await queryCollection("projects").all())
+const { data } = useAsyncData('posts', async () => await queryCollection("posts").order("publishedDate", "DESC").all())
+const { data: projectData } = useAsyncData('projects', async () => await queryCollection("projects").order("publishedDate", "DESC").all())
 
 let observer: IntersectionObserver | null = null
 

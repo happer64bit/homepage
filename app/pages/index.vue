@@ -52,7 +52,7 @@ const scrollToSection = (btn: string) => {
 <template>
   <main class="container mt-20 mb-30">
     <section id="home">
-      <h1 lang="jp" class="font-noto-serif-japanese text-heading mb-10">ハッパーと申します。</h1>
+      <h1 lang="ja" class="font-noto-serif-japanese text-heading mb-10">ハッパーと申します。</h1>
   
       <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew
         up with the internet, and I enjoy programming and learning new things.</p>

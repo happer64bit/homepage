@@ -76,7 +76,7 @@ const scrollToSection = (btn: string) => {
 
     <section id="works" class="my-10">
       <h1 class="font-serif text-subheading mb-4">My Works</h1>
-      <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id">
+      <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id" class="my-6 block">
         <div class="group relative overflow-hidden rounded-lg">
           <NuxtImg :src="project.img" alt="ToolyDooly"
             v-if="project.img"

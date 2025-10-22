@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       markdown: {
         highlight: {
           theme: "one-dark-pro",
-          langs: ["ts", "java", "js", "go", "python", "css"]
+          langs: ["ts", "js", "python", "css"]
         }
       }
     }

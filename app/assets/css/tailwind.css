@@ -17,7 +17,7 @@
         0px 6px 16px rgba(0,0,0,0.08);
     --ease-smooth: cubic-bezier(1, 0, 0.4, 1);
     --color-glass: #bbbbbc;
-    --font-noto-serif-japanese: "Noto Serif JP";
+    --font-noto-serif-japanese: "Noto Serif JP", serif;
     --text-heading: 52px;
     --text-subheading: 40px;
     --text-body: 22px;

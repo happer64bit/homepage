@@ -36,7 +36,7 @@ onMounted(async () => {
         if (entry.isIntersecting) active.value = entry.target.id
       }
     },
-    { threshold: 0.3 }
+    { threshold: 0.9 }
   )
   sections.forEach(section => observer!.observe(section))
 })
@@ -53,7 +53,7 @@ const scrollToSection = (btn: string) => {
 <template>
   <main class="container mt-20 mb-30">
     <section id="home">
-      <h1 lang="ja" class="font-noto-serif-japanese text-heading mb-10">ハッパーと申します。</h1>
+      <h1 lang="ja" class="font-noto-serif-japanese text-heading mb-10 font-bold">ハッパーと申します。</h1>
   
       <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew
         up with the internet, and I enjoy programming and learning new things.</p>
@@ -111,7 +111,7 @@ const scrollToSection = (btn: string) => {
         }"></div>
 
       <button v-for="btn in buttons" :key="btn.id" @click="scrollToSection(btn.id)"
-        class="relative z-10 px-5 py-2 text-white font-medium transition-colors duration-300 capitalize flex items-center gap-1"
+        class="relative z-10 px-5 py-2 text-white font-medium transition-transform duration-300 capitalize flex items-center gap-1 active:scale-80"
         :class="active === btn.id ? 'text-white' : 'text-white/50'">
         <component :is="btn.icon"/>
       </button>

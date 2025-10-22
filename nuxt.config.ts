@@ -12,14 +12,7 @@ export default defineNuxtConfig({
     ]
   },
 
-  modules: [["@nuxtjs/google-fonts", {
-    families: {
-      "Noto Sans": true,
-      "Noto Serif JP": {
-        wght: 700
-      }
-    }
-  }], "@nuxt/content", "@nuxtjs/partytown", "@nuxt/image"],
+  modules: ["@nuxt/fonts", "@nuxt/content", "@nuxtjs/partytown", "@nuxt/image"],
 
   partytown: {
     debug: false,
@@ -74,4 +67,18 @@ export default defineNuxtConfig({
       }
     ]
   },
+
+  // googleFonts: {
+  //   families: {
+  //     "Noto Sans": true,
+  //     "Noto Serif JP": {
+  //       wght: 600,
+  //     },
+  //   },
+  //   preload: true,
+  // },
+
+  fonts: {
+    google: {}
+  }
 })

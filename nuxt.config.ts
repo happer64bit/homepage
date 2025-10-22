@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 
   content: {
     experimental: {
-      sqliteConnector: "native"
+      sqliteConnector: "native",
     },
     build: {
       markdown: {
@@ -79,6 +79,13 @@ export default defineNuxtConfig({
   // },
 
   fonts: {
-    google: {}
+    google: {},
+    families: [
+      {
+        name: "Noto Sans JP",
+        weights: [700],
+        preload: true
+      }
+    ]
   }
 })

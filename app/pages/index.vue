@@ -111,7 +111,7 @@ const scrollToSection = (btn: string) => {
         }"></div>
 
       <button v-for="btn in buttons" :key="btn.id" @click="scrollToSection(btn.id)"
-        class="relative z-10 px-5 py-2 text-white font-medium transition-transform duration-300 capitalize flex items-center gap-1 active:scale-80"
+        class="relative z-10 px-5 py-2 text-white font-medium transition-transform duration-300 capitalize flex items-center gap-1 active:scale-80 cursor-pointer"
         :class="active === btn.id ? 'text-white' : 'text-white/50'">
         <component :is="btn.icon"/>
       </button>

@@ -78,8 +78,11 @@ const scrollToSection = (btn: string) => {
       <h1 class="font-serif text-subheading mb-4">My Works</h1>
       <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id" class="my-6 block">
         <div class="group relative overflow-hidden rounded-lg">
-          <NuxtImg :src="project.img" alt="ToolyDooly"
+          <NuxtImg
+            :src="project.img"
+            :alt="project.name"
             v-if="project.img"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
             format="webp"
             loading="lazy"
             class="w-full h-auto rounded-lg object-cover transition-transform duration-300 group-hover:scale-110" />
@@ -110,7 +113,11 @@ const scrollToSection = (btn: string) => {
           scale: active === 'home' ? '1.1' : '1'
         }"></div>
 
-      <button v-for="btn in buttons" :key="btn.id" @click="scrollToSection(btn.id)"
+      <button 
+        v-for="btn in buttons"
+        :key="btn.id"
+        @click="scrollToSection(btn.id)"
+        :aria-label="btn.id"
         class="relative z-10 px-5 py-2 text-white font-medium transition-transform duration-300 capitalize flex items-center gap-1 active:scale-80 cursor-pointer"
         :class="active === btn.id ? 'text-white' : 'text-white/50'">
         <component :is="btn.icon"/>

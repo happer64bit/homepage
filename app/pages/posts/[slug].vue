@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-vue-next'
 
 const { params } = useRoute()
 
-const { data: post, error } = await useAsyncData(`post-${params.slug}`, () =>
+const { data: post } = await useAsyncData(`post-${params.slug}`, () =>
   queryCollection('posts').path('/posts/' + params.slug).first()
 )
 

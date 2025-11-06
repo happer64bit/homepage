@@ -85,8 +85,9 @@ export default defineNuxtConfig({
         name: "Noto Sans JP",
         weights: [700],
         preload: true,
-        styles: ["normal"],
-        display: "swap",
+        provider: "local",
+        src: "./public/fonts/NotoSerifJP-Bold.ttf",
+        display: "swap"
       }
     ]
   }

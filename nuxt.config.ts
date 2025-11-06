@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  css: ["~/assets/css/tailwind.css"],
+  css: ["~/assets/css/tailwind.css", "~/assets/css/fonts.css"],
 
   vite: {
     plugins: [
@@ -79,8 +79,16 @@ export default defineNuxtConfig({
   // },
 
   fonts: {
-    google: {},
+    provider: "local",
     families: [
+      {
+        name: "Noto Sans",
+        preload: true,
+        provider: "local",
+        src: "./public/fonts/NotoSans-VariableFont_wdth,wght.ttf",
+        display: "swap",
+        fallbacks: ['Arial', 'sans-serif']
+      },
       {
         name: "Noto Sans JP",
         weights: [700],

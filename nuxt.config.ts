@@ -84,7 +84,9 @@ export default defineNuxtConfig({
       {
         name: "Noto Sans JP",
         weights: [700],
-        preload: true
+        preload: true,
+        styles: ["normal"],
+        display: "swap",
       }
     ]
   }

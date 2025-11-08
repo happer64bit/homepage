@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  css: ["~/assets/css/tailwind.css", "~/assets/css/fonts.css"],
+  css: ["~/assets/css/tailwind.css"],
 
   vite: {
     plugins: [
@@ -12,7 +12,13 @@ export default defineNuxtConfig({
     ]
   },
 
-  modules: ["@nuxt/fonts", "@nuxt/content", "@nuxtjs/partytown", "@nuxt/image"],
+  modules: [
+    "@nuxt/fonts",
+    "@nuxt/content",
+    "@nuxtjs/partytown",
+    "@nuxt/image",
+    "@nuxtjs/sitemap"
+  ],
 
   partytown: {
     debug: false,
@@ -55,6 +61,19 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+
+    routeRules: {
+      "/": {
+        prerender: true
+      },
+      "/posts/**": {
+        prerender: true
+      }
+    },
+
     compressPublicAssets: {
       brotli: true
     },
@@ -85,7 +104,7 @@ export default defineNuxtConfig({
         name: "Noto Sans",
         preload: true,
         provider: "local",
-        src: "./public/fonts/NotoSans-VariableFont_wdth,wght.ttf",
+        src: "./assets/fonts/Noto-Sans.ttf",
         display: "swap",
         fallbacks: ['Arial', 'sans-serif']
       },
@@ -94,9 +113,14 @@ export default defineNuxtConfig({
         weights: [700],
         preload: true,
         provider: "local",
-        src: "./public/fonts/NotoSerifJP-Bold.ttf",
+        src: "./assets/fonts/Noto-Serif-JP.ttf",
         display: "swap"
       }
     ]
+  },
+
+  sitemap: {
+    autoLastmod: true,
+    sources: ["/api/__sitemap__/urls"]
   }
 })

@@ -16,10 +16,10 @@ const buttons = [{
 }]
 
 useSeoMeta({
-  title: "Happer - Homepage",
+  title: "Happer aka Wint Khant Lin - Homepage",
   ogType: "website",
   author: "Wint Khant Lin",
-  description: "Hello, I am Wint Khant Lin, also known as Happer."
+  description: "Hello, I am Wint Khant Lin, also known as Happer. I am a college student from Myanmar. I love coding, listening to music, anime and learning Japanese."
 })
 
 const { data } = useAsyncData('posts', async () => await queryCollection("posts").order("publishedDate", "DESC").all())
@@ -75,7 +75,7 @@ const scrollToSection = (btn: string) => {
     <hr class="border-white/5 my-10">
 
     <section id="works" class="my-10">
-      <h1 class="font-serif text-subheading mb-4">My Works</h1>
+      <h2 class="font-serif text-subheading mb-4">My Works</h2>
       <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id" class="my-6 block">
         <div class="group relative overflow-hidden rounded-lg">
           <NuxtImg
@@ -87,7 +87,7 @@ const scrollToSection = (btn: string) => {
             loading="lazy"
             class="w-full h-auto rounded-lg object-cover transition-transform duration-300 group-hover:scale-110" />
         </div>
-        <h2 class="mt-3 text-2xl mb-2">{{ project.name }}</h2>
+        <h3 class="mt-3 text-2xl mb-2">{{ project.name }}</h3>
         <p class="text-sm text-white/70">{{ project.description }}</p>
       </NuxtLink>
     </section>
@@ -95,9 +95,9 @@ const scrollToSection = (btn: string) => {
     <hr class="border-white/5 my-10">
 
     <section id="blogs">
-      <h1 class="font-serif text-subheading mb-4">Blogs</h1>
+      <h2 class="font-serif text-subheading mb-4">Blogs</h2>
       <NuxtLink v-for="post in data" :key="post.path" :href="post.path" class="block my-2 hover:bg-white/5 p-3 py-4 rounded-lg">
-        <h2 class="text-xl font-semibold mb-2">{{ post.title }}</h2>
+        <h3 class="text-xl font-semibold mb-2">{{ post.title }}</h3>
         <p class="text-sm line-clamp-2 text-white/80">{{ post.description }}</p>
       </NuxtLink>
     </section>

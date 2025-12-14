@@ -1,9 +1,7 @@
 <script setup>
   const { proxy } = useScriptGoogleAnalytics({
     scriptOptions: {
-      trigger: useScriptTriggerInteraction({
-        events: [""]
-      })
+      trigger: "client"
     }
   })
 

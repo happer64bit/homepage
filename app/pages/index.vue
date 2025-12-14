@@ -114,7 +114,7 @@ const scrollToSection = (id: typeof active.value) => {
 
     <hr class="border-white/5 my-10" />
 
-    <section id="blogs" class="scroll-mt-24 my-14">
+    <section id="blogs" class="scroll-mt-24 my-10">
       <h2 class="font-serif text-subheading mb-8">Blogs</h2>
 
       <div class="space-y-4">
@@ -132,6 +132,9 @@ const scrollToSection = (id: typeof active.value) => {
           </div>
 
           <div class="mt-4 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
+
+          <p class="text-sm text-white/70 mt-4">{{  new Date(post.publishedDate).toLocaleString("default", { month: "long", year: "numeric", day: "numeric" }) }}</p>
+
         </NuxtLink>
       </div>
     </section>

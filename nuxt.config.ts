@@ -6,8 +6,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/tailwind.css"],
 
-  ssr: false,
-
   vite: {
     plugins: [
       tailwindcss()
@@ -115,6 +113,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     autoLastmod: true,
+
     sources: ["/api/__sitemap__/urls"]
   }
 })

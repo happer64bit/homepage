@@ -1,9 +1,16 @@
 <script setup>
-  useScriptGoogleAnalytics({
+  const { proxy } = useScriptGoogleAnalytics({
     scriptOptions: {
-      trigger: "client"
+      trigger: useScriptTriggerInteraction({
+        events: [""]
+      })
     }
   })
+
+  proxy.gtag("config", "default", {
+    send_page_view: true
+  })
+
 </script>
 
 <template>

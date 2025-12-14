@@ -1,5 +1,6 @@
 name: Chate Sat
 description: Chate Sat is an application designed to facilitate the coordination of volunteers during disasters.
 source: https://github.com/happer64bit/chate-sat
+technologies: ["Next.JS", "TailwindCSS", "PostgreSQL"]
 img: /img/chate-sat.png
 publishedDate: 2025-Nov-09

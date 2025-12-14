@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
-import { GitHubIcon } from 'vue3-simple-icons'
+import { FacebookIcon, GitHubIcon } from 'vue3-simple-icons'
 import { AtSignIcon, BriefcaseIcon, HomeIcon, PenIcon } from 'lucide-vue-next'
 import gsap from 'gsap'
 
@@ -71,9 +71,11 @@ const scrollToSection = (id: typeof active.value) => {
   <main class="container mt-20 mb-30">
     <section id="home" class="scroll-mt-24">
       <h1 lang="ja" class="font-noto-serif-japanese text-heading mb-10 font-bold">ハッパーと申します。</h1>
-      <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew up with the internet, and I enjoy programming and learning new things.</p>
+      <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew up
+        with the internet, and I enjoy programming and learning new things.</p>
       <br />
-      <p class="text-body">I’ve been learning how to code since 2021. Currently, I actively studying Statistics and programming every day. I have worked on a moderate number of side projects for learning.</p>
+      <p class="text-body">I’ve been learning how to code since 2021. Currently, I actively studying Statistics and
+        programming every day. I have worked on a moderate number of side projects for learning.</p>
       <div class="my-5 flex flex-wrap items-center gap-5">
         <NuxtLink to="mailto:wintkhantlin@gmail.com" class="flex items-center gap-2">
           <AtSignIcon class="size-6" />
@@ -82,6 +84,10 @@ const scrollToSection = (id: typeof active.value) => {
         <NuxtLink to="https://github.com/happer64bit" target="_blank" class="flex items-center gap-2">
           <GitHubIcon class="size-6" />
           <span class="font-mono underline decoration-dotted">happer64bit</span>
+        </NuxtLink>
+        <NuxtLink to="https://www.facebook.com/wintkhantlin" target="_blank" class="flex items-center gap-2">
+          <FacebookIcon class="size-6" />
+          <span class="font-mono underline decoration-dotted">wintkhantlin</span>
         </NuxtLink>
       </div>
     </section>
@@ -132,7 +138,10 @@ const scrollToSection = (id: typeof active.value) => {
             </div>
           </div>
           <div class="mt-4 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
-          <p class="text-sm text-white/70 mt-4">{{ new Date(post.publishedDate).toLocaleString("default", { month: "long", year: "numeric", day: "numeric" }) }}</p>
+          <p class="text-sm text-white/70 mt-4">{{ new Date(post.publishedDate).toLocaleString("default", {
+            month:
+              "long", year: "numeric", day: "numeric"
+          }) }}</p>
         </NuxtLink>
       </div>
     </section>

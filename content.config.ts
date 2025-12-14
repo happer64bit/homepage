@@ -20,6 +20,7 @@ export default defineContentConfig({
         description: z.string(),
         source: z.string(),
         publishedDate: z.date(),
+        technologies: z.string().array(),
         img: z.string().optional(),
       })
     })

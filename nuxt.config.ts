@@ -6,6 +6,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/tailwind.css"],
 
+  ssr: false,
+
   vite: {
     plugins: [
       tailwindcss()

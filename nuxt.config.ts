@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 
   scripts: {
     registry: {
-      googleTagManager: "G-P4LM3B1RV1"
+      googleAnalytics: "G-P4LM3B1RV1"
     }
   },
 

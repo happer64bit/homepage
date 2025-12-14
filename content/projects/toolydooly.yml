@@ -2,4 +2,4 @@ name: ToolyDooly
 description: A Todo application built with NestJS, Express, Vue, Postgres, and MongoDB, running in a Dockerized microservice architecture.
 source: https://github.com/happer64bit/toolydooly
 img: /img/toolydooly.png
-publishedDate: 2025-09-01
+publishedDate: 2025-Nov-01

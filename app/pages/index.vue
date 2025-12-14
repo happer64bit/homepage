@@ -54,7 +54,7 @@ const scrollToSection = (btn: string) => {
   <main class="container mt-20 mb-30">
     <section id="home">
       <h1 lang="ja" class="font-noto-serif-japanese text-heading mb-10 font-bold">ハッパーと申します。</h1>
-  
+
       <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew
         up with the internet, and I enjoy programming and learning new things.</p>
       <br />
@@ -76,15 +76,11 @@ const scrollToSection = (btn: string) => {
 
     <section id="works" class="my-10">
       <h2 class="font-serif text-subheading mb-4">My Works</h2>
-      <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id" class="my-6 block">
+      <NuxtLink :to="project.source" target="_blank" v-for="project in projectData" :key="project.id"
+        class="my-6 block">
         <div class="group relative overflow-hidden rounded-lg">
-          <NuxtImg
-            :src="project.img"
-            :alt="project.name"
-            v-if="project.img"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-            format="webp"
-            loading="lazy"
+          <NuxtImg :src="project.img" :alt="project.name" v-if="project.img"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" format="webp" loading="lazy"
             class="w-full h-auto rounded-lg object-cover transition-transform duration-300 group-hover:scale-110" />
         </div>
         <h3 class="mt-3 text-2xl mb-2">{{ project.name }}</h3>
@@ -96,7 +92,8 @@ const scrollToSection = (btn: string) => {
 
     <section id="blogs">
       <h2 class="font-serif text-subheading mb-4">Blogs</h2>
-      <NuxtLink v-for="post in data" :key="post.path" :href="post.path" class="block my-2 hover:bg-white/5 p-3 py-4 rounded-lg">
+      <NuxtLink v-for="post in data" :key="post.path" :href="post.path"
+        class="block my-2 hover:bg-white/5 p-3 py-4 rounded-lg">
         <h3 class="text-xl font-semibold mb-2">{{ post.title }}</h3>
         <p class="text-sm line-clamp-2 text-white/80">{{ post.description }}</p>
       </NuxtLink>
@@ -113,14 +110,10 @@ const scrollToSection = (btn: string) => {
           scale: active === 'home' ? '1.1' : '1'
         }"></div>
 
-      <button 
-        v-for="btn in buttons"
-        :key="btn.id"
-        @click="scrollToSection(btn.id)"
-        :aria-label="btn.id"
+      <button v-for="btn in buttons" :key="btn.id" @click="scrollToSection(btn.id)" :aria-label="btn.id"
         class="relative z-10 px-5 py-2 text-white font-medium transition-transform duration-300 capitalize flex items-center gap-1 active:scale-80 cursor-pointer"
         :class="active === btn.id ? 'text-white' : 'text-white/50'">
-        <component :is="btn.icon"/>
+        <component :is="btn.icon" />
       </button>
     </div>
   </nav>

@@ -18,9 +18,9 @@
     --ease-smooth: cubic-bezier(1, 0, 0.4, 1);
     --color-glass: #bbbbbc;
     --font-noto-serif-japanese: "Noto Serif JP", serif;
-    --text-heading: 52px;
+    --text-heading: 48px;
     --text-subheading: 40px;
-    --text-body: 22px;
+    --text-body: 18px;
 }
 
 @utility container {

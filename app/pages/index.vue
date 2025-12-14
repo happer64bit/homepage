@@ -2,6 +2,7 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { GitHubIcon } from 'vue3-simple-icons'
 import { AtSignIcon, BriefcaseIcon, HomeIcon, PenIcon } from 'lucide-vue-next'
+import gsap from 'gsap'
 
 const active = ref<'home' | 'works' | 'blogs'>('home')
 
@@ -47,6 +48,14 @@ onMounted(async () => {
     { rootMargin: '-20% 0px -40% 0px', threshold: 0.2 }
   )
   sections.forEach(section => observer?.observe(section))
+
+  // GSAP large popup animation
+  const nav = document.querySelector('nav') as HTMLElement
+  gsap.fromTo(
+    nav,
+    { y: 300, scale: 1, opacity: 0 },
+    { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: 'power' }
+  )
 })
 
 onUnmounted(() => observer?.disconnect())
@@ -62,13 +71,9 @@ const scrollToSection = (id: typeof active.value) => {
   <main class="container mt-20 mb-30">
     <section id="home" class="scroll-mt-24">
       <h1 lang="ja" class="font-noto-serif-japanese text-heading mb-10 font-bold">ハッパーと申します。</h1>
-
-      <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew up
-        with the internet, and I enjoy programming and learning new things.</p>
+      <p class="text-body">Hello, my real name is Wint Khant Lin, but Happer is my nickname. I live in Yangon. I grew up with the internet, and I enjoy programming and learning new things.</p>
       <br />
-      <p class="text-body">I’ve been learning how to code since 2021. Currently, I actively study Japanese (日本語) and
-        programming every day. I have worked on a moderate number of side projects for learning.</p>
-
+      <p class="text-body">I’ve been learning how to code since 2021. Currently, I actively studying Statistics and programming every day. I have worked on a moderate number of side projects for learning.</p>
       <div class="my-5 flex flex-wrap items-center gap-5">
         <NuxtLink to="mailto:wintkhantlin@gmail.com" class="flex items-center gap-2">
           <AtSignIcon class="size-6" />
@@ -85,10 +90,9 @@ const scrollToSection = (id: typeof active.value) => {
 
     <section id="works" class="my-14 scroll-mt-24">
       <h2 class="font-serif text-subheading mb-10">My Works</h2>
-
       <div class="grid gap-10 sm:grid-cols-2">
         <NuxtLink v-for="project in projects" :key="project.id" :to="project.source" target="_blank"
-          class="group relative rounded-2xl border border-white/10 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.06]">
+          class="group relative rounded-2xl border border-white/10 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 active:scale-95">
           <div class="relative overflow-hidden">
             <NuxtImg v-if="project.img" :src="project.img" :alt="project.name"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" format="webp" loading="lazy"
@@ -96,7 +100,6 @@ const scrollToSection = (id: typeof active.value) => {
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
-
           <div class="p-5">
             <h3 class="text-xl font-semibold tracking-tight mb-2 group-hover:text-white transition-colors">
               {{ project.name }}
@@ -105,7 +108,6 @@ const scrollToSection = (id: typeof active.value) => {
               {{ project.description }}
             </p>
           </div>
-
           <div
             class="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-white/5 group-hover:ring-white/15 transition duration-500" />
         </NuxtLink>
@@ -116,10 +118,9 @@ const scrollToSection = (id: typeof active.value) => {
 
     <section id="blogs" class="scroll-mt-24 my-10">
       <h2 class="font-serif text-subheading mb-8">Blogs</h2>
-
       <div class="space-y-4">
         <NuxtLink v-for="post in posts" :key="post.path" :href="post.path"
-          class="group block rounded-xl border border-white/10 backdrop-blur-md p-5 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]">
+          class="group block rounded-xl border border-white/10 backdrop-blur-md p-5 transition-all duration-300 hover:border-white/20 hover:scale-[1.02] active:scale-[0.98]">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h3 class="text-lg font-semibold leading-snug mb-2 group-hover:text-white transition-colors">
@@ -130,11 +131,8 @@ const scrollToSection = (id: typeof active.value) => {
               </p>
             </div>
           </div>
-
           <div class="mt-4 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
-
-          <p class="text-sm text-white/70 mt-4">{{  new Date(post.publishedDate).toLocaleString("default", { month: "long", year: "numeric", day: "numeric" }) }}</p>
-
+          <p class="text-sm text-white/70 mt-4">{{ new Date(post.publishedDate).toLocaleString("default", { month: "long", year: "numeric", day: "numeric" }) }}</p>
         </NuxtLink>
       </div>
     </section>
@@ -146,7 +144,6 @@ const scrollToSection = (id: typeof active.value) => {
       <div
         class="absolute top-1 left-0 h-[calc(100%-0.5rem)] w-1/3 rounded-full bg-white/20 blur-xl transition-all duration-700 ease-[cubic-bezier(0.8,0,0.2,1)]"
         :style="indicatorStyle" />
-
       <button v-for="btn in buttons" :key="btn.id" :aria-label="btn.id" @click="scrollToSection(btn.id as any)"
         class="relative z-10 px-5 py-2 font-medium transition-transform duration-300 capitalize flex items-center gap-1 active:scale-80"
         :class="active === btn.id ? 'text-white' : 'text-white/50'">

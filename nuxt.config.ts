@@ -12,18 +12,20 @@ export default defineNuxtConfig({
     ]
   },
 
+  scripts: {
+    registry: {
+      googleTagManager: "G-QJ7KVTTN9F"
+    }
+  },
+
   modules: [
     "@nuxt/fonts",
     "@nuxt/content",
-    "@nuxtjs/partytown",
     "@nuxt/image",
-    "@nuxtjs/sitemap"
+    "@nuxtjs/sitemap",
+    "@nuxt/hints",
+    "@nuxt/scripts"
   ],
-
-  partytown: {
-    debug: false,
-    forward: ["dataLayer.push", "gtag"],
-  },
 
   content: {
     experimental: {
@@ -86,16 +88,6 @@ export default defineNuxtConfig({
       }
     ]
   },
-
-  // googleFonts: {
-  //   families: {
-  //     "Noto Sans": true,
-  //     "Noto Serif JP": {
-  //       wght: 600,
-  //     },
-  //   },
-  //   preload: true,
-  // },
 
   fonts: {
     provider: "local",

@@ -88,13 +88,13 @@ const scrollToSection = (id: typeof active.value) => {
 
       <div class="grid gap-10 sm:grid-cols-2">
         <NuxtLink v-for="project in projects" :key="project.id" :to="project.source" target="_blank"
-          class="group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.06]">
+          class="group relative rounded-2xl border border-white/10 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.06]">
           <div class="relative overflow-hidden">
             <NuxtImg v-if="project.img" :src="project.img" :alt="project.name"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" format="webp" loading="lazy"
               class="aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
 
           <div class="p-5">
@@ -119,7 +119,7 @@ const scrollToSection = (id: typeof active.value) => {
 
       <div class="space-y-4">
         <NuxtLink v-for="post in posts" :key="post.path" :href="post.path"
-          class="group block rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]">
+          class="group block rounded-xl border border-white/10 backdrop-blur-md p-5 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h3 class="text-lg font-semibold leading-snug mb-2 group-hover:text-white transition-colors">

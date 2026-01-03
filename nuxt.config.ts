@@ -90,19 +90,12 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    provider: "google",
     families: [
       {
-        name: "Playfair Display",
-        provider: "google",
-        weight: 700
-      },
-      {
+        provider: 'google',
         name: "Inter",
+        weights: [400, 500, 600, 700, 800, 900]
       },
-      {
-        name: 'Source Serif 4'
-      }
     ]
   },
 

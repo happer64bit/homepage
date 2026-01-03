@@ -1,8 +1,8 @@
-name: ToolyDooly
+name: Zay Chin
 description: A Todo application built with NestJS, Express, Vue, Postgres, and MongoDB, running in a Dockerized microservice architecture.
-source: https://github.com/happer64bit/toolydooly
-img: /img/toolydooly.png
+source: https://github.com/happer64bit/Zay-Chin
+img: /img/zay_chin.png
 technologies: ["Vue.JS", "Express.JS", "NestJS" ,"Microservice", "Postgres", "MongoDB", "Redis"]
-publishedDate: 2025-Nov-05
-cardBg: bg-gradient-to-br from-indigo-200 to-purple-200
-dotColor: bg-indigo-500
+publishedDate: 2026-Jan-01
+cardBg: bg-gradient-to-br from-teal-200 to-emerald-200
+dotColor: bg-teal-500

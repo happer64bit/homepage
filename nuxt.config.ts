@@ -90,23 +90,18 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    provider: "local",
+    provider: "google",
     families: [
       {
-        name: "Noto Sans",
-        preload: true,
-        provider: "local",
-        src: "./assets/fonts/Noto-Sans.ttf",
-        display: "swap",
-        fallbacks: ['Arial', 'sans-serif']
+        name: "Playfair Display",
+        provider: "google",
+        weight: 700
       },
       {
-        name: "Noto Sans JP",
-        weights: [700],
-        preload: true,
-        provider: "local",
-        src: "./assets/fonts/Noto-Serif-JP.ttf",
-        display: "swap"
+        name: "Inter",
+      },
+      {
+        name: 'Source Serif 4'
       }
     ]
   },

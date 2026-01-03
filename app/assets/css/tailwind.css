@@ -1,34 +1,196 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 :root {
-    --bg: transparent;
-    --glass-bg: color-mix(in oklab, var(--bg) 80%, transparent);
-    --glass-border: color-mix(in oklab, var(--glass-bg) 30%, white);
+    --background: 45 30% 96%;
+    --foreground: 30 10% 10%;
+
+    --card: 45 25% 94%;
+    --card-foreground: 30 10% 10%;
+
+    --popover: 45 30% 96%;
+    --popover-foreground: 30 10% 10%;
+
+    --primary: 30 10% 10%;
+    --primary-foreground: 45 30% 96%;
+
+    --secondary: 45 20% 90%;
+    --secondary-foreground: 30 10% 15%;
+
+    --muted: 45 15% 88%;
+    --muted-foreground: 30 8% 40%;
+
+    --accent: 45 20% 90%;
+    --accent-foreground: 30 10% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 80%;
+    --input: 30 15% 80%;
+    --ring: 30 10% 10%;
+
+    --radius: 0rem;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@theme {
-    --shadow-glass: inset 0 0 0 1px rgba(255,255,255,0.1),
-        inset 1.8px 3px 0px -2px rgba(255,255,255,0.9),
-        inset -2px -2px 0px -2px rgba(255,255,255,0.8),
-        inset -3px -8px 1px -6px rgba(255,255,255,0.6),
-        inset -0.3px -1px 4px 0px rgba(0,0,0,0.12),
-        inset -1.5px 2.5px 0px -2px rgba(0,0,0,0.2),
-        0px 6px 16px rgba(0,0,0,0.08);
-    --ease-smooth: cubic-bezier(1, 0, 0.4, 1);
-    --color-glass: #bbbbbc;
-    --font-noto-serif-japanese: "Noto Serif JP", serif;
-    --text-heading: 48px;
-    --text-subheading: 40px;
-    --text-body: 18px;
+.dark {
+    --background: 30 10% 8%;
+    --foreground: 45 20% 92%;
+    --card: 30 10% 12%;
+    --card-foreground: 45 20% 92%;
+    --popover: 30 10% 8%;
+    --popover-foreground: 45 20% 92%;
+    --primary: 45 20% 92%;
+    --primary-foreground: 30 10% 8%;
+    --secondary: 30 8% 18%;
+    --secondary-foreground: 45 15% 90%;
+    --muted: 30 8% 20%;
+    --muted-foreground: 45 10% 60%;
+    --accent: 30 8% 18%;
+    --accent-foreground: 45 20% 92%;
+    --border: 30 8% 25%;
+    --input: 30 8% 25%;
+    --ring: 45 20% 80%;
 }
 
-@utility container {
-    max-width: 700px;
-    margin-inline: auto;
-    padding-inline: 10px;
+/* Base styles */
+* {
+    border-color: hsl(var(--border));
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    @apply bg-[#111] text-white;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+}
+
+/* Components */
+.masthead {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom-width: 2px;
+    border-color: hsl(var(--foreground));
+}
+
+.masthead-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .masthead-title {
+        font-size: 4.5rem;
+    }
+}
+
+.masthead-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: hsl(var(--muted-foreground));
+    margin-top: 0.5rem;
+}
+
+.section-rule {
+    border-top-width: 1px;
+    border-color: hsl(var(--border));
+}
+
+.section-rule-thick {
+    border-top-width: 2px;
+    border-color: hsl(var(--foreground));
+}
+
+.column-rule {
+    border-left-width: 1px;
+    border-color: hsl(var(--border));
+}
+
+.label-category {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+}
+
+.headline-lg {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+    .headline-lg {
+        font-size: 2.25rem;
+    }
+}
+
+.headline-md {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+    .headline-md {
+        font-size: 1.5rem;
+    }
+}
+
+.headline-sm {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.body-text {
+    font-size: 1rem;
+    line-height: 1.625;
+}
+
+.byline {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.drop-cap::first-letter {
+    float: left;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+    font-family: var(--font-display);
+}
+
+/* Utilities */
+.columns-text {
+    column-count: 2;
+    column-gap: 2rem;
+    column-rule: 1px solid hsl(var(--border));
+}
+
+@media (max-width: 768px) {
+    .columns-text {
+        column-count: 1;
+    }
 }

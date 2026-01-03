@@ -1,23 +1,19 @@
 <script setup>
-  const { proxy } = useScriptGoogleAnalytics({
-    scriptOptions: {
-      trigger: "client"
-    }
-  })
+const { proxy } = useScriptGoogleAnalytics({
+  scriptOptions: {
+    trigger: "client"
+  }
+})
 
-  proxy.gtag("config", "default", {
-    send_page_view: true
-  })
+proxy.gtag("config", "default", {
+  send_page_view: true
+})
 
 </script>
 
 <template>
-  <NuxtLoadingIndicator color="white"/>
-  <NuxtPage />
+  <NuxtLoadingIndicator color="white" />
+  <div class="max-w-5xl p-6 mx-auto">
+    <NuxtPage />
+  </div>
 </template>
-
-<style>
-body {
-  font-family: 'Noto Sans', sans-serif;
-}
-</style>

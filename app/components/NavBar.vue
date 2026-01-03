@@ -3,9 +3,11 @@
         <div class="flex items-center justify-between">
             <div
                 class="flex items-center bg-[#1a1a1a] rounded-full p-1.5 shadow-2xl border border-white/5 w-full max-w-240 mx-auto">
-                <div class="flex items-center justify-center w-10 h-10 bg-white rounded-full ml-1">
-                    <span class="text-black font-bold text-lg select-none">W</span>
-                </div>
+                <NuxtLink href="/">
+                    <div class="flex items-center justify-center w-10 h-10 bg-white rounded-full ml-1">
+                        <span class="text-black font-bold text-lg select-none">W</span>
+                    </div>
+                </NuxtLink>
                 <div class="hidden md:flex items-center gap-6 px-4">
                     <a v-for="link in navLinks" :key="link.id" :href="'#' + link.id"
                         class="group flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm font-medium">

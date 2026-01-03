@@ -13,7 +13,7 @@ proxy.gtag("config", "default", {
 
 <template>
   <NuxtLoadingIndicator color="white" />
-  <div class="max-w-5xl p-6 mx-auto">
+  <div class="max-w-240 p-6 mx-auto">
     <NuxtPage />
   </div>
 </template>

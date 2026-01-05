@@ -1,8 +1,6 @@
 name: Zay Chin
-description: A Todo application built with NestJS, Express, Vue, Postgres, and MongoDB, running in a Dockerized microservice architecture.
+description: A collaborative shopping cart application that allows family members to create groups, add items to shared carts, and track shopping locations on a map.
 source: https://github.com/happer64bit/Zay-Chin
 img: /img/zay_chin.png
 technologies: ["Vue.JS", "Express.JS", "NestJS" ,"Microservice", "Postgres", "MongoDB", "Redis"]
 publishedDate: 2026-Jan-01
-cardBg: bg-gradient-to-br from-teal-200 to-emerald-200
-dotColor: bg-teal-500

@@ -12,7 +12,5 @@ onMounted(() => {
 <template>
   <NuxtLoadingIndicator color="white" />
   <NavBar />
-  <div class="max-w-300 p-6 mx-auto">
-    <NuxtPage />
-  </div>
+  <NuxtPage />
 </template>

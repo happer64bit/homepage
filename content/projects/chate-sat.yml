@@ -4,5 +4,3 @@ source: https://github.com/happer64bit/chate-sat
 technologies: ["Next.JS", "TailwindCSS", "PostgreSQL"]
 img: /img/chatesat.png
 publishedDate: 2025-Nov-09
-cardBg: bg-gradient-to-br from-pink-200 to-rose-200
-dotColor: bg-rose-500

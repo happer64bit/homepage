@@ -4,5 +4,3 @@ source: https://github.com/happer64bit/toolydooly
 img: /img/toolydooly.png
 technologies: ["Vue.JS", "Express.JS", "NestJS" ,"Microservice", "Postgres", "MongoDB", "Redis"]
 publishedDate: 2025-Nov-05
-cardBg: bg-gradient-to-br from-indigo-200 to-purple-200
-dotColor: bg-indigo-500

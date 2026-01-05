@@ -2,11 +2,15 @@
 
 @theme {
     --foreground: #000;
-    --background: #FFF;
+    --background: #FFFAFA;
     --font-sans: 'Inter', sans-serif;
     --color-foreground-muted: #6B7280;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
 }

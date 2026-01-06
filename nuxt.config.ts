@@ -18,14 +18,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: [
-    "@nuxt/fonts",
-    "@nuxt/content",
-    "@nuxt/image",
-    "@nuxtjs/sitemap",
-    "@nuxt/hints",
-    "@nuxt/scripts"
-  ],
+  modules: ["@nuxt/fonts", "@nuxt/content", "@nuxt/image", "@nuxtjs/sitemap", "@nuxt/hints", "@nuxt/scripts", 'nuxt-marquee'],
   
   image: {
     quality: 70,
@@ -77,6 +70,10 @@ export default defineNuxtConfig({
           rel: "icon",
           type: "image/x-icon",
           href: '/favicon.ico'
+        },
+        {
+          rel: "stylesheet",
+          href: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         }
       ]
     }

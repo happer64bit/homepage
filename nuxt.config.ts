@@ -116,7 +116,7 @@ export default defineNuxtConfig({
     families: [
       {
         provider: 'google',
-        name: "Inter",
+        name: "Reddit Sans",
         weights: [400, 500, 600, 700, 800, 900]
       },
     ]

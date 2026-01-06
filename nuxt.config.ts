@@ -50,21 +50,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en"
       },
-      meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Portfolio of Wint Khant Lin — projects, experiments, and co-creation.' },
-        { name: 'theme-color', content: '#ffffff' },
-        { name: 'robots', content: 'index,follow' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'Wint Khant Lin' },
-        { property: 'og:title', content: 'Wint Khant Lin' },
-        { property: 'og:description', content: 'Portfolio of Wint Khant Lin — projects, experiments, and co-creation.' },
-        { property: 'og:image', content: '/img/chatesat.png' },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Wint Khant Lin' },
-        { name: 'twitter:description', content: 'Portfolio of Wint Khant Lin — projects, experiments, and co-creation.' },
-        { name: 'twitter:image', content: '/img/chatesat.png' }
-      ],
       link: [
         {
           rel: "icon",

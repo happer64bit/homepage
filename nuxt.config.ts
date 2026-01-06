@@ -111,5 +111,11 @@ export default defineNuxtConfig({
     autoLastmod: true,
 
     sources: ["/api/__sitemap__/urls"]
+  },
+
+  $production: {
+    nitro: {
+      preset: "vercel-static"
+    }
   }
 })

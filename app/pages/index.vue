@@ -2,7 +2,6 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 import SplitText from 'gsap/SplitText'
-import HomeAboutMeSection from '~/components/HomeAboutMeSection.vue'
 
 useSeoMeta({
     title: 'Wint Khant Lin Portfolio'

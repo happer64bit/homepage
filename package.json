@@ -17,6 +17,7 @@
     "@nuxt/scripts": "0.13.1",
     "@nuxtjs/sitemap": "7.4.7",
     "@tailwindcss/vite": "^4.1.18",
+    "entities": "2.2.0",
     "gsap": "^3.14.2",
     "lucide-vue-next": "^0.536.0",
     "nuxt": "^4.2.2",
@@ -38,5 +39,11 @@
     "better-sqlite3",
     "esbuild",
     "sharp"
-  ]
+  ],
+  "overrides": {
+    "entities": "2.2.0"
+  },
+  "resolutions": {
+    "entities": "2.2.0"
+  }
 }

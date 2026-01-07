@@ -2,7 +2,7 @@
 
 @theme {
     --foreground: #000;
-    /* --background: #FFFAFA; */
+    --background: #FFFAFA;
     --font-sans: 'Reddit Sans', sans-serif;
     --color-foreground-muted: #6B7280;
 }

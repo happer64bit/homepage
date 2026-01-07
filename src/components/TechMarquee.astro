@@ -1,0 +1,88 @@
+---
+const items = [
+  "devicon-typescript-plain",
+  "devicon-javascript-plain",
+  "devicon-bun-plain",
+  "devicon-docker-plain",
+  "devicon-figma-plain",
+  "devicon-python-plain",
+  "devicon-vuejs-plain",
+  "devicon-react-original",
+  "devicon-svelte-plain",
+  "devicon-nextjs-plain",
+  "devicon-nuxtjs-plain",
+  "devicon-tailwindcss-plain",
+  "devicon-express-original",
+  "devicon-fastify-plain",
+];
+
+// Duplicate items for seamless loop
+const duplicatedItems = [...items, ...items];
+---
+
+<div
+  class="tech-marquee-wrapper w-full py-4 overflow-hidden -rotate-6 bg-neutral-900"
+>
+  <div class="tech-marquee flex items-center gap-12">
+    {
+      duplicatedItems.map((icon, i) => (
+        <div class="flex items-center justify-center shrink-0 w-24">
+          <i class={`${icon} text-white text-4xl sm:text-5xl`} />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+/>
+
+<style>
+  .tech-marquee-wrapper {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .tech-marquee {
+    animation: marquee 16s linear infinite;
+    width: fit-content;
+  }
+
+  .tech-marquee-wrapper:hover .tech-marquee {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .tech-marquee {
+      gap: 2rem;
+    }
+
+    .tech-marquee > div {
+      width: 4rem;
+    }
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from 'astro-icon/components'
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+);
+---
+
+<section class="space-y-10 overflow-hidden">
+  {
+    projects.map((project, index) => (
+      <div 
+        class="project-panel min-h-screen flex flex-col justify-center items-center bg-white border-t border-gray-100"
+        style={`z-index: ${index + 1};`} 
+      >
+        <div class="project-info text-center max-w-175 mx-auto space-y-4 mb-10 px-4">
+          <h2 class="text-7xl font-bold">{project.data.name}</h2>
+          <p class="text-lg text-neutral-700">{project.data.description}</p>
+          <a href={project.data.source} class={`px-10 py-4 rounded-full mt-4 hover:scale-105 transition-transform inline-flex items-center gap-2`} style={`background-color: ${project.data.color}; color: ${project.data.color === "#000" ? "#fff" : "#000"};`}>
+            View Project <Icon name="heroicons:arrow-up-right" />
+          </a>
+        </div>
+
+        <div class="project-image relative z-10">
+            <img 
+              src={project.data.img!} 
+              alt={project.data.name} 
+              class="mx-auto max-w-xs md:max-w-md lg:max-w-2xl rounded-3xl shadow-2xl"
+            />
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const panels = gsap.utils.toArray(".project-panel") as HTMLElement[];
+
+  panels.forEach((panel, i) => {
+    ScrollTrigger.create({
+      trigger: panel,
+      start: "top top", 
+      pin: true, 
+      pinSpacing: false, 
+      end: "bottom top",
+    });
+
+    const infoText = panel.querySelector(".project-info");
+    const image = panel.querySelector(".project-image");
+    
+    if (infoText) {
+      gsap.to(infoText, {
+        opacity: 0,
+        scale: 0.8,
+        y: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: panel,
+          start: "top top",
+          end: "50% top",
+          scrub: true,
+        }
+      });
+    }
+    
+    if(image) {
+       gsap.to(image, {
+        y: -30,
+        ease: "none",
+        scrollTrigger: {
+            trigger: panel,
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+       })
+    }
+  });
+</script>

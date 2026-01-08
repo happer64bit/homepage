@@ -1,0 +1,84 @@
+---
+const links = [
+  { label: "Home", href: "/#home" },
+  { label: "Work", href: "/#projects" },
+  { label: "About", href: "/#about" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-9999 pointer-events-none">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+    <div
+      class="pointer-events-auto relative mt-2 flex items-center justify-between rounded-full border border-white/10 bg-neutral-900/90 px-2 py-1 backdrop-blur-xl shadow-2xl transition-all duration-500 ease-in-out hover:border-white/20 hover:bg-neutral-900/80"
+    >
+      <a
+        href="/"
+        class="group relative flex items-center gap-2 overflow-hidden px-4 py-0.5 font-mono text-sm font-bold tracking-widest text-white outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-lg"
+      >
+        <span
+          class="relative z-10 transition-transform duration-300 group-hover:-translate-y-[150%]"
+          >WKL</span
+        >
+        <span
+          class="absolute left-4 top z-10 translate-y-[150%] text-neutral-400 transition-transform duration-300 group-hover:translate-y-0"
+          >//</span
+        >
+      </a>
+
+      <nav class="relative flex items-center gap-1 rounded-xl bg-white/5 p-1">
+        <div
+          id="nav-spotlight"
+          class="absolute left-0 top-1 h-[calc(100%-8px)] w-0 rounded-lg bg-white/10 transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] opacity-0"
+        >
+        </div>
+
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="nav-link relative z-10 block px-4 py-1 font-mono text-xs uppercase tracking-wider text-neutral-400 transition-colors duration-300 hover:text-white focus-visible:text-white outline-none"
+              data-label={link.label}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const navContainer = document.querySelector("nav");
+  const spotlight = document.getElementById("nav-spotlight");
+  const links = document.querySelectorAll(".nav-link");
+
+  if (navContainer && spotlight) {
+    const updateSpotlight = (targetLink: HTMLElement) => {
+      const navRect = navContainer.getBoundingClientRect();
+      const linkRect = targetLink.getBoundingClientRect();
+
+      const left = linkRect.left - navRect.left;
+
+      spotlight.style.width = `${linkRect.width}px`;
+      spotlight.style.transform = `translateX(${left}px)`;
+      spotlight.style.opacity = "1";
+    };
+
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", (e) => {
+        updateSpotlight(e.target as HTMLElement);
+      });
+    });
+
+    navContainer.addEventListener("mouseleave", () => {
+      spotlight.style.opacity = "0";
+    });
+
+    links.forEach((link) => {
+      link.addEventListener("focus", (e) => {
+        updateSpotlight(e.target as HTMLElement);
+      });
+    });
+  }
+</script>

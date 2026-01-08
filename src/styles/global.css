@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+    --foreground: #000;
+    --background: #FFFAFA;
+    --font-sans: 'Reddit Sans', sans-serif;
+    --color-foreground-muted: #6B7280;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+}

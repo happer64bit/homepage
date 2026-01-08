@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectsShowcase from "../components/ProjectsShowcase.astro";
+import AboutSection from "../components/AboutSection.astro";
+import TechMarquee from "../components/TechMarquee.astro";
+---
+
+<BaseLayout title="Home">
+  <main id="home" class="relative flex flex-col justify-center px-4 py-20 min-h-screen">
+    <div class="absolute top-20 right-[-5%] w-64 h-64 rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto w-full relative">
+      <p
+        class="max-w-xl text-sm sm:text-base md:text-xl leading-relaxed text-neutral-500 font-mono uppercase tracking-widest opacity-0 translate-y-4 animate-fade-in"
+      >
+        // Based in Myanmar <br />
+        Student • Developer
+      </p>
+
+      <h1
+        id="dev-name"
+        class="uppercase font-black tracking-tighter text-8xl lg:text-[12vw] mt-6 mb-12 select-none"
+      >
+        Wint Khant<br />
+        <span class="stroke-text">Lin</span>
+      </h1>
+
+      <div class="flex justify-between items-end border-t border-white/10 pt-8">
+        <div
+          class="flex gap-8 text-xs font-bold tracking-widest uppercase text-neutral-400"
+        >
+          <p>Scroll for Work</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="w-full mt-12 sm:my-16">
+    <TechMarquee />
+  </div>
+
+  <ProjectsShowcase />
+  <AboutSection />
+</BaseLayout>
+
+<style>
+  .stroke-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease forwards;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Mouse move parallax effect for the name
+  const name = document.querySelector("#dev-name");
+
+  window.addEventListener("mousemove", (e) => {
+    const { clientX, clientY } = e;
+    const xPos = (clientX / window.innerWidth - 0.5) * 20;
+    const yPos = (clientY / window.innerHeight - 0.5) * 20;
+
+    gsap.to(name, {
+      x: xPos,
+      y: yPos,
+      duration: 1,
+      ease: "power2.out",
+    });
+  });
+</script>

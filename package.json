@@ -1,49 +1,22 @@
 {
   "name": "homepage",
-  "private": true,
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@nuxt/content": "^3.10.0",
-    "@nuxt/fonts": "^0.11.4",
-    "@nuxt/hints": "1.0.0-alpha.3",
-    "@nuxt/image": "1.11.0",
-    "@nuxt/scripts": "0.13.1",
-    "@nuxtjs/sitemap": "7.4.7",
+    "@astrojs/ts-plugin": "^1.10.6",
     "@tailwindcss/vite": "^4.1.18",
-    "entities": "^6",
+    "astro": "^5.16.6",
+    "astro-icon": "^1.1.5",
     "gsap": "^3.14.2",
-    "lucide-vue-next": "^0.536.0",
-    "nuxt": "^4.2.2",
-    "nuxt-marquee": "1.0.4",
-    "nuxt-precompress": "^0.5.9",
-    "rss": "^1.2.2",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4.1.18",
-    "vue": "^3.5.26",
-    "vue-router": "^4.6.4"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/rss": "^0.0.32"
-  },
-  "trustedDependencies": [
-    "@parcel/watcher",
-    "@tailwindcss/oxide",
-    "better-sqlite3",
-    "esbuild",
-    "sharp"
-  ],
-  "overrides": {
-    "entities": "^6"
-  },
-  "resolutions": {
-    "entities": "^6"
+    "@iconify-json/heroicons": "^1.2.3"
   }
 }

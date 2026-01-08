@@ -1,0 +1,107 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+);
+---
+
+<section
+  id="projects"
+  class="relative space-y-10 py-10 border-neutral-200"
+  style="z-index: 1;"
+>
+  {
+    projects.map((project, index) => (
+      <div
+        class="project-panel min-h-screen flex flex-col justify-center items-center bg-white px-4 sm:px-6 lg:px-8"
+        style={`z-index: ${index + 1};`}
+      >
+        <div class="project-info text-center max-w-4xl mx-auto space-y-3 sm:space-y-4 mb-6 sm:mb-8 lg:mb-10 w-full">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            {project.data.name}
+          </h2>
+          <p class="text-base sm:text-lg text-neutral-700 px-2 sm:px-0">
+            {project.data.description}
+          </p>
+          <a
+            href={project.data.source}
+            class={`px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-full mt-4 hover:scale-105 transition-transform inline-flex items-center gap-2 text-sm sm:text-base`}
+            style={`background-color: ${project.data.color}; color: ${project.data.color === "#000" ? "#fff" : "#000"};`}
+          >
+            View Project <Icon name="heroicons:arrow-up-right" />
+          </a>
+        </div>
+
+        <div class="project-image relative z-10 w-full flex justify-center px-2 sm:px-4">
+          <Image
+            src={project.data.img!}
+            alt={project.data.name}
+            class="mx-auto w-full max-w-100 sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl rounded-2xl sm:rounded-3xl"
+            width={1200}
+            height={800}
+            loading="lazy"
+          />
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Refresh ScrollTrigger after page load
+  window.addEventListener("load", () => {
+    ScrollTrigger.refresh();
+  });
+
+  const panels = gsap.utils.toArray(".project-panel") as HTMLElement[];
+
+  panels.forEach((panel, i) => {
+    ScrollTrigger.create({
+      trigger: panel,
+      start: "top top",
+      pin: true,
+      pinSpacing: false,
+      end: "bottom top",
+    });
+
+    const infoText = panel.querySelector(".project-info");
+    const image = panel.querySelector(".project-image");
+
+    if (infoText) {
+      gsap.to(infoText, {
+        opacity: 0,
+        scale: 0.8,
+        y: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: panel,
+          start: "top top",
+          end: "50% top",
+          scrub: true,
+        },
+      });
+    }
+
+    gsap.to(image, {
+      y: -30,
+      ease: "none",
+      scaleX: 0.85,
+      scaleY: 0.85,
+      transformOrigin: "top center",
+      scrollTrigger: {
+        trigger: panel,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  });
+</script>

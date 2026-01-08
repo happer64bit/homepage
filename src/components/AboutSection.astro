@@ -1,0 +1,71 @@
+---
+import PhotoGrid from "./PhotoGrid.astro";
+---
+
+<section
+  id="about"
+  class="relative min-h-screen flex flex-col items-center justify-center bg-white border-t border-gray-100 py-20"
+  style="position: relative; z-index: 1;"
+>
+  <div
+    class="max-w-100 sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8"
+  >
+    <div class="about-content space-y-8 sm:space-y-12">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center"
+      >
+        <div
+          class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700"
+        >
+          <h2
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 uppercase text-black"
+          >
+            About Me
+          </h2>
+          <p>
+            <span class="float-left text-6xl font-serif mr-2">I</span> grew up in
+            Shwe Pyi Thar, Yangon—and that shaped how I see everything. Nothing was
+            handed to me, so I learned early how to rely on myself. I respect where
+            I came from: the struggle, the people, the rhythm of life.
+          </p>
+
+          <p>
+            But I never let it decide how far I can go. I move forward carrying
+            discipline from the past and ambition for the future. Every skill I
+            build, every late night I grind, is proof that my starting point
+            doesn't define my destination.
+          </p>
+        </div>
+
+        <div class="flex justify-center lg:justify-end">
+          <PhotoGrid />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const aboutSection = document.querySelector("#about");
+  const aboutContent = aboutSection?.querySelector(".about-content");
+
+  if (aboutContent) {
+    gsap.from(aboutContent, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: aboutSection,
+        start: "top 80%",
+        end: "top 50%",
+        scrub: true,
+      },
+    });
+  }
+</script>

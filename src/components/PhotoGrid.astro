@@ -1,0 +1,200 @@
+---
+import { Image } from "astro:assets";
+import about1 from "../assets/img/about/1.png";
+import about2 from "../assets/img/about/2.png";
+import about3 from "../assets/img/about/3.png";
+import about4 from "../assets/img/about/4.png";
+
+const photos = [
+  {
+    img: about1,
+    alt: "Mirror Selfie of Wint Khant Lin",
+  },
+  {
+    img: about2,
+    alt: "Photography Taken by Wint Khant Lin",
+  },
+  {
+    img: about3,
+    alt: "Me At Shan State",
+  },
+  {
+    img: about4,
+    alt: "Me Pitching at Hackathon Rehearsal",
+  },
+];
+---
+
+<div
+  class="flex justify-center items-center py-12 w-full min-h-37.5 overflow-hidden"
+>
+  <div
+    class="relative w-full max-w-100 sm:max-w-125 md:max-w-150 aspect-3/4 isolate cursor-pointer group"
+    id="photo-stack"
+  >
+    {
+      photos.map((photo, index) => (
+        <div
+          class="photo-card absolute inset-0 rounded-2xl border-8 border-white overflow-hidden will-change-transform"
+          data-index={index}
+        >
+          <div class="w-full h-full p-2 sm:p-4 box-border flex items-center justify-center">
+            <Image
+              src={photo.img}
+              alt={photo.alt}
+              class="w-full h-full object-cover pointer-events-none select-none"
+              loading={"lazy"}
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .photo-card {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  function initCardStack() {
+    const wrapper = document.getElementById("photo-stack");
+    if (!wrapper) return;
+
+    let cards = Array.from(wrapper.querySelectorAll(".photo-card"));
+    if (!cards.length) return;
+
+    let isAnimating = false;
+    let intervalId: null | number = null;
+
+    const OFFSET_Y = 15;
+    const OFFSET_X = 5;
+    const ROTATION_Spread = 3;
+
+    const updateStackVisuals = (animate = true) => {
+      cards.forEach((card, index) => {
+        const scale = 1 - index * 0.05;
+        const y = index * OFFSET_Y;
+        const x = index * OFFSET_X;
+        const rotation =
+          index % 2 === 0 ? index * ROTATION_Spread : -index * ROTATION_Spread;
+        const opacity = index > 2 ? 0 : 1;
+        const zIndex = cards.length - index;
+
+        const target = {
+          y: y,
+          x: index * 2,
+          scale: scale,
+          rotation: rotation,
+          zIndex: zIndex,
+          opacity: opacity,
+          ease: "power3.out",
+          duration: animate ? 0.6 : 0,
+        };
+
+        if (animate) {
+          gsap.to(card, target);
+        } else {
+          gsap.set(card, target);
+        }
+      });
+    };
+
+    const moveNext = () => {
+      if (isAnimating || cards.length < 2) return;
+      isAnimating = true;
+
+      const topCard = cards[0];
+
+      gsap.set(topCard, {
+        zIndex: 9999,
+        willChange: "transform",
+        force3D: true,
+      });
+
+      const remaining = cards.slice(1);
+      remaining.forEach((card, i) => {
+        const newIndex = i;
+        gsap.set(card, {
+          y: newIndex * OFFSET_Y,
+          x: newIndex * 2,
+          scale: 1 - newIndex * 0.05,
+          rotation:
+            newIndex % 2 === 0
+              ? newIndex * ROTATION_Spread
+              : -newIndex * ROTATION_Spread,
+          opacity: newIndex > 2 ? 0 : 1,
+          zIndex: cards.length - newIndex,
+        });
+      });
+
+      const throwDirectionX = Math.random() > 0.5 ? 200 : -200;
+      const throwRotation = Math.random() > 0.5 ? 15 : -15;
+
+      gsap.to(topCard, {
+        x: throwDirectionX,
+        y: 50,
+        rotation: throwRotation,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.in",
+        onComplete: () => {
+          gsap.set(topCard, {
+            x: 0,
+            y: 0,
+            rotation: 0,
+            scale: 1,
+            opacity: 0,
+            zIndex: 0,
+          });
+          wrapper.appendChild(topCard);
+          cards.push(cards.shift()!);
+          cards = Array.from(wrapper.querySelectorAll(".photo-card"));
+          updateStackVisuals(true);
+          isAnimating = false;
+        },
+      });
+    };
+
+    updateStackVisuals(false);
+
+    const startInterval = () => {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = window.setInterval(moveNext, 3500);
+    };
+
+    startInterval();
+
+    wrapper.addEventListener("click", () => {
+      moveNext();
+      startInterval();
+    });
+
+    wrapper.addEventListener("mouseenter", () => {
+      if (intervalId) clearInterval(intervalId);
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+      startInterval();
+    });
+
+    const cleanup = () => {
+      if (intervalId) clearInterval(intervalId);
+      cards.forEach((card) => gsap.killTweensOf(card));
+    };
+
+    window.addEventListener("beforeunload", cleanup);
+  }
+
+  document.addEventListener("astro:page-load", initCardStack);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCardStack);
+  } else {
+    initCardStack();
+  }
+</script>

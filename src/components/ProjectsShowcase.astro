@@ -63,7 +63,7 @@ const projects = (await getCollection("projects")).sort(
 
   const panels = gsap.utils.toArray(".project-panel") as HTMLElement[];
 
-  panels.forEach((panel, i) => {
+  panels.forEach((panel) => {
     ScrollTrigger.create({
       trigger: panel,
       start: "top top",

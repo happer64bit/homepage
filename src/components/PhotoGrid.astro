@@ -73,14 +73,12 @@ const photos = [
     let intervalId: null | number = null;
 
     const OFFSET_Y = 15;
-    const OFFSET_X = 5;
     const ROTATION_Spread = 3;
 
     const updateStackVisuals = (animate = true) => {
       cards.forEach((card, index) => {
         const scale = 1 - index * 0.05;
         const y = index * OFFSET_Y;
-        const x = index * OFFSET_X;
         const rotation =
           index % 2 === 0 ? index * ROTATION_Spread : -index * ROTATION_Spread;
         const opacity = index > 2 ? 0 : 1;

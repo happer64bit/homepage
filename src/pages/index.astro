@@ -2,12 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectsShowcase from "../components/ProjectsShowcase.astro";
 import AboutSection from "../components/AboutSection.astro";
+import TechMarquee from "../components/TechMarquee.astro";
 ---
 
 <BaseLayout title="Home">
-  <main
-    class="relative flex flex-col justify-center px-4 py-20 min-h-screen"
-  >
+  <main class="relative flex flex-col justify-center px-4 py-20 min-h-screen">
     <div class="absolute top-20 right-[-5%] w-64 h-64 rounded-full"></div>
 
     <div class="max-w-7xl mx-auto w-full relative">
@@ -30,13 +29,14 @@ import AboutSection from "../components/AboutSection.astro";
         <div
           class="flex gap-8 text-xs font-bold tracking-widest uppercase text-neutral-400"
         >
-          <p
-            >Scroll for Work</p
-          >
+          <p>Scroll for Work</p>
         </div>
       </div>
     </div>
   </main>
+  <div class="w-full mt-12 sm:my-16">
+    <TechMarquee />
+  </div>
 
   <ProjectsShowcase />
   <AboutSection />

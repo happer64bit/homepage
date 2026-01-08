@@ -5,7 +5,24 @@ import about2 from "../assets/img/about/2.png";
 import about3 from "../assets/img/about/3.png";
 import about4 from "../assets/img/about/4.png";
 
-const photos = [about1, about2, about3, about4];
+const photos = [
+  {
+    img: about1,
+    alt: "Mirror Selfie of Wint Khant Lin",
+  },
+  {
+    img: about2,
+    alt: "Photography Taken by Wint Khant Lin",
+  },
+  {
+    img: about3,
+    alt: "Me At Shan State",
+  },
+  {
+    img: about4,
+    alt: "Me Pitching at Hackathon Rehearsal",
+  },
+];
 ---
 
 <div
@@ -23,10 +40,10 @@ const photos = [about1, about2, about3, about4];
         >
           <div class="w-full h-full p-2 sm:p-4 box-border flex items-center justify-center">
             <Image
-              src={photo}
-              alt={`Photo ${index + 1}`}
+              src={photo.img}
+              alt={photo.alt}
               class="w-full h-full object-cover pointer-events-none select-none"
-              loading={index === 0 ? "eager" : "lazy"}
+              loading={"lazy"}
             />
           </div>
         </div>

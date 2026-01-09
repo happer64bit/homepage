@@ -23,5 +23,9 @@ export default defineConfig({
     ]
   },
 
-  integrations: [icon(), partytown()]
+  integrations: [icon(), partytown({
+    config: {
+      forward: ['dataLayer.push'],
+    }
+  })]
 });

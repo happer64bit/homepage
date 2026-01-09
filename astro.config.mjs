@@ -17,7 +17,7 @@ export default defineConfig({
       {
         provider: fontProviders.google(),
         name: "Reddit Sans",
-        weights: ["400", "500", "600", "800", "900"],
+        weights: ["400", "600", "800", "900"],
         cssVariable: '--font-sans'
       }
     ]

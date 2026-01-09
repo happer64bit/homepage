@@ -28,6 +28,7 @@ const projects = (await getCollection("projects")).sort(
           </p>
           <a
             href={project.data.source}
+            target="_blank"
             class={`px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-full mt-4 hover:scale-105 transition-transform inline-flex items-center gap-2 text-sm sm:text-base`}
             style={`background-color: ${project.data.color}; color: ${project.data.color === "#000" ? "#fff" : "#000"};`}
           >

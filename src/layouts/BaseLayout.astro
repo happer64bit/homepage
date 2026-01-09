@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "./../styles/global.css";
 import { Font } from "astro:assets";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 const { title } = Astro.props;
 ---
@@ -16,6 +17,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <Header />

@@ -14,3 +14,11 @@ html {
 html, body {
     overflow-x: hidden;
 }
+
+@font-face {
+    font-family: 'devicon';
+    src: url('https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/fonts/devicon.ttf') format('truetype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}

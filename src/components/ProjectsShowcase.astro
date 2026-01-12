@@ -57,7 +57,6 @@ const projects = (await getCollection("projects")).sort(
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Refresh ScrollTrigger after page load
   window.addEventListener("load", () => {
     ScrollTrigger.refresh();
   });

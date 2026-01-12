@@ -19,7 +19,7 @@ import TechMarquee from "../components/TechMarquee.astro";
 
       <h1
         id="dev-name"
-        class="uppercase font-black tracking-tighter text-8xl lg:text-[12vw] mt-6 mb-12 select-none"
+        class="uppercase font-black tracking-tighter text-6xl sm:text-8xl md:text-9xl lg:text-[10vw] xl:text-[12vw] mt-6 mb-12 select-none"
       >
         Wint Khant<br />
         <span class="stroke-text">Lin</span>
@@ -62,7 +62,6 @@ import TechMarquee from "../components/TechMarquee.astro";
 <script>
   import { gsap } from "gsap";
 
-  // Mouse move parallax effect for the name
   const name = document.querySelector("#dev-name");
 
   window.addEventListener("mousemove", (e) => {

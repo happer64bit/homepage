@@ -1,28 +1,24 @@
 ---
 import { Image } from "astro:assets";
-import about1 from "../assets/img/about/1.png";
-import about2 from "../assets/img/about/2.png";
-import about3 from "../assets/img/about/3.png";
-import about4 from "../assets/img/about/4.png";
 
-const photos = [
-  {
-    img: about1,
-    alt: "Mirror Selfie of Wint Khant Lin",
-  },
-  {
-    img: about2,
-    alt: "Photography Taken by Wint Khant Lin",
-  },
-  {
-    img: about3,
-    alt: "Me At Shan State",
-  },
-  {
-    img: about4,
-    alt: "Me Pitching at Hackathon Rehearsal",
-  },
-];
+const modules = import.meta.glob("../assets/img/about/*.png", {
+  eager: true,
+  import: "default",
+});
+
+const altMap: Record<string, string> = {
+  "../assets/img/about/1.png": "Mirror Selfie of Wint Khant Lin",
+  "../assets/img/about/2.png": "Photography Taken by Wint Khant Lin",
+  "../assets/img/about/3.png": "Me At Shan State",
+  "../assets/img/about/4.png": "Me Pitching at Hackathon Rehearsal",
+};
+
+const photos = Object.entries(modules)
+  .sort((a, b) => a[0].localeCompare(b[0]))
+  .map(([path, img]) => ({
+    img,
+    alt: altMap[path] ?? "About photo",
+  }));
 ---
 
 <div

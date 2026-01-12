@@ -2,6 +2,29 @@
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const modules = import.meta.glob(
+  "../assets/img/**/*.{png,jpg,jpeg,webp,avif}",
+  {
+    eager: true,
+    import: "default",
+  }
+) as Record<string, ImageMetadata>;
+
+const byBasename: Record<string, ImageMetadata> = {};
+for (const [path, mod] of Object.entries(modules) as [
+  string,
+  ImageMetadata,
+][]) {
+  const base = path.split("/").pop()!;
+  byBasename[base] = mod;
+}
+
+const resolveImg = (src: string): ImageMetadata => {
+  const base = src.split("/").pop()!;
+  return byBasename[base] ?? src;
+};
 
 const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
@@ -38,11 +61,12 @@ const projects = (await getCollection("projects")).sort(
 
         <div class="project-image relative z-10 w-full flex justify-center px-2 sm:px-4">
           <Image
-            src={project.data.img!}
+            src={resolveImg(project.data.img!)}
             alt={project.data.name}
             class="mx-auto w-full max-w-100 sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl rounded-2xl sm:rounded-3xl"
             width={1200}
             height={800}
+            quality={90}
             loading="lazy"
           />
         </div>

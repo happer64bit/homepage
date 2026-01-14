@@ -51,10 +51,11 @@ import PhotoGrid from "./PhotoGrid.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const aboutSection = document.querySelector("#about");
-  const aboutContent = aboutSection?.querySelector(".about-content");
+  function initAboutEffects() {
+    const aboutSection = document.querySelector("#about");
+    const aboutContent = aboutSection?.querySelector(".about-content");
+    if (!aboutSection || !aboutContent) return;
 
-  if (aboutContent) {
     gsap.from(aboutContent, {
       opacity: 0,
       y: 50,
@@ -67,5 +68,20 @@ import PhotoGrid from "./PhotoGrid.astro";
         scrub: true,
       },
     });
+  }
+
+  function cleanup() {
+    ScrollTrigger.getAll().forEach((st) => st.kill());
+    gsap.killTweensOf("*");
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    cleanup();
+    initAboutEffects();
+  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAboutEffects);
+  } else {
+    initAboutEffects();
   }
 </script>

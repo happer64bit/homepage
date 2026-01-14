@@ -62,18 +62,39 @@ import TechMarquee from "../components/TechMarquee.astro";
 <script>
   import { gsap } from "gsap";
 
-  const name = document.querySelector("#dev-name");
+  function initNameParallax() {
+    const el = document.querySelector("#dev-name");
+    if (!el) return;
 
-  window.addEventListener("mousemove", (e) => {
-    const { clientX, clientY } = e;
-    const xPos = (clientX / window.innerWidth - 0.5) * 20;
-    const yPos = (clientY / window.innerHeight - 0.5) * 20;
+    let x = 0;
+    let y = 0;
+    let pending = false;
 
-    gsap.to(name, {
-      x: xPos,
-      y: yPos,
-      duration: 1,
-      ease: "power2.out",
-    });
-  });
+    const onMove = (e) => {
+      x = (e.clientX / window.innerWidth - 0.5) * 20;
+      y = (e.clientY / window.innerHeight - 0.5) * 20;
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        gsap.to(el, { x, y, duration: 0.3, ease: "power2.out" });
+        pending = false;
+      });
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+
+    const cleanup = () => {
+      window.removeEventListener("mousemove", onMove);
+      gsap.killTweensOf(el);
+    };
+
+    window.addEventListener("beforeunload", cleanup);
+  }
+
+  document.addEventListener("astro:page-load", initNameParallax);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNameParallax);
+  } else {
+    initNameParallax();
+  }
 </script>

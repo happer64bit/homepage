@@ -81,51 +81,69 @@ const projects = (await getCollection("projects")).sort(
 
   gsap.registerPlugin(ScrollTrigger);
 
-  window.addEventListener("load", () => {
+  function initProjectEffects() {
+    const panels = Array.from(document.querySelectorAll(".project-panel"));
+    if (!panels.length) return;
+
     ScrollTrigger.refresh();
-  });
 
-  const panels = gsap.utils.toArray(".project-panel") as HTMLElement[];
-
-  panels.forEach((panel) => {
-    ScrollTrigger.create({
-      trigger: panel,
-      start: "top top",
-      pin: true,
-      pinSpacing: false,
-      end: "bottom top",
-    });
-
-    const infoText = panel.querySelector(".project-info");
-    const image = panel.querySelector(".project-image");
-
-    if (infoText) {
-      gsap.to(infoText, {
-        opacity: 0,
-        scale: 0.8,
-        y: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: panel,
-          start: "top top",
-          end: "50% top",
-          scrub: true,
-        },
-      });
-    }
-
-    gsap.to(image, {
-      y: -30,
-      ease: "none",
-      scaleX: 0.85,
-      scaleY: 0.85,
-      transformOrigin: "top center",
-      scrollTrigger: {
+    panels.forEach((panel) => {
+      ScrollTrigger.create({
         trigger: panel,
         start: "top top",
+        pin: true,
+        pinSpacing: false,
         end: "bottom top",
-        scrub: true,
-      },
+      });
+
+      const infoText = panel.querySelector(".project-info");
+      const image = panel.querySelector(".project-image");
+
+      if (infoText) {
+        gsap.to(infoText, {
+          opacity: 0,
+          scale: 0.8,
+          y: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: panel,
+            start: "top top",
+            end: "50% top",
+            scrub: true,
+          },
+        });
+      }
+
+      if (image) {
+        gsap.to(image, {
+          y: -30,
+          ease: "none",
+          scaleX: 0.85,
+          scaleY: 0.85,
+          transformOrigin: "top center",
+          scrollTrigger: {
+            trigger: panel,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
     });
+  }
+
+  function cleanup() {
+    ScrollTrigger.getAll().forEach((st) => st.kill());
+    gsap.globalTimeline.clear();
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    cleanup();
+    initProjectEffects();
   });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProjectEffects);
+  } else {
+    initProjectEffects();
+  }
 </script>

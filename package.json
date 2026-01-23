@@ -13,7 +13,7 @@
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/ts-plugin": "^1.10.6",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.6",
+    "astro": "^5.16.15",
     "astro-icon": "^1.1.5",
     "devicon": "^2.17.0",
     "gsap": "^3.14.2",

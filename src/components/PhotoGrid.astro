@@ -48,6 +48,7 @@ const photos: Array<{ img: ImageMetadata; alt: string; cls: string }> = [
               loading="lazy"
             />
           </div>
+          <figcaption class="sr-only">{photo.alt}</figcaption>
         </figure>
       ))
     }

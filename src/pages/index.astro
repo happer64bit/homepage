@@ -15,7 +15,8 @@ import TechMarquee from "../components/TechMarquee.astro";
   >
     <h1
       id="heading-text"
-      class="heading-sans mx-auto max-w-8xl text-7xl font-black leading-[1.15] text-center text-balance"
+      class="heading-sans mx-auto font-black leading-tight text-center text-balance
+         text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
     >
       <span id="anim-text">Yooo 👋, I am</span>
 
@@ -87,7 +88,8 @@ import TechMarquee from "../components/TechMarquee.astro";
       transformOrigin: "left center",
     });
 
-    gsap.timeline({ defaults: { ease: "expo.out" } })
+    gsap
+      .timeline({ defaults: { ease: "expo.out" } })
       .to(nameSpan, {
         scaleX: 1,
         opacity: 1,
@@ -102,7 +104,7 @@ import TechMarquee from "../components/TechMarquee.astro";
           stagger: 0.014,
           ease: "back.out(1.7)",
         },
-        "-=0.15"
+        "-=0.15",
       );
   }
 

@@ -2,10 +2,20 @@
 @import "devicon/devicon-base.css";
 
 @theme {
-    --foreground: #000;
-    --background: #FFFAFA;
-    --font-sans: 'Reddit Sans', sans-serif;
-    --color-foreground-muted: #6B7280;
+    --font-sans: var(--font-heading), "Plus Jakarta Sans", "Inter", "Segoe UI", sans-serif;
+    --font-mono: var(--font-body), "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --color-ink-black: #181818;
+    --color-paper-cream: #f8f3e7;
+    --color-highlighter-blue: #69a7ff;
+    --color-highlighter-yellow: #ffe47a;
+}
+
+:root {
+    --ink-black: #181818;
+    --paper-cream: #f8f3e7;
+    --highlighter-blue: #69a7ff;
+    --highlighter-yellow: #ffe47a;
 }
 
 html {
@@ -14,4 +24,121 @@ html {
 
 html, body {
     overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body), "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--ink-black);
+}
+
+::selection {
+    background-color: color-mix(in srgb, var(--highlighter-blue) 68%, white 32%);
+    color: var(--ink-black);
+}
+
+@utility paper-canvas {
+    background-color: var(--paper-cream);
+    background-image:
+        radial-gradient(circle at 11% 10%, rgba(255, 255, 255, 0.6), transparent 25%),
+        radial-gradient(circle at 84% 18%, rgba(0, 0, 0, 0.05), transparent 30%),
+        radial-gradient(circle at 16% 80%, rgba(0, 0, 0, 0.035), transparent 26%),
+        repeating-radial-gradient(circle at 0 0, rgba(24, 24, 24, 0.04) 0 0.55px, transparent 0.55px 3.2px);
+    background-size: auto, auto, auto, 4px 4px;
+}
+
+@utility heading-sans {
+    font-family: var(--font-heading), "Plus Jakarta Sans", "Inter", "Segoe UI", sans-serif;
+}
+
+@utility body-mono {
+    font-family: var(--font-body), "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@utility ink-text {
+    color: var(--ink-black);
+}
+
+@utility text-calm {
+    color: color-mix(in srgb, var(--ink-black) 72%, white 28%);
+}
+
+@utility highlight-blue {
+    padding-inline: 0.2em;
+    border-radius: 0.26em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-image:
+        linear-gradient(
+            176deg,
+            transparent 0 17%,
+            color-mix(in srgb, var(--highlighter-blue) 70%, white 30%) 17% 93%,
+            transparent 93%
+        ),
+        linear-gradient(
+            184deg,
+            transparent 0 27%,
+            color-mix(in srgb, var(--highlighter-blue) 58%, white 42%) 27% 100%,
+            transparent 100%
+        );
+}
+
+@utility highlight-yellow {
+    padding-inline: 0.2em;
+    border-radius: 0.26em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-image:
+        linear-gradient(
+            176deg,
+            transparent 0 17%,
+            color-mix(in srgb, var(--highlighter-yellow) 72%, white 28%) 17% 93%,
+            transparent 93%
+        ),
+        linear-gradient(
+            184deg,
+            transparent 0 27%,
+            color-mix(in srgb, var(--highlighter-yellow) 60%, white 40%) 27% 100%,
+            transparent 100%
+        );
+}
+
+@utility btn-doodle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    border: 2px solid var(--ink-black);
+    border-radius: 13px 11px 15px 9px / 11px 14px 10px 15px;
+    padding: 0.7rem 1.15rem;
+    background-color: #fff;
+    color: var(--ink-black);
+    font-family: var(--font-body), "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 0 var(--ink-black);
+    transition:
+        transform 140ms ease,
+        box-shadow 140ms ease,
+        background-color 140ms ease;
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 0 var(--ink-black);
+        background-color: color-mix(in srgb, var(--highlighter-yellow) 34%, #fff 66%);
+    }
+
+    &:active {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 0 var(--ink-black);
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--highlighter-blue);
+        outline-offset: 3px;
+    }
 }

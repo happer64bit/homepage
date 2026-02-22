@@ -6,195 +6,259 @@ import img2 from "../assets/img/about/2.png";
 import img3 from "../assets/img/about/3.png";
 import img4 from "../assets/img/about/4.png";
 
-const photos: Array<{ img: ImageMetadata; alt: string }> = [
+const photos: Array<{ img: ImageMetadata; alt: string; cls: string }> = [
   {
     img: img1,
-    alt: "Mirror Selfie of Wint Khant Lin",
+    alt: "Mirror selfie of Wint Khant Lin",
+    cls: "card-a",
   },
   {
     img: img2,
-    alt: "Photography Taken by Wint Khant Lin",
+    alt: "Photography taken by Wint Khant Lin",
+    cls: "card-b",
   },
   {
     img: img3,
-    alt: "Me At Shan State",
+    alt: "Wint Khant Lin in Shan State",
+    cls: "card-c",
   },
   {
     img: img4,
-    alt: "Me Pitching at Hackathon Rehearsal",
+    alt: "Wint Khant Lin pitching at hackathon rehearsal",
+    cls: "card-d",
   },
 ];
-
 ---
 
-<div
-  class="flex justify-center items-center py-12 w-full min-h-37.5 overflow-hidden"
->
-  <div
-    class="relative w-full max-w-100 sm:max-w-125 md:max-w-150 aspect-3/4 isolate cursor-pointer group"
-    id="photo-stack"
-  >
+<div class="collage-shell w-full py-4">
+  <div id="photo-collage" class="photo-collage relative mx-auto w-[min(88vw,460px)] h-107.5 sm:h-125">
     {
-      photos.map((photo, index) => (
-        <div
-          class="photo-card absolute inset-0 rounded-2xl border-8 border-white overflow-hidden will-change-transform"
-          data-index={index}
+      photos.map((photo) => (
+        <figure
+          class={`photo-card absolute ${photo.cls}`}
+          tabindex="0"
+          role="button"
+          aria-label={`Focus ${photo.alt}`}
         >
-          <div class="w-full h-full p-2 sm:p-4 box-border flex items-center justify-center">
+          <div class="photo-inner">
             <Image
               src={photo.img}
               alt={photo.alt}
-              class="w-full h-full object-cover pointer-events-none select-none"
-              loading={"lazy"}
+              class="h-full w-full rounded-[0.8rem] object-cover"
+              loading="lazy"
             />
           </div>
-        </div>
+        </figure>
       ))
     }
   </div>
 </div>
 
 <style>
+  .photo-collage {
+    perspective: 900px;
+  }
+
   .photo-card {
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
+    border: 2px solid rgba(24, 24, 24, 0.92);
+    border-radius: 16px 10px 20px 11px / 13px 18px 11px 20px;
+    background: white;
+    padding: 8px;
+    box-shadow: 6px 7px 0 rgba(24, 24, 24, 0.95);
+    will-change: transform;
+    cursor: pointer;
+    transition: box-shadow 180ms ease;
+  }
+
+  .photo-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(circle at 20% 14%, rgba(255, 255, 255, 0.8), transparent 44%);
+    opacity: 0.4;
+  }
+
+  .photo-inner {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.9rem;
+  }
+
+  .card-a {
+    left: 2%;
+    top: 2%;
+    width: 58%;
+    height: 55%;
+    transform: rotate(-7deg);
+    z-index: 4;
+  }
+
+  .card-b {
+    right: 0;
+    top: 7%;
+    width: 44%;
+    height: 38%;
+    transform: rotate(8deg);
+    z-index: 3;
+  }
+
+  .card-c {
+    right: 2%;
+    bottom: 6%;
+    width: 56%;
+    height: 52%;
+    transform: rotate(5deg);
+    z-index: 2;
+  }
+
+  .card-d {
+    left: 8%;
+    bottom: 0;
+    width: 42%;
+    height: 34%;
+    transform: rotate(-10deg);
+    z-index: 5;
+  }
+
+  .photo-card.is-front {
+    box-shadow: 10px 11px 0 rgba(24, 24, 24, 0.95);
+  }
+
+  .photo-card:focus-visible {
+    outline: 3px solid var(--highlighter-blue);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .photo-card {
+      padding: 6px;
+      box-shadow: 4px 5px 0 rgba(24, 24, 24, 0.95);
+    }
   }
 </style>
 
 <script>
   import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  function initCardStack() {
-    const wrapper = document.getElementById("photo-stack");
-    if (!wrapper) return;
+  gsap.registerPlugin(ScrollTrigger);
 
-    let cards = Array.from(wrapper.querySelectorAll(".photo-card"));
-    if (!cards.length) return;
+  let collageContext: gsap.Context | undefined;
+  let collageAbortController: AbortController | undefined;
 
-    let isAnimating = false;
-    let intervalId: null | number = null;
+  const cleanupCollage = () => {
+    collageContext?.revert();
+    collageContext = undefined;
+    collageAbortController?.abort();
+    collageAbortController = undefined;
+  };
 
-    const OFFSET_Y = 15;
-    const ROTATION_Spread = 3;
+  const initCollage = () => {
+    const root = document.getElementById("photo-collage");
+    if (!root) return;
 
-    const updateStackVisuals = (animate = true) => {
-      cards.forEach((card, index) => {
-        const scale = 1 - index * 0.05;
-        const y = index * OFFSET_Y;
-        const rotation =
-          index % 2 === 0 ? index * ROTATION_Spread : -index * ROTATION_Spread;
-        const opacity = index > 2 ? 0 : 1;
-        const zIndex = cards.length - index;
+    cleanupCollage();
+    collageAbortController = new AbortController();
 
-        const target = {
-          y: y,
-          x: index * 2,
-          scale: scale,
-          rotation: rotation,
-          zIndex: zIndex,
-          opacity: opacity,
-          ease: "power3.out",
-          duration: animate ? 0.6 : 0,
-        };
+    collageContext = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>("#photo-collage .photo-card");
+      const stack = [...cards].sort(
+        (a, b) =>
+          Number.parseInt(getComputedStyle(b).zIndex, 10) -
+          Number.parseInt(getComputedStyle(a).zIndex, 10)
+      );
 
-        if (animate) {
-          gsap.to(card, target);
-        } else {
-          gsap.set(card, target);
-        }
-      });
-    };
-
-    const moveNext = () => {
-      if (isAnimating || cards.length < 2) return;
-      isAnimating = true;
-
-      const topCard = cards[0];
-
-      gsap.set(topCard, {
-        zIndex: 9999,
-        willChange: "transform",
-        force3D: true,
-      });
-
-      const remaining = cards.slice(1);
-      remaining.forEach((card, i) => {
-        const newIndex = i;
-        gsap.set(card, {
-          y: newIndex * OFFSET_Y,
-          x: newIndex * 2,
-          scale: 1 - newIndex * 0.05,
-          rotation:
-            newIndex % 2 === 0
-              ? newIndex * ROTATION_Spread
-              : -newIndex * ROTATION_Spread,
-          opacity: newIndex > 2 ? 0 : 1,
-          zIndex: cards.length - newIndex,
+      const applyStack = (animate = false) => {
+        stack.forEach((card, index) => {
+          const z = cards.length - index;
+          card.classList.toggle("is-front", index === 0);
+          if (animate) {
+            gsap.to(card, {
+              zIndex: z,
+              duration: 0.22,
+              ease: "power2.out",
+            });
+          } else {
+            gsap.set(card, { zIndex: z });
+          }
         });
-      });
+      };
 
-      const throwDirectionX = Math.random() > 0.5 ? 200 : -200;
-      const throwRotation = Math.random() > 0.5 ? 15 : -15;
+      const focusCard = (card: HTMLElement) => {
+        const currentIndex = stack.indexOf(card);
+        if (currentIndex === -1) return;
 
-      gsap.to(topCard, {
-        x: throwDirectionX,
-        y: 50,
-        rotation: throwRotation,
+        if (currentIndex === 0) {
+          const first = stack.shift()!;
+          stack.push(first);
+        } else {
+          stack.splice(currentIndex, 1);
+          stack.unshift(card);
+        }
+
+        applyStack(true);
+        gsap.fromTo(
+          stack[0],
+          { scale: 1.03 },
+          { scale: 1, duration: 0.24, ease: "power2.out" }
+        );
+      };
+
+      applyStack(false);
+
+      gsap.from(cards, {
         opacity: 0,
-        duration: 0.5,
-        ease: "power1.in",
-        onComplete: () => {
-          gsap.set(topCard, {
-            x: 0,
-            y: 0,
-            rotation: 0,
-            scale: 1,
-            opacity: 0,
-            zIndex: 0,
-          });
-          wrapper.appendChild(topCard);
-          cards.push(cards.shift()!);
-          cards = Array.from(wrapper.querySelectorAll(".photo-card"));
-          updateStackVisuals(true);
-          isAnimating = false;
+        y: 55,
+        scale: 0.92,
+        duration: 0.85,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: root,
+          start: "top 82%",
+          once: true,
         },
       });
-    };
 
-    updateStackVisuals(false);
+      cards.forEach((card, index) => {
+        gsap.to(card, {
+          y: index % 2 === 0 ? -8 : 8,
+          x: index % 2 === 0 ? 4 : -4,
+          duration: 2.6 + index * 0.22,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
 
-    const startInterval = () => {
-      if (intervalId) clearInterval(intervalId);
-      intervalId = window.setInterval(moveNext, 3500);
-    };
+        card.addEventListener(
+          "click",
+          () => {
+            focusCard(card);
+          },
+          { signal: collageAbortController?.signal }
+        );
 
-    startInterval();
+        card.addEventListener(
+          "keydown",
+          (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            focusCard(card);
+          },
+          { signal: collageAbortController?.signal }
+        );
+      });
+    }, root);
+  };
 
-    wrapper.addEventListener("click", () => {
-      moveNext();
-      startInterval();
-    });
+  document.addEventListener("astro:before-swap", cleanupCollage);
+  document.addEventListener("astro:page-load", initCollage);
 
-    wrapper.addEventListener("mouseenter", () => {
-      if (intervalId) clearInterval(intervalId);
-    });
-
-    wrapper.addEventListener("mouseleave", () => {
-      startInterval();
-    });
-
-    const cleanup = () => {
-      if (intervalId) clearInterval(intervalId);
-      cards.forEach((card) => gsap.killTweensOf(card));
-    };
-
-    window.addEventListener("beforeunload", cleanup);
-  }
-
-  document.addEventListener("astro:page-load", initCardStack);
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCardStack);
+    document.addEventListener("DOMContentLoaded", initCollage, { once: true });
   } else {
-    initCardStack();
+    initCollage();
   }
 </script>

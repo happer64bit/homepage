@@ -5,35 +5,33 @@ import AboutSection from "../components/AboutSection.astro";
 import TechMarquee from "../components/TechMarquee.astro";
 ---
 
-<BaseLayout title="Wint Khant Lin aka Happer" description="Hello, I am Wint Khant Lin, also known as Happer. I am a college student from Myanmar. I love coding, listening to music.">
-  <main id="home" class="relative flex flex-col justify-center px-4 py-20 min-h-screen">
-    <div class="absolute top-20 right-[-5%] w-64 h-64 rounded-full"></div>
+<BaseLayout
+  title="Wint Khant Lin aka Happer"
+  description="Hello, I am Wint Khant Lin, also known as Happer. I am a college student from Myanmar. I love coding, listening to music."
+>
+  <main
+    id="home"
+    class="body-mono relative flex min-h-screen flex-col justify-center px-4 py-20 text-center"
+  >
+    <h1
+      id="heading-text"
+      class="heading-sans mx-auto max-w-8xl text-7xl font-black leading-[1.15] text-center text-balance"
+    >
+      <span id="anim-text">Yooo 👋, I am</span>
 
-    <div class="max-w-7xl mx-auto w-full relative">
-      <p
-        class="max-w-xl text-sm sm:text-base md:text-xl leading-relaxed text-neutral-500 font-mono uppercase tracking-widest opacity-0 translate-y-4 animate-fade-in"
+      <span
+        id="name-span"
+        class="highlight-blue ink-text mx-2 inline-block overflow-hidden whitespace-nowrap rounded-md"
       >
-        // Based in Myanmar <br />
-        Student • Developer
-      </p>
+        Wint Khant Lin.
+      </span>
 
-      <h1
-        id="dev-name"
-        class="uppercase font-black tracking-tighter text-6xl sm:text-8xl md:text-9xl lg:text-[10vw] xl:text-[12vw] mt-6 mb-12 select-none"
+      <span id="anim-text-2" class="mt-2 block"
+        >I am currently learning software engineering.</span
       >
-        Wint Khant<br />
-        <span class="stroke-text">Lin</span>
-      </h1>
-
-      <div class="flex justify-between items-end border-t border-white/10 pt-8">
-        <div
-          class="flex gap-8 text-xs font-bold tracking-widest uppercase text-neutral-400"
-        >
-          <p>Scroll for Work</p>
-        </div>
-      </div>
-    </div>
+    </h1>
   </main>
+
   <div class="w-full mt-12 sm:my-16">
     <TechMarquee />
   </div>
@@ -42,59 +40,80 @@ import TechMarquee from "../components/TechMarquee.astro";
   <AboutSection />
 </BaseLayout>
 
-<style>
-  .stroke-text {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-  }
-
-  @keyframes fade-in {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 1s ease forwards;
-  }
-</style>
-
 <script>
   import { gsap } from "gsap";
+  import SplitText from "gsap/SplitText";
 
-  function initNameParallax() {
-    const el = document.querySelector("#dev-name");
-    if (!el) return;
+  gsap.registerPlugin(SplitText);
 
-    let x = 0;
-    let y = 0;
-    let pending = false;
+  let hasInitialized = false;
+  let splitInstances: SplitText[] = [];
 
-    const onMove = (e) => {
-      x = (e.clientX / window.innerWidth - 0.5) * 20;
-      y = (e.clientY / window.innerHeight - 0.5) * 20;
-      if (pending) return;
-      pending = true;
-      requestAnimationFrame(() => {
-        gsap.to(el, { x, y, duration: 0.3, ease: "power2.out" });
-        pending = false;
-      });
-    };
-
-    window.addEventListener("mousemove", onMove, { passive: true });
-
-    const cleanup = () => {
-      window.removeEventListener("mousemove", onMove);
-      gsap.killTweensOf(el);
-    };
-
-    window.addEventListener("beforeunload", cleanup);
+  function cleanupHeroAnimation() {
+    gsap.killTweensOf("#name-span");
+    gsap.killTweensOf("#anim-text span");
+    gsap.killTweensOf("#anim-text-2 span");
+    splitInstances.forEach((split) => split.revert());
+    splitInstances = [];
+    hasInitialized = false;
   }
 
-  document.addEventListener("astro:page-load", initNameParallax);
+  function initHeroAnimation() {
+    if (hasInitialized) return;
+
+    const intro = document.querySelector("#anim-text");
+    const outro = document.querySelector("#anim-text-2");
+    const nameSpan = document.querySelector("#name-span");
+    if (!intro || !outro || !nameSpan) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    hasInitialized = true;
+
+    const introSplit = new SplitText(intro, { type: "words" });
+    const nameSplit = new SplitText(nameSpan, { type: "chars" });
+    const outroSplit = new SplitText(outro, { type: "words" });
+    splitInstances = [introSplit, nameSplit, outroSplit];
+
+    const allChars = [
+      ...introSplit.words,
+      ...nameSplit.chars,
+      ...outroSplit.words,
+    ];
+
+    gsap.set(allChars, { y: 70, opacity: 0, display: "inline-block" });
+    gsap.set(nameSpan, {
+      scaleX: 0.0,
+      opacity: 0.65,
+      transformOrigin: "left center",
+    });
+
+    gsap.timeline({ defaults: { ease: "expo.out" } })
+      .to(nameSpan, {
+        scaleX: 1,
+        opacity: 1,
+        duration: 0.45,
+      })
+      .to(
+        allChars,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.35,
+          stagger: 0.014,
+          ease: "back.out(1.7)",
+        },
+        "-=0.15"
+      );
+  }
+
+  document.addEventListener("astro:before-swap", cleanupHeroAnimation);
+  document.addEventListener("astro:page-load", initHeroAnimation);
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initNameParallax);
+    document.addEventListener("DOMContentLoaded", initHeroAnimation, {
+      once: true,
+    });
   } else {
-    initNameParallax();
+    initHeroAnimation();
   }
 </script>

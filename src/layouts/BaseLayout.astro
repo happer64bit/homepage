@@ -10,7 +10,8 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
-    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-heading" preload />
+    <Font cssVariable="--font-body" preload />
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
@@ -19,8 +20,8 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <GoogleAnalytics />
   </head>
-  <body>
-    <Header />
+  <body class="paper-canvas body-mono ink-text">
+    <!-- <Header /> -->
     <slot />
     <Footer />
   </body>

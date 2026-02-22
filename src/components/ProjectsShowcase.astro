@@ -13,10 +13,7 @@ const modules = import.meta.glob(
 ) as Record<string, ImageMetadata>;
 
 const byBasename: Record<string, ImageMetadata> = {};
-for (const [path, mod] of Object.entries(modules) as [
-  string,
-  ImageMetadata,
-][]) {
+for (const [path, mod] of Object.entries(modules) as [string, ImageMetadata][]) {
   const base = path.split("/").pop()!;
   byBasename[base] = mod;
 }
@@ -31,49 +28,173 @@ const projects = (await getCollection("projects")).sort(
 );
 ---
 
-<section
-  id="projects"
-  class="relative space-y-10 py-10 border-neutral-200"
-  style="z-index: 1;"
->
-  {
-    projects.map((project, index) => (
-      <div
-        class="project-panel min-h-screen flex flex-col justify-center items-center bg-white px-4 sm:px-6 lg:px-8"
-        style={`z-index: ${index + 1};`}
-      >
-        <div class="project-info text-center max-w-4xl mx-auto space-y-3 sm:space-y-4 mb-6 sm:mb-8 lg:mb-10 w-full">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            {project.data.name}
-          </h2>
-          <p class="text-base sm:text-lg text-neutral-700 px-2 sm:px-0">
-            {project.data.description}
-          </p>
-          <a
-            href={project.data.source}
-            target="_blank"
-            class={`px-6 py-3 sm:px-8 sm:py-3.5 md:px-10 md:py-4 rounded-full mt-4 hover:scale-105 transition-transform inline-flex items-center gap-2 text-sm sm:text-base`}
-            style={`background-color: ${project.data.color}; color: ${project.data.color === "#000" ? "#fff" : "#000"};`}
-          >
-            View Project <Icon name="heroicons:arrow-up-right" />
-          </a>
-        </div>
+<section id="projects" class="projects-wrap body-mono ink-text relative px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto w-full max-w-6xl">
+    <header class="mb-10 sm:mb-14">
+      <p class="heading-sans text-sm font-semibold uppercase tracking-[0.24em] text-black/65">
+        Selected Work
+      </p>
+      <h2 class="heading-sans mt-4 text-4xl font-black leading-[1.05] sm:text-5xl md:text-6xl">
+        <span class="highlight-yellow">I don't build projects, I build products.</span>
+      </h2>
+    </header>
 
-        <div class="project-image relative z-10 w-full flex justify-center px-2 sm:px-4">
-          <Image
-            src={resolveImg(project.data.img!)}
-            alt={project.data.name}
-            class="mx-auto w-full max-w-100 sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl rounded-2xl sm:rounded-3xl"
-            width={1200}
-            height={800}
-            quality={90}
-            loading="lazy"
-          />
-        </div>
-      </div>
-    ))
-  }
+    <div class="project-grid space-y-10">
+      {
+        projects.map((project, index) => (
+          <article
+            class:list={[
+              "project-card relative cursor-pointer overflow-hidden border-2 border-black/90 bg-white p-5 sm:p-8",
+              index % 2 === 0 ? "card-left" : "card-right",
+            ]}
+            style={`--project-accent: ${project.data.color};`}
+            data-project-card
+            data-project-url={project.data.source}
+            tabindex="0"
+            role="link"
+            aria-label={`Open project ${project.data.name}`}
+          >
+            <div class="card-grain absolute inset-0 pointer-events-none" />
+
+            <div
+              class:list={[
+                "relative z-10 grid items-center gap-6 lg:gap-8",
+                index % 2 === 0
+                  ? "lg:grid-cols-[1.05fr_1fr]"
+                  : "lg:grid-cols-[1fr_1.05fr]",
+              ]}
+            >
+              <div class:list={[index % 2 !== 0 ? "lg:order-2" : ""]}>
+                <p class="heading-sans text-xs font-bold uppercase tracking-[0.18em] text-black/60">
+                  Project {String(index + 1).padStart(2, "0")}
+                </p>
+
+                <h3 class="heading-sans mt-3 text-3xl font-black leading-[1.05] sm:text-4xl md:text-5xl">
+                  <span class="project-title-accent">{project.data.name}</span>
+                </h3>
+
+                <p class="mt-4 max-w-xl text-sm leading-relaxed text-black/75 sm:text-base">
+                  {project.data.description}
+                </p>
+
+                <ul class="mt-5 flex flex-wrap gap-2">
+                  {
+                    project.data.technologies?.map((tech) => (
+                      <li class="rounded-full border border-black/70 bg-white px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.09em] text-black/75">
+                        {tech}
+                      </li>
+                    ))
+                  }
+                </ul>
+
+                <div class="mt-6">
+                  <a
+                    href={project.data.source}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="btn-doodle inline-flex items-center gap-2"
+                  >
+                    View Project
+                    <Icon name="heroicons:arrow-up-right" />
+                  </a>
+                </div>
+              </div>
+
+              <div class:list={["relative project-visual", index % 2 !== 0 ? "lg:order-1" : ""]}>
+                <div
+                  class="absolute -inset-2 rounded-[1.6rem] blur-sm"
+                  style={`background-color: color-mix(in srgb, ${project.data.color} 30%, white 70%);`}
+                />
+                <div class="relative rounded-[1.35rem] border-2 border-black/85 bg-white p-2.5 shadow-[8px_8px_0_0_rgba(24,24,24,0.95)] sm:p-3.5">
+                  <Image
+                    src={resolveImg(project.data.img!)}
+                    alt={project.data.name}
+                    class="project-shot h-auto w-full rounded-[0.9rem]"
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    quality={90}
+                  />
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
 </section>
+
+<style>
+  .projects-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.18) 0.6px, transparent 0.7px);
+    background-size: 5px 5px;
+  }
+
+  .project-card {
+    border-radius: 24px 17px 26px 16px / 18px 25px 15px 24px;
+    box-shadow: 8px 9px 0 0 rgba(24, 24, 24, 0.95);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+
+  .project-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 11px 12px 0 0 rgba(24, 24, 24, 0.95);
+  }
+
+  .card-left {
+    transform: rotate(-0.45deg);
+  }
+
+  .card-right {
+    transform: rotate(0.45deg);
+  }
+
+  .card-left:hover,
+  .card-right:hover {
+    transform: translate(-2px, -2px) rotate(0deg);
+  }
+
+  .card-grain {
+    opacity: 0.08;
+    background:
+      repeating-linear-gradient(
+        -11deg,
+        rgba(0, 0, 0, 0.08) 0,
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+  }
+
+  .project-title-accent {
+    padding-inline: 0.14em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-image: linear-gradient(
+      178deg,
+      transparent 0 21%,
+      color-mix(in srgb, var(--project-accent) 30%, white 70%) 21% 96%,
+      transparent 96%
+    );
+  }
+
+  @media (max-width: 1024px) {
+    .card-left,
+    .card-right {
+      transform: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+    }
+  }
+</style>
 
 <script>
   import { gsap } from "gsap";
@@ -81,69 +202,118 @@ const projects = (await getCollection("projects")).sort(
 
   gsap.registerPlugin(ScrollTrigger);
 
-  function initProjectEffects() {
-    const panels = Array.from(document.querySelectorAll(".project-panel"));
-    if (!panels.length) return;
+  let context: gsap.Context | undefined;
+  let cardAbortController: AbortController | undefined;
 
-    ScrollTrigger.refresh();
+  function cleanupProjectEffects() {
+    context?.revert();
+    context = undefined;
+    cardAbortController?.abort();
+    cardAbortController = undefined;
+  }
 
-    panels.forEach((panel) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
-        end: "bottom top",
-      });
+  function initProjectCardClicks() {
+    cardAbortController?.abort();
+    cardAbortController = new AbortController();
 
-      const infoText = panel.querySelector(".project-info");
-      const image = panel.querySelector(".project-image");
+    const cards = document.querySelectorAll<HTMLElement>("[data-project-card]");
+    if (!cards.length) return;
 
-      if (infoText) {
-        gsap.to(infoText, {
-          opacity: 0,
-          scale: 0.8,
-          y: -50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: panel,
-            start: "top top",
-            end: "50% top",
-            scrub: true,
-          },
-        });
-      }
+    cards.forEach((card) => {
+      const url = card.dataset.projectUrl;
+      if (!url) return;
 
-      if (image) {
-        gsap.to(image, {
-          y: -30,
-          ease: "none",
-          scaleX: 0.85,
-          scaleY: 0.85,
-          transformOrigin: "top center",
-          scrollTrigger: {
-            trigger: panel,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      }
+      const openProject = () => {
+        window.open(url, "_blank", "noopener,noreferrer");
+      };
+
+      card.addEventListener(
+        "click",
+        (event) => {
+          const target = event.target as HTMLElement | null;
+          if (target?.closest("a, button, input, select, textarea, label")) {
+            return;
+          }
+          openProject();
+        },
+        { signal: cardAbortController?.signal }
+      );
+
+      card.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          openProject();
+        },
+        { signal: cardAbortController?.signal }
+      );
     });
   }
 
-  function cleanup() {
-    ScrollTrigger.getAll().forEach((st) => st.kill());
-    gsap.globalTimeline.clear();
+  function initProjectEffects() {
+    const root = document.querySelector("#projects");
+    if (!root) return;
+
+    cleanupProjectEffects();
+
+    context = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>(".project-card");
+
+      cards.forEach((card, index) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 80,
+          rotate: index % 2 === 0 ? -2.2 : 2.2,
+          duration: 0.95,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 84%",
+            once: true,
+          },
+        });
+
+        const shot = card.querySelector<HTMLElement>(".project-shot");
+        if (shot) {
+          gsap.fromTo(
+            shot,
+            {
+              y: 18,
+              scale: 1.04,
+            },
+            {
+              y: -18,
+              scale: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.6,
+              },
+            }
+          );
+        }
+      });
+    }, root);
   }
 
+  document.addEventListener("astro:before-swap", cleanupProjectEffects);
   document.addEventListener("astro:page-load", () => {
-    cleanup();
     initProjectEffects();
+    initProjectCardClicks();
   });
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initProjectEffects);
+    document.addEventListener("DOMContentLoaded", () => {
+      initProjectEffects();
+      initProjectCardClicks();
+    }, {
+      once: true,
+    });
   } else {
     initProjectEffects();
+    initProjectCardClicks();
   }
 </script>

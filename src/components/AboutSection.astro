@@ -4,26 +4,26 @@ import PhotoGrid from "./PhotoGrid.astro";
 
 <section
   id="about"
-  class="relative min-h-screen flex flex-col items-center justify-center bg-white border-t border-gray-100 py-20"
+  class="body-mono ink-text relative min-h-screen flex flex-col items-center justify-center border-t border-black/20 py-20"
   style="position: relative; z-index: 1;"
 >
   <div
-    class="max-w-100 sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8"
+    class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8"
   >
-    <div class="about-content space-y-8 sm:space-y-12">
+    <div class="about-content about-board relative overflow-hidden space-y-8 px-5 py-7 sm:space-y-12 sm:px-9 sm:py-10">
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center"
+        class="grid grid-cols-1 items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16"
       >
         <div
-          class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700"
+          class="space-y-6 sm:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed text-black/80"
         >
           <h2
-            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 uppercase text-black"
+            class="heading-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 uppercase"
           >
-            About Me
+            <span class="highlight-yellow">About Me</span>
           </h2>
           <p>
-            <span class="float-left text-6xl font-serif leading-none mr-3 mt-1">I</span> grew up in
+            <span class="heading-sans float-left mr-3 mt-1 text-6xl leading-none">I</span> grew up in
             Shwe Pyi Thar, Yangon—and that shaped how I see everything. Nothing was
             handed to me, so I learned early how to rely on myself. I respect where
             I came from: the struggle, the people, the rhythm of life.
@@ -37,7 +37,7 @@ import PhotoGrid from "./PhotoGrid.astro";
           </p>
         </div>
 
-        <div class="flex justify-center lg:justify-end">
+        <div class="flex justify-center lg:justify-center">
           <PhotoGrid />
         </div>
       </div>
@@ -85,3 +85,23 @@ import PhotoGrid from "./PhotoGrid.astro";
     initAboutEffects();
   }
 </script>
+
+<style>
+  .about-board {
+    border: 2px solid rgba(24, 24, 24, 0.92);
+    border-radius: 24px 14px 28px 16px / 16px 26px 14px 24px;
+    background: color-mix(in srgb, var(--paper-cream) 88%, white 12%);
+    box-shadow: 7px 8px 0 rgba(24, 24, 24, 0.95);
+  }
+
+  .about-board::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image:
+      radial-gradient(circle at center, rgba(24, 24, 24, 0.18) 0.6px, transparent 0.7px);
+    background-size: 6px 6px;
+  }
+</style>

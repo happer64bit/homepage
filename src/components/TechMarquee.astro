@@ -11,7 +11,6 @@ const items = [
   "devicon-svelte-plain",
   "devicon-nextjs-plain",
   "devicon-nuxtjs-plain",
-  "devicon-tailwindcss-plain",
   "devicon-express-original",
   "devicon-fastify-plain",
 ];
@@ -19,43 +18,17 @@ const items = [
 const duplicatedItems = [...items, ...items];
 ---
 
-<div
-  class="tech-marquee-wrapper w-full py-4 overflow-hidden -rotate-6 bg-neutral-900"
->
-  <div class="tech-marquee flex items-center gap-12">
-    {
-      duplicatedItems.map((icon) => (
-        <div class="flex items-center justify-center shrink-0 w-24">
-          <i class={`${icon} text-white text-4xl sm:text-5xl`} />
-        </div>
-      ))
-    }
+<div class="tech-marquee-wrapper w-full overflow-hidden border-y-2 border-black/20 bg-(--paper-cream) py-4 -rotate-2">
+  <div class="tech-marquee inline-flex animate-marquee">
+    {duplicatedItems.map((icon) => (
+      <div class="flex items-center justify-center shrink-0 w-24 mr-12">
+        <i class={`${icon} ink-text text-4xl sm:text-5xl`}></i>
+      </div>
+    ))}
   </div>
 </div>
 
 <style>
-  .tech-marquee-wrapper {
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 10%,
-      black 90%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 10%,
-      black 90%,
-      transparent
-    );
-  }
-
-  .tech-marquee {
-    animation: marquee 16s linear infinite;
-    width: fit-content;
-  }
-
   .tech-marquee-wrapper:hover .tech-marquee {
     animation-play-state: paused;
   }
@@ -69,14 +42,14 @@ const duplicatedItems = [...items, ...items];
     }
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .tech-marquee {
-      gap: 2rem;
-    }
+  .animate-marquee {
+    animation: marquee 16s linear infinite;
+  }
 
+  @media (max-width: 640px) {
     .tech-marquee > div {
       width: 4rem;
+      margin-right: 2rem;
     }
   }
 </style>

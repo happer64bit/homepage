@@ -16,9 +16,16 @@ export default defineConfig({
     fonts: [
       {
         provider: fontProviders.google(),
-        name: "Reddit Sans",
-        weights: ["400", "600", "800", "900"],
-        cssVariable: '--font-sans',
+        name: "Plus Jakarta Sans",
+        weights: ["400", "500", "600", "700", "800"],
+        cssVariable: '--font-heading',
+        display: "swap"
+      },
+      {
+        provider: fontProviders.google(),
+        name: "JetBrains Mono",
+        weights: ["400", "500", "700"],
+        cssVariable: '--font-body',
         display: "swap"
       }
     ]

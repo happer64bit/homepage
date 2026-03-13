@@ -12,7 +12,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  experimental: {
     fonts: [
       {
         provider: fontProviders.google(),
@@ -28,9 +27,7 @@ export default defineConfig({
         cssVariable: '--font-body',
         display: "swap"
       }
-    ]
-  },
-
+    ],
   integrations: [icon(), partytown({
     config: {
       forward: ['dataLayer.push'],

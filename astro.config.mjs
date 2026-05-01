@@ -1,5 +1,4 @@
-// @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
@@ -46,10 +45,18 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss({
-      optimize: {
-        minify: true
-      },
-    })],
+    plugins: [
+      tailwindcss({
+        optimize: {
+          minify: true,
+        },
+      }),
+    ],
+  },
+
+  experimental: {
+    svgOptimizer: svgoOptimizer({
+      plugins: ["preset-default", { name: "removeViewBox" }],
+    }),
   },
 });

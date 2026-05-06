@@ -24,7 +24,6 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/wintkhantlin/",
     email: "mailto:hello@wintkhantlin.com",
   },
-  defaultImage: "/animation.gif",
 };
 
 export function dedupeKeywords(values: Array<string | undefined | null>) {
